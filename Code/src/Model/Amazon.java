@@ -11,7 +11,7 @@ public class Amazon extends Character{
 	public Amazon(){
 		type = "Amazon";
 		
-		startSpot = inn;		//the Amazon starts in the inn
+		startSpot[0] = inn;		//the Amazon starts in the inn
 		weight = 2;				//Amazon is Medium
 		
 		//trading groups

@@ -5,7 +5,7 @@ package Model;
 public class Character {
 	String type;	//this is just their name, will be used to compare between them
 	
-	Location startSpot;			//this will be the location on the map where this character starts, it will be specified in its relevent class
+	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
 //!!!!!!!!!startSpot should be changed to different type once we know how board is organized
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy

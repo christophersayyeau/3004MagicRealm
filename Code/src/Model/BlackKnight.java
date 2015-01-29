@@ -11,7 +11,7 @@ public class BlackKnight extends Character{
 	public BlackKnight(){
 		type = "BlackKnight";
 		
-		startSpot = inn;		//the BlKn starts in the inn
+		startSpot[0] = inn;		//the BlKn starts in the inn
 		weight = 2;				//BlKn is Medium
 		
 		//trading groups
