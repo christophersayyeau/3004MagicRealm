@@ -1,4 +1,4 @@
-Scenario	Player starts a Game
+Scenario	Player starts a Game    TESTINGErseThisLineLater
 Description	Scenario of player starting a game
 Actors	Player, System
 Triggering Event	Start of a new game
