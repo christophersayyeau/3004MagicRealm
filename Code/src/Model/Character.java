@@ -13,14 +13,14 @@ public class Character {
 	
 	//Trading Relationships
 	String [] allyTrading = new String[1];
-	String [] friendlyTrading = new String[3];
+	String [] friendlyTrading = new String[4];
 	String [] unfriendlyTrading = new String[2];
 	String [] enemyTrading = new String[1];
 //!!!!!!!!might be able to change to type of character later	
 	
 	//Development are the stages of the characters life, only used in the optional rules
 	Weapon weapon;		//weapon
-	Defense [] defense;//armor
+	Defense [] defense = new Defense[3];//armor
 	
 	//Combat chits, should have 12, 4 of each
 	CombatChit action1 = new CombatChit();
