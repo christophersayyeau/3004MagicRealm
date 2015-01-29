@@ -1,0 +1,51 @@
+Scenario	Player starts a Game
+Description	Scenario of player starting a game
+Actors	Player, System
+Triggering Event	Start of a new game
+Pre-Condition	Game Loaded Properly
+Main Sequence	1. Player selects to play with 1-6 players.       2. Character Selected and Customized.   3.Method of victory selected.    3. Board Built and Populated.  4. Game is Started and played to end.   5. System will calculate final score and report to player.
+Post-Condition	A game will be played and a score calculated.
+Resulting Event	Game will end.
+Alternative Scenarios	
+NFRs	
+Comments	
+	
+	
+	
+Scenario	Player plays a game(Treasure Hunt)
+Description	Scenario of player playing a game
+Actors	Player(s), System
+Triggering Event	Start of a new game
+Pre-Condition	Player has built their own character. System has created and populated a board.
+Main Sequence	1. Player records the number of points hew needs to win game.  2. The game has one day worth of play.   3. Step 2 repreated  for the 28 days in a month, or any of other 3 ways to quit.   4. Player does required discard then calculates his score using his victory points
+Post-Condition	A game score calculated.
+Resulting Event	Game will end.
+Alternative Scenarios	
+NFRs	
+Comments	
+	
+	
+Scenario	A Single Day of Play(see page 13)
+Description	Playing a single day in game.
+Actors	Player(s), system
+Triggering Event	New Game or end of another day in game
+Pre-Condition	Player has built their own character. System has created and populated a board.
+Main Sequence	1. Player records his turn.   2. Monsters for the day are determined.   3. Each player randomly takes his turn during the daylight.     4. Evening behaviour.    5. Midnight behaviour.    6. Potions expire and curses are removed.
+Post-Condition	Day end.
+Resulting Event	Next day start or game end.
+Alternative Scenarios	
+NFRs	
+Comments	
+	
+	
+Scenario	A Single turn of Play(see page 13)
+Description	Player playing a single turn in game.
+Actors	Player
+Triggering Event	During daylight, you're chosen to go.
+Pre-Condition	
+Main Sequence	1. Unhidden.   2. Does phases according to order he made at start of turn.
+Post-Condition	Player turn end.
+Resulting Event	1. All monsters in tile move.  2. New Monsters?
+Alternative Scenarios	
+NFRs	
+Comments	
