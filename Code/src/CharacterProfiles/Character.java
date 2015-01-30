@@ -1,5 +1,6 @@
 package CharacterProfiles;
 
+import Model.CombatChit;
 import Model.Weapon;
 
 

@@ -10,6 +10,7 @@ public class Harm {
 	
 	int time;		//attack time
 	
+	//constructor
 	public Harm(int weig, int shar, int ti){
 		weight = weig;
 		sharpness = shar;
