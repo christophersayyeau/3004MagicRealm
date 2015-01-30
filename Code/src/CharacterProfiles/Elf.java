@@ -5,6 +5,8 @@ Elf: The Elf is an elusive and graceful warrior and magician. With his Light Bow
 */
 package CharacterProfiles;
 
+import Model.Weapon.LightBow;
+
 public class Elf extends Character{
 
 	//constructor
@@ -22,7 +24,7 @@ public class Elf extends Character{
 		enemyTrading[0] = "Lancer";
 		
 		//Combat chits
-		weapon = lightBow;
+		LightBow weapon = new LightBow();
 		Magic magic = new Magic();//2 Spells (III or VII)
 		
 

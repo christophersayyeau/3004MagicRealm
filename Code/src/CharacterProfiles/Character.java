@@ -1,5 +1,7 @@
 package CharacterProfiles;
 
+import Model.Weapon;
+
 
 //this is the generic class
 public class Character {
@@ -19,7 +21,7 @@ public class Character {
 //!!!!!!!!might be able to change to type of character later	
 	
 	//Development are the stages of the characters life, only used in the optional rules
-	Weapon weapon;		//weapon
+	//Weapon weapon;		//weapon moved to individual profiles
 	Defense [] defense = new Defense[3];//armor
 	
 	//Combat chits, should have 12, 4 of each
@@ -27,9 +29,5 @@ public class Character {
 	CombatChit action2 = new CombatChit();
 	CombatChit action3 = new CombatChit();
 	
-	//constructor
-	public Character(){
-		
-	}
 	
 }

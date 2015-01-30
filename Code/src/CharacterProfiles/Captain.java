@@ -5,6 +5,8 @@ Captain: The Captain is a renowned hero of many wars. His strength, weapon and a
 */
 package CharacterProfiles;
 
+import Model.Weapon.ShortSword;
+
 public class Captain extends Character{
 
 	//constructor
@@ -25,7 +27,7 @@ public class Captain extends Character{
 		enemyTrading[0] = "Bashkar";
 		
 		//Combat chits
-		weapon = shortSword;
+		ShortSword weapon = new ShortSword();
 		defense[0] = helmet;
 		defense[1] = breastplate;
 		defense[2] = shield;

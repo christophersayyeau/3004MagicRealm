@@ -5,6 +5,8 @@ BLACK KNIGHT: The Black Knight is a dead¬ly and feared veteran of many battlefie
 */
 package CharacterProfiles;
 
+import Model.Weapon.Mace;
+
 public class BlackKnight extends Character{
 
 	//constructor
@@ -22,7 +24,7 @@ public class BlackKnight extends Character{
 		enemyTrading[0] = "Guard";
 		
 		//Combat chits
-		weapon = mace;
+		Mace weapon = new Mace();
 		defense[0] = armor;
 		defense[1] = shield;
 		

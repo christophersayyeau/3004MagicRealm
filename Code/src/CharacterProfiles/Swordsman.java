@@ -5,6 +5,8 @@ Swordsman: The Swordsman is a wily and nimble rascal, quick to react to an oppor
 */
 package CharacterProfiles;
 
+import Model.Weapon.ThrustingSword;
+
 public class Swordsman extends Character{
 
 	//constructor
@@ -21,7 +23,7 @@ public class Swordsman extends Character{
 		enemyTrading[0] = "Patrol";
 		
 		//Combat chits
-		weapon = thrustingSword;
+		ThrustingSword weapon = new ThrustingSword();
 
 		
 		//Action types

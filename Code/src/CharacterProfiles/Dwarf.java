@@ -6,6 +6,8 @@ Dwarf: The Dwarf is a slow and powerful fighter who is at his best in the caves,
 */
 package CharacterProfiles;
 
+import Model.Weapon.GreatAxe;
+
 public class Dwarf extends Character{
 
 	//constructor
@@ -24,7 +26,7 @@ public class Dwarf extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		weapon = greatAxe;
+		GreatAxe weapon = new GreatAxe();
 		defense[0] = helmet;
 
 		

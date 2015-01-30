@@ -5,6 +5,8 @@ AMAZON:  The Amazon is a skilled warrior and soldier, with excellent speed and f
 */
 package CharacterProfiles;
 
+import Model.Weapon.Spear;
+
 public class Amazon extends Character{
 	
 	//constructor
@@ -22,7 +24,7 @@ public class Amazon extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		weapon = spear;
+		Spear weapon = new Spear();
 		defense[0] = helmet;
 		defense[1] = breastplate;
 		
