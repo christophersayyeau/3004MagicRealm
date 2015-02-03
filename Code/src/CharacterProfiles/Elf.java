@@ -1,5 +1,5 @@
 /*
-this is a testtsetfdft
+
 Elf: The Elf is an elusive and graceful warrior and magician. With his Light Bow he is a deadly match for anything less than an ar¬mored Heavy foe, and with a Medium Bow he can face any opponent. He has the speed to escape numerous opponents.
 
 */
