@@ -17,7 +17,7 @@ public class Player {
 		//pick you character
 		//Character.pickCharacter();
 		
-		//create window foor user
+		//create window for user
 		view = new GUI();
 	}
 }

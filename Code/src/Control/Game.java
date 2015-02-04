@@ -13,8 +13,9 @@ public class Game {
 		map.build();
 		
 		//put the counters, monsters, etc..
-		map.populateNatives();
-		map.populateTreasures();
+		System.out.println("Built the Map, don't forget to populate later");
+		//map.populateNatives();
+		//map.populateTreasures();
 		//map.populateETC
 		
 		//update GUI
