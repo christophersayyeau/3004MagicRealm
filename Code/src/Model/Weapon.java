@@ -14,7 +14,6 @@ public class Weapon {
 	int hands;		//how many needed for the weapon
 	int goldCost;	//what's it worth
 	
-
 	
 //now to handle all of the subClasses of weapons	
 	public class GreatAxe extends Weapon{
@@ -155,8 +154,10 @@ public class Weapon {
 
 	public class PowerOfThePit extends Weapon{
 		//Not sure what is here
-		System.out.println("THE POWER OF THE PIT COMPELS YOU");
-		System.out.println("seriously thou there isn't anything here");
+		public PowerOfThePit(){
+			System.out.println("THE POWER OF THE PIT COMPELS YOU");
+			System.out.println("seriously thou there isn't anything here");
+		}
 	}
 	
 }

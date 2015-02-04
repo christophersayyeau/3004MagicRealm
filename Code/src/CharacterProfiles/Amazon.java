@@ -46,7 +46,6 @@ public class Amazon extends Character{
 				
 	}
 	
-	
 	//Special Advantages
 	Aim				//The Amazon subtracts one from each die roll whenever she rolls on the Missile Table to attack with a missile weapon.
 	
