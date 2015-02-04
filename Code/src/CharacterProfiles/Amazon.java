@@ -6,9 +6,10 @@ AMAZON:  The Amazon is a skilled warrior and soldier, with excellent speed and f
 package CharacterProfiles;
 
 import Model.*;
-import Model.Weapon.Spear;
+import Model.Weapon.ShortSword;
 import Model.Armor.Helmet;
 import Model.Armor.Breastplate;
+import Model.Armor.Shield;
 
 public class Amazon extends Character{
 	
@@ -27,11 +28,13 @@ public class Amazon extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		Spear weapon = new Spear();
+		ShortSword weapon = new ShortSword();
 		Helmet helmet = new Helmet();
 		Breastplate breastplate = new Breastplate();
+		Shield shield = new Shield();
 		defense[0] = helmet;
 		defense[1] = breastplate;
+		defense[1] = shield;
 		
 		//Action types
 		action1.setType("Fight");	//set the type
