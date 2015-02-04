@@ -14,8 +14,10 @@ public class Captain extends Character{
 		type = "Captain";
 		
 		startSpot[0] = inn;		//the Captain starts in the inn
-		startSpot[1] = house;
-		startSpot[2] = guardHouse;
+//		startSpot[1] = house;
+//		startSpot[2] = guardHouse;
+		System.out.println("!!!!Captain has more options for start spots!!!!");
+		
 		weight = 2;				//Captain is Medium
 		
 		//trading groups

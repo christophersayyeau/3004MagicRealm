@@ -15,7 +15,8 @@ public class Dwarf extends Character{
 		type = "Dwarf";
 		
 		startSpot[0] = inn;		//the Dwarf starts in the inn
-		startSpot[1] = guardhouse;
+	//	startSpot[1] = guardhouse;
+		System.out.println("!!!!Dwarf has more options for start spots!!!!");
 		weight = 3;				//Dwarf is Heavy
 		
 		//trading groups

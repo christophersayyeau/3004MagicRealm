@@ -25,7 +25,7 @@ public class Elf extends Character{
 		
 		//Combat chits
 		LightBow weapon = new LightBow();
-		Magic magic = new Magic();//2 Spells (III or VII)
+		//Magic magic = new Magic();//2 Spells (III or VII)//removed since we don't support magic in first iteration
 		
 
 		
