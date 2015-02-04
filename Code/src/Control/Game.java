@@ -1,5 +1,7 @@
 package Control;
 
+import Model.Map;
+
 public class Game {
 
 	Map map;
