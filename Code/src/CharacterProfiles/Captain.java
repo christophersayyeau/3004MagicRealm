@@ -31,8 +31,9 @@ public class Captain extends Character{
 		//Combat chits
 		ShortSword weapon = new ShortSword();
 		defense[0] = helmet;
-		defense[1] = breastplate;
-		defense[2] = shield;
+		//defense[1] = breastplate;
+		//defense[2] = shield;
+		System.out.println("Also has helmet+etc");
 		
 		//Action types
 		action1.setType("Move");	//set the type

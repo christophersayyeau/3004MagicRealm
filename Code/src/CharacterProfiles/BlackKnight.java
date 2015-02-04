@@ -26,7 +26,8 @@ public class BlackKnight extends Character{
 		//Combat chits
 		Mace weapon = new Mace();
 		defense[0] = armor;
-		defense[1] = shield;
+		//defense[1] = shield;
+		System.out.println("ALso has a shield");
 		
 		//Action types
 		action1.setType("Move");	//set the type

@@ -26,7 +26,8 @@ public class Amazon extends Character{
 		//Combat chits
 		Spear weapon = new Spear();
 		defense[0] = helmet;
-		defense[1] = breastplate;
+		//defense[1] = breastplate;
+		System.out.println("Also has helmet");
 		
 		//Action types
 		action1.setType("Fight");	//set the type

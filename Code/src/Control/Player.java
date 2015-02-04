@@ -2,6 +2,7 @@
 package Control;
 
 import CharacterProfiles.Dwarf;
+import CharacterProfiles.Swordsman;
 
 public class Player {
 
@@ -9,7 +10,7 @@ public class Player {
 	Player(){
 		
 		//for simplicity we will set the first character to 
-		Dwarf profile = new Dwarf();
+		Swordsman profile = new Swordsman();
 		System.out.println("Building a " + profile.getType() + " Player");
 		//pick you character
 		//Character.pickCharacter();
