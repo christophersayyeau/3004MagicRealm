@@ -7,5 +7,12 @@ public class Map {
 		
 	}
 
+	
+	//move the characters to the new location as specified in their profile under Llocation
+	public void moveCharacters() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

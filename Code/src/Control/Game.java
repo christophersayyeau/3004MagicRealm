@@ -17,9 +17,6 @@ public class Game {
 		//map.populateNatives();
 		//map.populateTreasures();
 		//map.populateETC
-		
-		//update GUI
-		view.Refresh();
 	}
 
 	
@@ -28,7 +25,7 @@ public class Game {
 		System.out.println("STARTING THE GAME");
 		map.moveCharacters();	//put the characters at their starting positions
 		
-		//update GUI
+		//update GUI for all players
 		player1.view.Refresh();
 		
 	}
