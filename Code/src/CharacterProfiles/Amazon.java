@@ -5,7 +5,7 @@ AMAZON:  The Amazon is a skilled warrior and soldier, with excellent speed and f
 */
 package CharacterProfiles;
 
-import Model.Weapon.Spear;
+import Model.*;
 
 public class Amazon extends Character{
 	
@@ -27,6 +27,7 @@ public class Amazon extends Character{
 		Spear weapon = new Spear();
 		defense[0] = helmet;
 		//defense[1] = breastplate;
+		//defense[2] = shield;
 		System.out.println("Also has helmet");
 		
 		//Action types
