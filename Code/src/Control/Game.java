@@ -28,7 +28,7 @@ public class Game {
 		map.moveCharacters();	//put the characters at their starting positions
 		
 		//update GUI
-		view.Refresh();
+		player1.view.Refresh();
 		
 	}
 }

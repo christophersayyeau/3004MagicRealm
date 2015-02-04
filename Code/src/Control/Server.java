@@ -1,7 +1,7 @@
 package Control;
 
 public class Server {
-
+	Game game;
 	
 	void main(){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
@@ -9,8 +9,9 @@ public class Server {
 		
 		Player player1 = new Player();
 		
-		Game game = new Game();
 		
+		
+		game = new Game();		
 		game.startGame(player1);
 	}
 	
