@@ -13,12 +13,10 @@ public class Game {
 		map.build();
 		
 		//put the counters, monsters, etc..
-		map.populateNatives();
-		map.populateTreasures();
+		System.out.println("Built the Map, don't forget to populate later");
+		//map.populateNatives();
+		//map.populateTreasures();
 		//map.populateETC
-		
-		//update GUI
-		view.Refresh();
 	}
 
 	
@@ -27,8 +25,8 @@ public class Game {
 		System.out.println("STARTING THE GAME");
 		map.moveCharacters();	//put the characters at their starting positions
 		
-		//update GUI
-		view.Refresh();
+		//update GUI for all players
+		player1.view.Refresh();
 		
 	}
 }

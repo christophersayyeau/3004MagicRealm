@@ -1,11 +1,13 @@
 
 package Control;
 
-import CharacterProfiles.Dwarf;
-import CharacterProfiles.Swordsman;
+import View.GUI;
+import CharacterProfiles.*;
 
 public class Player {
 
+	GUI view;
+	
 	//constructor
 	Player(){
 		
@@ -14,5 +16,8 @@ public class Player {
 		System.out.println("Building a " + profile.getType() + " Player");
 		//pick you character
 		//Character.pickCharacter();
+		
+		//create window for user
+		view = new GUI();
 	}
 }
