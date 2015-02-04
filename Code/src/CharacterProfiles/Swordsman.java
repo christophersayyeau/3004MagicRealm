@@ -11,7 +11,7 @@ public class Swordsman extends Character{
 
 	//constructor
 	public Swordsman(){
-		type = "Swordsman";
+		setType("Swordsman");
 		
 		startSpot[0] = inn;		//the Swordsman starts in the inn
 		weight = 1;				//Swordsman is Light

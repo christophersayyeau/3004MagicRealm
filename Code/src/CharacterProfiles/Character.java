@@ -6,7 +6,7 @@ import Model.Weapon;
 
 //this is the generic class
 public class Character {
-	String type;	//this is just their name, will be used to compare between them
+	private String type;	//this is just their name, will be used to compare between them
 	
 	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
 //!!!!!!!!!startSpot should be changed to different type once we know how board is organized
@@ -31,4 +31,10 @@ public class Character {
 	CombatChit action3 = new CombatChit();
 	
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 }

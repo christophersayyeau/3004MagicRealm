@@ -12,7 +12,7 @@ public class Dwarf extends Character{
 
 	//constructor
 	public Dwarf(){
-		type = "Dwarf";
+		setType("Dwarf");
 		
 		startSpot[0] = inn;		//the Dwarf starts in the inn
 	//	startSpot[1] = guardhouse;

@@ -11,7 +11,7 @@ public class Captain extends Character{
 
 	//constructor
 	public Captain(){
-		type = "Captain";
+		setType("Captain");
 		
 		startSpot[0] = inn;		//the Captain starts in the inn
 //		startSpot[1] = house;

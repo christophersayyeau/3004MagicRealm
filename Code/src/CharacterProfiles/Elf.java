@@ -11,7 +11,7 @@ public class Elf extends Character{
 
 	//constructor
 	public Elf(){
-		type = "Elf";
+		setType("Elf");
 		
 		startSpot[0] = inn;		//the Elf starts in the inn
 		weight = 1;				//Elf is Light

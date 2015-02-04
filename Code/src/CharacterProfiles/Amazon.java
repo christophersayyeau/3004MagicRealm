@@ -11,7 +11,7 @@ public class Amazon extends Character{
 	
 	//constructor
 	public Amazon(){
-		type = "Amazon";
+		setType("Amazon");
 		
 		startSpot[0] = inn;		//the Amazon starts in the inn
 		weight = 2;				//Amazon is Medium

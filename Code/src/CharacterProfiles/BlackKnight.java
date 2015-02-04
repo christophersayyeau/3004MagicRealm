@@ -11,7 +11,7 @@ public class BlackKnight extends Character{
 
 	//constructor
 	public BlackKnight(){
-		type = "BlackKnight";
+		setType("BlackKnight");
 		
 		startSpot[0] = inn;		//the BlKn starts in the inn
 		weight = 2;				//BlKn is Medium
