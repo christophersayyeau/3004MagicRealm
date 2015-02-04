@@ -6,6 +6,9 @@ AMAZON:  The Amazon is a skilled warrior and soldier, with excellent speed and f
 package CharacterProfiles;
 
 import Model.*;
+import Model.Weapon.Spear;
+import Model.Armor.Helmet;
+import Model.Armor.Breastplate;
 
 public class Amazon extends Character{
 	
@@ -25,6 +28,8 @@ public class Amazon extends Character{
 		
 		//Combat chits
 		Spear weapon = new Spear();
+		Helmet helmet = new Helmet();
+		Breastplate breastplate = new Breastplate();
 		defense[0] = helmet;
 		defense[1] = breastplate;
 		
@@ -47,8 +52,8 @@ public class Amazon extends Character{
 	}
 	
 	//Special Advantages
-	Aim				//The Amazon subtracts one from each die roll whenever she rolls on the Missile Table to attack with a missile weapon.
+	//Aim				//The Amazon subtracts one from each die roll whenever she rolls on the Missile Table to attack with a missile weapon.
 	
-	Stamina			//The Amazon can record and do an extra Move phase each turn. She gets this bonus even when she is riding a horse - her stamina includes being an excellent horsewoman. 
+	//Stamina			//The Amazon can record and do an extra Move phase each turn. She gets this bonus even when she is riding a horse - her stamina includes being an excellent horsewoman. 
 	
 }
