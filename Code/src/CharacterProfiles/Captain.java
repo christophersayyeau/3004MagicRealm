@@ -5,7 +5,11 @@ Captain: The Captain is a renowned hero of many wars. His strength, weapon and a
 */
 package CharacterProfiles;
 
+import Model.*;
 import Model.Weapon.ShortSword;
+import Model.Armor.Helmet;
+import Model.Armor.Breastplate;
+import Model.Armor.Shield;
 
 public class Captain extends Character{
 
@@ -30,9 +34,13 @@ public class Captain extends Character{
 		
 		//Combat chits
 		ShortSword weapon = new ShortSword();
+		Helmet helmet = new Helmet();
+		Breastplate breastplate = new Breastplate();
+		Shield shield = new Shield();
 		defense[0] = helmet;
-		defense[1] = breastplate;
-		defense[2] = shield;
+		//defense[1] = breastplate;
+		//defense[2] = shield;
+		System.out.println("Also has helmet+etc");
 		
 		//Action types
 		action1.setType("Move");	//set the type
@@ -52,8 +60,8 @@ public class Captain extends Character{
 	}
 	
 	//Special Advantages
-	Aim			//The Captain subtracts one from each die roll whenever he rolls on the Missile Table.
+	//Aim			//The Captain subtracts one from each die roll whenever he rolls on the Missile Table.
 	
-	Reputation 	//The Captain can record and do an extra phase each day he is at a Dwelling (including a campfire). He must be at the Dwelling when he starts to do the phase, not when he records it. He can use the extra phase to do any normal activity.
+	//Reputation 	//The Captain can record and do an extra phase each day he is at a Dwelling (including a campfire). He must be at the Dwelling when he starts to do the phase, not when he records it. He can use the extra phase to do any normal activity.
 
 }

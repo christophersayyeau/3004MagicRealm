@@ -38,8 +38,6 @@ public class CombatChit {
 		}
 		
 	}
-
-
 	
 	public void setTime(int i) {
 		time = i;	
@@ -48,9 +46,6 @@ public class CombatChit {
 	public void setEffort(int i) {
 		effort = i;	
 	}
-
-
-
 
 	public void setStrength(String string) {
 		//compare the strings to determine what it is
@@ -70,6 +65,5 @@ public class CombatChit {
 			System.out.println("Type: " + type + " Strength: " + string);
 		}
 	}
-
 	
 }

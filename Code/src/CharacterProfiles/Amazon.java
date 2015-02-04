@@ -33,8 +33,9 @@ public class Amazon extends Character{
 		Breastplate breastplate = new Breastplate();
 		Shield shield = new Shield();
 		defense[0] = helmet;
-		defense[1] = breastplate;
-		defense[1] = shield;
+		//defense[1] = breastplate;
+		//defense[2] = shield;
+		System.out.println("Also has helmet");
 		
 		//Action types
 		action1.setType("Fight");	//set the type

@@ -8,6 +8,7 @@ package CharacterProfiles;
 import Model.*;
 import Model.Weapon.Mace;
 import Model.Armor.Shield;
+import Model.Armor.Suit_of_Armor;
 
 public class BlackKnight extends Character{
 
@@ -27,8 +28,11 @@ public class BlackKnight extends Character{
 		
 		//Combat chits
 		Mace weapon = new Mace();
+		Suit_of_Armor armor = new Suit_of_Armor();
+		Shield shield = new Shield();
 		defense[0] = armor;
-		defense[1] = shield;
+		//defense[1] = shield;
+		System.out.println("ALso has a shield");
 		
 		//Action types
 		action1.setType("Move");	//set the type
@@ -48,7 +52,7 @@ public class BlackKnight extends Character{
 	}
 	
 	//Special Advantages
-	Aim			//The Black Knight subtracts one from each die roll whenever he rolls on the Missile Table.
+	//Aim			//The Black Knight subtracts one from each die roll whenever he rolls on the Missile Table.
 	
-	Fear		//Whenever the Black Knight rolls on the Meeting Table he rolls one die instead of two. His deadly reputation makes it easier for him to trade and hire natives, and it makes his enemies think twice before blocking or battling him.
+	//Fear		//Whenever the Black Knight rolls on the Meeting Table he rolls one die instead of two. His deadly reputation makes it easier for him to trade and hire natives, and it makes his enemies think twice before blocking or battling him.
 }

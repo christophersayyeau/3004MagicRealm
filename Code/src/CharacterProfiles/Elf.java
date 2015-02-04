@@ -47,8 +47,8 @@ public class Elf extends Character{
 	}
 	
 	//Special Advantages
-	Elusiveness		//The Elf can record and do an extra Hide phase each day.
+	//Elusiveness		//The Elf can record and do an extra Hide phase each day.
 
-	Archer 			//The Elf rolls one die Instead of two whenever he rolls on the Missile Table to make an attack with a bow or crossbow.
+	//Archer 			//The Elf rolls one die Instead of two whenever he rolls on the Missile Table to make an attack with a bow or crossbow.
 	
 }
