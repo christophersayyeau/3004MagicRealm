@@ -13,7 +13,7 @@ public class Armor
 	{
 		public Suit_of_Armor()
 		{
-			//protect = ALL_DIRECTIONS;
+			protect = Protect.ALL_DIRECTIONS;
 			intact_price = 17;
 			damaged_price = 12;
 			destroyed_price = 0;
@@ -24,7 +24,7 @@ public class Armor
 	{
 		public Breastplate()
 		{
-			//protect = THRUST_AND_SWING;
+			protect = Protect.THRUST_AND_SWING;
 			intact_price = 9;
 			damaged_price = 6;
 			destroyed_price = 0;
@@ -35,7 +35,7 @@ public class Armor
 	{
 		public Helmet()
 		{
-			//protect = SMASH;
+			protect = Protect.SMASH;
 			intact_price = 5;
 			damaged_price = 3;
 			destroyed_price = 0;
@@ -46,7 +46,7 @@ public class Armor
 	{
 		public Shield()
 		{
-			//protect = ANY_ONE_DIRECTION;
+			protect = Protect.ANY_ONE_DIRECTION;
 			intact_price = 7;
 			damaged_price = 5;
 			destroyed_price = 0;
@@ -57,7 +57,7 @@ public class Armor
 	{
 		public Tremendous_Armor()
 		{
-			//protect = ALL_DIRECTIONS;
+			protect = Protect.ALL_DIRECTIONS;
 			intact_price = 25;
 			damaged_price = 18;
 			destroyed_price = 5;
@@ -68,7 +68,7 @@ public class Armor
 	{
 		public Silver_Breastplate()
 		{
-			//protect = THRUST_AND_SWING;
+			protect = Protect.THRUST_AND_SWING;
 			intact_price = 25;
 			damaged_price = 21;
 			destroyed_price = 15;
@@ -79,7 +79,7 @@ public class Armor
 	{
 		public Gold_Helmet()
 		{
-			//protect = SMASH;
+			protect = Protect.SMASH;
 			intact_price = 30;
 			damaged_price = 27;
 			destroyed_price = 20;
@@ -90,7 +90,7 @@ public class Armor
 	{
 		public Jade_Shield()
 		{
-			//protect = ANY_ONE_DIRECTION;
+			protect = Protect.ANY_ONE_DIRECTION;
 			intact_price = 20;
 			damaged_price = 16;
 			destroyed_price = 10;
