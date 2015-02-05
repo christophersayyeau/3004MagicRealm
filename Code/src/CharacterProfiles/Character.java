@@ -5,7 +5,9 @@ import Model.*;
 
 //this is the generic class
 public class Character {
+	
 	public enum Special {AIM, STAMINA, FEAR, REPUTATION, SHORT_LEGS, CAVE_KNOWLEDGE, ELUSIVENESS, ARCHER, BARTER, CLEVE};
+	
 	private String type;	//this is just their name, will be used to compare between them
 	
 	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
