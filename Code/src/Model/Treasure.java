@@ -671,4 +671,166 @@ public class Treasure
 			gold_price = 7;
 		}
 	}
+	
+	public class Quick_Boots extends Treasure{
+		public Quick_Boots(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 1;
+			notoriety_value = 2;
+			gold_price = 8;
+		}
+	}
+	
+	public class Reflecting_Grease extends Treasure{
+		public Reflecting_Grease(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 3;
+		}
+	}
+	
+	public class Regent_of_Jewels extends Treasure{
+		public Regent_of_Jewels(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 10;
+			gold_price = 67;
+		}
+	}
+	
+	public class Remain_of_Thief extends Treasure{
+		public Remain_of_Thief(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 0;
+		}
+	}
+	
+	public class Royal_Sceptre extends Treasure{
+		public Royal_Sceptre(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = -15;
+			gold_price = 8;
+		}
+	}
+	
+	
+	
+	public class Sacred_Grail extends Treasure{
+		public Sacred_Grail(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = -25;
+			gold_price = 12;
+		}
+	}
+	
+	public class Sacred_Statue extends Treasure{
+		public Sacred_Statue(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = -5;
+			gold_price = 10;
+		}
+	}
+	
+	public class Scroll_of_Alchemy extends Treasure{
+		public Scroll_of_Alchemy(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = -10;
+			notoriety_value = 15;
+			gold_price = 10;
+		}
+	}
+	
+	public class Scroll_of_Nature extends Treasure{
+		public Scroll_of_Nature(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 5;
+			gold_price = 10;
+		}
+	}
+	
+	public class Shielded_Lantern extends Treasure{
+		public Shielded_Lantern(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 8;
+		}
+	}
+	
+	public class Shoes_of_Stealth extends Treasure{
+		public Shoes_of_Stealth(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 2;
+			gold_price = 7;
+		}
+	}
+	
+	public class Timeless_Jewel extends Treasure{
+		public Timeless_Jewel(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 7;
+			gold_price = 34;
+		}
+	}
+	
+	public class Toadstool_Circle extends Treasure{
+		public Toadstool_Circle(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 0;
+		}
+	}
+	
+	public class Toadstool_Ring extends Treasure{
+		public Toadstool_Ring(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 3;
+			gold_price = 9;
+		}
+	}
+	
+	public class Vial_of_Healing extends Treasure{
+		public Vial_of_Healing(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 2;
+		}
+	}
+	
+	public class Withered_Claw extends Treasure{
+		public Withered_Claw(){
+			Gt_Treasure = false;
+			Lg_Treasure = false;
+			fame_value = 0;
+			notoriety_value = 0;
+			gold_price = 3;
+		}
+	}
 }
