@@ -85,7 +85,6 @@ public class Game {
 			System.out.println("DAYLIGHT");
 			//players go in random order
 			System.out.println("player1 is first characeer today");
-			player1.becomeUnhidden();
 			player1.doTurn();
 			
 			
