@@ -15,6 +15,7 @@ public class Game {
 		//put the counters, monsters, etc..
 		System.out.println("Built the Map, don't forget to populate later");
 		//map.populateNatives();
+		//map.populateDenizens();
 		//map.populateTreasures();
 		//map.populateETC
 	}
@@ -55,9 +56,65 @@ public class Game {
 		//game lasts for 28 days(month)
 		while(day<=28){
 			//using the 3rd edition rules for the contents of a day
+			System.out.println("BIRDSONG");
+			
+			player1.recordTurn();
+			/*
+			all of the characters secretly and simultaneously
+			record what they will do during their turns. When each character does his
+			turn, he must do it exactly as he recorded it.
+			
+			He can use his turn to	move, hide, search, trade and rest.
+
+			When each character does his turn, he must do it exactly as he recorded it.
+			 */
+			
+			System.out.println("SUNRISE");
+			//if it is a weekday
+			if( day%7 != 0){
+				//map.populateDenizens(); not sure if supposed to create new ones or just move the curent ones
+				//map.denizensProwling();
+			
+				System.out.println("Who is Prowling today?");
+			//after 7 days	
+			}else{
+				System.out.println("Return monsters and natives to start positions");
+				//map.returnNatives();
+			}
+			
+			System.out.println("DAYLIGHT");
+			//players go in random order
+			System.out.println("player1 is first characeer today");
+			player1.becomeUnhidden();
+			player1.doTurn();
 			
 			
+			System.out.println("SUNSET");
+			//determine wich clearings have characters
+			//FLOWERS OF REST people wake up
+			//all day spells expire
 			
+			System.out.println("EVENING");
+			//randomize which clearings with characters go first
+			//combat is resolved//does not apply in first iteration
+			
+			player1.rearangeBelongings();
+			player1.trade();//trade with other characters in clearing
+			
+			System.out.println("MIDNIGHT");
+			//all map chits go face down?
+			/*
+			 All face up map chits (except the “LOST CITY” and “LOST
+			CASTLE” chits) turn face down. Face up Site chits are put in their clearings
+			before they turn face down. If it is the last day of the month, the game ends and
+			the players calculate their scores.
+			*/
+			System.out.println("Do something with map chits");
+			System.out.println("Weapons become unalerted");
+			System.out.println("active Potions need to be expired here");
+			System.out.println("Chapel removes curses");
+			System.out.println("Combat Spells expire");
+			System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
 			
 			System.out.println("Day " + day + "is now over.");
 			day++;	//end of day
