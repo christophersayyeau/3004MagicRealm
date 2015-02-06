@@ -6,6 +6,7 @@ Dwarf: The Dwarf is a slow and powerful fighter who is at his best in the caves,
 */
 package CharacterProfiles;
 
+import Model.Armor;
 import Model.Armor.Helmet;
 import Model.Weapon.GreatAxe;
 
@@ -33,7 +34,10 @@ public class Dwarf extends Character{
 		GreatAxe weapon1 = weapon.new GreatAxe();
 		setWeapon(weapon1);
 		
-		Helmet helmet = defense[0].new Helmet();	
+		//built a temporary armor object so I have access to its subclass
+		Armor temp = new Armor();
+		
+		Helmet helmet = temp.new Helmet();	
 		getDefense()[0] = helmet;
 
 		

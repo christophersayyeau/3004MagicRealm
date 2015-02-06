@@ -16,10 +16,12 @@ public class Player {
 	Player(){
 		
 		//for simplicity we will set the first character to 
-		Swordsman profile1 = new Swordsman();
+		Dwarf profile1 = new Dwarf();
 		profile = profile1;
 		
-		System.out.println("Building a " + profile1.getType() + " Player");
+		System.out.println("Built a " + profile1.getType() + " Player");
+		System.out.println("Stats: " + profile1.getWeapon() + "  "+ profile1.getDefense(0));
+		
 		//pick you character
 		//Character.pickCharacter();
 		

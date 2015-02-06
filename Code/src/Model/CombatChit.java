@@ -50,14 +50,17 @@ public class CombatChit {
 	public void setStrength(String string) {
 		//compare the strings to determine what it is
 		if(string.compareTo("L") == 0){
-			System.out.println("Set to Move");
+			System.out.println("Set to Light");
 			type = 0;		
 		}else if(string.compareTo("M") == 0){
-			System.out.println("Set to Fight");
+			System.out.println("Set to Medium");
 			type = 1;
 		}else if(string.compareTo("H") == 0){
-			System.out.println("Set to Duck");
+			System.out.println("Set to Heavy");
 			type = 2;
+		}else if(string.compareTo("T") == 0){
+			System.out.println("Set to Titan");
+			type = 3;
 			
 		//nothing recognized
 		}else{

@@ -31,7 +31,9 @@ public class BlackKnight extends Character{
 		Mace weapon1 = weapon.new Mace();
 		setWeapon(weapon1);
 		
-		Suit_of_Armor armor = defense[0].new Suit_of_Armor();
+		//built a temporary armor object so I have access to its subclass
+		Armor temp = new Armor();
+		Suit_of_Armor armor = temp.new Suit_of_Armor();
 		getDefense()[0] = armor;
 		
 		//Shield shield = new Shield();

@@ -26,7 +26,7 @@ public class Character {
 //!!!!!!!!might be able to change to type of character later	
 	
 	//Development are the stages of the characters life, only used in the optional rules
-	protected Weapon weapon;		//weapon moved to individual profiles
+	protected Weapon weapon = new Weapon();		//weapon moved to individual profiles
 	protected Armor [] defense = new Armor[3];//armor
 	
 	//Combat chits, should have 12, 4 of each
@@ -55,6 +55,10 @@ public class Character {
 	public Armor [] getDefense() {
 		return defense;
 	}
+	public Armor getDefense(int i) {
+		return defense[i];
+	}
+	
 	public void setDefense(Armor [] defense) {
 		this.defense = defense;
 	}
