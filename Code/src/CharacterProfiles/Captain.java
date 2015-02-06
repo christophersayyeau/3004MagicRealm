@@ -17,7 +17,9 @@ public class Captain extends Character{
 	public Captain(){
 		setType("Captain");
 		
-		startSpot[0] = inn;		//the Captain starts in the inn
+		//startSpot[0] = inn;		//the Captain starts in the inn
+		currentLocation = 0;//change this later!!!
+		
 //		startSpot[1] = house;
 //		startSpot[2] = guardHouse;
 		System.out.println("!!!!Captain has more options for start spots!!!!");
@@ -33,13 +35,14 @@ public class Captain extends Character{
 		enemyTrading[0] = "Bashkar";
 		
 		//Combat chits
-		ShortSword weapon1 = new ShortSword();
-		Helmet helmet = new Helmet();
+		ShortSword weapon1 = weapon.new ShortSword();
+		setWeapon(weapon1);
+		
+		Helmet helmet = defense[0].new Helmet();
+		getDefense()[0] = helmet;
 		
 		//Breastplate breastplate = new Breastplate();
-		//Shield shield = new Shield();
-		setWeapon(weapon1);
-		defense[0] = helmet;
+		//Shield shield = new Shield();	
 		//defense[1] = breastplate;
 		//defense[2] = shield;
 		System.out.println("Also has helmet+etc");

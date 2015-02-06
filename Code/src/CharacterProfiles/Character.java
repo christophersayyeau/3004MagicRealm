@@ -13,7 +13,7 @@ public class Character {
 //	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
 //!!!!!!!!!startSpot should be changed to different type once we know how board is organized
 	//this will be the startSpot at the beginning
-	private int currentLocation;//integer value of mapTiles
+	protected int currentLocation;//integer value of mapTiles
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
 	
@@ -26,8 +26,8 @@ public class Character {
 //!!!!!!!!might be able to change to type of character later	
 	
 	//Development are the stages of the characters life, only used in the optional rules
-	private Weapon weapon;		//weapon moved to individual profiles
-	Armor [] defense = new Armor[3];//armor
+	protected Weapon weapon;		//weapon moved to individual profiles
+	protected Armor [] defense = new Armor[3];//armor
 	
 	//Combat chits, should have 12, 4 of each
 	CombatChit action1 = new CombatChit();
@@ -45,8 +45,19 @@ public class Character {
 	public Weapon getWeapon() {
 		return weapon;
 	}
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
 	public int getCurrentLocation() {
 		return currentLocation;
 	}
+	
+	public Armor [] getDefense() {
+		return defense;
+	}
+	public void setDefense(Armor [] defense) {
+		this.defense = defense;
+	}
+	
 
 }

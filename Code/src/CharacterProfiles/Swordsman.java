@@ -13,7 +13,9 @@ public class Swordsman extends Character{
 	public Swordsman(){
 		setType("Swordsman");
 		
-		startSpot[0] = inn;		//the Swordsman starts in the inn
+		//startSpot[0] = inn;		//the Swordsman starts in the inn
+		currentLocation = 0;//change this later!!!
+		
 		weight = 1;				//Swordsman is Light
 		
 		//trading groups
@@ -23,8 +25,7 @@ public class Swordsman extends Character{
 		enemyTrading[0] = "Patrol";
 		
 		//Combat chits
-		ThrustingSword weapon1 = new ThrustingSword();
-
+		ThrustingSword weapon1 = weapon.new ThrustingSword();
 		setWeapon(weapon1);
 		
 		//Action types

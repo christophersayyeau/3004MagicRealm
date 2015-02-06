@@ -29,13 +29,14 @@ public class Amazon extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		ShortSword weapon1 = new ShortSword();
-		Helmet helmet = new Helmet();
+		ShortSword weapon1 = weapon.new ShortSword();
+		setWeapon(weapon1);
+		
+		Helmet helmet = defense[0].new Helmet();
+		getDefense()[0] = helmet;
 		
 		//Breastplate breastplate = new Breastplate();
 		//Shield shield = new Shield();
-		setWeapon(weapon1);
-		defense[0] = helmet;
 		//defense[1] = breastplate;
 		//defense[2] = shield;
 		System.out.println("Also has other armor");

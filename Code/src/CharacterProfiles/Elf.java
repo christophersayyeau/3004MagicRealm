@@ -13,7 +13,9 @@ public class Elf extends Character{
 	public Elf(){
 		setType("Elf");
 		
-		startSpot[0] = inn;		//the Elf starts in the inn
+		//startSpot[0] = inn;		//the Elf starts in the inn
+		currentLocation = 0;//change this later!!!
+		
 		weight = 1;				//Elf is Light
 		
 		//trading groups
@@ -24,11 +26,10 @@ public class Elf extends Character{
 		enemyTrading[0] = "Lancer";
 		
 		//Combat chits
-		LightBow weapon1 = new LightBow();
-		//Magic magic = new Magic();//2 Spells (III or VII)//removed since we don't support magic in first iteration
-		
+		LightBow weapon1 = weapon.new LightBow();				
 		setWeapon(weapon1);
-
+		
+		//Magic magic = new Magic();//2 Spells (III or VII)//removed since we don't support magic in first iteration
 		
 		//Action types
 		action1.setType("Move");	//set the type

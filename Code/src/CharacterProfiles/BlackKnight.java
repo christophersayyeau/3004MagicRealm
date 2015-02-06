@@ -16,7 +16,8 @@ public class BlackKnight extends Character{
 	public BlackKnight(){
 		setType("BlackKnight");
 		
-		startSpot[0] = inn;		//the BlKn starts in the inn
+		//startSpot[0] = inn;		//the BlKn starts in the inn
+		currentLocation = 0;//change this later!!!
 		weight = 2;				//BlKn is Medium
 		
 		//trading groups
@@ -27,11 +28,13 @@ public class BlackKnight extends Character{
 		enemyTrading[0] = "Guard";
 		
 		//Combat chits
-		Mace weapon1 = new Mace();
-		Suit_of_Armor armor = new Suit_of_Armor();
-		//Shield shield = new Shield();
+		Mace weapon1 = weapon.new Mace();
 		setWeapon(weapon1);
-		defense[0] = armor;
+		
+		Suit_of_Armor armor = defense[0].new Suit_of_Armor();
+		getDefense()[0] = armor;
+		
+		//Shield shield = new Shield();
 		//defense[1] = shield;
 		System.out.println("ALso has a shield");
 		

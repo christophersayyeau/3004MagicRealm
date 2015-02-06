@@ -6,7 +6,6 @@ Dwarf: The Dwarf is a slow and powerful fighter who is at his best in the caves,
 */
 package CharacterProfiles;
 
-import Model.*;
 import Model.Armor.Helmet;
 import Model.Weapon.GreatAxe;
 
@@ -16,7 +15,9 @@ public class Dwarf extends Character{
 	public Dwarf(){
 		setType("Dwarf");
 		
-		startSpot[0] = inn;		//the Dwarf starts in the inn
+		//startSpot[0] = inn;		//the Dwarf starts in the inn
+		currentLocation = 0;//change this later!!!
+		
 	//	startSpot[1] = guardhouse;
 		System.out.println("!!!!Dwarf has more options for start spots!!!!");
 		weight = 3;				//Dwarf is Heavy
@@ -29,11 +30,11 @@ public class Dwarf extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		GreatAxe weapon1 = new GreatAxe();
-		Helmet helmet = new Helmet();
-		
+		GreatAxe weapon1 = weapon.new GreatAxe();
 		setWeapon(weapon1);
-		defense[0] = helmet;
+		
+		Helmet helmet = defense[0].new Helmet();	
+		getDefense()[0] = helmet;
 
 		
 		//Action types
