@@ -30,12 +30,13 @@ public class Amazon extends Character{
 		//Combat chits
 		ShortSword weapon = new ShortSword();
 		Helmet helmet = new Helmet();
-		Breastplate breastplate = new Breastplate();
-		Shield shield = new Shield();
+		
+		//Breastplate breastplate = new Breastplate();
+		//Shield shield = new Shield();
 		defense[0] = helmet;
 		//defense[1] = breastplate;
 		//defense[2] = shield;
-		System.out.println("Also has helmet");
+		System.out.println("Also has other armor");
 		
 		//Action types
 		action1.setType("Fight");	//set the type
