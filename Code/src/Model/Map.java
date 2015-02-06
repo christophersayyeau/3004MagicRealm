@@ -38,10 +38,20 @@ public class Map {
 		System.out.println("MapTiles: " + mapTiles[0] + mapTiles[1]);
 	}
 
-	public void moveCharacters(Player player1) {
+	public void moveCharacters(Player player1, int newLocation) {
+		//remove from old tile
+		mapTiles[player1.getCurrentLocation()].removePlayer(player1);
+		
+		//change the profile value
+		player1.setCurrentLocation(newLocation);		
+		
+		//add player to new tile
 		mapTiles[player1.getCurrentLocation()].putPlayer(player1);
-		//at the moment it put the character into his spot
-		//this won't work when he changes tile
+		
+		//testing
+		System.out.println("Current Tile" + player1.getCurrentLocation() + " Players " + mapTiles[player1.getCurrentLocation()].getPlayers());
+		//System.out.println("Current Tile 0 Players " + mapTiles[0].getPlayers());//this works puts Null errors since it works
+				
 	}
 	
 	

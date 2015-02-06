@@ -63,5 +63,9 @@ public class Character {
 		this.defense = defense;
 	}
 	
+	public void setCurrentLocation(int i) {
+		currentLocation = i;
+	}
+	
 
 }

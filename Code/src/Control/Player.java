@@ -100,4 +100,12 @@ public class Player {
 		System.out.println("Now calculate score based on all those factors");
 		return -1;
 	}
+
+	public Character getProfile() {
+		return profile;
+	}
+
+	public void setCurrentLocation(int newLocation) {
+		profile.setCurrentLocation(newLocation);
+	}
 }

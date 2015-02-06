@@ -16,7 +16,14 @@ public class MapTiles {
 		//this only works because we have 1 character
 		playersInTile = player1;
 	}
-
+	public void removePlayer(Player player1) {
+		//this only works because we have 1 character
+		playersInTile = null;	
+	}
+		
+	public String getPlayers() {
+		return playersInTile.getProfile().getType(); //can only handle 1 at moment
+	}
 	
 
 	//now for the individual classes
@@ -103,6 +110,10 @@ public class MapTiles {
 			bottomLeft = bl;
 		}
 	}
+
+
+
+
 
 	
 	

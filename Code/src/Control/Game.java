@@ -24,7 +24,11 @@ public class Game {
 	
 	public void startGame(Player player1) {
 		System.out.println("STARTING THE GAME");
-		map.moveCharacters(player1);	//put the characters at their starting positions
+		
+		
+		map.moveCharacters(player1, player1.getCurrentLocation());//start position
+		
+		//map.moveCharacters(player1, 1);//testing moving
 		
 		//update GUI for all players
 		player1.view.Refresh();
