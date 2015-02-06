@@ -60,6 +60,7 @@ public class MapTiles {
 			bottomLeft = bl;
 			
 			
+			
 			//handle the clearings
 			clearing = new Clearing[6];
 			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
@@ -83,10 +84,10 @@ public class MapTiles {
 			
 	//!!there should be connections to the clearings in other tiles
 			
-			//show the clearing info
-			for(int a=0; a<6; a++){
-				System.out.println("Clearing " + clearing[a]);
-			}
+//			//show the clearing info
+//			for(int a=0; a<6; a++){
+//				System.out.println("Clearing " + clearing[a].getValue());
+//			}
 		}
 		
 	}
