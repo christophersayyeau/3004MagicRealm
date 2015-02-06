@@ -23,8 +23,9 @@ public class Swordsman extends Character{
 		enemyTrading[0] = "Patrol";
 		
 		//Combat chits
-		ThrustingSword weapon = new ThrustingSword();
+		ThrustingSword weapon1 = new ThrustingSword();
 
+		setWeapon(weapon1);
 		
 		//Action types
 		action1.setType("Fight");	//set the type

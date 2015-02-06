@@ -27,9 +27,10 @@ public class BlackKnight extends Character{
 		enemyTrading[0] = "Guard";
 		
 		//Combat chits
-		Mace weapon = new Mace();
+		Mace weapon1 = new Mace();
 		Suit_of_Armor armor = new Suit_of_Armor();
 		//Shield shield = new Shield();
+		setWeapon(weapon1);
 		defense[0] = armor;
 		//defense[1] = shield;
 		System.out.println("ALso has a shield");

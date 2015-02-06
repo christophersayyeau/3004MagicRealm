@@ -29,8 +29,10 @@ public class Dwarf extends Character{
 		unfriendlyTrading[1] = "Bashkars";
 		
 		//Combat chits
-		GreatAxe weapon = new GreatAxe();
+		GreatAxe weapon1 = new GreatAxe();
 		Helmet helmet = new Helmet();
+		
+		setWeapon(weapon1);
 		defense[0] = helmet;
 
 		

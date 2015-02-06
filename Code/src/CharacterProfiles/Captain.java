@@ -33,12 +33,12 @@ public class Captain extends Character{
 		enemyTrading[0] = "Bashkar";
 		
 		//Combat chits
-		ShortSword weapon = new ShortSword();
+		ShortSword weapon1 = new ShortSword();
 		Helmet helmet = new Helmet();
 		
 		//Breastplate breastplate = new Breastplate();
 		//Shield shield = new Shield();
-		
+		setWeapon(weapon1);
 		defense[0] = helmet;
 		//defense[1] = breastplate;
 		//defense[2] = shield;

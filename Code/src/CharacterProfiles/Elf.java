@@ -24,9 +24,10 @@ public class Elf extends Character{
 		enemyTrading[0] = "Lancer";
 		
 		//Combat chits
-		LightBow weapon = new LightBow();
+		LightBow weapon1 = new LightBow();
 		//Magic magic = new Magic();//2 Spells (III or VII)//removed since we don't support magic in first iteration
 		
+		setWeapon(weapon1);
 
 		
 		//Action types
