@@ -1,13 +1,18 @@
 package Model;
 
 import Control.Player;
+import Model.Clearing;
 
 public class MapTiles {
-
+//!!!!!!!!!!!!	
+	//Picture image;	//?should we store it here
+	
+	Clearing [] clearing;
+	
 	//overall class, will create subclasses based on tiles
 	Player playersInTile;//for know it is a single value, this will need to c\be changed
 
-	//the intertile connections, set to garbage values
+	//the inter-tile connections, set to garbage values
 	int topLeft = -1;		int topRight = -1;						
 	int left = -1;			int right = -1;							
 	int bottomLeft = -1;	int bottomRight = -1;
@@ -22,7 +27,8 @@ public class MapTiles {
 	}
 		
 	public String getPlayers() {
-		return playersInTile.getProfile().getType(); //can only handle 1 at moment
+		//can only handle 1 at moment
+		return playersInTile.getProfile().getType(); 
 	}
 	
 
@@ -52,7 +58,37 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+			
+			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
+			
+			clearing[0].getConnectedTo()[0] = 6;//clearing 1 connected to 6
+			clearing[1].getConnectedTo()[0] = 3;//clearing 2 connected to 3
+			clearing[2].getConnectedTo()[0] = 2;//clearing 3 connected to 2
+			clearing[2].getConnectedTo()[1] = 5;//clearing 3 connected to 5
+			clearing[3].getConnectedTo()[0] = 6;//clearing 4 connected to 6
+			clearing[4].getConnectedTo()[0] = 3;//clearing 5 connected to 3
+			clearing[5].getConnectedTo()[0] = 1;//clearing 6 connected to 1
+			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
+			
+	//!!there should be connections to the clearings in other tiles
+			
+			//show the clearing info
+			for(int a=0; a<6; a++){
+				System.out.println("Clearing " + clearing[a]);
+			}
 		}
+		
 	}
 	
 	public class EvilValley extends MapTiles {
