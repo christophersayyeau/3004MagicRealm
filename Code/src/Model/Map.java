@@ -12,23 +12,26 @@ public class Map {
 	public void build() {
 		//starting on top of picture 4842
 		
+		//built a temporary mapTile object so I have access to its subclass
+		MapTiles temp = new MapTiles();
+		
 		//first build the tiles then add to array
-		Cliff cliff = mapTiles[0].new Cliff();
+		Cliff cliff = temp.new Cliff();
 		mapTiles[0] = cliff;
 		
-		EvilValley evilValley = mapTiles[1].new EvilValley();
+		EvilValley evilValley = temp.new EvilValley();
 		mapTiles[1] = evilValley;
 		
-		Ledges ledges = mapTiles[2].new Ledges();
+		Ledges ledges = temp.new Ledges();
 		mapTiles[2] = ledges;
 		
-		Crag crag = mapTiles[3].new Crag();
+		Crag crag = temp.new Crag();
 		mapTiles[3] = crag;
 		
-		DarkValley darkValley = mapTiles[4].new DarkValley();
+		DarkValley darkValley = temp.new DarkValley();
 		mapTiles[4] = darkValley;
 		
-		HighPass highPass = mapTiles[5].new HighPass();
+		HighPass highPass = temp.new HighPass();
 		mapTiles[5] = highPass;
 		
 		//get this working first then handle the rest of the tiles

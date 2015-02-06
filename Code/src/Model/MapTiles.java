@@ -5,16 +5,19 @@ import Control.Player;
 public class MapTiles {
 
 	//overall class, will create subclasses based on tiles
-	Player [] playersInTile;
+	Player playersInTile;//for know it is a single value, this will need to c\be changed
 
-	//the intertile connections
-	MapTiles topLeft = new MapTiles();
-	MapTiles top = new MapTiles();
-	MapTiles topRight = new MapTiles();
+	//the intertile connections, set to garbage values
+	int topLeft = -1;
+	int top = -1;
+	int topRight = -1;
 	
-	MapTiles bottomRight = new MapTiles();
-	MapTiles bottom = new MapTiles();
-	MapTiles bottomLeft = new MapTiles();
+	int bottomRight = -1;
+	int bottom = -1;
+	int bottomLeft = -1;
+	
+
+
 	
 
 	//now for the individual classes
@@ -62,6 +65,6 @@ public class MapTiles {
 
 	public void putPlayer(Player player1) {
 		//this only works because we have 1 character
-		playersInTile[0] = player1;
+		playersInTile = player1;
 	}
 }

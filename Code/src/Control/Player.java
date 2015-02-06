@@ -13,7 +13,7 @@ public class Player {
 	
 	int phasesForToday = -1;//determined in recordTurn
 	//constructor
-	Player(){
+	public Player(){
 		
 		//for simplicity we will set the first character to 
 		Dwarf profile1 = new Dwarf();
