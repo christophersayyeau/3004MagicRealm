@@ -33,7 +33,7 @@ public class Map {
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		mapTiles[5] = highPass;
-		
+//!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going	
 		//get this working first then handle the rest of the tiles
 		System.out.println("MapTiles: " + mapTiles[0] + mapTiles[1]);
 	}
@@ -53,8 +53,7 @@ public class Map {
 		//System.out.println("Current Tile 0 Players " + mapTiles[0].getPlayers());//this works puts Null errors since it works
 				
 	}
-	
-	
+
 	
 	//NOTE: if there is time create a way of building the board yourself
 }
