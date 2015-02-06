@@ -10,32 +10,32 @@ public class Map {
 	MapTiles [] mapTiles = new MapTiles[20];
 
 	public void build() {
-		//starting on top of picture 4842
+		//starting on top of picture 4842, left to right
 		
 		//built a temporary mapTile object so I have access to its subclass
 		MapTiles temp = new MapTiles();
 		
 		//first build the tiles then add to array
-		Cliff cliff = temp.new Cliff();
+		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
 		
-		EvilValley evilValley = temp.new EvilValley();
+		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
 		
-		Ledges ledges = temp.new Ledges();
+		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
 		
-		Crag crag = temp.new Crag();
+		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
 		mapTiles[3] = crag;
 		
-		DarkValley darkValley = temp.new DarkValley();
+		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		mapTiles[4] = darkValley;
 		
-		HighPass highPass = temp.new HighPass();
+		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		mapTiles[5] = highPass;
 		
 		//get this working first then handle the rest of the tiles
-		System.out.println("MapTiles: " + mapTiles);
+		System.out.println("MapTiles: " + mapTiles[0] + mapTiles[1]);
 	}
 
 	public void moveCharacters(Player player1) {
