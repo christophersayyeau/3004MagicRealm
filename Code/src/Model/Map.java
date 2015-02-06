@@ -9,14 +9,29 @@ public class Map {
 	MapTiles [] mapTiles = new MapTiles[20];
 
 	public void build() {
-		//starting on left of picture
+		//starting on top of picture 4842
 		
 		//first build the tiles then add to array
-		HighPass highPass = mapTiles[0].new HighPass();
-		mapTiles[0] = highPass;
+		Cliff cliff = mapTiles[0].new Cliff();
+		mapTiles[0] = cliff;
 		
+		EvilValley evilValley = mapTiles[1].new EvilValley();
+		mapTiles[1] = evilValley;
 		
+		Ledges ledges = mapTiles[2].new Ledges();
+		mapTiles[2] = ledges;
 		
+		Crag crag = mapTiles[3].new Crag();
+		mapTiles[3] = crag;
+		
+		DarkValley darkValley = mapTiles[4].new DarkValley();
+		mapTiles[4] = darkValley;
+		
+		HighPass highPass = mapTiles[5].new HighPass();
+		mapTiles[5] = highPass;
+		
+		//get this working first then handle the rest of the tiles
+		System.out.println("MapTiles: " + mapTiles);
 	}
 	
 	
