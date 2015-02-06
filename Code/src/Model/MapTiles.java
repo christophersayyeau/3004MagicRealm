@@ -1,9 +1,11 @@
 package Model;
 
+import Control.Player;
+
 public class MapTiles {
 
 	//overall class, will create subclasses based on tiles
-
+	Player [] playersInTile;
 
 	//the intertile connections
 	MapTiles topLeft = new MapTiles();
@@ -56,5 +58,10 @@ public class MapTiles {
 		public Crag(){
 			System.out.println("Building Crag");
 		}
+	}
+
+	public void putPlayer(Player player1) {
+		//this only works because we have 1 character
+		playersInTile[0] = player1;
 	}
 }

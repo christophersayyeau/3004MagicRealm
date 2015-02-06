@@ -3,17 +3,23 @@ package Control;
 
 import View.GUI;
 import CharacterProfiles.*;
+import CharacterProfiles.Character;
 
 public class Player {
 
 	GUI view;
+	Character profile;
+	Boolean hidden = true;//whether the character is hidden or not
 	
+	int phasesForToday = -1;//determined in recordTurn
 	//constructor
 	Player(){
 		
 		//for simplicity we will set the first character to 
-		Swordsman profile = new Swordsman();
-		System.out.println("Building a " + profile.getType() + " Player");
+		Swordsman profile1 = new Swordsman();
+		profile = profile1;
+		
+		System.out.println("Building a " + profile1.getType() + " Player");
 		//pick you character
 		//Character.pickCharacter();
 		
@@ -27,7 +33,7 @@ public class Player {
 		
 		//now do turn as based on what he recorded
 		//go through each phase that he recorded
-		while(){
+		while(phasesForToday > 0 ){
 			rearangeBelongings();
 			trade();
 			
@@ -36,7 +42,7 @@ public class Player {
 			System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
 			System.out.println("if not player can block monsters that appear or move to his clearing");			
 		
-			phase++ //go to the next phase
+			phasesForToday--; //go to the next phase
 		}
 		
 		
@@ -58,5 +64,38 @@ public class Player {
 	private void doAction() {
 		System.out.println("DO THE ACTION HERE");
 		
+	}
+
+	public int getCurrentLocation() {
+		return profile.getCurrentLocation();
+	}
+
+	public void recordNumPointsWinGame() {
+		// TODO Auto-generated method stub
+		System.out.println("Usre now picks scoring method");
+	}
+
+	public void recordTurn() {
+		//get 2 phases standard
+		//if not in caves get an extra 2, unless your a dwarf
+		
+		// TODO Auto-generated method stub
+		System.out.println("Usre now makes a turn");
+	}
+
+	public void rearangeBelongings() {
+		// TODO Auto-generated method stub
+		System.out.println("User can now fix belonging");
+	}
+
+	public void trade() {
+		// TODO Auto-generated method stub
+		System.out.println("User can now trade with others in clearing");
+	}
+
+	public int calculateScore() {
+		// TODO Auto-generated method stub
+		System.out.println("Now calculate score based on all those factors");
+		return -1;
 	}
 }

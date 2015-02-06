@@ -10,8 +10,10 @@ public class Character {
 	
 	private String type;	//this is just their name, will be used to compare between them
 	
-	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
+//	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
 //!!!!!!!!!startSpot should be changed to different type once we know how board is organized
+	//this will be the startSpot at the beginning
+	private int currentLocation;//integer value of mapTiles
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
 	
@@ -42,6 +44,9 @@ public class Character {
 	}
 	public Weapon getWeapon() {
 		return weapon;
+	}
+	public int getCurrentLocation() {
+		return currentLocation;
 	}
 
 }
