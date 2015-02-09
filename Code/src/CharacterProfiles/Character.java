@@ -28,6 +28,7 @@ public class Character {
 	//Development are the stages of the characters life, only used in the optional rules
 	protected Weapon weapon = new Weapon();		//weapon moved to individual profiles
 	protected Armor [] defense = new Armor[3];//armor
+	protected Special [] specials = new Special[2];
 	
 	//Combat chits, should have 12, 4 of each
 	CombatChit action1 = new CombatChit();

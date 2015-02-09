@@ -5,6 +5,7 @@ Elf: The Elf is an elusive and graceful warrior and magician. With his Light Bow
 */
 package CharacterProfiles;
 
+import CharacterProfiles.Character.Special;
 import Model.Weapon.LightBow;
 
 public class Elf extends Character{
@@ -46,6 +47,10 @@ public class Elf extends Character{
 		action3.setTime(4);			//the time needed to use
 		action3.setEffort(0);		//extra effort needed to do action, 0-1-2
 		action3.setStrength("M");	//strength of action
+		
+		//set special abilities
+		specials[0] = Special.ELUSIVENESS;
+		specials[1] = Special.ARCHER;
 	}
 	
 	//Special Advantages

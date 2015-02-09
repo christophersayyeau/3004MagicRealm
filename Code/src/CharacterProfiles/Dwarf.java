@@ -6,6 +6,7 @@ Dwarf: The Dwarf is a slow and powerful fighter who is at his best in the caves,
 */
 package CharacterProfiles;
 
+import CharacterProfiles.Character.Special;
 import Model.Armor;
 import Model.Armor.Helmet;
 import Model.Weapon.GreatAxe;
@@ -56,6 +57,10 @@ public class Dwarf extends Character{
 		action3.setTime(5);			//the time needed to use
 		action3.setEffort(1);		//extra effort needed to do action, 0-1-2
 		action3.setStrength("T");	//strength of action
+		
+		//set special abilities
+		specials[0] = Special.SHORT_LEGS;
+		specials[1] = Special.CAVE_KNOWLEDGE;
 	}
 	
 	//Special Advantages

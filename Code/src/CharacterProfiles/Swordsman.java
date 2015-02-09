@@ -5,6 +5,7 @@ Swordsman: The Swordsman is a wily and nimble rascal, quick to react to an oppor
 */
 package CharacterProfiles;
 
+import CharacterProfiles.Character.Special;
 import Model.Weapon.ThrustingSword;
 
 public class Swordsman extends Character{
@@ -43,6 +44,10 @@ public class Swordsman extends Character{
 		action3.setTime(2);			//the time needed to use
 		action3.setEffort(2);		//extra effort needed to do action, 0-1-2
 		action3.setStrength("L");	//strength of action
+		
+		//set special abilities
+		specials[0] = Special.BARTER;
+		specials[1] = Special.CLEVE;
 	}
 	
 	//Special Advantages

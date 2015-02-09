@@ -5,6 +5,7 @@ BLACK KNIGHT: The Black Knight is a dead¬ly and feared veteran of many battlefie
 */
 package CharacterProfiles;
 
+import CharacterProfiles.Character.Special;
 import Model.*;
 import Model.Weapon.Mace;
 import Model.Armor.Shield;
@@ -55,6 +56,10 @@ public class BlackKnight extends Character{
 		action3.setTime(3);			//the time needed to use
 		action3.setEffort(2);		//extra effort needed to do action, 0-1-2
 		action3.setStrength("M");	//strength of action
+		
+		//set special abilities
+		specials[0] = Special.AIM;
+		specials[1] = Special.FEAR;
 	}
 	
 	//Special Advantages
