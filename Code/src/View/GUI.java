@@ -15,13 +15,15 @@ public class GUI {
 	public static JLabel l6 = new JLabel();
 	
 	/*Just temporary to test the map building
-	 * 
-	 * 
-	 */
+	 * Work in  progress
+	 * resource files also temporary
+	 * pictures cropped 50x877x200x200
+	 */ 
 	public static void main(String args[])
 	{
-		ImageIcon image1 = new ImageIcon("res/cliff1.gif");
-		ImageIcon image2 = new ImageIcon("res/ledges1.gif");
+		ImageIcon image1 = new ImageIcon("res/tiles/cliff.jpg");
+		ImageIcon image2 = new ImageIcon("res/tiles/ledges.jpg");
+		ImageIcon image3 = new ImageIcon("res/tiles/crag.jpg");
 		
 		MainWindow.setBackground(new java.awt.Color(255,255,255));
 		MainWindow.setSize(1000, 1000);
@@ -33,18 +35,18 @@ public class GUI {
 		
 		l1.setIcon(image1);
 		MainWindow.getContentPane().add(l1);
-		l1.setBounds(0, 0, 500, 500);
+		l1.setBounds(0, 0, 336, 359);
 		l1.setVisible(true);
 		
 		l2.setIcon(image2);
 		MainWindow.getContentPane().add(l2);
-		l2.setBounds(000, 500, 500, 500);
+		l2.setBounds(105, 365, 336, 359);
 		l2.setVisible(true);
 		
-		while(true)
-		{
-			
-		}
+		l3.setIcon(image3);
+		//MainWindow.getContentPane().add(l3);
+		l3.setBounds(500, 365, 500, 500);
+		l3.setVisible(true);
 	}
 	
 	public void Refresh() {
