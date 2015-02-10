@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+C:\Users\Chris\Documents\GitHub\3004MagicRealm\Code\.metadata\.plugins\org.eclipse.jdt.core

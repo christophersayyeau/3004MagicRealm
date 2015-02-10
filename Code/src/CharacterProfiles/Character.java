@@ -36,6 +36,7 @@ public class Character {
 	CombatChit action3 = new CombatChit();
 	
 	
+	
 	//Auto generated
 	public String getType() {
 		return type;
@@ -63,7 +64,7 @@ public class Character {
 	public void setDefense(Armor [] defense) {
 		this.defense = defense;
 	}
-	
+//do the same for specials here!!!!!	
 	public void setCurrentLocation(int i) {
 		currentLocation = i;
 	}
