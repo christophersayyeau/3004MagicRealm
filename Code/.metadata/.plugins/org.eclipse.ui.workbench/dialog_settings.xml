@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.internal.QuickAccess">
-<<<<<<< HEAD
-		<item value="526" key="dialogHeight"/>
-		<item value="1025" key="dialogWidth"/>
-		<list key="textEntries">
-		</list>
-		<list key="orderedElements">
-		</list>
-=======
 		<item value="960" key="dialogWidth"/>
 		<item value="490" key="dialogHeight"/>
->>>>>>> origin/master
 		<list key="orderedProviders">
 		</list>
 		<list key="textArray">
 		</list>
-<<<<<<< HEAD
-	</section>
-	<section name="ImportExportAction">
-	</section>
-	<section name="FileSystemImportWizard">
-	</section>
-=======
 		<list key="orderedElements">
 		</list>
 		<list key="textEntries">
 		</list>
 	</section>
-	<section name="ImportExportAction">
-	</section>
->>>>>>> origin/master
 </section>
