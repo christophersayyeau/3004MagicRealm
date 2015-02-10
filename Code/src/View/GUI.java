@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.Image;
 import javax.swing.*;
 import Model.*;
 
@@ -21,31 +20,30 @@ public class GUI {
 	 */ 
 	public static void main(String args[])
 	{
-		ImageIcon image1 = new ImageIcon("res/tiles/cliff.jpg");
-		ImageIcon image2 = new ImageIcon("res/tiles/ledges.jpg");
-		ImageIcon image3 = new ImageIcon("res/tiles/crag.jpg");
+		ImageIcon image1 = new ImageIcon("res/tiles/cliff.png");
+		ImageIcon image2 = new ImageIcon("res/tiles/ledges.png");
+		ImageIcon image3 = new ImageIcon("res/tiles/crag.png");
 		
 		MainWindow.setBackground(new java.awt.Color(255,255,255));
 		MainWindow.setSize(1000, 1000);
 		MainWindow.getContentPane().setLayout(null);
 		MainWindow.setTitle("Magic Realm");
 		MainWindow.setLocation(220, 180);
-		MainWindow.setResizable(false);
 		MainWindow.setVisible(true);
 		
 		l1.setIcon(image1);
 		MainWindow.getContentPane().add(l1);
-		l1.setBounds(0, 0, 336, 359);
+		l1.setBounds(0, 0, 300, 305);
 		l1.setVisible(true);
 		
 		l2.setIcon(image2);
 		MainWindow.getContentPane().add(l2);
-		l2.setBounds(105, 365, 336, 359);
+		l2.setBounds(125, 215, 300, 305);
 		l2.setVisible(true);
 		
 		l3.setIcon(image3);
-		//MainWindow.getContentPane().add(l3);
-		l3.setBounds(500, 365, 500, 500);
+		MainWindow.getContentPane().add(l3);
+		l3.setBounds(370, 214, 300, 305);
 		l3.setVisible(true);
 	}
 	
