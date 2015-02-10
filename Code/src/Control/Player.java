@@ -9,7 +9,7 @@ public class Player {
 
 	GUI view;
 	Character profile;
-	Boolean hidden = true;//whether the character is hidden or not
+	boolean hidden = true;//whether the character is hidden or not
 	
 	int phasesForToday = -1;//determined in recordTurn
 	//constructor
