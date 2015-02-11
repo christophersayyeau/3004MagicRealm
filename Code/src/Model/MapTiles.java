@@ -43,6 +43,7 @@ public class MapTiles {
 	public void setWarning(YellowChit warning) {
 		this.warning = warning;
 	}
+
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
 //for dwellings in valley
 		//chapel has order in awfulvalley
@@ -106,7 +107,7 @@ public class MapTiles {
 			clearing[5].getConnectedTo()[0] = 1;//clearing 6 connected to 1
 			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
 			
-	//!!there should be connections to the clearings in other tiles
+//!!there should be connections to the clearings in other tiles
 			
 //			//show the clearing info
 //			for(int a=0; a<6; a++){
@@ -130,8 +131,8 @@ public class MapTiles {
 			
 			
 			System.out.println("There are 2 ghosts in the 3rd clearing");
-			//all garrison natives start the game at their dwellings and dont move unless hred
-			putGhosts;
+			//all garrison natives start the game at their dwellings and dont move unless hired
+			putGhosts();
 		}
 	}
 	
@@ -148,8 +149,8 @@ public class MapTiles {
 			bottomLeft = bl;
 
 			System.out.println("There is a Guard House in the 3rd clearing");
-			putGuardHouse;
-			putNativeGuards;//all garrison natives start the game at their dwellings and dont move unless hred
+			putGuardHouse();
+			putNativeGuards();//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		}
 	}
 	
