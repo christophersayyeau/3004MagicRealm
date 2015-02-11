@@ -8,9 +8,7 @@ public class Server {
 		//FOr now the server will create the players
 		
 		Player player1 = new Player();
-		
-		
-		
+				
 		game = new Game();		
 		game.startGame(player1);
 	}

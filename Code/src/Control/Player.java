@@ -25,8 +25,8 @@ public class Player {
 		//pick you character
 		//Character.pickCharacter();
 		
-		//create window for user
-		view = new GUI();
+		//create window for user, then display it
+		view = new GUI();	
 	}
 
 	public void doTurn() {
@@ -64,6 +64,7 @@ public class Player {
 	
 	//handles the action recorded during birdsong and activated during daylight
 	private void doAction() {
+		// TODO Auto-generated method stub
 		System.out.println("DO THE ACTION HERE");
 		
 	}

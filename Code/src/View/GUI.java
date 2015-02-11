@@ -18,7 +18,10 @@ public class GUI {
 	 * resource files also temporary
 	 * pictures cropped 50x877x200x200
 	 */ 
-	public static void main(String args[])
+	//public static void main(String args[])
+	
+	//constructor, called in player.java
+	public GUI()
 	{
 		ImageIcon image1 = new ImageIcon("res/tiles/cliff.png");
 		ImageIcon image2 = new ImageIcon("res/tiles/ledges.png");

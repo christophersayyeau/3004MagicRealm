@@ -14,6 +14,9 @@ public class Game {
 		
 		//put the counters, monsters, etc..
 		System.out.println("Built the Map, don't forget to populate later");
+		//population for dwellings and ghosts handled in each valley's constructor
+		//placing of characters handled at game start
+		
 		//map.populateNatives();
 		//map.populateDenizens();
 		//map.populateTreasures();
@@ -24,8 +27,7 @@ public class Game {
 	
 	public void startGame(Player player1) {
 		System.out.println("STARTING THE GAME");
-		
-		
+			
 		map.moveCharacters(player1, player1.getCurrentLocation());//start position
 		
 		//map.moveCharacters(player1, 1);//testing moving
