@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.MapChits.RedChit;
 import Model.MapChits.*;
 
 public class MapTiles {
@@ -14,14 +15,17 @@ public class MapTiles {
 	//each tile has 1 warning chit
 	private YellowChit warning;
 	
+	//some tiles have sounds or treasure
+	private RedChit sound = null;
+	private GoldChit treasure = null;
+	
 	//the inter-tile connections, set to garbage values
 	int topLeft = -1;		int topRight = -1;						
 	int left = -1;			int right = -1;							
 	int bottomLeft = -1;	int bottomRight = -1;
 	
 	
-	
-	
+
 	public void putPlayer(Player player1) {
 		//this only works because we have 1 character
 		playersInTile = player1;
@@ -44,6 +48,12 @@ public class MapTiles {
 		this.warning = warning;
 	}
 
+	public void setSound(RedChit s) {
+		this.sound = s;
+	}
+	public void setTreasure(GoldChit s) {
+		this.treasure = s;
+	}
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
 //for dwellings in valley
 		//chapel has order in awfulvalley
@@ -181,6 +191,8 @@ public class MapTiles {
 			bottomLeft = bl;
 		}
 	}
+
+
 
 
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going

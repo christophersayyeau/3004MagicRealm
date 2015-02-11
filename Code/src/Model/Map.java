@@ -47,7 +47,7 @@ public class Map {
 		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
 		mapTiles[0].setWarning(warningsM[0]);
-		mapTiles[2].addTreasure(sites[4]);
+		mapTiles[2].setTreasure(sites[4]);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
@@ -61,7 +61,7 @@ public class Map {
 		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
 		mapTiles[3] = crag;
 		mapTiles[3].setWarning(warningsM[2]);
-		mapTiles[3].addSound(sounds[6]);
+		mapTiles[3].setSound(sounds[6]);
 		
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		mapTiles[4] = darkValley;
@@ -70,7 +70,7 @@ public class Map {
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		mapTiles[5] = highPass;
 		mapTiles[5].setWarning(warningsC[0]);
-		mapTiles[5].addSound(sounds[7]);
+		mapTiles[5].setSound(sounds[7]);
 		
 		
 		
