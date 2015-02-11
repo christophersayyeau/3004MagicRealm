@@ -168,4 +168,6 @@ public class MapTiles {
 	
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
+//each one represents 5 secret chits
+
 }

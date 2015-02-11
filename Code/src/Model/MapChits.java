@@ -6,7 +6,7 @@ public class MapChits {
 	String type;
 	
 	
-	//site(treaseure)
+	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
 		//constructor
 		public GoldChit(){
@@ -15,7 +15,7 @@ public class MapChits {
 		}
 	}
 
-	//Sounds
+	//Sounds	10 of these
 	public class RedChit extends MapChits {
 		//constructor
 		public RedChit(){
@@ -24,7 +24,7 @@ public class MapChits {
 		}
 	}
 	
-	//Warnings
+	//Warnings or Map	20 of these, split into 4 groups of 5(V,W,C,M)
 	public class YellowChit extends MapChits {
 		//constructor
 		public YellowChit(){
@@ -32,4 +32,24 @@ public class MapChits {
 			type = ;
 		}
 	}
+	
+	//how they are sorted
+	/*
+	 Gold and red mixed=18
+	 random 5 put into lost City, random 5 put into lost castle
+	 =8left
+	 
+	 warning/map chit=20
+	 5"C" put on the 5 caveType tiles(brderLand,Caves,Cavern,HighPass,Ruins)
+	 half(4) of gold/red leftovers and lost CIty randomly assigned to the 5 tiles
+	 
+	 5"M" put on the 5 mountainType tiles(Cliff, Crag, Deep Woods, Ledges, Mountain)
+	 last 4 of gold/red leftovers and lost Castle randomly assigned to the 5 tiles
+	 
+	 5"V" put on 5 valley tiles(Awful Valley, Bad Valley, Cursed Valley, Dark Valley, Evil Valley)
+	 
+	 5"W" put on 5 woods tiles(Linden Woods, Maple Woods, Nut Woods, Oak Woods, Pine Woods)
+	 
+	 
+	 */
 }

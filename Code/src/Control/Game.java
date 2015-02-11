@@ -16,6 +16,7 @@ public class Game {
 		System.out.println("Built the Map, don't forget to populate later");
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
+		setUp6Visitors(); //DONT HANDLE UNTIL GAME WORKS===EXTRA
 		
 		//map.populateNatives();
 		//map.populateDenizens();

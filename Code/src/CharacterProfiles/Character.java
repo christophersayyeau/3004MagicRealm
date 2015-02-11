@@ -17,6 +17,7 @@ public class Character {
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
 	
+	int gold = 10;//players start out with 10 gold
 	
 	//Trading Relationships
 	String [] allyTrading = new String[1];
