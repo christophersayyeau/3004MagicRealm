@@ -5,7 +5,7 @@ Captain: The Captain is a renowned hero of many wars. His strength, weapon and a
 */
 package CharacterProfiles;
 
-import CharacterProfiles.Character.Special;
+//import CharacterProfiles.Character.Special;
 import Model.*;
 import Model.Weapon.ShortSword;
 import Model.Armor.Helmet;

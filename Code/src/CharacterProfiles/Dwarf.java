@@ -6,7 +6,7 @@ Dwarf: The Dwarf is a slow and powerful fighter who is at his best in the caves,
 */
 package CharacterProfiles;
 
-import CharacterProfiles.Character.Special;
+//import CharacterProfiles.Character.Special;
 import Model.Armor;
 import Model.Armor.Helmet;
 import Model.Weapon.GreatAxe;

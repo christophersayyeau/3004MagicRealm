@@ -5,7 +5,7 @@ BLACK KNIGHT: The Black Knight is a dead¬ly and feared veteran of many battlefie
 */
 package CharacterProfiles;
 
-import CharacterProfiles.Character.Special;
+//import CharacterProfiles.Character.Special;
 import Model.*;
 import Model.Weapon.Mace;
 import Model.Armor.Shield;

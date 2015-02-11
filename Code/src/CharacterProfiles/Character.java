@@ -64,7 +64,7 @@ public class Character {
 	public void setDefense(Armor [] defense) {
 		this.defense = defense;
 	}
-//do the same for specials here!!!!!	
+
 	public void setCurrentLocation(int i) {
 		currentLocation = i;
 	}

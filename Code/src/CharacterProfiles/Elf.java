@@ -5,7 +5,7 @@ Elf: The Elf is an elusive and graceful warrior and magician. With his Light Bow
 */
 package CharacterProfiles;
 
-import CharacterProfiles.Character.Special;
+//import CharacterProfiles.Character.Special;
 import Model.Weapon.LightBow;
 
 public class Elf extends Character{
