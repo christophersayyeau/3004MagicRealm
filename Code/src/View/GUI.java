@@ -9,12 +9,31 @@ public class GUI {
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
-	public static JLabel l1 = new JLabel();
-	public static JLabel l2 = new JLabel();
-	public static JLabel l3 = new JLabel();
-	public static JLabel l4 = new JLabel();
-	public static JLabel l5 = new JLabel();
-	public static JLabel l6 = new JLabel();
+	public static JLabel L_cliff = new JLabel();
+	public static JLabel L_ledge = new JLabel();
+	public static JLabel L_crag = new JLabel();
+	public static JLabel L_evil_valley = new JLabel();
+	public static JLabel L_high_pass = new JLabel();
+	public static JLabel L_cavern = new JLabel();
+	public static JLabel L_mountain = new JLabel();
+	public static JLabel L_pine_woods = new JLabel();
+	public static JLabel L_caves = new JLabel();
+	public static JLabel L_ruins = new JLabel();
+	public static JLabel L_linden_woods = new JLabel();
+	public static JLabel L_awful_valley = new JLabel();
+	public static JLabel L_nut_woods = new JLabel();
+	public static JLabel L_curst_valley = new JLabel();
+	public static JLabel L_dark_valley = new JLabel();
+	public static JLabel L_deep_woods = new JLabel();
+	public static JLabel L_maple_woods = new JLabel();
+	public static JLabel L_oak_woods = new JLabel();
+	public static JLabel L_bad_valley = new JLabel();
+	public static JLabel L_borderland = new JLabel();
+	
+	final int x = 125;
+	final int y = 215;
+	final int tileX = 300;
+	final int tileY = 305;
 	
 	/*Just temporary to test the map building
 	 * Work in  progress
@@ -27,9 +46,27 @@ public class GUI {
 	public GUI()
 	{
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		ImageIcon image1 = new ImageIcon("res/tiles/cliff.png");
-		ImageIcon image2 = new ImageIcon("res/tiles/ledges.png");
-		ImageIcon image3 = new ImageIcon("res/tiles/crag.png");
+		ImageIcon cliff = new ImageIcon("res/tiles/cliff.png");
+		ImageIcon ledge = new ImageIcon("res/tiles/ledges.png");
+		ImageIcon crag = new ImageIcon("res/tiles/crag.png");
+		ImageIcon evil_valley = new ImageIcon("res/tiles/evil_valley.png");
+		ImageIcon high_pass = new ImageIcon("res/tiles/high_pass.png");
+		ImageIcon cavern = new ImageIcon("res/tiles/cavern.png");
+		ImageIcon mountain = new ImageIcon("res/tiles/mountain.png");
+		ImageIcon pine_woods = new ImageIcon("res/tiles/pine_woods.png");
+		ImageIcon caves = new ImageIcon("res/tiles/caves.png");
+		ImageIcon ruins = new ImageIcon("res/tiles/ruins.png");
+		ImageIcon linden_woods = new ImageIcon("res/tiles/linden_woods.png");
+		ImageIcon awful_valley = new ImageIcon("res/tiles/awful_valley.png");
+		ImageIcon nut_woods = new ImageIcon("res/tiles/nut_woods.png");
+		ImageIcon curst_valley = new ImageIcon("res/tiles/curst_valley.png");
+		ImageIcon dark_valley = new ImageIcon("res/tiles/dark_valley.png");
+		ImageIcon deep_woods = new ImageIcon("res/tiles/deep_woods.png");
+		ImageIcon maple_woods = new ImageIcon("res/tiles/maple_woods.png");
+		ImageIcon oak_woods = new ImageIcon("res/tiles/oak_woods.png");
+		ImageIcon bad_valley = new ImageIcon("res/tiles/oak_woods.png");
+		ImageIcon borderland = new ImageIcon("res/tiles/borderland.png");
+		
 		
 		MainWindow.setBackground(Color.LIGHT_GRAY);
 		MainWindow.getContentPane().setLayout(null);
@@ -37,7 +74,7 @@ public class GUI {
 		MainWindow.setVisible(true);
 		MainWindow.setExtendedState(MainWindow.MAXIMIZED_BOTH);
 		
-		Map.setPreferredSize(new Dimension(2000,2000));
+		Map.setPreferredSize(new Dimension(1400,1400));
 		scrollPane.setBackground(Color.white);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -55,30 +92,125 @@ public class GUI {
 		
 		Map.setBackground(Color.white);
 		
-		l1.setIcon(image1);
-		l1.setBounds(0, 0, 300, 305);
-		l1.setVisible(true);
-		Map.add(l1);
+		L_cliff.setIcon(cliff);
+		L_cliff.setLocation(x*2,0);
+		L_cliff.setSize(tileX, tileY);
+		L_cliff.setVisible(true);
+		Map.add(L_cliff);
 		
-		l2.setIcon(image2);
-		l2.setBounds(125, 215, 300, 305);
-		l2.setVisible(true);
-		Map.add(l2);
+		L_ledge.setIcon(ledge);
+		L_ledge.setLocation(x*3,y);
+		L_ledge.setSize(tileX, tileY);
+		L_ledge.setVisible(true);
+		Map.add(L_ledge);
 		
-		l3.setIcon(image3);
-		l3.setBounds(370, 214, 300, 305);
-		l3.setVisible(true);
-		Map.add(l3);
+		L_crag.setIcon(crag);
+		L_crag.setLocation(x*5,y);
+		L_crag.setSize(tileX, tileY);
+		L_crag.setVisible(true);
+		Map.add(L_crag);
 		
-		l4.setIcon(image3);
-		l4.setBounds(370, 714, 300, 305);
-		l4.setVisible(true);
-		Map.add(l4);
+		L_evil_valley.setIcon(evil_valley);
+		L_evil_valley.setLocation(x,y);
+		L_evil_valley.setSize(tileX, tileY);
+		L_evil_valley.setVisible(true);
+		Map.add(L_evil_valley);
 		
-		l5.setIcon(image3);
-		l5.setBounds(370, 1214, 300, 305);
-		l5.setVisible(true);
-		Map.add(l5);
+		L_high_pass.setIcon(high_pass);
+		L_high_pass.setLocation(0,y*2);
+		L_high_pass.setSize(tileX, tileY);
+		L_high_pass.setVisible(true);
+		Map.add(L_high_pass);
+		
+		L_cavern.setIcon(cavern);
+		L_cavern.setLocation(x,y*3);
+		L_cavern.setSize(tileX, tileY);
+		L_cavern.setVisible(true);
+		Map.add(L_cavern);
+		
+		L_mountain.setIcon(mountain);
+		L_mountain.setLocation(x*2,y*4);
+		L_mountain.setSize(tileX, tileY);
+		L_mountain.setVisible(true);
+		Map.add(L_mountain);
+		
+		L_pine_woods.setIcon(pine_woods);
+		L_pine_woods.setLocation(x*3,y*5);
+		L_pine_woods.setSize(tileX, tileY);
+		L_pine_woods.setVisible(true);
+		Map.add(L_pine_woods);
+		
+		L_caves.setIcon(caves);
+		L_caves.setLocation(x*4,y*4);
+		L_caves.setSize(tileX, tileY);
+		L_caves.setVisible(true);
+		Map.add(L_caves);
+		
+		L_ruins.setIcon(ruins);
+		L_ruins.setLocation(x*6,y*4);
+		L_ruins.setSize(tileX, tileY);
+		L_ruins.setVisible(true);
+		Map.add(L_ruins);
+		
+		L_linden_woods.setIcon(linden_woods);
+		L_linden_woods.setLocation(x*7,y*5);
+		L_linden_woods.setSize(tileX, tileY);
+		L_linden_woods.setVisible(true);
+		Map.add(L_linden_woods);
+		
+		L_awful_valley.setIcon(awful_valley);
+		L_awful_valley.setLocation(x*8,y*4);
+		L_awful_valley.setSize(tileX, tileY);
+		L_awful_valley.setVisible(true);
+		Map.add(L_awful_valley);
+		
+		L_nut_woods.setIcon(nut_woods);
+		L_nut_woods.setLocation(x*7,y*3);
+		L_nut_woods.setSize(tileX, tileY);
+		L_nut_woods.setVisible(true);
+		Map.add(L_nut_woods);
+		
+		L_curst_valley.setIcon(curst_valley);
+		L_curst_valley.setLocation(x*8,y*2);
+		L_curst_valley.setSize(tileX, tileY);
+		L_curst_valley.setVisible(true);
+		Map.add(L_curst_valley);
+		
+		L_dark_valley.setIcon(dark_valley);
+		L_dark_valley.setLocation(x*7,y);
+		L_dark_valley.setSize(tileX, tileY);
+		L_dark_valley.setVisible(true);
+		Map.add(L_dark_valley);
+		
+		L_deep_woods.setIcon(deep_woods);
+		L_deep_woods.setLocation(x*6,y*2);
+		L_deep_woods.setSize(tileX, tileY);
+		L_deep_woods.setVisible(true);
+		Map.add(L_deep_woods);
+		
+		L_oak_woods.setIcon(oak_woods);
+		L_oak_woods.setLocation(x*4,y*2);
+		L_oak_woods.setSize(tileX, tileY);
+		L_oak_woods.setVisible(true);
+		Map.add(L_oak_woods);
+		
+		L_borderland.setIcon(borderland);
+		L_borderland.setLocation(x*2,y*2);
+		L_borderland.setSize(tileX, tileY);
+		L_borderland.setVisible(true);
+		Map.add(L_borderland);
+		
+		L_maple_woods.setIcon(maple_woods);
+		L_maple_woods.setLocation(x*5,y*3);
+		L_maple_woods.setSize(tileX, tileY);
+		L_maple_woods.setVisible(true);
+		Map.add(L_maple_woods);
+		
+		L_bad_valley.setIcon(bad_valley);
+		L_bad_valley.setLocation(x*3,y*3);
+		L_bad_valley.setSize(tileX, tileY);
+		L_bad_valley.setVisible(true);
+		Map.add(L_bad_valley);
 	}
 	
 	public void Refresh() {
