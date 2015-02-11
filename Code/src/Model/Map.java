@@ -9,40 +9,47 @@ public class Map {
 
 	//an array of tiles, the values will be hardcoded in
 	MapTiles [] mapTiles = new MapTiles[20];
-	YellowChit [] warnings = new YellowChit[20];
+	YellowChit [] warningsV = new YellowChit[5];
+	YellowChit [] warningsW = new YellowChit[5];
+	YellowChit [] warningsC = new YellowChit[5];
+	YellowChit [] warningsM = new YellowChit[5];
 
 	public void build() {
 		//starting on top of picture 4842, left to right
 		
 		//built a temporary mapTile object so I have access to its subclass
 		MapTiles temp = new MapTiles();
+		buildWarningChits();
 		
 		//first build the tiles then add to array
 		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
+		mapTiles[0].setWarning(warningsM[0]);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
+		mapTiles[1].setWarning(warningsV[0]);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
+		mapTiles[2].setWarning(warningsM[1]);
 		
 		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
 		mapTiles[3] = crag;
+		mapTiles[3].setWarning(warningsM[2]);
 		
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		mapTiles[4] = darkValley;
+		mapTiles[4].setWarning(warningsV[1]);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		mapTiles[5] = highPass;
+		mapTiles[5].setWarning(warningsC[0]);
 		
 		
 		
-		buildWarningChits();
-		//loop to add a single warning chit to each tile
-		for(int a=0; a<20; a++){
-			mapTiles[a].addWarningChit(warnings[a]);
-		}
+		
+
 		
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going	
 		//get this working first then handle the rest of the tiles
@@ -56,29 +63,29 @@ public class Map {
 		
 		//assign the values to the warnings
 	//these are the V type	
-		warnings[0] = temp.new YellowChit();
-		warnings[1] = temp.new YellowChit();
-		warnings[2] = temp.new YellowChit();
-		warnings[3] = temp.new YellowChit();
-		warnings[4] = temp.new YellowChit();
+		warningsV[0] = temp.new YellowChit("BONES");	//evilvalley
+		warningsV[1] = temp.new YellowChit("DANK");		//darkvalley
+		warningsV[2] = temp.new YellowChit("RUINS");
+		warningsV[3] = temp.new YellowChit("SMOKE");
+		warningsV[4] = temp.new YellowChit("STINK");
 	//these are the W type	
-		warnings[5] = temp.new YellowChit();
-		warnings[6] = temp.new YellowChit();
-		warnings[7] = temp.new YellowChit();
-		warnings[8] = temp.new YellowChit();
-		warnings[9] = temp.new YellowChit();
+		warningsW[0] = temp.new YellowChit("BONES");
+		warningsW[1] = temp.new YellowChit("DANK");
+		warningsW[2] = temp.new YellowChit("RUINS");
+		warningsW[3] = temp.new YellowChit("SMOKE");
+		warningsW[4] = temp.new YellowChit("STINK");
 	//these are the C type	
-		warnings[10] = temp.new YellowChit();
-		warnings[11] = temp.new YellowChit();
-		warnings[12] = temp.new YellowChit();
-		warnings[13] = temp.new YellowChit();
-		warnings[14] = temp.new YellowChit();
+		warningsC[0] = temp.new YellowChit("BONES");	//highpass
+		warningsC[1] = temp.new YellowChit("DANK");
+		warningsC[2] = temp.new YellowChit("RUINS");
+		warningsC[3] = temp.new YellowChit("SMOKE");
+		warningsC[4] = temp.new YellowChit("STINK");
 	//these are the M type		
-		warnings[15] = temp.new YellowChit();
-		warnings[16] = temp.new YellowChit();
-		warnings[17] = temp.new YellowChit();
-		warnings[18] = temp.new YellowChit();
-		warnings[19] = temp.new YellowChit();
+		warningsM[0] = temp.new YellowChit("BONES");	//used for cliff
+		warningsM[1] = temp.new YellowChit("DANK");		//ledges
+		warningsM[2] = temp.new YellowChit("RUINS");	//crag
+		warningsM[3] = temp.new YellowChit("SMOKE");
+		warningsM[4] = temp.new YellowChit("STINK");
 		
 	}
 

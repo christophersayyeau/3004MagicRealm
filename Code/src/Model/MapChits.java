@@ -9,27 +9,26 @@ public class MapChits {
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
 		//constructor
-		public GoldChit(){
-			clearing = ;
-			type = ;
+		public GoldChit(String word, int spot){
+			clearing = spot;
+			type = word;
 		}
 	}
 
 	//Sounds	10 of these
 	public class RedChit extends MapChits {
 		//constructor
-		public RedChit(){
-			clearing = ;
-			type = ;//monster that will appear
+		public RedChit(String word, int spot){
+			clearing = spot;
+			type = word;//monster that will appear
 		}
 	}
 	
 	//Warnings or Map	20 of these, split into 4 groups of 5(V,W,C,M)
 	public class YellowChit extends MapChits {
 		//constructor
-		public YellowChit(){
-			clearing = ;
-			type = ;
+		public YellowChit(String word){
+			type = word;
 		}
 	}
 	
