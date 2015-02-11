@@ -1,11 +1,12 @@
 package View;
 
 import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 import Model.*;
 
-public class GUI {
+public class GUI implements MouseListener{
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
@@ -96,23 +97,27 @@ public class GUI {
 		L_cliff.setLocation(x*2,0);
 		L_cliff.setSize(tileX, tileY);
 		L_cliff.setVisible(true);
+		L_cliff.addMouseListener(this);
 		Map.add(L_cliff);
 		
 		L_ledge.setIcon(ledge);
 		L_ledge.setLocation(x*3,y);
 		L_ledge.setSize(tileX, tileY);
+		L_ledge.addMouseListener(this);
 		L_ledge.setVisible(true);
 		Map.add(L_ledge);
 		
 		L_crag.setIcon(crag);
 		L_crag.setLocation(x*5,y);
 		L_crag.setSize(tileX, tileY);
+		L_crag.addMouseListener(this);
 		L_crag.setVisible(true);
 		Map.add(L_crag);
 		
 		L_evil_valley.setIcon(evil_valley);
 		L_evil_valley.setLocation(x,y);
 		L_evil_valley.setSize(tileX, tileY);
+		L_evil_valley.addMouseListener(this);
 		L_evil_valley.setVisible(true);
 		Map.add(L_evil_valley);
 		
@@ -216,6 +221,36 @@ public class GUI {
 	public void Refresh() {
 		// TODO Auto-generated method stub
 		//update all pictures, maps and related visuals
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		//((JLabel) e.getSource()).setBackground(Color.BLACK); //I will use this to test the mouse listeners when the code works
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }
