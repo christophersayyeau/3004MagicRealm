@@ -2,20 +2,25 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.MapChits.*;
 
 public class MapTiles {
-//!!!!!!!!!!!!	
-	//Picture image;	//?should we store it here
 	
 	Clearing [] clearing;
 	
 	//overall class, will create subclasses based on tiles
 	Player playersInTile;//for know it is a single value, this will need to c\be changed
 
+	//each tile has 1 warning chit
+	YellowChit warning;
+	
 	//the inter-tile connections, set to garbage values
 	int topLeft = -1;		int topRight = -1;						
 	int left = -1;			int right = -1;							
 	int bottomLeft = -1;	int bottomRight = -1;
+	
+	
+	
 	
 	public void putPlayer(Player player1) {
 		//this only works because we have 1 character
@@ -30,8 +35,17 @@ public class MapTiles {
 		//can only handle 1 at moment
 		return playersInTile.getProfile().getType(); 
 	}
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
+//for dwellings in valley
+		//chapel has order in awfulvalley
+		//house has soldiers in curstvalley
+		//inn has rogues in badvalley
 	
-
+//lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
+//lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
+	//each one represents 5 chits determined elsewhere
+	
+	
 	//now for the individual classes
 	public class HighPass extends MapTiles {
 		//constructor
@@ -161,13 +175,6 @@ public class MapTiles {
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
 
 
-//for dwellings in valley
-		//chapel has order in awfulvalley
-		//house has soldiers in curstvalley
-		//inn has rogues in badvalley
-	
-//lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
-//lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
-//each one represents 5 secret chits
+
 
 }

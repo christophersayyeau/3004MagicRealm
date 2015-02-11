@@ -18,9 +18,10 @@ public class Game {
 		//placing of characters handled at game start
 		setUp6Visitors(); //DONT HANDLE UNTIL GAME WORKS===EXTRA
 		
+		//putting the counters will be handled in the mapTiles
+		
 		//map.populateNatives();
 		//map.populateDenizens();
-		//map.populateTreasures();
 		//map.populateETC
 	}
 
