@@ -247,7 +247,6 @@ public class GUI implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		//System.out.println(e.getSource());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
