@@ -80,7 +80,7 @@ public class Game {
 		System.out.println("SUNRISE");
 			//if it is a weekday
 			if( day%7 != 0){
-				//die determines which denizenis prowling
+				//die determines which denizen is prowling
 				map.denizensProwling();
 			
 				System.out.println( + " is Prowling today");

@@ -52,6 +52,7 @@ public class Map {
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
 		mapTiles[1].setWarning(warningsV[0]);
+		//there are ghosts, created in MapTiles.java
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
