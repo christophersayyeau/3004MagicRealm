@@ -59,6 +59,7 @@ public class MapTiles {
 		//chapel has order in awfulvalley
 		//house has soldiers in curstvalley
 		//inn has rogues in badvalley
+	//none of natives have any differences in first iteration
 	
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	

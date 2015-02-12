@@ -17,8 +17,15 @@ public class Game {
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
 		
-		System.out.println("HANDLE THE VISITORS");
-		//setUp6Visitors(); //DONT HANDLE UNTIL GAME WORKS===EXTRA
+				System.out.println("HANDLE THE VISITORS LATER");
+				//setUp6Visitors(); //DONT HANDLE UNTIL GAME WORKS===EXTRA
+				/*
+				 * Visitors are really not essential but if you have the time, we will you the following: 
+						- warlock appears with the company
+						- crone appears with the woodfolk
+						- shaman appears with the patrol
+						- scholar appears with the lancers
+				 */
 		
 		//putting the counters will be handled in the mapTiles
 		
