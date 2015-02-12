@@ -19,6 +19,10 @@ public class MapTiles {
 	private RedChit sound = null;
 	private GoldChit treasure = null;
 	
+	//lost stuff will be boolean since their values are stored in map object
+	boolean lostCastle = false;
+	boolean lostCity = false;
+	
 	//the inter-tile connections, set to garbage values
 	int topLeft = -1;		int topRight = -1;						
 	int left = -1;			int right = -1;							
@@ -54,6 +58,17 @@ public class MapTiles {
 	public void setTreasure(GoldChit s) {
 		this.treasure = s;
 	}
+	
+	//value of lost stuff in map
+	public void setLostCastle() {
+		lostCastle = true;	
+	}
+	public void setLostCity() {
+		lostCity = true;		
+	}
+	
+	
+	
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
 //for dwellings in valley
 		//chapel has order in awfulvalley
@@ -192,8 +207,6 @@ public class MapTiles {
 			bottomLeft = bl;
 		}
 	}
-
-
 
 
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going

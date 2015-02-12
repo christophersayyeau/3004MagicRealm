@@ -56,7 +56,7 @@ public class Map {
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
 		mapTiles[2].setWarning(warningsM[1]);
-		mapTiles[2].setLostCastle(lostCastle);//instead of a sound or treasure
+		mapTiles[2].setLostCastle();//instead of a sound or treasure
 		
 		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
 		mapTiles[3] = crag;
