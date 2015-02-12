@@ -125,7 +125,9 @@ public class MapTiles {
 			clearing[5].setValue(6);
 			
 			clearing[0].getConnectedTo()[0] = 6;//clearing 1 connected to 6
+		clearing[0].getConnectedTo()[1] = 22;	//clearing 1 connected to clearing 2 in tile 2
 			clearing[1].getConnectedTo()[0] = 3;//clearing 2 connected to 3
+		clearing[1].getConnectedTo()[1] = 33;	//clearing 2 connected to 3 in tile 3			
 			clearing[2].getConnectedTo()[0] = 2;//clearing 3 connected to 2
 			clearing[2].getConnectedTo()[1] = 5;//clearing 3 connected to 5
 			clearing[3].getConnectedTo()[0] = 6;//clearing 4 connected to 6
@@ -133,7 +135,8 @@ public class MapTiles {
 			clearing[5].getConnectedTo()[0] = 1;//clearing 6 connected to 1
 			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
 			
-//!!there should be connections to the clearings in other tiles
+			
+			
 			
 //			//show the clearing info
 //			for(int a=0; a<6; a++){

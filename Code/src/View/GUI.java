@@ -6,6 +6,9 @@ import java.awt.event.*;
 import javax.swing.*;
 import Model.*;
 
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SOME OF THE TILES ARE FACING THE WWRONG WAY, please compare to the picture and fix, ex darkValley in corner
+
+
 public class GUI implements MouseListener{
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
