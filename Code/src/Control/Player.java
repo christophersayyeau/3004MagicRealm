@@ -30,7 +30,7 @@ public class Player {
 		view = new GUI();	
 	}
 
-	public void doTurn() {
+	public void doTurn() {//TODO	this function
 		System.out.println("Start Turn");
 		hidden = false;
 		

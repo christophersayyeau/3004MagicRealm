@@ -77,15 +77,11 @@ public class MapTiles {
 
 
 	
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
-
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
-	//each one represents 5 chits determined elsewhere
-	
-	
+	//each one represents 5 chits determined in private class
 
-
+	
 	//now for the individual classes
 	public class HighPass extends MapTiles {
 		//constructor
@@ -98,6 +94,9 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+			
+			
+			//TODO add clearing stuff
 		}
 	}
 	
@@ -159,6 +158,9 @@ public class MapTiles {
 			System.out.println("There are 2 ghosts in the 3rd clearing");
 			//all garrison natives start the game at their dwellings and dont move unless hired
 			putGhosts();
+			
+
+			//TODO add clearing stuff
 		}
 	}
 	
@@ -174,7 +176,10 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 
-			System.out.println("There is a Guard House in the 3rd clearing");
+			//System.out.println("There is a Guard House in the 3rd clearing");//handled in Map.java
+			
+
+			//TODO add clearing stuff
 		}
 	}
 	
@@ -189,6 +194,9 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+			
+
+			//TODO add clearing stuff
 		}
 	}
 	
@@ -203,12 +211,14 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+
+			//TODO add clearing stuff
 		}
 	}
 
 
 
-//!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
+//TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
 //for dwellings in valley
 		//chapel has order in awfulvalley
 		//house has soldiers in curstvalley
