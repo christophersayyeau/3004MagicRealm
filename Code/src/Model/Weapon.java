@@ -4,6 +4,9 @@ package Model;
 //this will be the generic class
 public class Weapon {
 
+	//whether it is alert or not
+	boolean alerted = false;
+	
 	int weaponLength;
 	boolean missile = false;	//will set to false as basis
 	
@@ -158,6 +161,10 @@ public class Weapon {
 			System.out.println("THE POWER OF THE PIT COMPELS YOU");
 			System.out.println("seriously thou there isn't anything here");
 		}
+	}
+
+	public void setUnAlert() {
+		alerted = false;
 	}
 	
 }

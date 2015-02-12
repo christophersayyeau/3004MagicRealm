@@ -17,19 +17,19 @@ public class CombatChit {
 	public void setType(String string) {
 		//compare the strings to determine what it is
 		if(string.compareTo("Move") == 0){
-			System.out.println("Set to Move");
+			//System.out.println("Set to Move");
 			type = 0;		
 		}else if(string.compareTo("Fight") == 0){
-			System.out.println("Set to Fight");
+			//System.out.println("Set to Fight");
 			type = 1;
 		}else if(string.compareTo("Duck") == 0){
-			System.out.println("Set to Duck");
+			//System.out.println("Set to Duck");
 			type = 2;
 		}else if(string.compareTo("Berserk") == 0){
-			System.out.println("Set to Berserk");
+			//System.out.println("Set to Berserk");
 			type = 3;
 		}else if(string.compareTo("Magic") == 0){
-			System.out.println("Set to Magic");
+			//System.out.println("Set to Magic");
 			type = 4;
 			
 		//nothing recognized
@@ -50,16 +50,16 @@ public class CombatChit {
 	public void setStrength(String string) {
 		//compare the strings to determine what it is
 		if(string.compareTo("L") == 0){
-			System.out.println("Set to Light");
+			//System.out.println("Set to Light");
 			type = 0;		
 		}else if(string.compareTo("M") == 0){
-			System.out.println("Set to Medium");
+			//System.out.println("Set to Medium");
 			type = 1;
 		}else if(string.compareTo("H") == 0){
-			System.out.println("Set to Heavy");
+			//System.out.println("Set to Heavy");
 			type = 2;
 		}else if(string.compareTo("T") == 0){
-			System.out.println("Set to Titan");
+			//System.out.println("Set to Titan");
 			type = 3;
 			
 		//nothing recognized

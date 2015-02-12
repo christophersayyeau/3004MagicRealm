@@ -70,12 +70,7 @@ public class MapTiles {
 	
 	
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
-//for dwellings in valley
-		//chapel has order in awfulvalley
-		//house has soldiers in curstvalley
-		//inn has rogues in badvalley
-	//none of natives have any differences in first iteration
-	
+
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
 	//each one represents 5 chits determined elsewhere
@@ -136,12 +131,6 @@ public class MapTiles {
 			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
 			
 			
-			
-			
-//			//show the clearing info
-//			for(int a=0; a<6; a++){
-//				System.out.println("Clearing " + clearing[a].getValue());
-//			}
 		}
 		
 	}
@@ -213,7 +202,12 @@ public class MapTiles {
 
 
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
-
+//for dwellings in valley
+		//chapel has order in awfulvalley
+		//house has soldiers in curstvalley
+		//inn has rogues in badvalley
+	//none of natives have any differences in first iteration
+	
 
 
 

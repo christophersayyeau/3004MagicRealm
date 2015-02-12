@@ -32,7 +32,6 @@ public class Amazon extends Character{
 		ShortSword weapon1 = weapon.new ShortSword();
 		setWeapon(weapon1);
 		
-		
 		//built a temporary armor object so I have access to its subclass
 		Armor temp = new Armor();
 		

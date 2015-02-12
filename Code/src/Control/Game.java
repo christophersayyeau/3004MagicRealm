@@ -53,15 +53,15 @@ public class Game {
 		
 		
 		//For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
-						//player1.recordNumPointsWinGame();
-						/*1.1 Each player plays the part of one character in the game. He controls
-						that character’s pieces and uses that character’s character counter to
-						represent him on the map. The characters compete in accumulating “Great
-						Treasures”, FAME points, NOTORIETY points and GOLD points. Before
-						the start of play, each character records the number of points he needs in
-						each category to win the game. He gains these points by owning or selling
-						weapons, armor, horses and Treasure cards. NOTE: Other ways of earning
-						points are introduced in later ENCOUNTERS.*/
+							//player1.recordNumPointsWinGame();
+							/*1.1 Each player plays the part of one character in the game. He controls
+							that character’s pieces and uses that character’s character counter to
+							represent him on the map. The characters compete in accumulating “Great
+							Treasures”, FAME points, NOTORIETY points and GOLD points. Before
+							the start of play, each character records the number of points he needs in
+							each category to win the game. He gains these points by owning or selling
+							weapons, armor, horses and Treasure cards. NOTE: Other ways of earning
+							points are introduced in later ENCOUNTERS.*/
 		
 		//map already built so don't need to build it here, see constructor	
 		//map already populated, see constructor
@@ -123,19 +123,30 @@ public class Game {
 			/*
 			 All face up map chits (except the “LOST CITY” and “LOST
 			CASTLE” chits) turn face down. Face up Site chits are put in their clearings
-			before they turn face down. If it is the last day of the month, the game ends and
-			the players calculate their scores.
+			before they turn face down.
 			*/
 			System.out.println("Do something with map chits");
-			System.out.println("Weapons become unalerted");
-			System.out.println("active Potions need to be expired here");
-			System.out.println("Chapel removes curses");
-			System.out.println("Combat Spells expire");
-			System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
 			
+			//System.out.println("Weapons become unalerted");
+			player1.getProfile().getWeapon().setUnAlert();
+			
+			System.out.println("active Potions need to be expired here");
+				//System.out.println("Chapel removes curses");
+				//System.out.println("Combat Spells expire");
+				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
+			
+			
+			
+			
+			
+			
+			
+			//end of day
 			System.out.println("Day " + day + "is now over.");
-			day++;	//end of day
+			day++;	
 		}
+		
+		//end game and calculate score
 		System.out.println("Game is now over");
 		
 		int finalScore = player1.calculateScore();

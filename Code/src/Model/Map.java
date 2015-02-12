@@ -47,7 +47,7 @@ public class Map {
 		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
 		mapTiles[0].setWarning(warningsM[0]);
-		mapTiles[2].setTreasure(sites[4]);
+		mapTiles[0].setTreasure(sites[4]);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
