@@ -281,4 +281,10 @@ public class GUI implements MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void hideMapChits() {
+		//end of day, all map chits that can be seen are unseen
+		// TODO Auto-generated method stub
+		
+	}
 }

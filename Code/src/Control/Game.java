@@ -29,7 +29,6 @@ public class Game {
 	}
 
 	
-	
 	public void startGame(Player player1) {
 		System.out.println("STARTING THE GAME");
 			
@@ -67,7 +66,7 @@ public class Game {
 		//game lasts for 28 days(month)
 		while(day<=28){
 			//using the 3rd edition rules for the contents of a day
-			System.out.println("BIRDSONG");
+		System.out.println("BIRDSONG");
 					
 			/*
 			all of the characters secretly and simultaneously
@@ -78,46 +77,48 @@ public class Game {
 			 */
 			player1.recordTurn();
 			
-			
-			System.out.println("SUNRISE");
+		System.out.println("SUNRISE");
 			//if it is a weekday
 			if( day%7 != 0){
-				//map.populateDenizens(); not sure if supposed to create new ones or just move the curent ones
-				//map.denizensProwling();
+				//die determines which denizenis prowling
+				map.denizensProwling();
 			
-				System.out.println("Who is Prowling today?");
+				System.out.println( + " is Prowling today");
 			//after 7 days	
 			}else{
-				System.out.println("Return monsters and natives to start positions");
-				//map.returnDenizensToStart();//return monsters and ghosts to starting clearing
+				//System.out.println("Return monsters and natives to start positions");
+				map.returnDenizensToStart();//return monsters and ghosts to starting clearing
 			}
 			
-			System.out.println("DAYLIGHT");
+		player1.view.Refresh();
+			
+		System.out.println("DAYLIGHT");
 			//players go in random order
-			System.out.println("player1 is first characeer today");
+			System.out.println("player1 is first character today");
 			player1.doTurn();
+			player1.view.Refresh();	
 			
+		System.out.println("SUNSET");
+			//determine which clearings have characters
+					//FLOWERS OF REST people wake up
+					//all day spells expire
 			
-			System.out.println("SUNSET");
-			//determine wich clearings have characters
-			//FLOWERS OF REST people wake up
-			//all day spells expire
-			
-			System.out.println("EVENING");
+		System.out.println("EVENING");
 			//randomize which clearings with characters go first
 			//combat is resolved//does not apply in first iteration
 			
 			player1.rearangeBelongings();
 			player1.trade();//trade with other characters in clearing
+			player1.view.Refresh();
 			
-			System.out.println("MIDNIGHT");
-			//all map chits go face down?
+		System.out.println("MIDNIGHT");
 			/*
 			 All face up map chits (except the “LOST CITY” and “LOST
 			CASTLE” chits) turn face down. Face up Site chits are put in their clearings
 			before they turn face down.
 			*/
-			System.out.println("Do something with map chits");
+			//System.out.println("Hide Map chits");
+			player1.view.hideMapChits();
 			
 			//System.out.println("Weapons become unalerted");
 			player1.getProfile().getWeapon().setUnAlert();
@@ -126,12 +127,8 @@ public class Game {
 				//System.out.println("Chapel removes curses");
 				//System.out.println("Combat Spells expire");
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
-			
-			
-			
-			
-			
-			
+			player1.view.Refresh();
+
 			
 			//end of day
 			System.out.println("Day " + day + "is now over.");

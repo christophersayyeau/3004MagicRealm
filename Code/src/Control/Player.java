@@ -52,10 +52,10 @@ public class Player {
 		System.out.println("Turn over");//because he finished or was blocked
 		
 		System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
-		System.out.println("Summon new denizens");
-		System.out.println("Dwelling Summon new prowling natives");
-		System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
-		System.out.println("If unhidden, mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
+		System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
+		
+				//System.out.println("Dwelling Summon new prowling natives");
+				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
 		
 		System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
 		System.out.println("if not player can block monsters that appear or move to his clearing");
@@ -93,6 +93,7 @@ public class Player {
 		
 		System.out.println("User now builds his turn");	
 		view.recordTurn();
+		phasesForToday //needs to be set to the number of phases for the turn
 	}
 
 	public void rearangeBelongings() {
