@@ -60,8 +60,7 @@ public class Player {
 		System.out.println("if not player can block monsters that appear or move to his clearing");
 	}
 
-	
-	
+		
 	//handles the action recorded during birdsong and activated during daylight
 	private void doAction() {
 		// TODO Auto-generated method stub
@@ -98,6 +97,14 @@ public class Player {
 
 	public int calculateScore() {
 		// TODO Auto-generated method stub
+	
+		/*
+	For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
+
+    1 point per great treasure, 1 point per 2 learnt spells (but I repeat I think you should forget about learning spells)
+
+    1 point for each 10 points of fame, 1 point for each 20 points of notoriety, and 1 point for each 30 gold
+		*/
 		System.out.println("Now calculate score based on all those factors");
 		return -1;
 	}

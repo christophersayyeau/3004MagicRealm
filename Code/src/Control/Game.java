@@ -44,18 +44,19 @@ public class Game {
 		trading. Monsters and natives can appear on the map, but there is no
 		combat. see page 10 of 2nd edition*/
 		
-		player1.recordNumPointsWinGame();
-		/*1.1 Each player plays the part of one character in the game. He controls
-		that character’s pieces and uses that character’s character counter to
-		represent him on the map. The characters compete in accumulating “Great
-		Treasures”, FAME points, NOTORIETY points and GOLD points. Before
-		the start of play, each character records the number of points he needs in
-		each category to win the game. He gains these points by owning or selling
-		weapons, armor, horses and Treasure cards. NOTE: Other ways of earning
-		points are introduced in later ENCOUNTERS.*/
 		
-		//map already built so don't need to build it here, see constructor
+		//For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
+						//player1.recordNumPointsWinGame();
+						/*1.1 Each player plays the part of one character in the game. He controls
+						that character’s pieces and uses that character’s character counter to
+						represent him on the map. The characters compete in accumulating “Great
+						Treasures”, FAME points, NOTORIETY points and GOLD points. Before
+						the start of play, each character records the number of points he needs in
+						each category to win the game. He gains these points by owning or selling
+						weapons, armor, horses and Treasure cards. NOTE: Other ways of earning
+						points are introduced in later ENCOUNTERS.*/
 		
+		//map already built so don't need to build it here, see constructor	
 		//map already populated, see constructor
 		
 		//each turn represents a day of time

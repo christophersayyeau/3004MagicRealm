@@ -90,11 +90,11 @@ public class Map {
 		sounds[2] = temp.new RedChit("ROAR", 6);	//lost castle
 		sounds[3] = temp.new RedChit("PATTER", 2);	//lost city
 		sounds[4] = temp.new RedChit("SLITHER", 3);	//lost city
-		sounds[5] = temp.new RedChit();	//lost city
-		sounds[6] = temp.new RedChit();	//crag
-		sounds[7] = temp.new RedChit();	//highpass
-		sounds[8] = temp.new RedChit();
-		sounds[9] = temp.new RedChit();
+		sounds[5] = temp.new RedChit("HOWL", 5);	//lost city
+		sounds[6] = temp.new RedChit("FLUTTER", 2);	//crag
+		sounds[7] = temp.new RedChit("PATTER", 5);	//highpass
+		sounds[8] = temp.new RedChit("ROAR", 4);
+		sounds[9] = temp.new RedChit("SLITHER", 6);
 	}
 
 	private void buildTreasureChits() {
