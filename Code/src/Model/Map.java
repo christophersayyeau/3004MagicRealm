@@ -44,7 +44,7 @@ public class Map {
 		
 		
 		//build the tiles then add to array
-		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
+		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);	//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
 		mapTiles[0].setWarning(warningsM[0]);
 		mapTiles[0].setTreasure(sites[4]);

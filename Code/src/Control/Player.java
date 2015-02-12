@@ -42,8 +42,9 @@ public class Player {
 			
 			doAction();//playing action chits as needed
 			
-			System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
-			System.out.println("if not player can block monsters that appear or move to his clearing");			
+			//blocking handled in iteration 2
+			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
+			//System.out.println("if not player can block monsters that appear or move to his clearing");			
 		
 			phasesForToday--; //go to the next phase
 		}
@@ -51,14 +52,16 @@ public class Player {
 		
 		System.out.println("Turn over");//because he finished or was blocked
 		
+		//blocking in iteration 2
 		System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
 		System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 		
 				//System.out.println("Dwelling Summon new prowling natives");
 				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
 		
-		System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
-		System.out.println("if not player can block monsters that appear or move to his clearing");
+		//blocking in iteration 2
+		//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
+		//System.out.println("if not player can block monsters that appear or move to his clearing");
 	}
 
 		
