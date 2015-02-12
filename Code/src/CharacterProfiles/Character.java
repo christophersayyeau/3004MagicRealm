@@ -16,8 +16,9 @@ public class Character {
 	protected int currentLocation;//integer value of mapTiles
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
-	
-	int gold = 10;//players start out with 10 gold
+	int fame = 0;		//players fame value, can be negative
+	int notoriety = 0;	//players notoriety, can be negative
+	int gold = 10;//players start out with 10 gold, can't be negative
 	
 	//Trading Relationships
 	String [] allyTrading = new String[1];
@@ -70,5 +71,22 @@ public class Character {
 		currentLocation = i;
 	}
 	
-
+	
+	
+	public int getGreatTreasure() {
+		// TODO Auto-generated method stub
+		return 0;//returns the total number of great treasures not their value
+	}
+	
+	
+	
+	public int getFame() {
+		return fame;
+	}
+	public int getNotoriety() {
+		return notoriety;
+	}
+	public int getGold() {
+		return gold;
+	}
 }

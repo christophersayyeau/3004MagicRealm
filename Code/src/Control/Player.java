@@ -24,6 +24,7 @@ public class Player {
 		
 		//pick you character
 		//Character.pickCharacter();
+		//TODO later when game works better
 		
 		//create window for user, then display it
 		view = new GUI();	
@@ -61,8 +62,8 @@ public class Player {
 	}
 
 		
-	//handles the action recorded during birdsong and activated during daylight
 	private void doAction() {
+		//handles the action recorded during birdsong and activated during daylight
 		// TODO Auto-generated method stub
 		System.out.println("DO THE ACTION HERE");
 		
@@ -71,18 +72,27 @@ public class Player {
 	public int getCurrentLocation() {
 		return profile.getCurrentLocation();
 	}
-
-	public void recordNumPointsWinGame() {
-		// TODO Auto-generated method stub
-		System.out.println("Usre now picks scoring method");
-	}
-
+	
+					/*
+					 * will not be used in this iteration
+						public void recordNumPointsWinGame() {
+							System.out.println("Usre now picks scoring method");
+						}
+					*/
+	
 	public void recordTurn() {
+		/*
+		all of the characters secretly and simultaneously
+		record what they will do during their turns. When each character does his
+		turn, he must do it exactly as he recorded it.
+		He can use his turn to	move, hide, search, trade and rest.
+		When each character does his turn, he must do it exactly as he recorded it.
+		 */
 		//get 2 phases standard
 		//if not in caves get an extra 2, unless your a dwarf
 		
-		// TODO Auto-generated method stub
-		System.out.println("Usre now makes a turn");
+		System.out.println("User now builds his turn");	
+		view.recordTurn();
 	}
 
 	public void rearangeBelongings() {
@@ -96,17 +106,24 @@ public class Player {
 	}
 
 	public int calculateScore() {
-		// TODO Auto-generated method stub
-	
 		/*
-	For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
+	For the sake of specifying how the game ends in this first Iteration, 
+	we will NOT have players specify victory points but instead I am making up the following rule: 
+		the game ends after one month (28 days) and the winner is the player with the highest number of victory points 
+		(where we score victory points as per the rules):
 
     1 point per great treasure, 1 point per 2 learnt spells (but I repeat I think you should forget about learning spells)
 
     1 point for each 10 points of fame, 1 point for each 20 points of notoriety, and 1 point for each 30 gold
 		*/
-		System.out.println("Now calculate score based on all those factors");
-		return -1;
+		System.out.println("Now Calculating Score");
+		int score = 0;
+		
+		score += this.getProfile().getGreatTreasure();//1 point for each	
+		score += this.getProfile().getFame()/10;//1 point for every 10 points of fame
+		score += this.getProfile().getNotoriety()/20;//1 point for every 20 points of notoriety
+		score += this.getProfile().getGold()/30;//1 point for every 30 points of gold
+		return score;
 	}
 
 	public Character getProfile() {

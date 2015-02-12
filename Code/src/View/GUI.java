@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-import Model.*;
+//import Model.*;
 
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SOME OF THE TILES ARE FACING THE WWRONG WAY, please compare to the picture and fix, ex darkValley in corner
 
@@ -237,11 +237,7 @@ public class GUI implements MouseListener{
 		Map.add(L_bad_valley);
 	}
 	
-	public void Refresh() {
-		// TODO Auto-generated method stub
-		//update all pictures, maps and related visuals
-		
-	}
+
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -270,6 +266,18 @@ public class GUI implements MouseListener{
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void Refresh() {
+		// TODO Auto-generated method stub
+		//update all pictures, maps and related visuals
+		
+	}
+	
+	public void recordTurn() {
+		//see declaration for details
 		// TODO Auto-generated method stub
 		
 	}

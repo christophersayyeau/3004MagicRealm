@@ -16,7 +16,9 @@ public class MapTiles {
 	private YellowChit warning;
 	
 	//some tiles have sounds or treasure
+	@SuppressWarnings("unused")
 	private RedChit sound = null;
+	@SuppressWarnings("unused")
 	private GoldChit treasure = null;
 	
 	//lost stuff will be boolean since their values are stored in map object
@@ -67,7 +69,13 @@ public class MapTiles {
 		lostCity = true;		
 	}
 	
-	
+	public void setGuardHouse(int i) {
+		this.clearing[i-1].guardHouse = true;
+		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
+		//TODO putNativeGuards();
+	}
+
+
 	
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!	
 
@@ -167,8 +175,6 @@ public class MapTiles {
 			bottomLeft = bl;
 
 			System.out.println("There is a Guard House in the 3rd clearing");
-			putGuardHouse();
-			putNativeGuards();//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		}
 	}
 	
@@ -199,6 +205,7 @@ public class MapTiles {
 			bottomLeft = bl;
 		}
 	}
+
 
 
 //!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going

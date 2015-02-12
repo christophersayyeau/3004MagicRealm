@@ -5,7 +5,7 @@ public class MapChits {
 	int clearing = -1;//number value on chit tells location
 	String type;
 	
-	
+
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
 		//constructor

@@ -12,8 +12,6 @@ public class Game {
 		map = new Map();
 		map.build();
 		
-		//put the counters, monsters, etc..
-		System.out.println("Built the Map, don't forget to populate later");
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
 		
@@ -28,10 +26,6 @@ public class Game {
 				 */
 		
 		//putting the counters will be handled in the mapTiles
-		
-		//map.populateNatives();
-		//map.populateDenizens();
-		//map.populateETC
 	}
 
 	
@@ -41,7 +35,7 @@ public class Game {
 			
 		map.moveCharacters(player1, player1.getCurrentLocation());//start position
 		
-		//map.moveCharacters(player1, 1);//testing moving
+				//map.moveCharacters(player1, 1);//testing moving
 		
 		//update GUI for all players
 		player1.view.Refresh();
@@ -52,7 +46,7 @@ public class Game {
 		combat. see page 10 of 2nd edition*/
 		
 		
-		//For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
+				//For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
 							//player1.recordNumPointsWinGame();
 							/*1.1 Each player plays the part of one character in the game. He controls
 							that character’s pieces and uses that character’s character counter to
@@ -69,23 +63,21 @@ public class Game {
 		//each turn represents a day of time
 		//each day is made of 6 periods(Birdsong, Sunrise, Daylight, Sunset, Evening and Midnight)
 		int day = 1;	//will use to count how many days have passed
-		//7 days a week, 28 days a month
 		
 		//game lasts for 28 days(month)
 		while(day<=28){
 			//using the 3rd edition rules for the contents of a day
 			System.out.println("BIRDSONG");
-			
-			player1.recordTurn();
+					
 			/*
 			all of the characters secretly and simultaneously
 			record what they will do during their turns. When each character does his
 			turn, he must do it exactly as he recorded it.
-			
 			He can use his turn to	move, hide, search, trade and rest.
-
 			When each character does his turn, he must do it exactly as he recorded it.
 			 */
+			player1.recordTurn();
+			
 			
 			System.out.println("SUNRISE");
 			//if it is a weekday
@@ -97,7 +89,7 @@ public class Game {
 			//after 7 days	
 			}else{
 				System.out.println("Return monsters and natives to start positions");
-				//map.returnNatives();
+				//map.returnDenizensToStart();//return monsters and ghosts to starting clearing
 			}
 			
 			System.out.println("DAYLIGHT");

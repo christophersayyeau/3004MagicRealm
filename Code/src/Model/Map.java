@@ -43,7 +43,7 @@ public class Map {
 		lostCity.setSound(2, sounds[5]);
 		
 		
-		//first build the tiles then add to array
+		//build the tiles then add to array
 		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);//only the last 2 values have tiles there
 		mapTiles[0] = cliff;
 		mapTiles[0].setWarning(warningsM[0]);
@@ -66,6 +66,7 @@ public class Map {
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		mapTiles[4] = darkValley;
 		mapTiles[4].setWarning(warningsV[1]);
+		mapTiles[4].setGuardHouse(3);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		mapTiles[5] = highPass;
@@ -76,8 +77,10 @@ public class Map {
 		
 
 		
-//!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going	
+//!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going			
 		//get this working first then handle the rest of the tiles
+		
+		
 		System.out.println("FINISH ADDING TILES");
 	}
 
