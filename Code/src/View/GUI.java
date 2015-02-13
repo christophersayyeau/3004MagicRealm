@@ -4,53 +4,28 @@ import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-//import Model.*;
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!SOME OF THE TILES ARE FACING THE WWRONG WAY, please compare to the picture and fix, ex darkValley in corner
 
 
 public class GUI implements MouseListener{
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
-	public static JLabel L_cliff = new JLabel();
-	public static JLabel L_ledge = new JLabel();
-	public static JLabel L_crag = new JLabel();
-	public static JLabel L_evil_valley = new JLabel();
-	public static JLabel L_high_pass = new JLabel();
-	public static JLabel L_cavern = new JLabel();
-	public static JLabel L_mountain = new JLabel();
-	public static JLabel L_pine_woods = new JLabel();
-	public static JLabel L_caves = new JLabel();
-	public static JLabel L_ruins = new JLabel();
-	public static JLabel L_linden_woods = new JLabel();
-	public static JLabel L_awful_valley = new JLabel();
-	public static JLabel L_nut_woods = new JLabel();
-	public static JLabel L_curst_valley = new JLabel();
-	public static JLabel L_dark_valley = new JLabel();
-	public static JLabel L_deep_woods = new JLabel();
-	public static JLabel L_maple_woods = new JLabel();
-	public static JLabel L_oak_woods = new JLabel();
-	public static JLabel L_bad_valley = new JLabel();
-	public static JLabel L_borderland = new JLabel();
 	public JLabel[] mapTiles;
 	int tileCount;
 	
+	//set tile values
 	final int x = 125;
 	final int y = 215;
 	final int tileX = 300;
 	final int tileY = 305;
 	
-	/*Just temporary to test the map building
-	 * Work in  progress
-	 * resource files also temporary
-	 * pictures cropped 50x877x200x200
-	 */ 
-	//public static void main(String args[])
-	
 	//constructor, called in player.java
 	public GUI()
 	{
+		//allows to position tiles
+		Map.setLayout(null);
+		Map.setBackground(Color.white);
+				
 		tileCount = 0;
 		mapTiles = new JLabel[20];
 		//1st row
@@ -102,14 +77,14 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
 		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
-		
-		
-		//allows to position tiles
-		Map.setLayout(null);
-		
-		Map.setBackground(Color.white);
+	
+		startGame();
 	}
 	
+	/* Function to create mapTiles
+	 * takes in image location along with the offset of the specific tile
+	 * creates a JLabel and adds it to the map array while adding a click listener
+	 */
 	public void tileBuilder(String path, int xOffset, int yOffset){
 		ImageIcon icon = new ImageIcon(path);
 		JLabel label = new JLabel();
@@ -120,6 +95,38 @@ public class GUI implements MouseListener{
 		label.addMouseListener(this);
 		mapTiles[tileCount++] = label;
 		Map.add(label);
+	}
+	
+	/* Handles initial game setup
+	 * 
+	 */
+	public void startGame(){
+		String[] i = {"1","2","3","4","5","6"};
+		
+		JFrame dialog = new JFrame();
+		dialog.setTitle("Game Setup");
+		dialog.setSize(200, 100);
+		dialog.setLocation(450, 200);
+		dialog.setResizable(false);
+		
+		JPanel setupPanel = new JPanel();
+		
+		JLabel label = new JLabel("Enter number of Players: ");
+		
+		JComboBox listPlayers = new JComboBox(i);
+		listPlayers.setSelectedIndex(0);
+		
+		JButton button = new JButton();
+		button.setText("OK");
+		
+		setupPanel.add(label);
+		setupPanel.add(listPlayers);
+		setupPanel.add(button);
+		
+		dialog.add(setupPanel);
+		dialog.setVisible(true);
+
+		button.setActionCommand("CREATE " + listPlayers.getSelectedIndex());
 	}
 	
 
