@@ -87,7 +87,7 @@ public class Game {
 			//after 7 days	
 			}else{
 				//System.out.println("Return monsters and natives to start positions");
-				map.returnDenizensToStart();//return monsters and ghosts to starting clearing
+				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
 			}
 			
 		player1.view.Refresh();

@@ -11,7 +11,7 @@ public class Weapon {
 	boolean missile = false;	//will set to false as basis
 	
 	Harm alertedHarm;
-	//alertedHarm = new Harm(new Harm(2, 1, 4); sending this H*4
+	//alertedHarm = new Harm(2, 1, 4); sending this H*4
 	Harm unalertedHarm;
 	
 	int hands;		//how many needed for the weapon

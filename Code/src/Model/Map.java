@@ -52,7 +52,9 @@ public class Map {
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
 		mapTiles[1].setWarning(warningsV[0]);
-		//there are ghosts, created in MapTiles.java
+		//System.out.println("There are 2 ghosts in the 3rd clearing");
+		//all garrison natives start the game at their dwellings and dont move unless hired
+		mapTiles[1].putGhosts(3);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
@@ -161,7 +163,7 @@ public class Map {
 		//testing
 		//System.out.println("Current Tile" + player1.getCurrentLocation() + " Players " + mapTiles[player1.getCurrentLocation()].getPlayers());
 		//System.out.println("Current Tile 0 Players " + mapTiles[0].getPlayers());//this works puts Null errors since it works
-				
+		//TODO only moves between tiles, need to move between clearings		
 	}
 
 

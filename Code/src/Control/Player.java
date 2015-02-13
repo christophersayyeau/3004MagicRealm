@@ -96,7 +96,7 @@ public class Player {
 		
 		System.out.println("User now builds his turn");	
 		view.recordTurn();
-		phasesForToday //needs to be set to the number of phases for the turn
+		phasesForToday; //needs to be set to the number of phases for the turn
 	}
 
 	public void rearangeBelongings() {

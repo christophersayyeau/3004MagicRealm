@@ -2,6 +2,7 @@ package Model;
 
 public class Harm {
 
+	//also strength if monster value
 	int weight;		//n,L,M,H,T
 					//0,1,2,3,4
 	

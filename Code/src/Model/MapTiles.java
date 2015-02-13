@@ -157,9 +157,7 @@ public class MapTiles {
 			clearing[3].getConnectedTo()[0] = 6;//clearing 4 connected to 6
 			clearing[4].getConnectedTo()[0] = 3;//clearing 5 connected to 3
 			clearing[5].getConnectedTo()[0] = 1;//clearing 6 connected to 1
-			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
-			
-			
+			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4		
 		}
 		
 	}
@@ -177,9 +175,7 @@ public class MapTiles {
 			bottomLeft = bl;
 			
 			
-			System.out.println("There are 2 ghosts in the 3rd clearing");
-			//all garrison natives start the game at their dwellings and dont move unless hired
-			putGhosts();
+			
 			
 
 			//handle the clearings
@@ -199,6 +195,7 @@ public class MapTiles {
 			clearing[2].getConnectedTo()[1] = 2;//clearing 3 connected to 2
 		clearing[3].getConnectedTo()[0] = 32;//clearing 4 connected to 2 in tile 3
 		clearing[3].getConnectedTo()[1] = 72;//clearing 4 connected to 2 in tile 7
+				
 		}
 	}
 	
