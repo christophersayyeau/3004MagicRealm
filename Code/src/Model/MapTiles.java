@@ -11,6 +11,9 @@ public class MapTiles {
 	//overall class, will create subclasses based on tiles
 	Player playersInTile;//for know it is a single value, this will need to c\be changed
 
+	Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
+	int numMonstersInTile = 0;
+	
 	//each tile has 1 warning chit
 	private YellowChit warning;
 	
@@ -41,12 +44,22 @@ public class MapTiles {
 	}
 	
 	public void putDenizen(Denizen monster) {
-		// TODO Auto-generated method stub
-		
+		monstersInTile[numMonstersInTile] = monster;
+		numMonstersInTile++;		
 	}
 	public void removeDenizen(Denizen monster) {
-		// TODO Auto-generated method stub
-		
+		//first find the monster in the array
+		int a;
+		for(a=0; a<numMonstersInTile; a++){//num... will always be bigger than 0
+			//compare
+			System.out.println("Comparing " + monstersInTile[a] + " and " + monster);
+			if(monstersInTile[a].equals(monster)){
+				System.out.println("Match FOund");
+				break;//no need to go through rest of array
+			}		
+		}
+		monstersInTile =  ArrayUtils.remove(monstersInTile, a);
+		numMonstersInTile--;
 	}
 		
 	public String getPlayers() {

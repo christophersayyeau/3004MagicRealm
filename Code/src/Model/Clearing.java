@@ -1,10 +1,14 @@
 package Model;
 
 import Control.Player;
+import Model.ArrayUtils;
 
 public class Clearing {
 
 	Player playersInTile;//for know it is a single value, this will need to c\be changed
+	
+	Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
+	int numMonstersInClearing = 0;
 	
 	private int value = -1;
 	
@@ -36,11 +40,22 @@ public class Clearing {
 	}
 
 	public void putDenizen(Denizen monster) {
-		// TODO Auto-generated method stub
-		
+		monstersInClearing[numMonstersInClearing] = monster;
+		numMonstersInClearing++;
 	}
 	public void removeDenizen(Denizen monster) {
-		// TODO Auto-generated method stub
-		
+		//first find the monster in the array
+		int a;
+		for(a=0; a<numMonstersInClearing; a++){//num... will always be bigger than 0
+			//compare
+			System.out.println("Comparing " + monstersInClearing[a] + " and " + monster);
+			if(monstersInClearing[a].equals(monster)){
+				System.out.println("Match FOund");
+				break;//no need to go through rest of array
+			}		
+		}
+		monstersInClearing =  ArrayUtils.remove(monstersInClearing, a);
+		numMonstersInClearing--;
 	}
+
 }
