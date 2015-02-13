@@ -13,14 +13,23 @@ public class Denizen {
 	//alertedHarm = new Harm(new Harm(2, 1, 4); sending this H*4
 	Harm aggresiveCombat;//darker side of card
 	
+	int currentClearing = -1;
 	
 	//number without a letter on card
 	int regMove = -1;
 	int aggressiveMove = -1;//darker side
 	
 	
+	//some functions
+	public int getCurrentLocation() {
+		return currentClearing;
+	}
+	public void setCurrentClearing(int newLocation) {
+		currentClearing = newLocation;
+	}
 	
-	
+		
+	//now for the monsters and natives
 	public class Ghost extends Denizen {
 		public Ghost() {
 			size = 1;//medium
@@ -48,6 +57,8 @@ public class Denizen {
 			aggressiveMove = 4;
 		}
 	}
+
+
 	
 	//TODO add more when we have time, for now we can just use this as a base for everything
 }

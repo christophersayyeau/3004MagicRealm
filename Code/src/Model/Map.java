@@ -1,6 +1,7 @@
 package Model;
 
 import Control.Player;
+import Model.Denizen.Ghost;
 import Model.MapChits.*;
 import Model.MapTiles.*;
 
@@ -18,7 +19,9 @@ public class Map {
 	RedChit [] sounds = new RedChit[10];
 	
 	LostCastle lostCastle = new LostCastle();		//put in ledges
-	LostCity lostCity = new LostCity();		//put in ruins
+	LostCity lostCity = new LostCity();				//put in ruins
+	
+	Ghost [] ghosts = new Ghost[2];
 
 	public void build() {
 		//starting on top of picture 4842, left to right
@@ -52,9 +55,10 @@ public class Map {
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
 		mapTiles[1] = evilValley;
 		mapTiles[1].setWarning(warningsV[0]);
-		//System.out.println("There are 2 ghosts in the 3rd clearing");
 		//all garrison natives start the game at their dwellings and dont move unless hired
-		mapTiles[1].putGhosts(3);
+		buildGhosts();//there are 2 ghosts
+		putGhostsAtStartPositions();//put in start positions
+		//mapTiles[1].putGhosts(3);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		mapTiles[2] = ledges;
@@ -88,6 +92,23 @@ public class Map {
 	}
 
 	
+	private void buildGhosts() {
+		Denizen temp = new Denizen();
+		ghosts[0] = temp.new Ghost();
+		ghosts[1] = temp.new Ghost();
+	}
+
+	private void putGhostsAtStartPositions() {
+		//since they can't leave the tile we will add them here
+		mapTiles[2].removeDenizen(ghosts[0]);
+		mapTiles[2].putDenizen(ghosts[0]);
+		mapTiles[2].removeDenizen(ghosts[1]);
+		mapTiles[2].putDenizen(ghosts[1]);
+		
+		moveDenizen(ghosts[0], 3, 2);//second tile, 3rd clearing
+		moveDenizen(ghosts[1], 3, 2);//second tile, 3rd clearing	
+	}
+
 	private void buildSoundChits() {
 		MapChits temp = new MapChits();
 		//assign values to sounds
@@ -171,6 +192,26 @@ public class Map {
 		//add player to new tile
 		mapTiles[newTile].putPlayer(player1);
 		mapTiles[newTile].clearing[newClearing].putPlayer(player1);
+		
+		//TODO need to test running this function to see if minor changes are needed to values
+	}
+
+	
+	public void moveDenizen(Denizen monster, int newLocation, int tile) {
+		//can only move from clearing to clearing		
+		int currentClearing = monster.getCurrentLocation();
+		
+		//remove from old clearing
+		mapTiles[tile].clearing[currentClearing].removeDenizen(monster);
+		
+	
+		//change the profile value
+		monster.setCurrentClearing(newLocation);		
+		
+		
+		int newClearing = monster.getCurrentLocation();		
+		//add player to new clearing
+		mapTiles[tile].clearing[newClearing].putDenizen(monster);
 		
 		//TODO need to test running this function to see if minor changes are needed to values
 	}

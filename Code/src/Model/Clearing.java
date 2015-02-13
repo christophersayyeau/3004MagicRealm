@@ -34,4 +34,13 @@ public class Clearing {
 		//this only works because we have 1 character
 		playersInTile = null;	
 	}
+
+	public void putDenizen(Denizen monster) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void removeDenizen(Denizen monster) {
+		// TODO Auto-generated method stub
+		
+	}
 }

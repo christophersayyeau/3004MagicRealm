@@ -2,7 +2,6 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
-import Model.MapChits.RedChit;
 import Model.MapChits.*;
 
 public class MapTiles {
@@ -39,6 +38,15 @@ public class MapTiles {
 	public void removePlayer(Player player1) {
 		//this only works because we have 1 character
 		playersInTile = null;	
+	}
+	
+	public void putDenizen(Denizen monster) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void removeDenizen(Denizen monster) {
+		// TODO Auto-generated method stub
+		
 	}
 		
 	public String getPlayers() {
