@@ -18,7 +18,9 @@ public class BlackKnight extends Character{
 		setType("BlackKnight");
 		
 		//startSpot[0] = inn;		//the BlKn starts in the inn
-		currentLocation = 0;//change this later!!!
+		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
+		
+		
 		weight = 2;				//BlKn is Medium
 		
 		//trading groups

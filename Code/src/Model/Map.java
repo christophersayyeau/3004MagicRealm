@@ -151,19 +151,28 @@ public class Map {
 	}
 
 	public void moveCharacters(Player player1, int newLocation) {
-		//remove from old tile
-		mapTiles[player1.getCurrentLocation()].removePlayer(player1);
+		//location and new location will be ex: 32, tile 3 clearing 2
 		
+		int currentTile = player1.getCurrentLocation()/10;
+		int currentClearing = player1.getCurrentLocation()%10;
+		
+		//remove from old tile
+		mapTiles[currentTile].removePlayer(player1);
+		mapTiles[currentTile].clearing[currentClearing].removePlayer(player1);
+		
+	
 		//change the profile value
 		player1.setCurrentLocation(newLocation);		
 		
-		//add player to new tile
-		mapTiles[player1.getCurrentLocation()].putPlayer(player1);
 		
-		//testing
-		//System.out.println("Current Tile" + player1.getCurrentLocation() + " Players " + mapTiles[player1.getCurrentLocation()].getPlayers());
-		//System.out.println("Current Tile 0 Players " + mapTiles[0].getPlayers());//this works puts Null errors since it works
-		//TODO only moves between tiles, need to move between clearings		
+		int newTile = player1.getCurrentLocation()/10;
+		int newClearing = player1.getCurrentLocation()%10;
+		
+		//add player to new tile
+		mapTiles[newTile].putPlayer(player1);
+		mapTiles[newTile].clearing[newClearing].putPlayer(player1);
+		
+		//TODO need to test running this function to see if minor changes are needed to values
 	}
 
 

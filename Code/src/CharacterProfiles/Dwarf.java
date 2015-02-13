@@ -18,7 +18,7 @@ public class Dwarf extends Character{
 		setType("Dwarf");
 		
 		//startSpot[0] = inn;		//the Dwarf starts in the inn
-		currentLocation = 0;//change this later!!!
+		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
 		
 	//	startSpot[1] = guardhouse;
 		System.out.println("!!!!Dwarf has more options for start spots!!!!");

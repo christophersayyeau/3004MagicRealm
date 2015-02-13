@@ -13,7 +13,7 @@ public class Character {
 //	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
 //TODO !!!!!!!!!startSpot should be changed to different type once we know how board is organized
 	//this will be the startSpot at the beginning
-	protected int currentLocation;//integer value of mapTiles
+	protected int currentLocation;//integer value of mapTile/clearing
 	
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
 	int fame = 0;		//players fame value, can be negative
@@ -26,7 +26,7 @@ public class Character {
 	String [] unfriendlyTrading = new String[2];
 	String [] enemyTrading = new String[1];
 //!!!!!!!!might be able to change to type of character later
-	//TODO change to denizens once created
+	//TODO change to denizens once created in class
 	
 	//Development are the stages of the characters life, only used in the optional rules
 	protected Weapon weapon = new Weapon();		//weapon moved to individual profiles

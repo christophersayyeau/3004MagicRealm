@@ -15,7 +15,7 @@ public class Swordsman extends Character{
 		setType("Swordsman");
 		
 		//startSpot[0] = inn;		//the Swordsman starts in the inn
-		currentLocation = 0;//change this later!!!
+		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
 		
 		weight = 1;				//Swordsman is Light
 		

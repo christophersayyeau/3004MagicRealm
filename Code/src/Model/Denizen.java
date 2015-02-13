@@ -8,12 +8,18 @@ public class Denizen {
 	int fameBounty = 0;		//what it's worth to kill them
 	int notorietyBounty = 0;
 	
+	//the combat values
 	Harm regCombat;
 	//alertedHarm = new Harm(new Harm(2, 1, 4); sending this H*4
 	Harm aggresiveCombat;//darker side of card
 	
+	
+	//number without a letter on card
 	int regMove = -1;
 	int aggressiveMove = -1;//darker side
+	
+	
+	
 	
 	public class Ghost extends Denizen {
 		public Ghost() {

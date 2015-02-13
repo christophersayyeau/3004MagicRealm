@@ -72,7 +72,7 @@ public class MapTiles {
 	public void setGuardHouse(int i) {
 		this.clearing[i-1].guardHouse = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		//TODO putNativeGuards();
+		//TODO first need to create them in denizens putNativeGuards();
 	}
 
 
@@ -174,9 +174,7 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
-			
-			
-			
+		
 
 			//handle the clearings
 			clearing = new Clearing[4];
