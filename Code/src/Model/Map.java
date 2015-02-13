@@ -57,7 +57,7 @@ public class Map {
 		mapTiles[1].setWarning(warningsV[0]);
 		//all garrison natives start the game at their dwellings and dont move unless hired
 		buildGhosts();//there are 2 ghosts
-		putGhostsAtStartPositions();//put in start positions
+		resetGhosts();//put in start positions
 		//mapTiles[1].putGhosts(3);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
@@ -100,13 +100,21 @@ public class Map {
 
 	private void putGhostsAtStartPositions() {
 		//since they can't leave the tile we will add them here
-		mapTiles[2].removeDenizen(ghosts[0]);
-		mapTiles[2].putDenizen(ghosts[0]);
-		mapTiles[2].removeDenizen(ghosts[1]);
-		mapTiles[2].putDenizen(ghosts[1]);
+		mapTiles[1].putDenizen(ghosts[0]);
+		mapTiles[1].putDenizen(ghosts[1]);
+		//mapTiles[1].clearing[0].putDenizen(ghosts[0]);
+		//mapTiles[1].clearing[0].putDenizen(ghosts[1]);
+		ghosts[0].setCurrentClearing(0);
+		ghosts[1].setCurrentClearing(0);
 		
 		moveDenizen(ghosts[0], 3, 2);//second tile, 3rd clearing
 		moveDenizen(ghosts[1], 3, 2);//second tile, 3rd clearing	
+	}
+	private void resetGhosts(){
+		if(ghosts[0].equals(null)) mapTiles[1].removeDenizen(ghosts[0]);
+		if(ghosts[1].equals(null)) mapTiles[1].removeDenizen(ghosts[1]);
+		
+		putGhostsAtStartPositions();
 	}
 
 	private void buildSoundChits() {
@@ -197,23 +205,22 @@ public class Map {
 	}
 
 	
-	public void moveDenizen(Denizen monster, int newLocation, int tile) {
+	public void moveDenizen(Denizen monster, int newClearing, int tile) {
+		tile--;//so that it is at the correct location
 		//can only move from clearing to clearing		
 		int currentClearing = monster.getCurrentLocation();
-		
+	System.out.println("CurrentClearing "+tile+currentClearing+newClearing);
 		//remove from old clearing
 		mapTiles[tile].clearing[currentClearing].removeDenizen(monster);
 		
 	
 		//change the profile value
-		monster.setCurrentClearing(newLocation);		
+		monster.setCurrentClearing(newClearing);		
 		
-		
-		int newClearing = monster.getCurrentLocation();		
+			
 		//add player to new clearing
-		mapTiles[tile].clearing[newClearing].putDenizen(monster);
+		mapTiles[tile].clearing[newClearing-1].putDenizen(monster);
 		
-		//TODO need to test running this function to see if minor changes are needed to values
 	}
 
 

@@ -48,7 +48,6 @@ public class Clearing {
 		int a;
 		for(a=0; a<numMonstersInClearing; a++){//num... will always be bigger than 0
 			//compare
-			System.out.println("Comparing " + monstersInClearing[a] + " and " + monster);
 			if(monstersInClearing[a].equals(monster)){
 				System.out.println("Match FOund");
 				break;//no need to go through rest of array
