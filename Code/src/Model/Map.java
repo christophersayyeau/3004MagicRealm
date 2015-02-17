@@ -240,9 +240,9 @@ public class Map {
 	
 	
 	public void returnDenizensToStart() {
-		//return monsters and ghosts to starting clearing
+		//return monsters and ghosts to starting clearing, regenerating those that died
 		resetGhosts();
-		resetMonsters();
+		resetMonsters();//maybee add another value in denizen.java that will hold its start location
 	}
 	
 	public void denizensProwling() {//ghosts are always prowling and can be ignored
