@@ -111,8 +111,7 @@ public class Player {
 	}
 
 	public void rearangeBelongings() {
-		// TODO Auto-generated method stub
-		System.out.println("User can now fix belonging");
+		//System.out.println("User can now rearrange belonging, this is meainingless in this iteration");
 	}
 
 	public void trade() {
