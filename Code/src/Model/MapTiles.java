@@ -6,7 +6,7 @@ import Model.MapChits.*;
 
 public class MapTiles {
 	
-	Clearing [] clearing;
+	public Clearing [] clearing;
 	
 	//overall class, will create subclasses based on tiles
 	Player playersInTile;//for know it is a single value, this will need to c\be changed

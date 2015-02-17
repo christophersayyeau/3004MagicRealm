@@ -18,7 +18,7 @@ public class Character {
 	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
 	int fame = 0;		//players fame value, can be negative
 	int notoriety = 0;	//players notoriety, can be negative
-	int gold = 10;	//players start out with 10 gold, can't be negative
+	private int gold = 10;	//players start out with 10 gold, can't be negative
 	
 	//Trading Relationships
 	String [] allyTrading = new String[1];
@@ -86,5 +86,8 @@ public class Character {
 	}
 	public int getGold() {
 		return gold;
+	}
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 }

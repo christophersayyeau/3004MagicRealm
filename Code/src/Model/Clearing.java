@@ -5,7 +5,7 @@ import Model.ArrayUtils;
 
 public class Clearing {
 
-	Player playersInTile;//for know it is a single value, this will need to c\be changed
+	public Player playersInClearing;//for know it is a single value, this will need to c\be changed
 	
 	Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInClearing = 0;
@@ -15,11 +15,13 @@ public class Clearing {
 	private int [] connectedTo = new int[4];//the highest I noticed was 3
 
 	public boolean guardHouse = false;//only one clearing has guardhouse
+	public boolean chapel = false;
+	public boolean house = false;
+	public boolean inn = false;
 
 	public int getValue() {
 		return value;
 	}
-
 	public void setValue(int value) {
 		this.value = value;
 	}
@@ -28,15 +30,14 @@ public class Clearing {
 		return connectedTo;
 	}
 
-	
-	
+
 	public void putPlayer(Player player1) {
 		//this only works because we have 1 character
-		playersInTile = player1;
+		playersInClearing = player1;
 	}
 	public void removePlayer(Player player1) {
 		//this only works because we have 1 character
-		playersInTile = null;	
+		playersInClearing = null;	
 	}
 
 	public void putDenizen(Denizen monster) {

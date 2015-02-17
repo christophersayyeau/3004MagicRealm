@@ -108,7 +108,7 @@ public class Game {
 			//combat is resolved//does not apply in first iteration
 			
 			player1.rearangeBelongings();
-			player1.trade();//trade with other characters in clearing
+			player1.trade(map);//trade with other characters in clearing
 			player1.view.Refresh();
 			
 		System.out.println("MIDNIGHT");

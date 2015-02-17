@@ -39,7 +39,7 @@ public class Player {
 		//go through each phase that he recorded
 		while(phasesForToday > 0 ){
 			rearangeBelongings();
-			trade();
+			trade(map);
 			
 			doAction();//playing action chits as needed
 			
@@ -78,14 +78,11 @@ public class Player {
 		
 	private void doAction() {
 		//handles the action recorded during birdsong and activated during daylight
-		// TODO Auto-generated method stub
+		// TODO finish record action first
 		System.out.println("DO THE ACTION HERE");
 		
 	}
 
-	public int getCurrentLocation() {
-		return profile.getCurrentLocation();
-	}
 	
 					/*
 					 * will not be used in this iteration
@@ -94,7 +91,7 @@ public class Player {
 						}
 					*/
 	
-	public void recordTurn() {
+	public void recordTurn() {//TODO
 		/*
 		all of the characters secretly and simultaneously
 		record what they will do during their turns. When each character does his
@@ -107,16 +104,43 @@ public class Player {
 		
 		System.out.println("User now builds his turn");	
 		view.recordTurn();
-		phasesForToday; //needs to be set to the number of phases for the turn
+		//phasesForToday; //needs to be set to the number of phases for the turn
 	}
 
 	public void rearangeBelongings() {
 		//System.out.println("User can now rearrange belonging, this is meainingless in this iteration");
 	}
 
-	public void trade() {
-		// TODO Auto-generated method stub
-		System.out.println("User can now trade with others in clearing");
+	public void trade(Map map) {
+		// For now we assume he trades meaningless baubles and get some gold
+		
+		int currentTile = profile.getCurrentLocation()/10-1;
+		int currentClearing = profile.getCurrentLocation()%10-1;
+		
+		//first determine if there is anyone else in clearing
+		if(isThereOthersInCLearing(map, currentTile, currentClearing)){
+			//ask user if he wants to trade
+			if(view.trading()){
+				System.out.println("User traded some stuff and got 10 gold");
+				profile.setGold(profile.getGold()+10);
+			}
+		}
+	}
+
+	private boolean isThereOthersInCLearing(Map map, int currentTile, int currentClearing) {
+		//use this to determine if there are other characters in the clearing, remebere we only have a single character right now
+		// map.getMapTile(currentTile).clearing[currentClearing].playersInClearing;
+		
+		//then check if there are natives
+		if(map.getMapTile(currentTile).clearing[currentClearing].guardHouse) return true;
+		if(map.getMapTile(currentTile).clearing[currentClearing].chapel) return true;
+		if(map.getMapTile(currentTile).clearing[currentClearing].house) return true;
+		if(map.getMapTile(currentTile).clearing[currentClearing].inn) return true;
+		//guardhouse has guards in darkvalley
+		//chapel has order in awfulvalley
+		//house has soldiers in curstvalley
+		//inn has rogues in badvalley
+		return false;
 	}
 
 	public int calculateScore() {
@@ -144,6 +168,9 @@ public class Player {
 		return profile;
 	}
 
+	public int getCurrentLocation() {
+		return profile.getCurrentLocation();
+	}
 	public void setCurrentLocation(int newLocation) {
 		profile.setCurrentLocation(newLocation);
 	}

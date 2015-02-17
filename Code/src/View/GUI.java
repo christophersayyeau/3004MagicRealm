@@ -184,4 +184,10 @@ public class GUI implements MouseListener{
 		// TODO Auto-generated method stub
 		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
+
+	public boolean trading() {
+		//just ask user if they want to trade with others in clearing, see declaration
+		// TODO return true if the user wants to trade
+		return false;
+	}
 }
