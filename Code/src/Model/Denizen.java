@@ -1,7 +1,8 @@
 package Model;
 
 public class Denizen {
-
+	String name;
+	
 	int size = -1;	//can be M=1, H=2, T=3 
 	boolean armored = false;	//only Dragons,Trolls,Serpents,Vipers have it
 	
@@ -33,6 +34,8 @@ public class Denizen {
 	//now for the monsters and natives
 	public class Ghost extends Denizen {
 		public Ghost() {
+			name = "GHOST";
+			
 			size = 1;//medium
 			//fame = 0
 			notorietyBounty = 2;
@@ -50,6 +53,8 @@ public class Denizen {
 	
 	public class Wolf extends Denizen {//note there are 2 profiles for the wolf we are using the second one
 		public Wolf() {
+			name = "WOLF";
+			
 			size = 1;//medium
 			//fame = 0
 			notorietyBounty = 1;

@@ -122,8 +122,13 @@ public class Map {
 		moveDenizen(ghosts[1], 3, 2);//second tile, 3rd clearing	
 	}
 	private void resetGhosts(){
+		//can't remeber why these 2 lines are here
 		if(ghosts[0].equals(null)) getMapTiles()[1].removeDenizen(ghosts[0]);
 		if(ghosts[1].equals(null)) getMapTiles()[1].removeDenizen(ghosts[1]);
+		
+		ghosts[0] = null;
+		ghosts[1] = null;
+		buildGhosts();		
 		
 		putGhostsAtStartPositions();
 	}
@@ -232,6 +237,33 @@ public class Map {
 		//add player to new clearing
 		getMapTiles()[tile].clearing[newClearing-1].putDenizen(monster);
 		
+	}
+	public void returnDenizensToStart() {
+		//return monsters and ghosts to starting clearing
+		resetGhosts();
+		resetMonsters();
+	}
+	public void denizensProwling() {//ghosts are always prowling and can be ignored
+		//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
+		// TODO Auto-generated method stub
+		
+	}
+	public void denizensProwlingStop() {//ghosts are always prowling
+
+		//circle through all tiles
+		for(int a=0; a<20; a++){
+			//cycle thourhg all monsters
+			for(int b=0; b<mapTiles[a].numMonstersInTile; b++){
+				//is it prowling
+				if(mapTiles[a].monstersInTile[b].prowling){
+					//if it isn't a ghost
+					if(mapTiles[a].monstersInTile[b].name.compareTo("GHOST") != 0){
+						//turn off prowling
+						mapTiles[a].monstersInTile[b].prowling = false;
+					}
+				}
+			}
+		}
 	}
 
 

@@ -81,9 +81,8 @@ public class Game {
 			//if it is a weekday
 			if( day%7 != 0){
 				//die determines which denizen is prowling
-				map.denizensProwling();
+				map.denizensProwling();//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
 			
-				System.out.println( + " is Prowling today");
 			//after 7 days	
 			}else{
 				//System.out.println("Return monsters and natives to start positions");
@@ -127,6 +126,8 @@ public class Game {
 				//System.out.println("Chapel removes curses");
 				//System.out.println("Combat Spells expire");
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
+			//turn off monsters
+			map.denizensProwlingStop();//not sure if needed, couldnt hurt though
 			player1.view.Refresh();
 
 			
