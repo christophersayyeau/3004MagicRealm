@@ -219,13 +219,12 @@ public class Map {
 		
 		//TODO need to test running this function to see if minor changes are needed to values, see denizen
 	}
-
 	
 	public void moveDenizen(Denizen monster, int newClearing, int tile) {
 		tile--;//so that it is at the correct location
 		//can only move from clearing to clearing		
 		int currentClearing = monster.getCurrentLocation();
-	System.out.println("CurrentClearing "+tile+currentClearing+newClearing);
+	//System.out.println("CurrentClearing "+tile+currentClearing+newClearing);
 		//remove from old clearing
 		getMapTiles()[tile].clearing[currentClearing].removeDenizen(monster);
 		
@@ -238,16 +237,34 @@ public class Map {
 		getMapTiles()[tile].clearing[newClearing-1].putDenizen(monster);
 		
 	}
+	
+	
 	public void returnDenizensToStart() {
 		//return monsters and ghosts to starting clearing
 		resetGhosts();
 		resetMonsters();
 	}
+	
 	public void denizensProwling() {//ghosts are always prowling and can be ignored
 		//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
-		// TODO Auto-generated method stub
+		
+		//circle through all tiles
+		for(int a=0; a<20; a++){
+			//cycle thourhg all monsters
+			for(int b=0; b<mapTiles[a].numMonstersInTile; b++){
+				//if it isn't a ghost
+				if(mapTiles[a].monstersInTile[b].name.compareTo("GHOST") != 0){
+					
+					//determine if it will be prowling
+					if(Die.dieRoll() == 6)
+						mapTiles[a].monstersInTile[b].prowling = true;//turn on prowling
+				}
+				
+			}
+		}
 		
 	}
+	
 	public void denizensProwlingStop() {//ghosts are always prowling
 
 		//circle through all tiles
