@@ -95,7 +95,7 @@ public class Game {
 		System.out.println("DAYLIGHT");
 			//players go in random order
 			System.out.println("player1 is first character today");
-			player1.doTurn();
+			player1.doTurn(map);
 			player1.view.Refresh();	
 			
 		System.out.println("SUNSET");

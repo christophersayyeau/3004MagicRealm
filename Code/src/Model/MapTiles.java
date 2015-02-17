@@ -11,7 +11,7 @@ public class MapTiles {
 	//overall class, will create subclasses based on tiles
 	Player playersInTile;//for know it is a single value, this will need to c\be changed
 
-	Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
+	public Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInTile = 0;
 	
 	//each tile has 1 warning chit

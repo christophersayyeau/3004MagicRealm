@@ -1,6 +1,7 @@
 
 package Control;
 
+import Model.Map;
 import View.GUI;
 import CharacterProfiles.*;
 import CharacterProfiles.Character;
@@ -30,7 +31,7 @@ public class Player {
 		view = new GUI();	
 	}
 
-	public void doTurn() {//TODO	this function
+	public void doTurn(Map map) {
 		System.out.println("Start Turn");
 		hidden = false;
 		
@@ -53,9 +54,19 @@ public class Player {
 		System.out.println("Turn over");//because he finished or was blocked
 		
 		//blocking in iteration 2
-		System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
-		System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
+		//System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
+		int currentTileNum = (this.profile.getCurrentLocation()/10)-1;
+		//cycle the monsters in a tile
+		for(int a = 0; a< map.getMapTile(currentTileNum).monstersInTile.length; a++){
+			//check to see if prowling
+			if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
+				//move to the new clearing
+				map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], this.profile.getCurrentLocation()%10-1, currentTileNum);
+			}
+		}
 		
+		view.revealMapChits(profile.getCurrentLocation()/10-1);//now reveal and replace chits
+				
 				//System.out.println("Dwelling Summon new prowling natives");
 				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
 		

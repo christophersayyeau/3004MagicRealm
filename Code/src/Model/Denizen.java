@@ -19,6 +19,7 @@ public class Denizen {
 	int regMove = -1;
 	int aggressiveMove = -1;//darker side
 	
+	public boolean prowling = false;
 	
 	//some functions
 	public int getCurrentLocation() {
@@ -41,6 +42,9 @@ public class Denizen {
 			
 			aggresiveCombat = new Harm(1, 0, 2);//L2
 			aggressiveMove = 2;
+			
+			//always prowling
+			prowling = true;
 		}
 	}
 	
@@ -59,6 +63,6 @@ public class Denizen {
 	}
 
 
-	
+	//native garrisons are never prowling
 	//TODO add more when we have time, for now we can just use this as a base for everything
 }

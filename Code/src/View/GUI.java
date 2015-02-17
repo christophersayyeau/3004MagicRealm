@@ -168,7 +168,7 @@ public class GUI implements MouseListener{
 	}
 	
 	public void recordTurn() {
-		//see declaration for details
+		//see declaration for details and the return value stuff
 		// TODO Auto-generated method stub
 		
 	}
@@ -177,5 +177,11 @@ public class GUI implements MouseListener{
 		//end of day, all map chits that can be seen are unseen
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void revealMapChits(int i) {
+		//caled at end of player turn
+		// TODO Auto-generated method stub
+		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
 }

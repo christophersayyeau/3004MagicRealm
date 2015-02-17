@@ -9,7 +9,7 @@ import Model.MapTiles.*;
 public class Map {
 
 	//an array of tiles, the values will be hardcoded in
-	MapTiles [] mapTiles = new MapTiles[20];
+	private MapTiles [] mapTiles = new MapTiles[20];
 	YellowChit [] warningsV = new YellowChit[5];
 	YellowChit [] warningsW = new YellowChit[5];
 	YellowChit [] warningsC = new YellowChit[5];
@@ -22,6 +22,17 @@ public class Map {
 	LostCity lostCity = new LostCity();				//put in ruins
 	
 	Ghost [] ghosts = new Ghost[2];
+
+	public MapTiles [] getMapTiles() {
+		return mapTiles;
+	}
+	public MapTiles getMapTile(int a) {
+		return mapTiles[a];
+	}
+	public void setMapTiles(MapTiles [] mapTiles) {
+		this.mapTiles = mapTiles;
+	}
+
 
 	public void build() {
 		//starting on top of picture 4842, left to right
@@ -48,37 +59,37 @@ public class Map {
 		
 		//build the tiles then add to array
 		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);	//only the last 2 values have tiles there
-		mapTiles[0] = cliff;
-		mapTiles[0].setWarning(warningsM[0]);
-		mapTiles[0].setTreasure(sites[4]);
+		getMapTiles()[0] = cliff;
+		getMapTiles()[0].setWarning(warningsM[0]);
+		getMapTiles()[0].setTreasure(sites[4]);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
-		mapTiles[1] = evilValley;
-		mapTiles[1].setWarning(warningsV[0]);
+		getMapTiles()[1] = evilValley;
+		getMapTiles()[1].setWarning(warningsV[0]);
 		//all garrison natives start the game at their dwellings and dont move unless hired
 		buildGhosts();//there are 2 ghosts
 		resetGhosts();//put in start positions
 		//mapTiles[1].putGhosts(3);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
-		mapTiles[2] = ledges;
-		mapTiles[2].setWarning(warningsM[1]);
-		mapTiles[2].setLostCastle();//instead of a sound or treasure
+		getMapTiles()[2] = ledges;
+		getMapTiles()[2].setWarning(warningsM[1]);
+		getMapTiles()[2].setLostCastle();//instead of a sound or treasure
 		
 		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
-		mapTiles[3] = crag;
-		mapTiles[3].setWarning(warningsM[2]);
-		mapTiles[3].setSound(sounds[6]);
+		getMapTiles()[3] = crag;
+		getMapTiles()[3].setWarning(warningsM[2]);
+		getMapTiles()[3].setSound(sounds[6]);
 		
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
-		mapTiles[4] = darkValley;
-		mapTiles[4].setWarning(warningsV[1]);
-		mapTiles[4].setGuardHouse(3);
+		getMapTiles()[4] = darkValley;
+		getMapTiles()[4].setWarning(warningsV[1]);
+		getMapTiles()[4].setGuardHouse(3);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
-		mapTiles[5] = highPass;
-		mapTiles[5].setWarning(warningsC[0]);
-		mapTiles[5].setSound(sounds[7]);
+		getMapTiles()[5] = highPass;
+		getMapTiles()[5].setWarning(warningsC[0]);
+		getMapTiles()[5].setSound(sounds[7]);
 		
 		
 		
@@ -100,8 +111,8 @@ public class Map {
 
 	private void putGhostsAtStartPositions() {
 		//since they can't leave the tile we will add them here
-		mapTiles[1].putDenizen(ghosts[0]);
-		mapTiles[1].putDenizen(ghosts[1]);
+		getMapTiles()[1].putDenizen(ghosts[0]);
+		getMapTiles()[1].putDenizen(ghosts[1]);
 		//mapTiles[1].clearing[0].putDenizen(ghosts[0]);
 		//mapTiles[1].clearing[0].putDenizen(ghosts[1]);
 		ghosts[0].setCurrentClearing(0);
@@ -111,8 +122,8 @@ public class Map {
 		moveDenizen(ghosts[1], 3, 2);//second tile, 3rd clearing	
 	}
 	private void resetGhosts(){
-		if(ghosts[0].equals(null)) mapTiles[1].removeDenizen(ghosts[0]);
-		if(ghosts[1].equals(null)) mapTiles[1].removeDenizen(ghosts[1]);
+		if(ghosts[0].equals(null)) getMapTiles()[1].removeDenizen(ghosts[0]);
+		if(ghosts[1].equals(null)) getMapTiles()[1].removeDenizen(ghosts[1]);
 		
 		putGhostsAtStartPositions();
 	}
@@ -162,8 +173,8 @@ public class Map {
 		warningsW[0] = temp.new YellowChit("BONES");
 		warningsW[1] = temp.new YellowChit("DANK");
 		warningsW[2] = temp.new YellowChit("RUINS");
-		warningsW[3] = temp.new YellowChit("SMOKE");
-		warningsW[4] = temp.new YellowChit("STINK");
+		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire
+		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire
 	//these are the C type	
 		warningsC[0] = temp.new YellowChit("BONES");	//highpass
 		warningsC[1] = temp.new YellowChit("DANK");
@@ -186,8 +197,8 @@ public class Map {
 		int currentClearing = player1.getCurrentLocation()%10;
 		
 		//remove from old tile
-		mapTiles[currentTile].removePlayer(player1);
-		mapTiles[currentTile].clearing[currentClearing].removePlayer(player1);
+		getMapTiles()[currentTile].removePlayer(player1);
+		getMapTiles()[currentTile].clearing[currentClearing].removePlayer(player1);
 		
 	
 		//change the profile value
@@ -198,10 +209,10 @@ public class Map {
 		int newClearing = player1.getCurrentLocation()%10;
 		
 		//add player to new tile
-		mapTiles[newTile].putPlayer(player1);
-		mapTiles[newTile].clearing[newClearing].putPlayer(player1);
+		getMapTiles()[newTile].putPlayer(player1);
+		getMapTiles()[newTile].clearing[newClearing].putPlayer(player1);
 		
-		//TODO need to test running this function to see if minor changes are needed to values
+		//TODO need to test running this function to see if minor changes are needed to values, see denizen
 	}
 
 	
@@ -211,7 +222,7 @@ public class Map {
 		int currentClearing = monster.getCurrentLocation();
 	System.out.println("CurrentClearing "+tile+currentClearing+newClearing);
 		//remove from old clearing
-		mapTiles[tile].clearing[currentClearing].removeDenizen(monster);
+		getMapTiles()[tile].clearing[currentClearing].removeDenizen(monster);
 		
 	
 		//change the profile value
@@ -219,7 +230,7 @@ public class Map {
 		
 			
 		//add player to new clearing
-		mapTiles[tile].clearing[newClearing-1].putDenizen(monster);
+		getMapTiles()[tile].clearing[newClearing-1].putDenizen(monster);
 		
 	}
 
