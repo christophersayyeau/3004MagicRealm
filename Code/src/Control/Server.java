@@ -10,7 +10,7 @@ public class Server {
 		Player player1 = new Player();
 				
 		game = new Game();		
-		game.startGame(player1);
+		//game.startGame(player1);
 	}
 	
 }

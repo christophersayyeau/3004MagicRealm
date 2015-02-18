@@ -77,8 +77,6 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
 		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
-	
-		startGame();
 	}
 	
 	/* Function to create mapTiles

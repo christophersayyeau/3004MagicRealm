@@ -1,16 +1,31 @@
 package Control;
 
 import Model.Map;
+import View.*;
 
 public class Game {
-
+	
+	//need these for hotseat play
+	GUI view;
+	ServerGUI sgui;
+	public int numOfPlayers;
+	
 	Map map;
+	
 		
 	//constructor
 	Game(){
+		numOfPlayers = 0;
 		//build the map
 		map = new Map();
 		map.build();
+		
+		//get number of players + set gui
+		view = new GUI();
+		sgui = new ServerGUI(this);
+		sgui.getPlayers();
+		System.out.println(numOfPlayers);
+		
 		
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
