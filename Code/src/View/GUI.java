@@ -56,8 +56,6 @@ public class GUI implements MouseListener{
 		tileBuilder("res/tiles/pine_woods.png", 3, 5);
 		tileBuilder("res/tiles/linden_woods.png", 7, 5);
 		
-		
-		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		
 		MainWindow.setBackground(Color.LIGHT_GRAY);
@@ -95,38 +93,12 @@ public class GUI implements MouseListener{
 		Map.add(label);
 	}
 	
-	/* Handles initial game setup
+	/* Allows player selection
 	 * 
 	 */
-	public void startGame(){
-		String[] i = {"1","2","3","4","5","6"};
+	public void createPlayer(){
 		
-		JFrame dialog = new JFrame();
-		dialog.setTitle("Game Setup");
-		dialog.setSize(200, 100);
-		dialog.setLocation(450, 200);
-		dialog.setResizable(false);
-		
-		JPanel setupPanel = new JPanel();
-		
-		JLabel label = new JLabel("Enter number of Players: ");
-		
-		JComboBox listPlayers = new JComboBox(i);
-		listPlayers.setSelectedIndex(0);
-		
-		JButton button = new JButton();
-		button.setText("OK");
-		
-		setupPanel.add(label);
-		setupPanel.add(listPlayers);
-		setupPanel.add(button);
-		
-		dialog.add(setupPanel);
-		dialog.setVisible(true);
-
-		button.setActionCommand("CREATE " + listPlayers.getSelectedIndex());
 	}
-	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

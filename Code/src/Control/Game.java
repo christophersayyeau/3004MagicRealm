@@ -8,6 +8,7 @@ public class Game {
 	//need these for hotseat play
 	GUI view;
 	ServerGUI sgui;
+	public boolean gotNumPlayers;
 	public int numOfPlayers;
 	
 	Map map;
@@ -15,6 +16,7 @@ public class Game {
 		
 	//constructor
 	Game(){
+		gotNumPlayers = false;
 		numOfPlayers = 0;
 		//build the map
 		map = new Map();
@@ -23,7 +25,6 @@ public class Game {
 		//get number of players + set gui
 		view = new GUI();
 		sgui = new ServerGUI(this);
-		System.out.println(numOfPlayers);
 		
 		
 		//population for dwellings and ghosts handled in each valley's constructor
@@ -51,7 +52,7 @@ public class Game {
 				//map.moveCharacters(player1, 1);//testing moving
 		
 		//update GUI for all players
-		player1.view.Refresh();
+		//player1.view.Refresh();		commented out view references
 		
 		System.out.println("Starting FIRST ENCOUNTER: TREASURE HUNT");
 		/*The FIRST ENCOUNTER introduces moving, hiding, searching and
@@ -103,13 +104,13 @@ public class Game {
 				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
 			}
 			
-		player1.view.Refresh();
+		//player1.view.Refresh();		commented out view references
 			
 		System.out.println("DAYLIGHT");
 			//players go in random order
 			System.out.println("player1 is first character today");
 			player1.doTurn(map);
-			player1.view.Refresh();	
+			//player1.view.Refresh();		commented out view references
 			
 		System.out.println("SUNSET");
 			//determine which clearings have characters
@@ -122,7 +123,7 @@ public class Game {
 			
 			player1.rearangeBelongings();
 			player1.trade(map);//trade with other characters in clearing
-			player1.view.Refresh();
+			//player1.view.Refresh();		commented out view references
 			
 		System.out.println("MIDNIGHT");
 			/*
@@ -131,7 +132,7 @@ public class Game {
 			before they turn face down.
 			*/
 			//System.out.println("Hide Map chits");
-			player1.view.hideMapChits();
+			//player1.view.hideMapChits();		commented out view references
 			
 			//System.out.println("Weapons become unalerted");
 			player1.getProfile().getWeapon().setUnAlert();
@@ -142,7 +143,7 @@ public class Game {
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
 			//turn off monsters
 			map.denizensProwlingStop();//not sure if needed, couldnt hurt though
-			player1.view.Refresh();
+			//player1.view.Refresh();		commented out view references
 
 			
 			//end of day
@@ -155,5 +156,15 @@ public class Game {
 		
 		int finalScore = player1.calculateScore();
 		System.out.println("Player 1 got " + finalScore);
+	}
+	
+	/*Create players for hotseat
+	 */
+	public void createPlayers(){
+		while(!gotNumPlayers){}
+		
+		for(int i = 0; i < numOfPlayers; ++i){
+			System.out.println("Player " + (i+1));	//testing
+		}
 	}
 }

@@ -2,10 +2,8 @@ package View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
-import Control.*;
+import Control.Game;
 
 public class ServerGUI {
 	Game game;
@@ -50,6 +48,7 @@ public class ServerGUI {
 	
 	public void OK(int i) {
 		game.numOfPlayers = i;
+		game.gotNumPlayers = true;
 		System.out.println(i);
 		dialog.dispose();
 	}
