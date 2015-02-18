@@ -2,6 +2,8 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.event.ActionListener;
+
 
 import javax.swing.*;
 
@@ -12,6 +14,8 @@ public class GUI implements MouseListener{
 	public static JScrollPane scrollPane = new JScrollPane(Map);
 	public JLabel[] mapTiles;
 	int tileCount;
+	
+	public static JPanel Players = new JPanel();
 	
 	//set tile values
 	final int x = 125;
@@ -75,6 +79,22 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
 		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
+		
+		//Use a different layout later if needed, using this for testing
+		Players.setLayout(new BorderLayout()); 
+		JButton b1 = new JButton("Create");
+		Players.add(b1,BorderLayout.SOUTH);
+		b1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the create character function");
+			}
+		});
+		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
+		Players.setBackground(Color.white);
+		MainWindow.getContentPane().add(Players);
+		Players.setLocation(0,0);
+		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
+		
 	}
 	
 	/* Function to create mapTiles
