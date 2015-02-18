@@ -49,8 +49,8 @@ public class ServerGUI {
 	public void OK(int i) {
 		game.numOfPlayers = i;
 		game.gotNumPlayers = true;
-		System.out.println(i);
 		dialog.dispose();
+		System.out.println(i);
 	}
 
 }

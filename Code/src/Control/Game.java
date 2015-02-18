@@ -8,8 +8,12 @@ public class Game {
 	//need these for hotseat play
 	GUI view;
 	ServerGUI sgui;
+	
+	//player related
+	Player players[];
 	public boolean gotNumPlayers;
 	public int numOfPlayers;
+	public boolean gotCharacter;
 	
 	Map map;
 	
@@ -23,7 +27,7 @@ public class Game {
 		map.build();
 		
 		//get number of players + set gui
-		view = new GUI();
+		view = new GUI(this);
 		sgui = new ServerGUI(this);
 		
 		
@@ -163,8 +167,15 @@ public class Game {
 	public void createPlayers(){
 		while(!gotNumPlayers){}
 		
+		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
-			System.out.println("Player " + (i+1));	//testing
+			
+			gotCharacter = false;
+			String s = view.createPlayer();
+			players[i] = new Player(s);
+			
+			//while(!gotCharacter){}
+			//System.out.println("Player " + (i+1));	//testing
 		}
 	}
 }

@@ -2,13 +2,16 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.event.ActionListener;
-
 
 import javax.swing.*;
 
+import Control.Game;
+
 
 public class GUI implements MouseListener{
+	
+	Game game;
+	
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
@@ -24,7 +27,7 @@ public class GUI implements MouseListener{
 	final int tileY = 305;
 	
 	//constructor, called in player.java
-	public GUI()
+	public GUI(Game g)
 	{
 		//allows to position tiles
 		Map.setLayout(null);
@@ -82,14 +85,14 @@ public class GUI implements MouseListener{
 		
 		//Use a different layout later if needed, using this for testing
 		Players.setLayout(new BorderLayout()); 
-		JButton b1 = new JButton("Create");
-		Players.add(b1,BorderLayout.SOUTH);
-		b1.addActionListener(new ActionListener(){
+		//JButton b1 = new JButton("Create");
+		//Players.add(b1,BorderLayout.SOUTH);
+		/*b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the create character function");
 				createPlayer();
 			}
-		});
+		});*/
 		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
 		Players.setBackground(Color.white);
 		MainWindow.getContentPane().add(Players);
@@ -117,7 +120,7 @@ public class GUI implements MouseListener{
 	/* Allows player selection
 	 * 
 	 */
-	public void createPlayer(){
+	public String createPlayer(){
 		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		Object s = JOptionPane.showInputDialog(
 				Players,
@@ -128,6 +131,8 @@ public class GUI implements MouseListener{
 				possibilities,
 				"Amazon");
 		System.out.println("You have chosen to be a: " + s);
+		//game.gotCharacter = true;
+		return (String)s;
 		
 		
 	}

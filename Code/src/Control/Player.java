@@ -31,6 +31,31 @@ public class Player {
 		//create window for user, then display it
 		//view = new GUI();	
 	}
+	
+	//constructor for choosing type
+	public Player(String s){
+		if(s == "Amazon"){
+			profile = new Amazon();
+		}
+		else if(s == "Black Knight"){
+			profile = new BlackKnight();
+		}
+		else if(s == "Captain"){
+			profile = new Captain();
+		}
+		else if(s == "Dwarf"){
+			profile = new Dwarf();
+		}
+		else if(s == "Elf"){
+			profile = new Elf();
+		}
+		else if(s == "Swordsman"){
+			profile = new Swordsman();
+		}
+		
+		System.out.println("Built a " + profile.getType() + " Player");
+		System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
+	}
 
 	public void doTurn(Map map) {
 		System.out.println("Start Turn");
