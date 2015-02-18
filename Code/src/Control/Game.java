@@ -23,7 +23,6 @@ public class Game {
 		//get number of players + set gui
 		view = new GUI();
 		sgui = new ServerGUI(this);
-		sgui.getPlayers();
 		System.out.println(numOfPlayers);
 		
 		

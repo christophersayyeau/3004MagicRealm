@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -12,9 +13,7 @@ public class ServerGUI {
 	
 	public ServerGUI(Game g){
 		game = g;
-	}
-	
-	public void getPlayers(){
+		
 		String[] i = {"1","2","3","4","5","6"};
 		
 		dialog = new JFrame();
@@ -27,7 +26,7 @@ public class ServerGUI {
 		
 		JLabel label = new JLabel("Enter number of Players: ");
 		
-		JComboBox listPlayers = new JComboBox(i);
+		final JComboBox listPlayers = new JComboBox(i);
 		listPlayers.setSelectedIndex(0);
 		
 		JButton button = new JButton();
@@ -40,12 +39,18 @@ public class ServerGUI {
 		dialog.add(setupPanel);
 		dialog.setVisible(true);
 
-		button.setActionCommand("" + listPlayers.getSelectedIndex());
+		button.addActionListener(
+				new ActionListener()
+				{
+					public void actionPerformed(ActionEvent evt)
+					{ OK(listPlayers.getSelectedIndex() + 1); }
+				}
+		);
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		game.numOfPlayers = Integer.valueOf(e.getActionCommand());
-		System.out.println(e.getActionCommand());
+	public void OK(int i) {
+		game.numOfPlayers = i;
+		System.out.println(i);
 		dialog.dispose();
 	}
 
