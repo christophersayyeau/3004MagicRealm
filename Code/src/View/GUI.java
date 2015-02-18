@@ -87,6 +87,7 @@ public class GUI implements MouseListener{
 		b1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the create character function");
+				createPlayer();
 			}
 		});
 		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
@@ -117,6 +118,17 @@ public class GUI implements MouseListener{
 	 * 
 	 */
 	public void createPlayer(){
+		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
+		Object s = JOptionPane.showInputDialog(
+				Players,
+				"Which character would you like to be?\n",
+				"Choose your character",
+				JOptionPane.PLAIN_MESSAGE,
+				null,
+				possibilities,
+				"Amazon");
+		System.out.println("You have chosen to be a: " + s);
+		
 		
 	}
 
