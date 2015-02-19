@@ -222,7 +222,6 @@ public class Map {
 		getMapTiles()[newTile].putPlayer(player1);
 		getMapTiles()[newTile].clearing[newClearing].putPlayer(player1);
 		
-		//TODO need to test running this function to see if minor changes are needed to values, see denizen
 	}
 	
 	public void moveDenizen(Denizen monster, int newClearing, int tile) {

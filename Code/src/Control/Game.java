@@ -53,8 +53,7 @@ public class Game {
 			
 		map.moveCharacters(player1, player1.getCurrentLocation());//start position
 		
-				//map.moveCharacters(player1, 1);//testing moving
-		
+
 		//update GUI for all players
 		//player1.view.Refresh();		commented out view references
 		
