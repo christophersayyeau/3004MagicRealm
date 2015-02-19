@@ -10,16 +10,13 @@ public class Game {
 	
 	//player related
 	Player players[];
-	public boolean gotNumPlayers;
 	public int numOfPlayers;
-	public boolean gotCharacter;
 	
 	Map map;
 	
 		
 	//constructor
 	Game(){
-		gotNumPlayers = false;
 		numOfPlayers = 0;
 		//build the map
 		map = new Map();
@@ -209,17 +206,10 @@ public class Game {
 	/*Create players for hotseat
 	 */
 	public void createPlayers(){
-		//while(!gotNumPlayers){}
-		
 		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
-			
-			//gotCharacter = false;
 			String s = view.createPlayer();
 			players[i] = new Player(s);
-			
-			//while(!gotCharacter){}
-			//System.out.println("Player " + (i+1));	//testing
 		}
 	}
 }
