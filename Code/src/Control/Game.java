@@ -7,7 +7,6 @@ public class Game {
 	
 	//need these for hotseat play
 	GUI view;
-	ServerGUI sgui;
 	
 	//player related
 	Player players[];
@@ -29,7 +28,6 @@ public class Game {
 		//get number of players + set gui
 		view = new GUI(this);
 		numOfPlayers = view.numOfPlayers();
-		//sgui = new ServerGUI(this);
 		
 		
 		//population for dwellings and ghosts handled in each valley's constructor
