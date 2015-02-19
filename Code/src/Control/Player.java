@@ -2,7 +2,7 @@
 package Control;
 
 import Model.Map;
-import View.GUI;
+//import View.GUI;
 import CharacterProfiles.*;
 import CharacterProfiles.Character;
 

@@ -15,6 +15,7 @@ public class Denizen {
 	Harm aggresiveCombat;//darker side of card
 	
 	int currentClearing = -1;
+	int startClearing = -1;
 	
 	//number without a letter on card
 	int regMove = -1;
@@ -28,6 +29,12 @@ public class Denizen {
 	}
 	public void setCurrentClearing(int newLocation) {
 		currentClearing = newLocation;
+	}
+	public int getStartLocation() {
+		return startClearing;
+	}
+	public void setStartClearing(int newLocation) {
+		startClearing = newLocation;
 	}
 	
 		

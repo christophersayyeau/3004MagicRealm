@@ -107,6 +107,10 @@ public class Map {
 		Denizen temp = new Denizen();
 		ghosts[0] = temp.new Ghost();
 		ghosts[1] = temp.new Ghost();
+		
+		//set to their start clearing
+		ghosts[0].setStartClearing(0);
+		ghosts[1].setStartClearing(0);
 	}
 
 	private void putGhostsAtStartPositions() {
@@ -242,7 +246,20 @@ public class Map {
 	public void returnDenizensToStart() {
 		//return monsters and ghosts to starting clearing, regenerating those that died
 		resetGhosts();
-		resetMonsters();//maybee add another value in denizen.java that will hold its start location
+		resetMonsters();
+	}
+	
+	private void resetMonsters() {
+
+		//circle through all tiles
+		for(int a=0; a<20; a++){
+			//cycle thourhg all monsters in tile
+			for(int b=0; b<mapTiles[a].numMonstersInTile; b++){
+				//just move the denizen to his start location
+				moveDenizen(mapTiles[a].monstersInTile[b], mapTiles[a].monstersInTile[b].getStartLocation(), a);			
+				
+			}
+		}
 	}
 	
 	public void denizensProwling() {//ghosts are always prowling and can be ignored

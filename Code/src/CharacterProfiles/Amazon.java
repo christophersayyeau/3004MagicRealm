@@ -19,7 +19,7 @@ public class Amazon extends Character{
 		
 		//startSpot[0] = inn;		//the Amazon starts in the inn
 		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
-		
+	//TODO in all profiles, switch to correct location	
 		
 		weight = 2;				//Amazon is Medium
 		
