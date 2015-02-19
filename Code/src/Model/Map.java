@@ -101,14 +101,25 @@ public class Map {
 		getMapTiles()[7] = oakWoods;
 		getMapTiles()[7].setWarning(warningsW[0]);
 				
-		DeepWoods deepWoods = temp.new DeepWoods();
+		DeepWoods deepWoods = temp.new DeepWoods(7, 3, 4, 9, 13, 12);
 		getMapTiles()[8] = deepWoods;
 		getMapTiles()[8].setWarning(warningsW[1]);
 		
-		CurstValley curstValley = temp.new CurstValley();
+		CurstValley curstValley = temp.new CurstValley(8, 4, -1, -1, -1, 13);
 		getMapTiles()[9] = curstValley;
 		getMapTiles()[9].setWarning(warningsV[2]);
 		getMapTiles()[9].setHouse(3, (CurstValley) getMapTiles()[9]);
+		
+		Cavern cavern = temp.new Cavern(-1, 5, 6, 11, 14, -1);
+		getMapTiles()[10] = cavern;
+		getMapTiles()[10].setWarning(warningsC[2]);
+		getMapTiles()[10].setTreasure(sites[5]);
+		
+		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 13, 14);
+		getMapTiles()[11] = badValley;
+		getMapTiles()[11].setWarning(warningsV[3]);
+		getMapTiles()[11].setInn(3, (BadValley) getMapTiles()[11]);
+		
 		
 		
 //TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going			
@@ -177,7 +188,7 @@ public class Map {
 		sites[2] = temp.new GoldChit("ALTAR", 1);	//lost city
 		sites[3] = temp.new GoldChit("LAIR", 3);	//lost city
 		sites[4] = temp.new GoldChit("VAULT", 3);	//cliff
-		sites[5] = temp.new GoldChit("CAIRNS", 5);	
+		sites[5] = temp.new GoldChit("CAIRNS", 5);	//cavern
 		sites[6] = temp.new GoldChit("POOL", 6);
 		sites[7] = temp.new GoldChit("SHRINE", 4);
 		
@@ -192,7 +203,7 @@ public class Map {
 		warningsV[0] = temp.new YellowChit("BONES");	//evilvalley
 		warningsV[1] = temp.new YellowChit("DANK");		//darkvalley
 		warningsV[2] = temp.new YellowChit("RUINS");	//curstValley
-		warningsV[3] = temp.new YellowChit("SMOKE");
+		warningsV[3] = temp.new YellowChit("SMOKE");	//badvalley
 		warningsV[4] = temp.new YellowChit("STINK");
 	//these are the W type	
 		warningsW[0] = temp.new YellowChit("BONES");	//oakWoods
@@ -203,7 +214,7 @@ public class Map {
 	//these are the C type	
 		warningsC[0] = temp.new YellowChit("BONES");	//highpass
 		warningsC[1] = temp.new YellowChit("DANK");		//borderland
-		warningsC[2] = temp.new YellowChit("RUINS");
+		warningsC[2] = temp.new YellowChit("RUINS");	//cavern
 		warningsC[3] = temp.new YellowChit("SMOKE");
 		warningsC[4] = temp.new YellowChit("STINK");
 	//these are the M type		

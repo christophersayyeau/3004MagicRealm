@@ -352,13 +352,38 @@ public class MapTiles {
 		}
 	}
 
+	public class BorderLand extends MapTiles {
+		//TODO
+	}
 
+	public class OakWoods extends MapTiles {
+		//TODO
+	}
+	
+	public class DeepWoods extends MapTiles {
+		//TODO
+	}
+	
+	public class CurstValley extends MapTiles {
+		GreatSwordsman [] soldiers = new GreatSwordsman[3];//because it has a dwelling it also has natives
 
+		//TODO
+	}
+	
+	public class Cavern extends MapTiles {
+		//TODO
+	}
+	
+	public class BadValley extends MapTiles {
+		GreatSwordsman [] rogues = new GreatSwordsman[3];//because it has a dwelling it also has natives
+
+		//TODO
+	}
+	
+	
 //TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
 //for dwellings in valley
 		//chapel has order in awfulvalley
-		//house has soldiers in curstvalley
-		//inn has rogues in badvalley
 	//none of natives have any differences in first iteration
 	
 
