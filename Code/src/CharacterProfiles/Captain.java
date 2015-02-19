@@ -73,7 +73,11 @@ public class Captain extends Character{
 	
 	//Special Advantages
 	//Aim			//The Captain subtracts one from each die roll whenever he rolls on the Missile Table.
-	
+	/*
+	 * if(weapon.missle == true){
+	 *	//subtract one from the attack die roll
+	 *	}
+	 */
 	//Reputation 	//The Captain can record and do an extra phase each day he is at a Dwelling (including a campfire). He must be at the Dwelling when he starts to do the phase, not when he records it. He can use the extra phase to do any normal activity.
 
 }

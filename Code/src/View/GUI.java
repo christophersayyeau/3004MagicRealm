@@ -131,7 +131,7 @@ public class GUI implements MouseListener{
 				null,
 				possibilities,
 				"Amazon");
-		System.out.println("You have chosen to be a: " + s);
+		System.out.println("You have chosen to be a " + s);
 		//game.gotCharacter = true;
 		return (String)s;
 		
