@@ -6,7 +6,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import Control.Game;
-
+import Control.Player;
+import Model.Map;
 
 public class GUI implements MouseListener{
 	
@@ -189,10 +190,20 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public void recordTurn() {
-		//see declaration for details and the return value stuff
-		// TODO Auto-generated method stub
+	public void recordTurn(Player player) {
+		//TODO moved from player
+		/*
+		all of the characters secretly and simultaneously
+		record what they will do during their turns. When each character does his
+		turn, he must do it exactly as he recorded it.
+		He can use his turn to	move, hide, search, trade and rest.
+		When each character does his turn, he must do it exactly as he recorded it.
+		 */
+		//get 2 phases standard
+		//if not in caves get an extra 2, unless your a dwarf
 		
+		System.out.println("User now builds his turn");	
+		//phasesForToday; //needs to be set to the number of phases for the turn//value in player
 	}
 
 	public void hideMapChits() {
@@ -207,7 +218,22 @@ public class GUI implements MouseListener{
 		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
 
-	public boolean trading() {
+	public void trading(Map gameMap, Player player1) {
+		// For now we assume he trades meaningless baubles and get some gold
+		
+		int currentTile = player1.getProfile().getCurrentLocation()/10-1;
+		int currentClearing = player1.getProfile().getCurrentLocation()%10-1;
+		
+		//first determine if there is anyone else in clearing
+		if(player1.isThereOthersInCLearing(gameMap, currentTile, currentClearing)){
+			//ask user if he wants to trade
+			if(doYouWantToTrade()){
+				System.out.println("User traded some stuff and got 10 gold");
+				player1.getProfile().setGold(player1.getProfile().getGold()+10);
+			}
+		}
+	}
+	private boolean doYouWantToTrade() {
 		//just ask user if they want to trade with others in clearing, see declaration
 		// TODO return true if the user wants to trade
 		return false;

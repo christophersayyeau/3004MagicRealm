@@ -58,52 +58,8 @@ public class Player {
 		System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
 	}
 
-	public void doTurn(Map map) {
-		System.out.println("Start Turn");
-		hidden = false;
 		
-		//now do turn as based on what he recorded
-		//go through each phase that he recorded
-		while(phasesForToday > 0 ){
-			rearangeBelongings();
-			trade(map);
-			
-			doAction();//playing action chits as needed
-			
-			//blocking handled in iteration 2
-			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
-			//System.out.println("if not player can block monsters that appear or move to his clearing");			
-		
-			phasesForToday--; //go to the next phase
-		}
-		
-		
-		System.out.println("Turn over");//because he finished or was blocked
-		
-		//blocking in iteration 2
-		//System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
-		int currentTileNum = (this.profile.getCurrentLocation()/10)-1;
-		//cycle the monsters in a tile
-		for(int a = 0; a< map.getMapTile(currentTileNum).monstersInTile.length; a++){
-			//check to see if prowling
-			if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
-				//move to the new clearing
-				map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], this.profile.getCurrentLocation()%10-1, currentTileNum);
-			}
-		}
-		
-		view.revealMapChits(profile.getCurrentLocation()/10-1);//now reveal and replace chits
-				
-				//System.out.println("Dwelling Summon new prowling natives");
-				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
-		
-		//blocking in iteration 2
-		//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
-		//System.out.println("if not player can block monsters that appear or move to his clearing");
-	}
-
-		
-	private void doAction() {
+	void doAction() {
 		//handles the action recorded during birdsong and activated during daylight
 		// TODO finish record action first
 		System.out.println("DO THE ACTION HERE");
@@ -118,44 +74,11 @@ public class Player {
 						}
 					*/
 	
-	public void recordTurn() {
-		//TODO
-		/*
-		all of the characters secretly and simultaneously
-		record what they will do during their turns. When each character does his
-		turn, he must do it exactly as he recorded it.
-		He can use his turn to	move, hide, search, trade and rest.
-		When each character does his turn, he must do it exactly as he recorded it.
-		 */
-		//get 2 phases standard
-		//if not in caves get an extra 2, unless your a dwarf
-		
-		System.out.println("User now builds his turn");	
-		view.recordTurn();
-		//phasesForToday; //needs to be set to the number of phases for the turn
-	}
-
 	public void rearangeBelongings() {
 		//System.out.println("User can now rearrange belonging, this is meainingless in this iteration");
 	}
 
-	public void trade(Map map) {
-		// For now we assume he trades meaningless baubles and get some gold
-		
-		int currentTile = profile.getCurrentLocation()/10-1;
-		int currentClearing = profile.getCurrentLocation()%10-1;
-		
-		//first determine if there is anyone else in clearing
-		if(isThereOthersInCLearing(map, currentTile, currentClearing)){
-			//ask user if he wants to trade
-			if(view.trading()){
-				System.out.println("User traded some stuff and got 10 gold");
-				profile.setGold(profile.getGold()+10);
-			}
-		}
-	}
-
-	private boolean isThereOthersInCLearing(Map map, int currentTile, int currentClearing) {
+	public boolean isThereOthersInCLearing(Map map, int currentTile, int currentClearing) {
 		//use this to determine if there are other characters in the clearing, remebere we only have a single character right now
 		// map.getMapTile(currentTile).clearing[currentClearing].playersInClearing;
 		

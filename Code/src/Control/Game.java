@@ -92,7 +92,7 @@ public class Game {
 			He can use his turn to	move, hide, search, trade and rest.
 			When each character does his turn, he must do it exactly as he recorded it.
 			 */
-			player1.recordTurn();
+			view.recordTurn(player1);
 			
 		System.out.println("SUNRISE");
 			//if it is a weekday
@@ -111,7 +111,7 @@ public class Game {
 		System.out.println("DAYLIGHT");
 			//players go in random order
 			System.out.println("player1 is first character today");
-			player1.doTurn(map);
+			doTurn(player1);
 			view.Refresh();		
 			
 		System.out.println("SUNSET");
@@ -124,7 +124,7 @@ public class Game {
 			//combat is resolved//does not apply in first iteration
 			
 			player1.rearangeBelongings();
-			player1.trade(map);//trade with other characters in clearing
+			view.trading(map, player1);//trade with other characters in clearing
 			view.Refresh();		
 			
 		System.out.println("MIDNIGHT");
@@ -159,6 +159,53 @@ public class Game {
 		System.out.println("Player 1 got " + finalScore);
 	}
 	
+	private void doTurn(Player player) {//moved out of player
+		
+		System.out.println("Start Turn");
+		player.hidden = false;
+		
+		//now do turn as based on what he recorded
+		//go through each phase that he recorded
+		while(player.phasesForToday > 0 ){
+			player.rearangeBelongings();
+			view.trading(map, player);
+			
+			player.doAction();//playing action chits as needed
+			
+			//blocking handled in iteration 2
+			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
+			//System.out.println("if not player can block monsters that appear or move to his clearing");			
+		
+			player.phasesForToday--; //go to the next phase
+		}
+		
+		
+		System.out.println("Turn over");//because he finished or was blocked
+		
+		//blocking in iteration 2
+		//System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
+		int currentTileNum = (player.profile.getCurrentLocation()/10)-1;
+		//cycle the monsters in a tile
+		for(int a = 0; a< map.getMapTile(currentTileNum).monstersInTile.length; a++){
+			//check to see if prowling
+			if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
+				//move to the new clearing
+				map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], player.profile.getCurrentLocation()%10-1, currentTileNum);
+			}
+		}
+		
+		view.revealMapChits(player.profile.getCurrentLocation()/10-1);//now reveal and replace chits
+				
+				//System.out.println("Dwelling Summon new prowling natives");
+				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
+		
+		//blocking in iteration 2
+		//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
+		//System.out.println("if not player can block monsters that appear or move to his clearing");
+		
+	}
+
+
 	/*Create players for hotseat
 	 */
 	public void createPlayers(){
