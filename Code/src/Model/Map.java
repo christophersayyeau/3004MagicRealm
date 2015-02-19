@@ -115,11 +115,18 @@ public class Map {
 		getMapTiles()[10].setWarning(warningsC[2]);
 		getMapTiles()[10].setTreasure(sites[5]);
 		
-		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 13, 14);
+		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 15, 14);
 		getMapTiles()[11] = badValley;
 		getMapTiles()[11].setWarning(warningsV[3]);
 		getMapTiles()[11].setInn(3, (BadValley) getMapTiles()[11]);
 		
+		MapleWoods mapleWoods = temp.new MapleWoods(11, 7, 8, 13, 16, 15);
+		getMapTiles()[12] = mapleWoods;
+		getMapTiles()[12].setWarning(warningsW[2]);
+		
+		NutWoods nutWoods = temp.new NutWoods(12, 8, 9, -1, 17, 16);
+		getMapTiles()[13] = nutWoods;
+		getMapTiles()[13].setWarning(warningsW[3]);
 		
 		
 //TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going			
@@ -206,11 +213,11 @@ public class Map {
 		warningsV[3] = temp.new YellowChit("SMOKE");	//badvalley
 		warningsV[4] = temp.new YellowChit("STINK");
 	//these are the W type	
-		warningsW[0] = temp.new YellowChit("BONES");	//oakWoods
-		warningsW[1] = temp.new YellowChit("DANK");		//deepwoods
-		warningsW[2] = temp.new YellowChit("RUINS");
-		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire
-		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire
+		warningsW[0] = temp.new YellowChit("BONES");				//oakWoods
+		warningsW[1] = temp.new YellowChit("DANK");					//deepwoods
+		warningsW[2] = temp.new YellowChit("RUINS");				//maplewoods
+		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire	//nutWoods
+		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire	
 	//these are the C type	
 		warningsC[0] = temp.new YellowChit("BONES");	//highpass
 		warningsC[1] = temp.new YellowChit("DANK");		//borderland

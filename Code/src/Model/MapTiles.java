@@ -380,6 +380,13 @@ public class MapTiles {
 		//TODO
 	}
 	
+	public class MapleWoods extends MapTiles {
+		//TODO
+	}
+	
+	public class NutWoods extends MapTiles {
+		//TODO
+	}
 	
 //TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
 //for dwellings in valley
