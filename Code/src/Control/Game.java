@@ -28,7 +28,8 @@ public class Game {
 		
 		//get number of players + set gui
 		view = new GUI(this);
-		sgui = new ServerGUI(this);
+		numOfPlayers = view.numOfPlayers();
+		//sgui = new ServerGUI(this);
 		
 		
 		//population for dwellings and ghosts handled in each valley's constructor
@@ -164,12 +165,12 @@ public class Game {
 	/*Create players for hotseat
 	 */
 	public void createPlayers(){
-		while(!gotNumPlayers){}
+		//while(!gotNumPlayers){}
 		
 		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
 			
-			gotCharacter = false;
+			//gotCharacter = false;
 			String s = view.createPlayer();
 			players[i] = new Player(s);
 			

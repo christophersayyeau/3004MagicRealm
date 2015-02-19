@@ -133,8 +133,21 @@ public class GUI implements MouseListener{
 		System.out.println("You have chosen to be a: " + s);
 		//game.gotCharacter = true;
 		return (String)s;
+	}
+	
+	public int numOfPlayers(){
+		String[] i = {"1","2","3","4","5","6"};
 		
-		
+		Object s = JOptionPane.showInputDialog(
+				Players,
+				"How many players?\n",
+				"New Players",
+				JOptionPane.PLAIN_MESSAGE,
+				null,
+				i,
+				"Amazon");
+		String x = (String)s;
+		return Integer.valueOf(x);
 	}
 
 	@Override
