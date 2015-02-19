@@ -92,9 +92,24 @@ public class Map {
 		getMapTiles()[5].setWarning(warningsC[0]);
 		getMapTiles()[5].setSound(sounds[7]);
 		
+		BorderLand borderLand = temp.new BorderLand(5, 1, 2, 7, 11, 10);
+		getMapTiles()[6] = borderLand;
+		getMapTiles()[6].setWarning(warningsC[1]);
+		getMapTiles()[6].setSound(sounds[8]);
 		
+		OakWoods oakWoods = temp.new OakWoods(6, 2, 3, 8, 12, 11);
+		getMapTiles()[7] = oakWoods;
+		getMapTiles()[7].setWarning(warningsW[0]);
+				
+		DeepWoods deepWoods = temp.new DeepWoods();
+		getMapTiles()[8] = deepWoods;
+		getMapTiles()[8].setWarning(warningsW[1]);
 		
-
+		CurstValley curstValley = temp.new CurstValley();
+		getMapTiles()[9] = curstValley;
+		getMapTiles()[9].setWarning(warningsV[2]);
+		getMapTiles()[9].setHouse(3, (CurstValley) getMapTiles()[9]);
+		
 		
 //TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going			
 		//get this working first then handle the rest of the tiles
@@ -149,7 +164,7 @@ public class Map {
 		sounds[5] = temp.new RedChit("HOWL", 5);	//lost city
 		sounds[6] = temp.new RedChit("FLUTTER", 2);	//crag
 		sounds[7] = temp.new RedChit("PATTER", 5);	//highpass
-		sounds[8] = temp.new RedChit("ROAR", 4);
+		sounds[8] = temp.new RedChit("ROAR", 4);	//borderland
 		sounds[9] = temp.new RedChit("SLITHER", 6);
 	}
 
@@ -162,7 +177,7 @@ public class Map {
 		sites[2] = temp.new GoldChit("ALTAR", 1);	//lost city
 		sites[3] = temp.new GoldChit("LAIR", 3);	//lost city
 		sites[4] = temp.new GoldChit("VAULT", 3);	//cliff
-		sites[5] = temp.new GoldChit("CAIRNS", 5);
+		sites[5] = temp.new GoldChit("CAIRNS", 5);	
 		sites[6] = temp.new GoldChit("POOL", 6);
 		sites[7] = temp.new GoldChit("SHRINE", 4);
 		
@@ -176,18 +191,18 @@ public class Map {
 	//these are the V type	
 		warningsV[0] = temp.new YellowChit("BONES");	//evilvalley
 		warningsV[1] = temp.new YellowChit("DANK");		//darkvalley
-		warningsV[2] = temp.new YellowChit("RUINS");
+		warningsV[2] = temp.new YellowChit("RUINS");	//curstValley
 		warningsV[3] = temp.new YellowChit("SMOKE");
 		warningsV[4] = temp.new YellowChit("STINK");
 	//these are the W type	
-		warningsW[0] = temp.new YellowChit("BONES");
-		warningsW[1] = temp.new YellowChit("DANK");
+		warningsW[0] = temp.new YellowChit("BONES");	//oakWoods
+		warningsW[1] = temp.new YellowChit("DANK");		//deepwoods
 		warningsW[2] = temp.new YellowChit("RUINS");
 		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire
 		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire
 	//these are the C type	
 		warningsC[0] = temp.new YellowChit("BONES");	//highpass
-		warningsC[1] = temp.new YellowChit("DANK");
+		warningsC[1] = temp.new YellowChit("DANK");		//borderland
 		warningsC[2] = temp.new YellowChit("RUINS");
 		warningsC[3] = temp.new YellowChit("SMOKE");
 		warningsC[4] = temp.new YellowChit("STINK");
@@ -241,8 +256,7 @@ public class Map {
 		getMapTiles()[tile].clearing[newClearing-1].putDenizen(monster);
 		
 	}
-	
-	
+		
 	public void returnDenizensToStart() {
 		//return monsters and ghosts to starting clearing, regenerating those that died
 		resetGhosts();

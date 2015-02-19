@@ -2,6 +2,8 @@ package Monsters;
 
 import Model.*;
 
+
+//Denizen has already been created
 public class Monsters{
 	private String name;
 	

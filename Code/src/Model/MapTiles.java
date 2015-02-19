@@ -239,7 +239,7 @@ public class MapTiles {
 	}
 	
 	public class DarkValley extends MapTiles {
-		GreatSwordsman [] guard = new GreatSwordsman[3];
+		GreatSwordsman [] guard = new GreatSwordsman[3];//because it has a dwelling it also has natives
 
 		//constructor
 		public DarkValley(int l, int tl, int tr, int r, int br, int bl){
