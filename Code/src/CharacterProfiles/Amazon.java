@@ -67,10 +67,13 @@ public class Amazon extends Character{
 		specials[1] = Special.STAMINA;
 				
 	}
-	
 	//Special Advantages
 	//Aim				//The Amazon subtracts one from each die roll whenever she rolls on the Missile Table to attack with a missile weapon.
-	
+	/*
+	 * if(weapon.missle == true){
+	 *	//subtract one from the attack die roll
+	 *	}
+	 */
 	//Stamina			//The Amazon can record and do an extra Move phase each turn. She gets this bonus even when she is riding a horse - her stamina includes being an excellent horsewoman. 
 	
 }
