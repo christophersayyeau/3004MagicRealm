@@ -133,6 +133,8 @@ public class GUI implements MouseListener{
 		System.out.println("You have chosen to be a: " + s);
 		//game.gotCharacter = true;
 		return (String)s;
+		
+		//TODO, only suppose to be 1 of each type max, but that isnt important right now, work on other stuff
 	}
 	
 	public int numOfPlayers(){

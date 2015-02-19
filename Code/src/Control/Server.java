@@ -12,6 +12,8 @@ public class Server {
 		game = new Game();	
 		game.createPlayers();
 		//game.startGame(player1);
+		
+		//TODO not sure what you guys did but the game needs to start here somehow
 	}
 	
 }
