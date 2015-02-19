@@ -19,8 +19,8 @@ public class Captain extends Character{
 		setType("Captain");
 		
 		//startSpot[0] = inn;		//the Captain starts in the inn
-		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
-		
+		currentLocation = 123;		//currently in tile 12 clearing 3, Bad Valley 3
+	//TODO	
 //		startSpot[1] = house;
 //		startSpot[2] = guardHouse;
 		System.out.println("!!!!Captain has more options for start spots!!!!");
@@ -44,12 +44,12 @@ public class Captain extends Character{
 		Helmet helmet = temp.new Helmet();
 		getDefense()[0] = helmet;
 		
-		//Breastplate breastplate = new Breastplate();
-		//Shield shield = new Shield();	
-		//defense[1] = breastplate;
-		//defense[2] = shield;
-		System.out.println("Also has helmet+etc");
+		Breastplate breastplate = temp.new Breastplate();
+		getDefense()[1] = breastplate;
 		
+		Shield shield = temp.new Shield();			
+		getDefense()[2] = shield;
+				
 		//Action types
 		action1.setType("Move");	//set the type
 		action1.setTime(4);			//the time needed to use

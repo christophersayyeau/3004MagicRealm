@@ -18,9 +18,8 @@ public class Amazon extends Character{
 		setType("Amazon");
 		
 		//startSpot[0] = inn;		//the Amazon starts in the inn
-		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
-	//TODO in all profiles, switch to correct location	
-		
+		currentLocation = 123;		//currently in tile 12 clearing 3, Bad Valley 3
+			
 		weight = 2;				//Amazon is Medium
 		
 		//trading groups
@@ -40,11 +39,12 @@ public class Amazon extends Character{
 		Helmet helmet = temp.new Helmet();
 		getDefense()[0] = helmet;
 		
-		//Breastplate breastplate = new Breastplate();
-		//Shield shield = new Shield();
-		//defense[1] = breastplate;
-		//defense[2] = shield;
-		System.out.println("Also has other armor");
+		Breastplate breastplate = temp.new Breastplate();		
+		getDefense()[1] = breastplate;
+		
+		Shield shield = temp.new Shield();
+		getDefense()[2] = shield;
+		
 		
 		//Action types
 		action1.setType("Fight");	//set the type

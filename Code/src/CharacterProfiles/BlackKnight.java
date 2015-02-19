@@ -18,8 +18,7 @@ public class BlackKnight extends Character{
 		setType("BlackKnight");
 		
 		//startSpot[0] = inn;		//the BlKn starts in the inn
-		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
-		
+		currentLocation = 123;		//currently in tile 12 clearing 3, Bad Valley 3
 		
 		weight = 2;				//BlKn is Medium
 		
@@ -36,12 +35,12 @@ public class BlackKnight extends Character{
 		
 		//built a temporary armor object so I have access to its subclass
 		Armor temp = new Armor();
+		
 		Suit_of_Armor armor = temp.new Suit_of_Armor();
 		getDefense()[0] = armor;
 		
-		//Shield shield = new Shield();
-		//defense[1] = shield;
-		System.out.println("ALso has a shield");
+		Shield shield = temp.new Shield();
+		getDefense()[1] = shield;
 		
 		//Action types
 		action1.setType("Move");	//set the type

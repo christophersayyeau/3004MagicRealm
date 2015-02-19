@@ -117,7 +117,8 @@ public class Player {
 						}
 					*/
 	
-	public void recordTurn() {//TODO
+	public void recordTurn() {
+		//TODO
 		/*
 		all of the characters secretly and simultaneously
 		record what they will do during their turns. When each character does his

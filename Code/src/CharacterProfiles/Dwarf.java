@@ -18,8 +18,8 @@ public class Dwarf extends Character{
 		setType("Dwarf");
 		
 		//startSpot[0] = inn;		//the Dwarf starts in the inn
-		currentLocation = 11;//currently in tile 1 clearing 1, cliff 1//change this later!!!
-		
+		currentLocation = 123;		//currently in tile 12 clearing 3, Bad Valley 3
+	//TODO
 	//	startSpot[1] = guardhouse;
 		System.out.println("!!!!Dwarf has more options for start spots!!!!");
 		weight = 3;				//Dwarf is Heavy
