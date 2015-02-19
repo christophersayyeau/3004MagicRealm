@@ -54,7 +54,7 @@ public class Game {
 		
 
 		//update GUI for all players
-		//player1.view.Refresh();		commented out view references
+		view.Refresh();		
 		
 		System.out.println("Starting FIRST ENCOUNTER: TREASURE HUNT");
 		/*The FIRST ENCOUNTER introduces moving, hiding, searching and
@@ -106,13 +106,13 @@ public class Game {
 				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
 			}
 			
-		//player1.view.Refresh();		commented out view references
+		view.Refresh();		
 			
 		System.out.println("DAYLIGHT");
 			//players go in random order
 			System.out.println("player1 is first character today");
 			player1.doTurn(map);
-			//player1.view.Refresh();		commented out view references
+			view.Refresh();		
 			
 		System.out.println("SUNSET");
 			//determine which clearings have characters
@@ -125,7 +125,7 @@ public class Game {
 			
 			player1.rearangeBelongings();
 			player1.trade(map);//trade with other characters in clearing
-			//player1.view.Refresh();		commented out view references
+			view.Refresh();		
 			
 		System.out.println("MIDNIGHT");
 			/*
@@ -134,7 +134,7 @@ public class Game {
 			before they turn face down.
 			*/
 			//System.out.println("Hide Map chits");
-			//player1.view.hideMapChits();		commented out view references
+			view.hideMapChits();		
 			
 			//System.out.println("Weapons become unalerted");
 			player1.getProfile().getWeapon().setUnAlert();
@@ -145,8 +145,7 @@ public class Game {
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
 			//turn off monsters
 			map.denizensProwlingStop();//not sure if needed, couldnt hurt though
-			//player1.view.Refresh();		commented out view references
-
+			view.Refresh();		
 			
 			//end of day
 			System.out.println("Day " + day + "is now over.");

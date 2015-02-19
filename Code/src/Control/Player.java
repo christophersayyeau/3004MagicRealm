@@ -10,6 +10,7 @@ public class Player {
 
 	//commented out view for hotseat game
 	//GUI view;
+	
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
@@ -91,7 +92,7 @@ public class Player {
 			}
 		}
 		
-		//view.revealMapChits(profile.getCurrentLocation()/10-1);//now reveal and replace chits
+		view.revealMapChits(profile.getCurrentLocation()/10-1);//now reveal and replace chits
 				
 				//System.out.println("Dwelling Summon new prowling natives");
 				//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");
@@ -130,7 +131,7 @@ public class Player {
 		//if not in caves get an extra 2, unless your a dwarf
 		
 		System.out.println("User now builds his turn");	
-		//view.recordTurn();
+		view.recordTurn();
 		//phasesForToday; //needs to be set to the number of phases for the turn
 	}
 
@@ -147,10 +148,10 @@ public class Player {
 		//first determine if there is anyone else in clearing
 		if(isThereOthersInCLearing(map, currentTile, currentClearing)){
 			//ask user if he wants to trade
-			/*if(view.trading()){
+			if(view.trading()){
 				System.out.println("User traded some stuff and got 10 gold");
 				profile.setGold(profile.getGold()+10);
-			}*/
+			}
 		}
 	}
 
