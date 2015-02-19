@@ -9,7 +9,7 @@ public class Denizen {
 	boolean armored = false;	//only Dragons,Trolls,Serpents,Vipers have it along with some natives
 	
 	String tradeType; //only used with natives
-	Weapon weapon;	//only used by natives usually
+	Weapon weapon = new Weapon();	//only used by natives usually
 	public void setWeapon(Weapon weapon) {
 		this.weapon = weapon;
 	}
@@ -86,6 +86,7 @@ public class Denizen {
 
 	
 	//TODO add more when we have time, for now we can just use this as a base for everything
+	//none of natives have any differences in first iteration in terms of function so just use the Guard
 	
 	//garrison for the guardhouse
 	public class GreatSwordsman extends Denizen {//used as a guard
@@ -106,9 +107,16 @@ public class Denizen {
 			aggressiveMove = 6;
 			
 			tradeType = trading;
+			
 			GreatSword weapon1 = weapon.new GreatSword();
 			setWeapon(weapon1);
 			//native garrisons are never prowling
 		}
 	}
+	
+	//for dwellings in valley
+			//chapel has order in awfulvalley
+			//house has soldiers in curstvalley
+			//inn has rogues in badvalley
+		//none of natives have any differences in first iteration
 }
