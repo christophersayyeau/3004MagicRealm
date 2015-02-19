@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Denizen.Ghost;
+import Model.MapTiles.DarkValley;
 import Model.MapChits.*;
 import Model.MapTiles.*;
 
@@ -84,7 +85,7 @@ public class Map {
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		getMapTiles()[4] = darkValley;
 		getMapTiles()[4].setWarning(warningsV[1]);
-		getMapTiles()[4].setGuardHouse(3);
+		getMapTiles()[4].setGuardHouse(3, (DarkValley) getMapTiles()[4]);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		getMapTiles()[5] = highPass;
@@ -109,8 +110,8 @@ public class Map {
 		ghosts[1] = temp.new Ghost();
 		
 		//set to their start clearing
-		ghosts[0].setStartClearing(0);
-		ghosts[1].setStartClearing(0);
+		ghosts[0].setStartClearing(3);
+		ghosts[1].setStartClearing(3);
 	}
 
 	private void putGhostsAtStartPositions() {

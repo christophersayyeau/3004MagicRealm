@@ -2,6 +2,8 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.Denizen.Ghost;
+import Model.Denizen.GreatSwordsman;
 import Model.MapChits.*;
 
 public class MapTiles {
@@ -90,12 +92,31 @@ public class MapTiles {
 		lostCity = true;		
 	}
 	
-	public void setGuardHouse(int i) {
+	public void setGuardHouse(int i, DarkValley tile) {
 		this.clearing[i-1].guardHouse = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		//TODO first need to create them in denizens putNativeGuards();
+		putNativeGuards(tile);
 	}
-
+	private void putNativeGuards(DarkValley tile) {
+		//THere are 3 guards
+		Denizen temp = new Denizen();
+		tile.guard[0] = temp.new GreatSwordsman("Guard");
+		tile.guard[1] = temp.new GreatSwordsman("Guard");
+		tile.guard[2] = temp.new GreatSwordsman("Guard");
+		
+		//set to their start clearing
+		tile.guard[0].setStartClearing(3);
+		tile.guard[1].setStartClearing(3);	
+		tile.guard[2].setStartClearing(3);
+		
+		tile.guard[0].setCurrentClearing(3);
+		tile.guard[1].setCurrentClearing(3);
+		tile.guard[2].setCurrentClearing(3);	
+		
+		clearing[3].putDenizen(tile.guard[0]);
+		clearing[3].putDenizen(tile.guard[1]);
+		clearing[3].putDenizen(tile.guard[2]);	
+	}
 
 	
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
@@ -219,6 +240,8 @@ public class MapTiles {
 	}
 	
 	public class DarkValley extends MapTiles {
+		GreatSwordsman [] guard = new GreatSwordsman[3];
+
 		//constructor
 		public DarkValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building DarkValley");
@@ -248,7 +271,7 @@ public class MapTiles {
 			clearing[1].getConnectedTo()[0] = 3;//clearing 2 connected to 3
 		clearing[2].getConnectedTo()[0] = 92;//clearing 3 connected to 2 in tile 9
 			clearing[2].getConnectedTo()[1] = 6;//clearing 3 connected to 6
-			clearing[3].getConnectedTo()[0] = 1;//clearing 4 connected to 1
+			clearing[3].getConnectedTo()[0] = 1;//clearing 4 connected to 1		
 		}
 	}
 	

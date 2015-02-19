@@ -1,13 +1,22 @@
 package Model;
 
+import Model.Weapon.*;
+
 public class Denizen {
 	String name;
 	
 	int size = -1;	//can be M=1, H=2, T=3 
-	boolean armored = false;	//only Dragons,Trolls,Serpents,Vipers have it
+	boolean armored = false;	//only Dragons,Trolls,Serpents,Vipers have it along with some natives
+	
+	String tradeType; //only used with natives
+	Weapon weapon;	//only used by natives usually
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
 	
 	int fameBounty = 0;		//what it's worth to kill them
 	int notorietyBounty = 0;
+	int goldBounty = 0;
 	
 	//the combat values
 	Harm regCombat;
@@ -75,6 +84,31 @@ public class Denizen {
 	}
 
 
-	//native garrisons are never prowling
+	
 	//TODO add more when we have time, for now we can just use this as a base for everything
+	
+	//garrison for the guardhouse
+	public class GreatSwordsman extends Denizen {//used as a guard
+		public GreatSwordsman(String trading) {
+			name = "GREAT SWORDSMAN";
+			
+			armored = true;
+			
+			size = 2;//heavy
+			//fame = 0
+			notorietyBounty = 6;
+			goldBounty = 4;
+			
+			regCombat = new Harm(3, 1, 5);//H5*
+			regMove = 5;
+			
+			aggresiveCombat = new Harm(4, 1, 4);//T4*
+			aggressiveMove = 6;
+			
+			tradeType = trading;
+			GreatSword weapon1 = weapon.new GreatSword();
+			setWeapon(weapon1);
+			//native garrisons are never prowling
+		}
+	}
 }
