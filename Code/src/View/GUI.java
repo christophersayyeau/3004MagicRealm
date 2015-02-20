@@ -20,6 +20,7 @@ public class GUI implements MouseListener{
 	int tileCount;
 	
 	public static JPanel Players = new JPanel();
+	public static JPanel Buttons = new JPanel();
 	
 	//set tile values
 	final int x = 125;
@@ -101,6 +102,59 @@ public class GUI implements MouseListener{
 		qwe.setSize(50,50);
 		Map.add(qwe);
 		Map.setComponentZOrder(qwe, 0);
+		
+		
+		//TODO add in function calls
+		Buttons.setLayout(new FlowLayout());
+		JButton move = new JButton("Move");
+		move.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the move function");
+			}
+		});
+		
+		JButton hide = new JButton("Hide");
+		hide.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the hide function");
+			}
+		});
+		
+		JButton search = new JButton("Search");
+		search.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the search function");
+			}
+		});
+		
+		JButton rest = new JButton("Rest");
+		rest.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the rest function");
+			}
+		});
+		
+		JButton trade = new JButton("Trade");
+		trade.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the trade function");
+				doYouWantToTrade();
+			}
+		});
+		
+		
+		Buttons.add(move);
+		Buttons.add(hide);
+		Buttons.add(search);
+		Buttons.add(rest);
+		Buttons.add(trade);
+		
+		Buttons.setBackground(Color.gray);
+		
+		MainWindow.getContentPane().add(Buttons);
+		
+		Buttons.setLocation(0,(int)screenSize.getHeight()/3);
+		Buttons.setSize((int)screenSize.getWidth()/2,40);
 	}
 	
 	/* Function to create mapTiles
@@ -165,6 +219,7 @@ public class GUI implements MouseListener{
 		//System.out.println(e.getSource());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
+		
 	}
 
 	@Override
@@ -191,26 +246,24 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public int recordTurn(Player player, Model.Map gameMap) {//returns the number of phases
-		//TODO 
-		int phasesToday = 2;//get 2 phases standard
-		//if not in caves get an extra 2, unless your a dwarf
-		if(gameMap.getMapTile( player.getCurrentLocation()/10-1) ){
-			
-		}
+	public void recordTurn(Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
 		
+				
+		//TODO 
 		/*
 		all of the characters secretly and simultaneously
 		record what they will do during their turns. When each character does his
 		turn, he must do it exactly as he recorded it.
 		He can use his turn to	move, hide, search, trade and rest.
 		When each character does his turn, he must do it exactly as he recorded it.
+		He can leave phases blank.
+		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
 		 */
 		
 		
 		
 		System.out.println("User now builds his turn");	
-		return phasesToday; //needs to be set to the number of phases for the turn//value in player
+		 
 	}
 
 	public void hideMapChits() {
@@ -240,9 +293,19 @@ public class GUI implements MouseListener{
 			}
 		}
 	}
-	private boolean doYouWantToTrade() {
+	public boolean doYouWantToTrade() {
 		//just ask user if they want to trade with others in clearing, see declaration
-		// TODO return true if the user wants to trade
-		return false;
+		int n = JOptionPane.showConfirmDialog(Players,
+				"Would you like to trade?",
+				"Trade",
+				JOptionPane.YES_NO_OPTION);
+		if(n == 0){
+			System.out.println("Should return true for trade");
+			return true;
+		}
+		else{
+			System.out.println("Should return false for trade");
+			return false;
+		}
 	}
 }

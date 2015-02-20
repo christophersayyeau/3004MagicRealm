@@ -69,6 +69,8 @@ public class Player {
 		
 	void doAction() {
 		//handles the action recorded during birdsong and activated during daylight
+		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase. The rest of his turn is not affected. An activity is cancelled if it violates the rules governing that activity.
+		//When he does a blank phase, he does no activity. The blank phase can still be used for trading, rearranging items, and blocking.
 		// TODO finish record action first
 		System.out.println("DO THE ACTION HERE");
 		
