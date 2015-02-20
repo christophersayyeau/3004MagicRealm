@@ -441,6 +441,17 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
 			//TODO	
 		}	
 	}
@@ -457,6 +468,15 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[3];
+			for(int a=0; a<3; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(2);
+			clearing[1].setValue(4);
+			clearing[2].setValue(5);
+
 			//TODO	
 		}	
 	}
@@ -473,6 +493,17 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
 			//TODO	
 		}	
 	}
@@ -492,6 +523,16 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[4];
+			for(int a=0; a<4; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+
 			//TODO	
 		}	
 	}
@@ -507,6 +548,18 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
 			
 			//TODO	
 		}	
@@ -527,6 +580,16 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[4];
+			for(int a=0; a<4; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			
 			//TODO	
 		}	
 	}
@@ -543,6 +606,15 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[3];
+			for(int a=0; a<3; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(2);
+			clearing[1].setValue(4);
+			clearing[2].setValue(5);
+
 			//TODO	
 		}	
 	}
@@ -559,6 +631,15 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[3];
+			for(int a=0; a<3; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(2);
+			clearing[1].setValue(4);
+			clearing[2].setValue(5);
+
 			//TODO	
 		}	
 	}
@@ -575,6 +656,17 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
 			//TODO	
 		}	
 	}
@@ -591,6 +683,17 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[6];
+			for(int a=0; a<6; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
+			clearing[5].setValue(6);
 			//TODO	
 		}	
 	}
@@ -607,6 +710,16 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[5];
+			for(int a=0; a<5; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+			clearing[4].setValue(5);
 			//TODO	
 		}	
 	}
@@ -626,6 +739,16 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[4];
+			for(int a=0; a<4; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(1);
+			clearing[1].setValue(2);
+			clearing[2].setValue(3);
+			clearing[3].setValue(4);
+
 			//TODO	
 		}	
 	}
@@ -642,6 +765,15 @@ public class MapTiles {
 			bottomRight = br;
 			bottomLeft = bl;
 			
+			//handle the clearings
+			clearing = new Clearing[3];
+			for(int a=0; a<3; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(2);
+			clearing[1].setValue(4);
+			clearing[2].setValue(5);
+			
 			//TODO	
 		}	
 	}
@@ -657,6 +789,15 @@ public class MapTiles {
 			right = r;
 			bottomRight = br;
 			bottomLeft = bl;
+			
+			//handle the clearings
+			clearing = new Clearing[3];
+			for(int a=0; a<3; a++)			clearing[a] = new Clearing();
+			
+			//number valueof each clearing
+			clearing[0].setValue(2);
+			clearing[1].setValue(4);
+			clearing[2].setValue(5);
 			
 			//TODO	
 		}	

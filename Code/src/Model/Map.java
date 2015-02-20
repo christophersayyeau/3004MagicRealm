@@ -6,7 +6,6 @@ import Model.MapTiles.DarkValley;
 import Model.MapChits.*;
 import Model.MapTiles.*;
 
-
 public class Map {
 
 	//an array of tiles, the values will be hardcoded in
@@ -159,7 +158,6 @@ public class Map {
 				
 		System.out.println("FINISH ADDING TILES");
 	}
-
 	
 	private void buildGhosts() {
 		Denizen temp = new Denizen();
