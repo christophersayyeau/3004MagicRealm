@@ -98,7 +98,7 @@ public class GUI implements MouseListener{
 		JLabel qwe = new JLabel();
 		qwe.setIcon(p1);
 		qwe.setVisible(true);
-		qwe.setLocation(565,520);
+		qwe.setLocation(560,1175);
 		qwe.setSize(50,50);
 		Map.add(qwe);
 		Map.setComponentZOrder(qwe, 0);
