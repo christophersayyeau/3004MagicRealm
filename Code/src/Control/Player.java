@@ -11,11 +11,12 @@ public class Player {
 
 	//commented out view for hotseat game
 	//GUI view;
-	
+	int numPhases = 0;
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
 	private int phasesForToday = -1;//determined in recordTurn
+	
 	
 	public int getPhasesForToday() {
 		return phasesForToday;
@@ -25,8 +26,22 @@ public class Player {
 	}
 
 	//these will store the actions the user wants to do in order
-	String [] phaseActions = new String[5];//we can increase it later
-	
+	private String [] phaseActions = new String[5];//we can increase it later
+	public String [] getPhaseActions() {
+		return phaseActions;
+	}
+	public String  getPhaseAction(int a) {
+		return phaseActions[a];
+	}
+	public void setPhaseActions(String phaseActions1) {
+		//TODO figure out how to increment and reset
+		numPhases++;
+		this.phaseActions[1] = phaseActions1;
+	}
+	public void setPhaseActions(String phaseActions1, int a) {
+		numPhases++;
+		this.phaseActions[a] = phaseActions1;
+	}
 	//constructor
 	/*public Player(){
 		

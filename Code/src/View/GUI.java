@@ -491,10 +491,15 @@ public class GUI implements MouseListener{
 		Buttons.add(search);
 		Buttons.add(rest);
 		Buttons.add(trade);
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame("Options");
 		
 		Buttons.setBackground(Color.gray);
-		frame.add(Buttons);
+		//frame.add(Buttons);
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().add(Buttons);
+		frame.pack();
+		frame.setVisible(true);
 		//TODO 
 		/*
 		all of the characters secretly and simultaneously
