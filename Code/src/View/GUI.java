@@ -20,6 +20,7 @@ public class GUI implements MouseListener{
 	int tileCount;
 	
 	public static JPanel Players = new JPanel();
+	public static JPanel Buttons = new JPanel();
 	
 	//set tile values
 	final int x = 125;
@@ -100,6 +101,49 @@ public class GUI implements MouseListener{
 		Players.setLocation(0,0);
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
 		
+		//TODO add in function calls
+		Buttons.setLayout(new FlowLayout());
+		JButton move = new JButton("Move");
+		move.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the move function");
+			}
+		});
+		
+		JButton hide = new JButton("Hide");
+		hide.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the hide function");
+			}
+		});
+		
+		JButton search = new JButton("Search");
+		search.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the search function");
+			}
+		});
+		
+		JButton rest = new JButton("Rest");
+		rest.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the rest function");
+			}
+		});
+		
+		
+		
+		Buttons.add(move);
+		Buttons.add(hide);
+		Buttons.add(search);
+		Buttons.add(rest);
+		
+		Buttons.setBackground(Color.gray);
+		
+		MainWindow.getContentPane().add(Buttons);
+		
+		Buttons.setLocation(0,(int)screenSize.getHeight()/3);
+		Buttons.setSize((int)screenSize.getWidth()/2,40);
 	}
 	
 	/* Function to create mapTiles
