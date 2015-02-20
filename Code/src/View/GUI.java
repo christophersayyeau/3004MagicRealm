@@ -201,6 +201,8 @@ public class GUI implements MouseListener{
 		turn, he must do it exactly as he recorded it.
 		He can use his turn to	move, hide, search, trade and rest.
 		When each character does his turn, he must do it exactly as he recorded it.
+		He can leave phases blank.
+		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
 		 */
 		
 		

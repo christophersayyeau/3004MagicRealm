@@ -97,9 +97,11 @@ public class Game {
 				if(player1.getProfile().getType().compareTo("Dwarf") != 0){
 					phasesToday = 4;
 				}
-			}	
-			player1.setPhasesForToday( phasesToday );//after the user builds his turn it returns the number of phases
+			}
+
+			player1.setPhasesForToday( phasesToday );//figured out the number of phases
 			
+			//now build the turn in the GUI
 			view.recordTurn(player1, phasesToday, map);
 			
 			
