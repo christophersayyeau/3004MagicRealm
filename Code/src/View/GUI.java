@@ -446,13 +446,28 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public void recordTurn(Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
+	public void recordTurn(final Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
+		
+		//TODO 
+				/*
+				all of the characters secretly and simultaneously
+				record what they will do during their turns. When each character does his
+				turn, he must do it exactly as he recorded it.
+				He can use his turn to	move, hide, search, trade and rest.
+				When each character does his turn, he must do it exactly as he recorded it.
+				He can leave phases blank.
+				He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
+				 */
+		
+		
 		JPanel Buttons = new JPanel();
 		Buttons.setLayout(new FlowLayout());
+		//TODO add in an address to move
 		JButton move = new JButton("Move");
 		move.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the move function");
+				player.setPhaseActions("Move");	
 			}
 		});
 		
@@ -460,6 +475,7 @@ public class GUI implements MouseListener{
 		hide.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the hide function");
+				player.setPhaseActions("Hide");	
 			}
 		});
 		
@@ -467,6 +483,7 @@ public class GUI implements MouseListener{
 		search.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the search function");
+				player.setPhaseActions("Search");	
 			}
 		});
 		
@@ -474,6 +491,7 @@ public class GUI implements MouseListener{
 		rest.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the rest function");
+				player.setPhaseActions("Rest");	
 			}
 		});
 		
@@ -500,18 +518,6 @@ public class GUI implements MouseListener{
 		frame.getContentPane().add(Buttons);
 		frame.pack();
 		frame.setVisible(true);
-		//TODO 
-		/*
-		all of the characters secretly and simultaneously
-		record what they will do during their turns. When each character does his
-		turn, he must do it exactly as he recorded it.
-		He can use his turn to	move, hide, search, trade and rest.
-		When each character does his turn, he must do it exactly as he recorded it.
-		He can leave phases blank.
-		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
-		 */
-		
-		
 		
 		System.out.println("User now builds his turn");	
 		 
