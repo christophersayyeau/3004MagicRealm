@@ -416,6 +416,7 @@ public class GUI implements MouseListener{
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
 		
+		displayClearing(j.getName());
 	}
 
 	@Override
@@ -520,5 +521,10 @@ public class GUI implements MouseListener{
 	public void displayScore(Player[] gamers) {
 		// TODO Auto-generated method stub
 		//display the final scores of all users
+	}
+	
+	public void displayClearing(String s){
+		String q[] = s.split(" ");
+		map
 	}
 }

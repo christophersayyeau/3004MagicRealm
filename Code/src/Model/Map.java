@@ -65,112 +65,111 @@ public class Map {
 		lostCity.setSound(2, sounds[5]);
 		
 		
-		//build the tiles then add to array
-		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 1, 2);	//only the last 2 values have tiles there
-		getMapTiles()[0] = cliff;
-		getMapTiles()[0].setWarning(warningsM[0]);
-		getMapTiles()[0].setTreasure(sites[4]);
+		//build the tiles then add to array	
+		AwfulValley awfulValley = temp.new AwfulValley(14, 7, -1, -1, -1, 5);
+		getMapTiles()[0] = awfulValley;
+		getMapTiles()[0].setWarning(warningsV[4]);
+		getMapTiles()[0].setChapel(3, (AwfulValley) getMapTiles()[17]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		view.buildBuildings("Chapel", 1, 4);
 		
-		EvilValley evilValley = temp.new EvilValley(-1, -1, 0, 2, 6, 5);
-		getMapTiles()[1] = evilValley;
-		getMapTiles()[1].setWarning(warningsV[0]);
+		BadValley badValley = temp.new BadValley(11, 10, 8, 6, 12, 19);
+		getMapTiles()[1] = badValley;
+		getMapTiles()[1].setWarning(warningsV[3]);
+		getMapTiles()[1].setInn(3, (BadValley) getMapTiles()[11]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		view.buildBuildings("Inn", 2, 4);
+		
+		CurstValley curstValley = temp.new CurstValley(17, 3, -1, -1, -1, 7);
+		getMapTiles()[2] = curstValley;
+		getMapTiles()[2].setWarning(warningsV[2]);
+		getMapTiles()[2].setHouse(3, (CurstValley) getMapTiles()[9]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		view.buildBuildings("House", 3, 4);
+		
+		DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
+		getMapTiles()[3] = darkValley;
+		getMapTiles()[3].setWarning(warningsV[1]);
+		getMapTiles()[3].setGuardHouse(3, (DarkValley) getMapTiles()[4]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		view.buildBuildings("GuardHouse", 4, 4);
+		
+		EvilValley evilValley = temp.new EvilValley(-1, -1, 15, 18, 10, 13);
+		getMapTiles()[4] = evilValley;
+		getMapTiles()[4].setWarning(warningsV[0]);
 		//all garrison natives start the game at their dwellings and dont move unless hired
 		//buildGhosts();//there are 2 ghosts
 		//putGhostsAtStartPositions();
 		//resetGhosts();//put in start positions
 		//mapTiles[1].putGhosts(3);
-		getMapTiles()[1].setGhosts(3, (EvilValley) getMapTiles()[1]);
+		getMapTiles()[4].setGhosts(3, (EvilValley) getMapTiles()[4]);
 		
-		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
-		getMapTiles()[2] = ledges;
-		getMapTiles()[2].setWarning(warningsM[1]);
-		getMapTiles()[2].setLostCastle();//instead of a sound or treasure
+		LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
+		getMapTiles()[5] = lindenWoods;
+		getMapTiles()[5].setWarning(warningsW[4]);
 		
-		Crag crag = temp.new Crag(2, -1, -1, 4, 8, 7);
-		getMapTiles()[3] = crag;
-		getMapTiles()[3].setWarning(warningsM[2]);
-		getMapTiles()[3].setSound(sounds[6]);
+		MapleWoods mapleWoods = temp.new MapleWoods(1, 8, 17, 7, 14, 12);
+		getMapTiles()[6] = mapleWoods;
+		getMapTiles()[6].setWarning(warningsW[1]);
 		
-		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
-		getMapTiles()[4] = darkValley;
-		getMapTiles()[4].setWarning(warningsV[1]);
-		getMapTiles()[4].setGuardHouse(3, (DarkValley) getMapTiles()[4]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
-		view.buildBuildings("GuardHouse", 4, 4);
+		NutWoods nutWoods = temp.new NutWoods(6, 17, 2, -1, 0, 14);
+		getMapTiles()[7] = nutWoods;
+		getMapTiles()[7].setWarning(warningsW[2]);
 		
-		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
-		getMapTiles()[5] = highPass;
-		getMapTiles()[5].setWarning(warningsC[0]);
-		getMapTiles()[5].setSound(sounds[7]);
+		OakWoods oakWoods = temp.new OakWoods(10, 18, 16, 17, 6, 1);
+		getMapTiles()[8] = oakWoods;
+		getMapTiles()[8].setWarning(warningsW[0]);
 		
-		BorderLand borderLand = temp.new BorderLand(5, 1, 2, 7, 11, 10);
-		getMapTiles()[6] = borderLand;
-		getMapTiles()[6].setWarning(warningsC[1]);
-		getMapTiles()[6].setSound(sounds[8]);
-		
-		OakWoods oakWoods = temp.new OakWoods(6, 2, 3, 8, 12, 11);
-		getMapTiles()[7] = oakWoods;
-		getMapTiles()[7].setWarning(warningsW[0]);
-				
-		DeepWoods deepWoods = temp.new DeepWoods(7, 3, 4, 9, 13, 12);
-		getMapTiles()[8] = deepWoods;
-		getMapTiles()[8].setWarning(warningsM[3]);
-		getMapTiles()[8].setTreasure(sites[5]);
-		
-		CurstValley curstValley = temp.new CurstValley(8, 4, -1, -1, -1, 13);
-		getMapTiles()[9] = curstValley;
-		getMapTiles()[9].setWarning(warningsV[2]);
-		getMapTiles()[9].setHouse(3, (CurstValley) getMapTiles()[9]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
-		view.buildBuildings("House", 3, 4);
-		
-		Cavern cavern = temp.new Cavern(-1, 5, 6, 11, 14, -1);
-		getMapTiles()[10] = cavern;
-		getMapTiles()[10].setWarning(warningsC[2]);
-		getMapTiles()[10].setTreasure(sites[6]);
-		
-		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 15, 14);
-		getMapTiles()[11] = badValley;
-		getMapTiles()[11].setWarning(warningsV[3]);
-		getMapTiles()[11].setInn(3, (BadValley) getMapTiles()[11]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
-		view.buildBuildings("Inn", 2, 4);
-		
-		MapleWoods mapleWoods = temp.new MapleWoods(11, 7, 8, 13, 16, 15);
-		getMapTiles()[12] = mapleWoods;
-		getMapTiles()[12].setWarning(warningsW[1]);
-		
-		NutWoods nutWoods = temp.new NutWoods(12, 8, 9, -1, 17, 16);
-		getMapTiles()[13] = nutWoods;
-		getMapTiles()[13].setWarning(warningsW[2]);
-		
-		Mountain mountain = temp.new Mountain(-1, 10, 11, 15, 18, -1);
-		getMapTiles()[14] = mountain;
-		getMapTiles()[14].setWarning(warningsM[4]);
-		getMapTiles()[14].setTreasure(sites[7]);
-		
-		Caves caves = temp.new Caves(14, 11, 12, 16, -1, 18);
-		getMapTiles()[15] = caves;
-		getMapTiles()[15].setWarning(warningsC[3]);
-		getMapTiles()[15].setSound(sounds[9]);
-		
-		Ruins ruins = temp.new Ruins(15, 12, 13, 17, 19, -1);
-		getMapTiles()[16] = ruins;
-		getMapTiles()[16].setWarning(warningsC[4]);
-		getMapTiles()[16].setLostCity();//instead of treasure or sound
-		
-		AwfulValley awfulValley = temp.new AwfulValley(16, 13, -1, -1, -1, 19);
-		getMapTiles()[17] = awfulValley;
-		getMapTiles()[17].setWarning(warningsV[4]);
-		getMapTiles()[17].setChapel(3, (AwfulValley) getMapTiles()[17]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
-		view.buildBuildings("Chapel", 1, 4);
-		
-		PineWoods pineWoods = temp.new PineWoods(-1, 14, 15, -1, -1, -1);
-		getMapTiles()[18] = pineWoods;
-		getMapTiles()[18].setWarning(warningsW[3]);
-		
-		LindenWoods lindenWoods = temp.new LindenWoods(-1, 16, 17, -1, -1, -1);
-		getMapTiles()[19] = lindenWoods;
-		getMapTiles()[19].setWarning(warningsW[4]);
-				
+		PineWoods pineWoods = temp.new PineWoods(-1, 19, 12, -1, -1, -1);
+		getMapTiles()[9] = pineWoods;
+		getMapTiles()[9].setWarning(warningsW[3]);		
 		System.out.println("FINISH ADDING TILES");
+		
+		BorderLand borderLand = temp.new BorderLand(13, 4, 18, 8, 1, 11);
+		getMapTiles()[10] = borderLand;
+		getMapTiles()[10].setWarning(warningsC[1]);
+		getMapTiles()[10].setSound(sounds[8]);
+		
+		Cavern cavern = temp.new Cavern(-1, 13, 10, 1, 19, -1);
+		getMapTiles()[11] = cavern;
+		getMapTiles()[11].setWarning(warningsC[2]);
+		getMapTiles()[11].setTreasure(sites[6]);
+		
+		Caves caves = temp.new Caves(19, 1, 6, 14, -1, 9);
+		getMapTiles()[12] = caves;
+		getMapTiles()[12].setWarning(warningsC[3]);
+		getMapTiles()[12].setSound(sounds[9]);
+		
+		HighPass highPass = temp.new HighPass(-1, -1, 4, 10, 11, -1);
+		getMapTiles()[13] = highPass;
+		getMapTiles()[13].setWarning(warningsC[0]);
+		getMapTiles()[13].setSound(sounds[7]);
+		
+		Ruins ruins = temp.new Ruins(12, 6, 7, 0, 5, -1);
+		getMapTiles()[14] = ruins;
+		getMapTiles()[14].setWarning(warningsC[4]);
+		getMapTiles()[14].setLostCity();//instead of treasure or sound
+	
+		Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 18, 4);	//only the last 2 values have tiles there
+		getMapTiles()[15] = cliff;
+		getMapTiles()[15].setWarning(warningsM[0]);
+		getMapTiles()[15].setTreasure(sites[4]);
+		
+		Crag crag = temp.new Crag(18, -1, -1, 3, 17, 8);
+		getMapTiles()[16] = crag;
+		getMapTiles()[16].setWarning(warningsM[2]);
+		getMapTiles()[16].setSound(sounds[6]);
+		
+		DeepWoods deepWoods = temp.new DeepWoods(8, 16, 3, 2, 7, 6);
+		getMapTiles()[17] = deepWoods;
+		getMapTiles()[17].setWarning(warningsM[3]);
+		getMapTiles()[17].setTreasure(sites[5]);
+		
+		Ledges ledges = temp.new Ledges(4, 15, -1, 16, 8, 10);
+		getMapTiles()[18] = ledges;
+		getMapTiles()[18].setWarning(warningsM[1]);
+		getMapTiles()[18].setLostCastle();//instead of a sound or treasure
+		
+		Mountain mountain = temp.new Mountain(-1, 11, 1, 12, 9, -1);
+		getMapTiles()[19] = mountain;
+		getMapTiles()[19].setWarning(warningsM[4]);
+		getMapTiles()[19].setTreasure(sites[7]);
 	}
 	
 /*	private void buildGhosts() {
@@ -407,6 +406,11 @@ public class Map {
 		}	
 		//if it isn't in the array
 		return false;
+	}
+	
+	//checks whats in a clearing
+	public Clearing getClearing(int tile, int clearing){
+		return mapTiles[tile-1].clearing[clearing-1];
 	}
 
 
