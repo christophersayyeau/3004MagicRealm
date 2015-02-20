@@ -80,7 +80,10 @@ public class Player {
 		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
 			int newLocation = Integer.parseInt(action.substring(5));
 			//check to see if they can
-			if( map.canHeMove(newLocation, this) ) map.moveCharacters(this, newLocation);//if yes then move
+			if( map.canHeMove(newLocation, this) ){
+				//TODO check the instructions
+				map.moveCharacters(this, newLocation);//if yes then move
+			}
 			
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing
@@ -90,27 +93,29 @@ public class Player {
 			//with which table
 			String choice = game.view.whichSearchTable();//locate+loot
 			//where are you searching//can only search his own clearing using locate
+			int currentTile = profile.getCurrentLocation()/10-1;
 			
 			if(choice.compareTo("Locate") == 0){//using locate table
 				int result = Die.dieRoll();
 				switch (result){
-					case 1:  	choice
+					case 1:  	game.view.displayTreasure(currentTile);//technically you can choose but that is dumb
+								map.getMapTile(currentTile).treasure.found = true;
 					break;
-					case 2:  	PassageandClues
+					case 2:  	//display all passages and mentally note that treasure
 					break;
-					case 3:  	Passages
+					case 3:  	//display all passages
 					break;
-					case 4:  	Discover Chits
+					case 4:  	game.view.displayTreasure(currentTile);
+								map.getMapTile(currentTile).treasure.found = true;
 					break;
 					//5 and 6 do nothing
 				}
-				//TODO When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
+				//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
 				//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
 				//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
 				
 			}else if(choice.compareTo("Looting") == 0){//using loot table
-				int currentTile = profile.getCurrentLocation()/10-1;
-				
+							
 				//need to have located it first before trying to loot
 				if (map.getMapTile(currentTile).treasure.found){
 					//if you roll over the number of treasures there you get nothing

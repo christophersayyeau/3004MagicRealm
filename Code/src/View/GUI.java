@@ -315,4 +315,9 @@ public class GUI implements MouseListener{
 		//should probably remind users you need to locate before you can loot
 		return null;
 	}
+
+	public void displayTreasure(int tile) {
+		// TODO Auto-generated method stub
+		//display the treasure chit in this tile, technically only the player can see it but who cares
+	}
 }
