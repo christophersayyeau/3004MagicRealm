@@ -454,6 +454,23 @@ public class MapTiles {
 			clearing[5].setValue(6);
 			
 			//TODO	
+		clearing[0].getConnectedTo()[0] = 65;//clearing 1 connected to 4
+		clearing[0].getConnectedTo()[1] = 125;
+		clearing[1].getConnectedTo()[0] = 24;//clearing 2 connected to 9 in tile 1
+		clearing[1].getConnectedTo()[1] = 72;	//clearing 2 connected to 5
+			clearing[1].getConnectedTo()[2] = 3;
+			clearing[2].getConnectedTo()[0] = 2;//clearing 3 connected to 5
+			clearing[2].getConnectedTo()[1] = 6;//clearing 3 connected to 6
+			clearing[2].getConnectedTo()[2] = 5;
+			clearing[3].getConnectedTo()[0] = 5;//clearing 4 connected to 1
+			clearing[3].getConnectedTo()[1] = 6;//clearing 4 connected to 6
+			clearing[3].getConnectedTo()[2] = 34;
+			clearing[4].getConnectedTo()[0] = 112;//clearing 5 connected to 2
+			clearing[4].getConnectedTo()[1] = 3;//clearing 5 connected to 3
+			clearing[4].getConnectedTo()[2] = 4;
+			clearing[5].getConnectedTo()[0] = 3;//clearing 6 connected to 3
+			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
+			clearing[5].getConnectedTo()[2] = 1;
 		}	
 	}
 
@@ -479,6 +496,15 @@ public class MapTiles {
 			clearing[2].setValue(5);
 
 			//TODO	
+		clearing[0].getConnectedTo()[0] = 35;
+		clearing[0].getConnectedTo()[1] = 72;
+			clearing[0].getConnectedTo()[2] = 4;
+		clearing[1].getConnectedTo()[0] = 91;//clearing 2 connected to 9 in tile 1
+			clearing[1].getConnectedTo()[1] = 2;	//clearing 2 connected to 5
+		clearing[1].getConnectedTo()[2] = 91;
+		clearing[2].getConnectedTo()[0] = 121;//clearing 3 connected to 5
+		clearing[2].getConnectedTo()[1] = 135;//clearing 3 connected to 6
+				
 		}	
 	}
 	
@@ -507,6 +533,27 @@ public class MapTiles {
 			clearing[5].setValue(6);
 			
 			//TODO	
+		clearing[0].getConnectedTo()[0] = 42;//clearing 1 connected to 4
+		clearing[0].getConnectedTo()[1] = 84;
+			clearing[0].getConnectedTo()[2] = 4; 
+			clearing[0].getConnectedTo()[3] = 6;
+			//TODO fix the image
+			clearing[1].getConnectedTo()[0] = 54;//clearing 2 connected to 9 in tile 1
+		clearing[1].getConnectedTo()[1] = 102;	//clearing 2 connected to 5
+			clearing[1].getConnectedTo()[2] = 3;
+			clearing[2].getConnectedTo()[0] = 2;//clearing 3 connected to 5
+			clearing[2].getConnectedTo()[1] = 6;//clearing 3 connected to 6
+			clearing[2].getConnectedTo()[2] = 5;
+			clearing[3].getConnectedTo()[0] = 5;//clearing 4 connected to 1
+			clearing[3].getConnectedTo()[1] = 6;//clearing 4 connected to 6
+			clearing[3].getConnectedTo()[2] = 1;
+			clearing[4].getConnectedTo()[0] = 135;//clearing 5 connected to 2
+			clearing[4].getConnectedTo()[1] = 3;//clearing 5 connected to 3
+			clearing[4].getConnectedTo()[2] = 4;
+			clearing[5].getConnectedTo()[0] = 3;//clearing 6 connected to 3
+			clearing[5].getConnectedTo()[1] = 4;//clearing 6 connected to 4
+			clearing[5].getConnectedTo()[2] = 1;
+			
 		}	
 	}
 	
@@ -536,6 +583,14 @@ public class MapTiles {
 			clearing[3].setValue(4);
 
 			//TODO	
+		clearing[0].getConnectedTo()[0] = 42;//clearing 1 connected to 4
+			clearing[0].getConnectedTo()[1] = 4;
+			clearing[1].getConnectedTo()[0] = 5;//clearing 2 connected to 9 in tile 1
+		clearing[1].getConnectedTo()[1] = 92;	//clearing 2 connected to 5
+		clearing[2].getConnectedTo()[0] = 145;//clearing 3 connected to 5
+			clearing[2].getConnectedTo()[1] = 1;
+			clearing[3].getConnectedTo()[0] = 2;//clearing 4 connected to 1
+
 		}	
 	}
 	
