@@ -162,7 +162,7 @@ public class Game {
 				players[a].getProfile().getWeapon().setUnAlert();
 			}
 			
-			System.out.println("active Potions need to be expired here");
+				//System.out.println("active Potions need to be expired here");
 				//System.out.println("Chapel removes curses");
 				//System.out.println("Combat Spells expire");
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");

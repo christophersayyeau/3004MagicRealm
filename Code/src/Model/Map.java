@@ -94,7 +94,7 @@ public class Map {
 		DarkValley darkValley = temp.new DarkValley(3, -1, -1, -1, 9, 8);
 		getMapTiles()[4] = darkValley;
 		getMapTiles()[4].setWarning(warningsV[1]);
-		getMapTiles()[4].setGuardHouse(3, (DarkValley) getMapTiles()[4]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[4].setGuardHouse(4, (DarkValley) getMapTiles()[4]);
 		view.buildBuildings("GuardHouse", 4, 4);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
@@ -119,7 +119,7 @@ public class Map {
 		CurstValley curstValley = temp.new CurstValley(8, 4, -1, -1, -1, 13);
 		getMapTiles()[9] = curstValley;
 		getMapTiles()[9].setWarning(warningsV[2]);
-		getMapTiles()[9].setHouse(3, (CurstValley) getMapTiles()[9]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[9].setHouse(4, (CurstValley) getMapTiles()[9]);
 		view.buildBuildings("House", 3, 4);
 		
 		Cavern cavern = temp.new Cavern(-1, 5, 6, 11, 14, -1);
@@ -130,7 +130,7 @@ public class Map {
 		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 15, 14);
 		getMapTiles()[11] = badValley;
 		getMapTiles()[11].setWarning(warningsV[3]);
-		getMapTiles()[11].setInn(3, (BadValley) getMapTiles()[11]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[11].setInn(4, (BadValley) getMapTiles()[11]);
 		view.buildBuildings("Inn", 2, 4);
 		
 		MapleWoods mapleWoods = temp.new MapleWoods(11, 7, 8, 13, 16, 15);
@@ -159,7 +159,7 @@ public class Map {
 		AwfulValley awfulValley = temp.new AwfulValley(16, 13, -1, -1, -1, 19);
 		getMapTiles()[17] = awfulValley;
 		getMapTiles()[17].setWarning(warningsV[4]);
-		getMapTiles()[17].setChapel(3, (AwfulValley) getMapTiles()[17]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[17].setChapel(4, (AwfulValley) getMapTiles()[17]);
 		view.buildBuildings("Chapel", 1, 4);
 		
 		PineWoods pineWoods = temp.new PineWoods(-1, 14, 15, -1, -1, -1);
