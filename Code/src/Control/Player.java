@@ -34,7 +34,6 @@ public class Player {
 		return phaseActions[a];
 	}
 	public void setPhaseActions(String phaseActions1) {
-		//TODO figure out how to increment and reset
 		numPhases++;
 		this.phaseActions[1] = phaseActions1;
 	}
