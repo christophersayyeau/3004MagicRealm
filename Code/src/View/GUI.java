@@ -191,13 +191,18 @@ public class GUI implements MouseListener{
 	}
 	
 	public int recordTurn(Player player, Model.Map gameMap) {//returns the number of phases
-		//TODO 
+		
 		int phasesToday = 2;//get 2 phases standard
 		//if not in caves get an extra 2, unless your a dwarf
-		if(gameMap.getMapTile( player.getCurrentLocation()/10-1) ){
-			
+		//compare the type, if it is not a cave
+		if(gameMap.getMapTile( player.getCurrentLocation()/10-1).getType().compareTo("C") != 0 ){
+			//if not a dwarf
+			if(player.getProfile().getType().compareTo("Dwarf") != 0){
+				phasesToday = 4;
+			}
 		}
 		
+		//TODO 
 		/*
 		all of the characters secretly and simultaneously
 		record what they will do during their turns. When each character does his
