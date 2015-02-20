@@ -586,6 +586,6 @@ public class GUI implements MouseListener{
 	
 	public void displayClearing(String s){
 		String q[] = s.split(" ");
-		map
+		//map.
 	}
 }
