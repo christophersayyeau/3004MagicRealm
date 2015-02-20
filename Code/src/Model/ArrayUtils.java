@@ -15,7 +15,7 @@ public class ArrayUtils {
 		if (index < 0 || index >= length) {		
 			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
 		}	      		
-		Object result = Array.newInstance(array.getClass().getComponentType(), length - 1);		
+		Object result = Array.newInstance(array.getClass().getComponentType(), length );//don't make array smaller		
 		System.arraycopy(array, 0, result, 0, index);	    
 		if (index < length - 1) {	    
 			System.arraycopy(array, index + 1, result, index, length - index - 1);		    
