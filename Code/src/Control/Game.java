@@ -88,7 +88,7 @@ public class Game {
 			He can use his turn to	move, hide, search, trade and rest.
 			When each character does his turn, he must do it exactly as he recorded it.
 			 */
-			view.recordTurn(player1);
+			player1.setPhasesForToday( view.recordTurn(player1, map) );//after the user builds his turn it returns the number of phases
 			
 		System.out.println("SUNRISE");
 			//if it is a weekday
@@ -162,7 +162,7 @@ public class Game {
 		
 		//now do turn as based on what he recorded
 		//go through each phase that he recorded
-		while(player.phasesForToday > 0 ){
+		while(player.getPhasesForToday() > 0 ){
 			player.rearangeBelongings();
 			view.trading(map, player);
 			
@@ -172,7 +172,7 @@ public class Game {
 			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
 			//System.out.println("if not player can block monsters that appear or move to his clearing");			
 		
-			player.phasesForToday--; //go to the next phase
+			player.setPhasesForToday(player.getPhasesForToday() - 1); //go to the next phase
 		}
 		
 		

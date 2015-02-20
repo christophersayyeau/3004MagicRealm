@@ -33,8 +33,15 @@ public class MapTiles {
 	int left = -1;			int right = -1;							
 	int bottomLeft = -1;	int bottomRight = -1;
 	
+	String type = "";//use this to determine whether mountain, woods, etc
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	
-
+	
 	public void putPlayer(Player player1) {
 		//this only works because we have 1 character
 		playersInTile = player1;
@@ -201,10 +208,12 @@ public class MapTiles {
 
 	
 	//now for the individual classes
-	public class HighPass extends MapTiles {
+	public class HighPass extends MapTiles {	
 		//constructor
-		public HighPass(int l, int tl, int tr, int r, int br, int bl){
+		public HighPass(int l, int tl, int tr, int r, int br, int bl){		
 			System.out.println("Building HighPass");
+			setType("C");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -244,6 +253,8 @@ public class MapTiles {
 		//constructor
 		public Cliff(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Cliff");
+			setType("M");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -284,6 +295,8 @@ public class MapTiles {
 		//constructor
 		public EvilValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building EvilValley");
+			setType("V");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -321,6 +334,8 @@ public class MapTiles {
 		//constructor
 		public DarkValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building DarkValley");
+			setType("V");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -355,6 +370,8 @@ public class MapTiles {
 		//constructor
 		public Ledges(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Ledges");
+			setType("M");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -395,6 +412,8 @@ public class MapTiles {
 		//constructor
 		public Crag(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Crag");
+			setType("M");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -433,6 +452,8 @@ public class MapTiles {
 		//constructor
 		public BorderLand(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building BorderLand");
+			setType("C");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -478,6 +499,8 @@ public class MapTiles {
 		//constructor
 		public OakWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Oakwoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -512,6 +535,8 @@ public class MapTiles {
 		//constructor
 		public DeepWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Deepwoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -564,6 +589,8 @@ public class MapTiles {
 		//constructor
 		public CurstValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building CurstValley");
+			setType("V");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -598,6 +625,8 @@ public class MapTiles {
 		//constructor
 		public Cavern(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Cavern");
+			setType("C");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -629,6 +658,8 @@ public class MapTiles {
 		//constructor
 		public BadValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building BadValley");
+			setType("V");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -655,6 +686,8 @@ public class MapTiles {
 		//constructor
 		public MapleWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building MapleWoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -680,6 +713,8 @@ public class MapTiles {
 		//constructor
 		public NutWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building NutWoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -705,6 +740,8 @@ public class MapTiles {
 		//constructor
 		public Mountain(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Mountain");
+			setType("M");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -733,6 +770,8 @@ public class MapTiles {
 		//constructor
 		public Caves(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Caves");
+			setType("C");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -761,6 +800,8 @@ public class MapTiles {
 		//constructor
 		public Ruins(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Ruins");
+			setType("C");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -791,6 +832,8 @@ public class MapTiles {
 		//constructor
 		public AwfulValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building AwfulValley");
+			setType("V");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -817,6 +860,8 @@ public class MapTiles {
 		//constructor
 		public PineWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building PineWoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;
@@ -842,6 +887,8 @@ public class MapTiles {
 		//constructor
 		public LindenWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building LindenWoods");
+			setType("W");
+			
 			left = l;
 			topLeft = tl;
 			topRight = tr;

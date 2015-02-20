@@ -14,9 +14,17 @@ public class Player {
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
-	int phasesForToday = -1;//determined in recordTurn
+	private int phasesForToday = -1;//determined in recordTurn
+	
+	public int getPhasesForToday() {
+		return phasesForToday;
+	}
+	public void setPhasesForToday(int phasesForToday) {
+		this.phasesForToday = phasesForToday;
+	}
+
 	//constructor
-	public Player(){
+	/*public Player(){
 		
 		//for simplicity we will set the first character to 
 		Dwarf profile1 = new Dwarf();
@@ -27,11 +35,11 @@ public class Player {
 		
 		//pick you character
 		//Character.pickCharacter();
-		//TODO later when game works better
+		//build later when game works better
 		
 		//create window for user, then display it
 		//view = new GUI();	
-	}
+	}*/
 	
 	//constructor for choosing type
 	public Player(String s){

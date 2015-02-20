@@ -190,8 +190,14 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public void recordTurn(Player player) {
-		//TODO moved from player
+	public int recordTurn(Player player, Model.Map gameMap) {//returns the number of phases
+		//TODO 
+		int phasesToday = 2;//get 2 phases standard
+		//if not in caves get an extra 2, unless your a dwarf
+		if(gameMap.getMapTile( player.getCurrentLocation()/10-1) ){
+			
+		}
+		
 		/*
 		all of the characters secretly and simultaneously
 		record what they will do during their turns. When each character does his
@@ -199,11 +205,11 @@ public class GUI implements MouseListener{
 		He can use his turn to	move, hide, search, trade and rest.
 		When each character does his turn, he must do it exactly as he recorded it.
 		 */
-		//get 2 phases standard
-		//if not in caves get an extra 2, unless your a dwarf
+		
+		
 		
 		System.out.println("User now builds his turn");	
-		//phasesForToday; //needs to be set to the number of phases for the turn//value in player
+		return phasesToday; //needs to be set to the number of phases for the turn//value in player
 	}
 
 	public void hideMapChits() {
