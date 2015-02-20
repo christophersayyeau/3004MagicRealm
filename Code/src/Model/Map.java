@@ -386,9 +386,9 @@ public class Map {
 	
 	public void giveTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
-		// TODO Auto-generated method stub
+		// TODO fix this in second iteration
 		System.out.println("He got treasure");
-		
+		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
 	
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
