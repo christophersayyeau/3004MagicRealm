@@ -79,27 +79,28 @@ public class GUI implements MouseListener{
 		scrollPane.setViewportView(Map);
 		scrollPane.setPreferredSize(new Dimension((int)screenSize.getWidth()/2 - 20, (int)screenSize.getHeight()- 100));
 		Map.setAutoscrolls(true);
+		Map.addMouseListener(this);
 		
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
 		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
-		
-		//Use a different layout later if needed, using this for testing
+
 		Players.setLayout(new BorderLayout()); 
-		//JButton b1 = new JButton("Create");
-		//Players.add(b1,BorderLayout.SOUTH);
-		/*b1.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the create character function");
-				createPlayer();
-			}
-		});*/
+
 		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
 		Players.setBackground(Color.white);
 		MainWindow.getContentPane().add(Players);
 		Players.setLocation(0,0);
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
 		
+		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
+		JLabel qwe = new JLabel();
+		qwe.setIcon(p1);
+		qwe.setVisible(true);
+		qwe.setLocation(565,520);
+		qwe.setSize(50,50);
+		Map.add(qwe);
+		Map.setComponentZOrder(qwe, 0);
 	}
 	
 	/* Function to create mapTiles
@@ -113,7 +114,7 @@ public class GUI implements MouseListener{
 		label.setLocation(x*xOffset,y*yOffset);
 		label.setSize(tileX, tileY);
 		label.setVisible(true);
-		label.addMouseListener(this);
+		//label.addMouseListener(this);
 		mapTiles[tileCount++] = label;
 		Map.add(label);
 	}
