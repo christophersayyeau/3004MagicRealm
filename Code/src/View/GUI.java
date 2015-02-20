@@ -515,7 +515,6 @@ public class GUI implements MouseListener{
 		Buttons.setBackground(Color.gray);
 		//frame.add(Buttons);
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(Buttons);
 		frame.pack();
 		frame.setVisible(true);
