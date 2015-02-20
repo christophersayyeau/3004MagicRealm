@@ -250,6 +250,11 @@ public class GUI implements MouseListener{
 		l3.setSize(50,50);
 		l4.setSize(50,50);
 		
+		l1.setName(tile + " 1");
+		l2.setName(tile + " 2");
+		l3.setName(tile + " 4");
+		l4.setName(tile + " 5");
+		
 		l1.setLocation(x1, y1);
 		l2.setLocation(x2, y2);
 		l3.setLocation(x3, y3);
@@ -287,6 +292,10 @@ public class GUI implements MouseListener{
 		l1.setSize(50,50);
 		l2.setSize(50,50);
 		l3.setSize(50,50);
+		
+		l1.setName(tile + " 2");
+		l2.setName(tile + " 4");
+		l3.setName(tile + " 5");
 		
 		l1.setLocation(x1, y1);
 		l2.setLocation(x2, y2);
@@ -327,6 +336,13 @@ public class GUI implements MouseListener{
 		l4.setSize(50,50);
 		l5.setSize(50,50);
 		l6.setSize(50,50);
+		
+		l1.setName(tile + " 1");
+		l2.setName(tile + " 2");
+		l3.setName(tile + " 3");
+		l4.setName(tile + " 4");
+		l5.setName(tile + " 5");
+		l6.setName(tile + " 6");
 		
 		l1.setLocation(x1, y1);
 		l2.setLocation(x2, y2);
@@ -375,7 +391,8 @@ public class GUI implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		//System.out.println(e.getSource());
-		System.out.println(e.getSource());
+		JLabel j = (JLabel)e.getSource();
+		System.out.println(j.getName());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
 		
