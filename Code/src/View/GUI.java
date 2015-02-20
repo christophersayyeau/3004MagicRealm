@@ -17,6 +17,7 @@ public class GUI implements MouseListener{
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
 	public JLabel[] mapTiles;
+	public JLabel[][] clearingTiles;
 	int tileCount;
 	
 	public static JPanel Players = new JPanel();
@@ -37,6 +38,7 @@ public class GUI implements MouseListener{
 				
 		tileCount = 0;
 		mapTiles = new JLabel[20];
+		clearingTiles = new JLabel[20][6];
 		//1st row
 		tileBuilder("res/tiles/cliff.png", 2, 0);
 		//second row
@@ -64,6 +66,8 @@ public class GUI implements MouseListener{
 		//sixth row
 		tileBuilder("res/tiles/pine_woods.png", 3, 5);
 		tileBuilder("res/tiles/linden_woods.png", 7, 5);
+		
+		generateClearings();
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		
@@ -193,6 +197,7 @@ public class GUI implements MouseListener{
 		//TODO, only suppose to be 1 of each type max, but that isnt important right now, work on other stuff
 	}
 	
+	//determines # of players for game
 	public int numOfPlayers(){
 		String[] i = {"1","2","3","4","5","6"};
 		
@@ -206,6 +211,91 @@ public class GUI implements MouseListener{
 				"Amazon");
 		String x = (String)s;
 		return Integer.valueOf(x);
+	}
+	
+	public void generateClearings(){
+		//generate valleys
+		genValley(1, 1050, 985, 1085,1055, 1165, 990, 1085,920);
+		genValley(2, 535,705,530,835,430,810,455,705);
+		genValley(3,1090,495,1055,560,1145,595,1165,495);
+		genValley(4,1040,410,1080,340,980,310,965,410);
+		genValley(5,215,280,285,280,315,380,285,280);
+	}
+	
+	public void genValley(int tile,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+		JLabel l1 = new JLabel();
+		JLabel l2 = new JLabel();
+		JLabel l3 = new JLabel();
+		JLabel l4 = new JLabel();
+		
+		l1.setSize(50,50);
+		l2.setSize(50,50);
+		l3.setSize(50,50);
+		l4.setSize(50,50);
+		
+		l1.setLocation(x1, y1);
+		l2.setLocation(x2, y2);
+		l3.setLocation(x3, y3);
+		l4.setLocation(x4, y4);
+		
+		clearingTiles[tile-1][0] = l1;
+		clearingTiles[tile-1][1] = l2;
+		clearingTiles[tile-1][2] = l3;
+		clearingTiles[tile-1][3] = l4;
+		clearingTiles[tile-1][4] = null;
+		clearingTiles[tile-1][5] = null;	
+	}
+	
+	public void genWoods(int tile,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+		JLabel l1 = new JLabel();
+		JLabel l2 = new JLabel();
+		JLabel l3 = new JLabel();
+		
+		l1.setSize(50,50);
+		l2.setSize(50,50);
+		l3.setSize(50,50);
+		
+		l1.setLocation(x1, y1);
+		l2.setLocation(x2, y2);
+		l3.setLocation(x3, y3);
+		
+		clearingTiles[tile-1][0] = l1;
+		clearingTiles[tile-1][1] = l2;
+		clearingTiles[tile-1][2] = l3;
+		clearingTiles[tile-1][3] = null;
+		clearingTiles[tile-1][4] = null;
+		clearingTiles[tile-1][5] = null;	
+	}
+	
+	public void genOther(int tile,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int x5, int y5, int x6, int y6){
+		JLabel l1 = new JLabel();
+		JLabel l2 = new JLabel();
+		JLabel l3 = new JLabel();
+		JLabel l4 = new JLabel();
+		JLabel l5 = new JLabel();
+		JLabel l6 = new JLabel();
+		
+		l1.setSize(50,50);
+		l2.setSize(50,50);
+		l3.setSize(50,50);
+		l4.setSize(50,50);
+		l5.setSize(50,50);
+		l6.setSize(50,50);
+		
+		l1.setLocation(x1, y1);
+		l2.setLocation(x2, y2);
+		l3.setLocation(x3, y3);
+		l4.setLocation(x4, y4);
+		l5.setLocation(x5, y5);
+		l6.setLocation(x6, y6);
+		
+		clearingTiles[tile-1][0] = l1;
+		clearingTiles[tile-1][1] = l2;
+		clearingTiles[tile-1][2] = l3;
+		clearingTiles[tile-1][3] = l4;
+		clearingTiles[tile-1][4] = l5;
+		clearingTiles[tile-1][5] = l6;	
+		
 	}
 
 	@Override
