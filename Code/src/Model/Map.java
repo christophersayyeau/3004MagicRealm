@@ -4,6 +4,7 @@ import Control.Player;
 import Model.Denizen.Ghost;
 import Model.MapChits.GoldChit;
 import Model.MapTiles.DarkValley;
+import Model.MapTiles.EvilValley;
 import Model.MapChits.*;
 import Model.MapTiles.*;
 import View.GUI;
@@ -73,9 +74,11 @@ public class Map {
 		getMapTiles()[1] = evilValley;
 		getMapTiles()[1].setWarning(warningsV[0]);
 		//all garrison natives start the game at their dwellings and dont move unless hired
-		buildGhosts();//there are 2 ghosts
-		resetGhosts();//put in start positions
+		//buildGhosts();//there are 2 ghosts
+		//putGhostsAtStartPositions();
+		//resetGhosts();//put in start positions
 		//mapTiles[1].putGhosts(3);
+		getMapTiles()[1].setGhosts(3, (EvilValley) getMapTiles()[1]);
 		
 		Ledges ledges = temp.new Ledges(1, 0, -1, 3, 7, 6);
 		getMapTiles()[2] = ledges;
@@ -179,7 +182,7 @@ public class Map {
 		ghosts[1].setStartClearing(3);
 	}
 
-	private void putGhostsAtStartPositions() {
+/*	private void putGhostsAtStartPositions() {
 		//since they can't leave the tile we will add them here
 		getMapTiles()[1].putDenizen(ghosts[0]);
 		getMapTiles()[1].putDenizen(ghosts[1]);
@@ -190,17 +193,31 @@ public class Map {
 		
 		moveDenizen(ghosts[0], 3, 2);//second tile, 3rd clearing
 		moveDenizen(ghosts[1], 3, 2);//second tile, 3rd clearing	
-	}
+	}*/
 	private void resetGhosts(){
-		//can't remeber why these 2 lines are here
-		if(ghosts[0].equals(null)) getMapTiles()[1].removeDenizen(ghosts[0]);
-		if(ghosts[1].equals(null)) getMapTiles()[1].removeDenizen(ghosts[1]);
+
+		if(ghosts[0] != null){
+			getMapTiles()[1].removeDenizen(ghosts[0]);
+			//getMapTiles()[1].clearing[3]
+		}
+		if(ghosts[1] != null){
+			getMapTiles()[1].removeDenizen(ghosts[1]);
+		}
 		
-		ghosts[0] = null;
-		ghosts[1] = null;
+		//now put them back in
+		getMapTiles()[1].setGhosts(3, (EvilValley) getMapTiles()[1]);//handled in MapTiles
+
+		/*		
+		if(ghosts[0] != null) getMapTiles()[1].removeDenizen(ghosts[0]);
+		if(ghosts[1] != null) getMapTiles()[1].removeDenizen(ghosts[1]);
+		//if(ghosts[0].equals(null)) getMapTiles()[1].removeDenizen(ghosts[0]);
+		//if(ghosts[1].equals(null)) getMapTiles()[1].removeDenizen(ghosts[1]);
+		
+		//ghosts[0] = null;
+		//ghosts[1] = null;
 		buildGhosts();		
 		
-		putGhostsAtStartPositions();
+		putGhostsAtStartPositions();*/
 	}
 
 	private void buildSoundChits() {

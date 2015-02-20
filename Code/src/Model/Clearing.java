@@ -51,11 +51,12 @@ public class Clearing {
 			//compare
 			if(monstersInClearing[a].equals(monster)){
 				System.out.println("Match FOund");
-				break;//no need to go through rest of array
+				monstersInClearing =  ArrayUtils.remove(monstersInClearing, a);
+				numMonstersInClearing--;
+				return;//no need to go through rest of array
 			}		
 		}
-		monstersInClearing =  ArrayUtils.remove(monstersInClearing, a);
-		numMonstersInClearing--;
+		System.out.println("Not Found");
 	}
 
 }

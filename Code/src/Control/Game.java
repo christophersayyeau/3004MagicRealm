@@ -216,10 +216,12 @@ public class Game {
 		int currentTileNum = player.profile.getCurrentLocation()/10-1;
 		//cycle the monsters in a tile
 		for(int a = 0; a< map.getMapTile(currentTileNum).monstersInTile.length; a++){
-			//check to see if prowling
-			if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
-				//move to the new clearing
-				map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], player.profile.getCurrentLocation()%10-1, currentTileNum);
+			if(map.getMapTile(currentTileNum).monstersInTile[a] != null){
+				//check to see if prowling		
+				if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
+					//move to the new clearing
+					map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], player.profile.getCurrentLocation()%10-1, currentTileNum);
+				}
 			}
 		}
 		

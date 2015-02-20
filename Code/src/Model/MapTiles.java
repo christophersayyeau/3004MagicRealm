@@ -131,8 +131,8 @@ public class MapTiles {
 	private void putNativeSoldiers(CurstValley tile) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		tile.soldiers[0] = temp.new GreatSwordsman("Guard");
-		tile.soldiers[1] = temp.new GreatSwordsman("Guard");
+		tile.soldiers[0] = temp.new GreatSwordsman("Soldier");
+		tile.soldiers[1] = temp.new GreatSwordsman("Soldier");
 		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
@@ -157,8 +157,8 @@ public class MapTiles {
 	private void putNativeRogues(BadValley badValley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		badValley.rogues[0] = temp.new GreatSwordsman("Guard");
-		badValley.rogues[1] = temp.new GreatSwordsman("Guard");
+		badValley.rogues[0] = temp.new GreatSwordsman("Rogue");
+		badValley.rogues[1] = temp.new GreatSwordsman("Rogue");
 		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
@@ -183,8 +183,8 @@ public class MapTiles {
 	private void putNativeOrder(AwfulValley awfulValley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		awfulValley.order[0] = temp.new GreatSwordsman("Guard");
-		awfulValley.order[1] = temp.new GreatSwordsman("Guard");
+		awfulValley.order[0] = temp.new GreatSwordsman("Order");
+		awfulValley.order[1] = temp.new GreatSwordsman("Order");
 		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
@@ -201,6 +201,30 @@ public class MapTiles {
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 
+	
+	public void setGhosts(int i, EvilValley evilValley) {
+		//this.clearing[i-1].ghosts = true;
+		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
+		putGhosts(evilValley);
+	}
+	private void putGhosts(EvilValley evilValley) {
+		//THere are 3 guards
+		Denizen temp = new Denizen();
+		evilValley.ghosts[0] = temp.new Ghost();
+		evilValley.ghosts[1] = temp.new Ghost();
+				
+		//set to their start clearing
+		evilValley.ghosts[0].setStartClearing(3);
+		evilValley.ghosts[1].setStartClearing(3);	
+				
+		evilValley.ghosts[0].setCurrentClearing(3);
+		evilValley.ghosts[1].setCurrentClearing(3);
+		//tile.soldiers[2].setCurrentClearing(3);	
+		
+		clearing[3].putDenizen(evilValley.ghosts[0]);
+		clearing[3].putDenizen(evilValley.ghosts[1]);
+	}
+	
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
 	//each one represents 5 chits determined in private class
@@ -291,6 +315,7 @@ public class MapTiles {
 	}
 	
 	public class EvilValley extends MapTiles {
+		Ghost [] ghosts = new Ghost[2];
 		//constructor
 		public EvilValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building EvilValley");
