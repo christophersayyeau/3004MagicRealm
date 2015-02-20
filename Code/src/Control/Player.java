@@ -24,6 +24,9 @@ public class Player {
 		this.phasesForToday = phasesForToday;
 	}
 
+	//these will store the actions the user wants to do in order
+	String [] phaseActions = new String[5];//we can increase it later
+	
 	//constructor
 	/*public Player(){
 		
@@ -68,24 +71,24 @@ public class Player {
 	}
 
 		
-	void doAction() {
+	void doAction(String action, Map map, Game game) {
 		//handles the action recorded during birdsong and activated during daylight
 		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase. The rest of his turn is not affected. An activity is cancelled if it violates the rules governing that activity.
 		//When he does a blank phase, he does no activity. The blank phase can still be used for trading, rearranging items, and blocking.
-		// TODO finish record action first	move, hide, search, trade and rest.
-		System.out.println("DO THE ACTION HERE");
+
 		
-		if(){//if move action
+		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
+			int newLocation = Integer.parseInt(action.substring(5));
 			//check to see if they can
 			if( canHeMove(newLocation) ) map.moveCharacters(this, newLocation);//if yes then move
 			
-		}else if(){//if hide action
+		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing
 			if(Die.dieRoll() != 6)	this.hidden = true;
 			
-		}else if(){//if search action
+		}else if(action.compareTo("Search")==0){//if search action
 			//with which table
-			String choice = view.whichSearchTable();//locate+loot
+			String choice = game.view.whichSearchTable();//locate+loot
 			//where are you searching//can only search his own clearing using locate
 			
 			if(choice.compareTo("Locate") == 0){//using locate table
@@ -107,12 +110,27 @@ public class Player {
 				
 			}else if(choice.compareTo("Looting") == 0){//using loot table
 				//need to have located it first before trying to loot
-				
-				//if you roll over the number of treasures there you get nothing
+				if (map.getMapTile(currentTile).treasure.found){
+					//if you roll over the number of treasures there you get nothing
+					int result = Die.dieRoll();
+					switch (result){
+						case 1:  	get treasure for player
+						break;
+//						case 2:  	2nd//since there is only going to be one treasure
+//						break;
+//						case 3:  	3rd
+//						break;
+//						case 4:  	4th
+//						break;
+//						case 5:  	5th
+//						break;
+//						case 6:  	6th
+//						break;
+					}
+				}
 			}
-
 			
-		}else if(){//if rest action
+		}else if(action.compareTo("Rest")==0){//if rest action
 			System.out.println("Nothing is Done here in this iteration");
 			
 		}	

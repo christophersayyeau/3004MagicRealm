@@ -174,19 +174,20 @@ public class Game {
 		System.out.println("Start Turn");
 		player.hidden = false;
 		
+		int numPhases = 0;
 		//now do turn as based on what he recorded
 		//go through each phase that he recorded
-		while(player.getPhasesForToday() > 0 ){
+		while(numPhases < player.getPhasesForToday() ){
 			player.rearangeBelongings();
 			view.trading(map, player);
 			
-			player.doAction();//playing action chits as needed
+			player.doAction(player.phaseActions[numPhases], map, this);//playing action chits as needed
 			
 			//blocking handled in iteration 2
 			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");
 			//System.out.println("if not player can block monsters that appear or move to his clearing");			
 		
-			player.setPhasesForToday(player.getPhasesForToday() - 1); //go to the next phase
+			numPhases++; //go to the next phase
 		}
 		
 		

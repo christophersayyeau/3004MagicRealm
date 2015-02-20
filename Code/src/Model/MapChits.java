@@ -8,6 +8,7 @@ public class MapChits {
 
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
+		boolean found = false;
 		//constructor
 		public GoldChit(String word, int spot){
 			clearing = spot;
