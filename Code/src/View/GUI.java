@@ -84,7 +84,7 @@ public class GUI implements MouseListener{
 		scrollPane.setViewportView(Map);
 		scrollPane.setPreferredSize(new Dimension((int)screenSize.getWidth()/2 - 20, (int)screenSize.getHeight()- 100));
 		Map.setAutoscrolls(true);
-		Map.addMouseListener(this);
+		//Map.addMouseListener(this);
 		
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
@@ -98,14 +98,14 @@ public class GUI implements MouseListener{
 		Players.setLocation(0,0);
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
 		
-		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
+		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
 		qwe.setIcon(p1);
 		qwe.setVisible(true);
 		qwe.setLocation(560,1175);
 		qwe.setSize(50,50);
 		Map.add(qwe);
-		Map.setComponentZOrder(qwe, 0);
+		Map.setComponentZOrder(qwe, 0);*/
 		
 		
 		//TODO add in function calls
@@ -214,12 +214,29 @@ public class GUI implements MouseListener{
 	}
 	
 	public void generateClearings(){
-		//generate valleys
+		//generate valleys 4 clearings
 		genValley(1, 1050, 985, 1085,1055, 1165, 990, 1085,920);
 		genValley(2, 535,705,530,835,430,810,455,705);
 		genValley(3,1090,495,1055,560,1145,595,1165,495);
 		genValley(4,1040,410,1080,340,980,310,965,410);
-		genValley(5,215,280,285,280,315,380,285,280);
+		genValley(5,215,280,285,280,315,380,215,400);
+		//generate woods 3 clearings
+		genWoods(6,980,1235,960,1140,1050,1170);
+		genWoods(7,805,810,715,845,750,715);
+		genWoods(8,1060,810,960,845,980,745);
+		genWoods(9,565,520,700,555,625,625);
+		genWoods(10,450,1235,465,1135,560,1175);
+		//generate 6 clearing tiles
+		genOther(11,300,605,380,475,300,520,460,605,400,590,350,570);
+		genOther(12,335,775,290,700,260,755,205,845,205,705,260,815);
+		genOther(13,585,1060,585,920,630,975,550,1010,665,920,700,1030);
+		genOther(14,90,625,200,560,170,625,125,560,55,560,165,500);
+		genOther(15,915,920,950,1030,835,1055,875,990,835,920,890,1040);
+		genOther(16,330,200,410,200,375,125,335,60,415,60,300,125);
+		genOther(17,710,275,790,415,800,355,690,335,730,395,770,295);
+		genOther(18,810,520,950,520,950,600,815,600,880,635,880,560);
+		genOther(19,520,285,425,345,460,275,500,345,535,410,580,300);
+		genOther(20,350,1020,420,1065,420,985,285,990,420,910,340,935);	
 	}
 	
 	public void genValley(int tile,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
@@ -238,15 +255,31 @@ public class GUI implements MouseListener{
 		l3.setLocation(x3, y3);
 		l4.setLocation(x4, y4);
 		
+		/*ImageIcon i = new ImageIcon("res/characters/test.png");
+		l1.setIcon(i);
+		l2.setIcon(i);
+		l3.setIcon(i);
+		l4.setIcon(i);*/
+		
+		Map.setComponentZOrder(l1, 0);
+		Map.setComponentZOrder(l2, 0);
+		Map.setComponentZOrder(l3, 0);
+		Map.setComponentZOrder(l4, 0);
+		
+		l1.addMouseListener(this);
+		l2.addMouseListener(this);
+		l3.addMouseListener(this);
+		l4.addMouseListener(this);
+		
 		clearingTiles[tile-1][0] = l1;
 		clearingTiles[tile-1][1] = l2;
 		clearingTiles[tile-1][2] = l3;
 		clearingTiles[tile-1][3] = l4;
 		clearingTiles[tile-1][4] = null;
-		clearingTiles[tile-1][5] = null;	
+		clearingTiles[tile-1][5] = null;
 	}
 	
-	public void genWoods(int tile,int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4){
+	public void genWoods(int tile,int x1, int y1, int x2, int y2, int x3, int y3){
 		JLabel l1 = new JLabel();
 		JLabel l2 = new JLabel();
 		JLabel l3 = new JLabel();
@@ -258,6 +291,19 @@ public class GUI implements MouseListener{
 		l1.setLocation(x1, y1);
 		l2.setLocation(x2, y2);
 		l3.setLocation(x3, y3);
+		
+		/*ImageIcon i = new ImageIcon("res/characters/test.png");
+		l1.setIcon(i);
+		l2.setIcon(i);
+		l3.setIcon(i);*/
+		
+		Map.setComponentZOrder(l1, 0);
+		Map.setComponentZOrder(l2, 0);
+		Map.setComponentZOrder(l3, 0);
+		
+		l1.addMouseListener(this);
+		l2.addMouseListener(this);
+		l3.addMouseListener(this);
 		
 		clearingTiles[tile-1][0] = l1;
 		clearingTiles[tile-1][1] = l2;
@@ -289,6 +335,28 @@ public class GUI implements MouseListener{
 		l5.setLocation(x5, y5);
 		l6.setLocation(x6, y6);
 		
+		/*ImageIcon i = new ImageIcon("res/characters/test.png");
+		l1.setIcon(i);
+		l2.setIcon(i);
+		l3.setIcon(i);
+		l4.setIcon(i);
+		l5.setIcon(i);
+		l6.setIcon(i);*/
+		
+		Map.setComponentZOrder(l1, 0);
+		Map.setComponentZOrder(l2, 0);
+		Map.setComponentZOrder(l3, 0);
+		Map.setComponentZOrder(l4, 0);
+		Map.setComponentZOrder(l5, 0);
+		Map.setComponentZOrder(l6, 0);
+		
+		l1.addMouseListener(this);
+		l2.addMouseListener(this);
+		l3.addMouseListener(this);
+		l4.addMouseListener(this);
+		l5.addMouseListener(this);
+		l6.addMouseListener(this);
+		
 		clearingTiles[tile-1][0] = l1;
 		clearingTiles[tile-1][1] = l2;
 		clearingTiles[tile-1][2] = l3;
@@ -307,6 +375,7 @@ public class GUI implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		//System.out.println(e.getSource());
+		System.out.println(e.getSource());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
 		
