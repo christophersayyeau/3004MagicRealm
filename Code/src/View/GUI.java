@@ -12,6 +12,7 @@ import Model.Map;
 public class GUI implements MouseListener{
 	
 	Game game;
+	Map map;
 	
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
@@ -30,9 +31,10 @@ public class GUI implements MouseListener{
 	final int tileY = 305;
 	
 	//constructor, called in player.java
-	public GUI(Game g)
+	public GUI(Game g, Map m)
 	{
 		//allows to position tiles
+		map = m;
 		Map.setLayout(null);
 		Map.setBackground(Color.white);
 				

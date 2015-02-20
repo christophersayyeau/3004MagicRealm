@@ -20,7 +20,7 @@ public class Game {
 	Game(){
 		numOfPlayers = 0;
 		//build the map
-		view = new GUI(this);
+		view = new GUI(this, map);
 		map = new Map(view);
 		map.build();
 		
@@ -50,6 +50,7 @@ public class Game {
 		
 		for(int a =0 ; a<numOfPlayers; a++){
 			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position
+			
 		}
 
 		//update GUI for all players
