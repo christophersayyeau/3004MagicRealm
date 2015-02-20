@@ -259,11 +259,12 @@ public class Map {
 	public void moveCharacters(Player player1, int newLocation) {
 		//location and new location will be ex: 32, tile 3 clearing 2
 		
-		int currentTile = player1.getCurrentLocation()/10;
-		int currentClearing = player1.getCurrentLocation()%10;
+		int currentTile = player1.getCurrentLocation()/10-1;
+		int currentClearing = player1.getCurrentLocation()%10-1;
 		
 		//remove from old tile
 		getMapTiles()[currentTile].removePlayer(player1);
+
 		getMapTiles()[currentTile].clearing[currentClearing].removePlayer(player1);
 		
 	
@@ -271,8 +272,8 @@ public class Map {
 		player1.setCurrentLocation(newLocation);		
 		
 		
-		int newTile = player1.getCurrentLocation()/10;
-		int newClearing = player1.getCurrentLocation()%10;
+		int newTile = player1.getCurrentLocation()/10-1;
+		int newClearing = player1.getCurrentLocation()%10-1;
 		
 		//add player to new tile
 		getMapTiles()[newTile].putPlayer(player1);
@@ -368,7 +369,7 @@ public class Map {
 		
 		int currentTile = oldLocation/10-1;
 		int currentClearing = oldLocation%10-1;
-		int newTile = newLocation/10-1;
+		//int newTile = newLocation/10-1;
 		int newClearing = newLocation%10-1;
 	
 		for(int a = 0; a<4; a++){

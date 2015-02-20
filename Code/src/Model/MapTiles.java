@@ -21,7 +21,6 @@ public class MapTiles {
 	//some tiles have sounds or treasure
 	@SuppressWarnings("unused")
 	private RedChit sound = null;
-	@SuppressWarnings("unused")
 	public GoldChit treasure = null;
 	
 	//lost stuff will be boolean since their values are stored in map object

@@ -75,7 +75,10 @@ public class Player {
 		//handles the action recorded during birdsong and activated during daylight
 		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase.
 		//When he does a blank phase, he does no activity.
-
+		if(action == null){
+			return;
+		}
+		
 		//determine what the action is
 		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
 			//THere are rules to handle moving through mountains+caves

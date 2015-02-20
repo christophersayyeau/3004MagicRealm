@@ -213,7 +213,7 @@ public class Game {
 		
 		//blocking in iteration 2
 		//System.out.println("Prowling monsters in tile who have not yet blocked or been blocked move to his clearing");
-		int currentTileNum = (player.profile.getCurrentLocation()/10)-1;
+		int currentTileNum = player.profile.getCurrentLocation()/10-1;
 		//cycle the monsters in a tile
 		for(int a = 0; a< map.getMapTile(currentTileNum).monstersInTile.length; a++){
 			//check to see if prowling
