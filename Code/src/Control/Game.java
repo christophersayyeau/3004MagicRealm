@@ -20,11 +20,11 @@ public class Game {
 	Game(){
 		numOfPlayers = 0;
 		//build the map
-		map = new Map();
+		view = new GUI(this);
+		map = new Map(view);
 		map.build();
 		
 		//get number of players + set gui
-		view = new GUI(this);
 		numOfPlayers = view.numOfPlayers();
 		
 		

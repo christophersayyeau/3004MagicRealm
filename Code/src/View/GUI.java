@@ -379,7 +379,25 @@ public class GUI implements MouseListener{
 		clearingTiles[tile-1][3] = l4;
 		clearingTiles[tile-1][4] = l5;
 		clearingTiles[tile-1][5] = l6;	
-		
+	}
+	
+	public void buildBuildings(String s, int tile, int clearing){
+		ImageIcon icon = null;
+		if(s=="GuardHouse"){
+			icon = new ImageIcon("res/buildings/guard.png");
+		}
+		else if(s=="House"){
+			icon = new ImageIcon("res/buildings/house.png");
+		}
+		else if(s=="Chapel"){
+			icon = new ImageIcon("res/buildings/chapel.png");
+		}
+		else if(s=="Inn"){
+			icon = new ImageIcon("res/buildings/inn.png");
+		}
+		else
+			icon = new ImageIcon("res/characters/test.png");
+		clearingTiles[tile-1][clearing-1].setIcon(icon);
 	}
 
 	@Override

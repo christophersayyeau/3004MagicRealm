@@ -6,8 +6,10 @@ import Model.MapChits.GoldChit;
 import Model.MapTiles.DarkValley;
 import Model.MapChits.*;
 import Model.MapTiles.*;
+import View.GUI;
 
 public class Map {
+	GUI view;
 
 	//an array of tiles, the values will be hardcoded in
 	private MapTiles [] mapTiles = new MapTiles[20];
@@ -23,6 +25,9 @@ public class Map {
 	LostCity lostCity = new LostCity();				//put in ruins
 	
 	Ghost [] ghosts = new Ghost[2];
+	public Map(GUI v){
+		view = v;
+	}
 
 	public MapTiles [] getMapTiles() {
 		return mapTiles;
@@ -86,6 +91,7 @@ public class Map {
 		getMapTiles()[4] = darkValley;
 		getMapTiles()[4].setWarning(warningsV[1]);
 		getMapTiles()[4].setGuardHouse(3, (DarkValley) getMapTiles()[4]);
+		view.buildBuildings("GuardHouse", 4, 3);
 		
 		HighPass highPass = temp.new HighPass(-1, -1, 1, 6, 10, -1);
 		getMapTiles()[5] = highPass;
@@ -110,6 +116,7 @@ public class Map {
 		getMapTiles()[9] = curstValley;
 		getMapTiles()[9].setWarning(warningsV[2]);
 		getMapTiles()[9].setHouse(3, (CurstValley) getMapTiles()[9]);
+		view.buildBuildings("House", 3, 3);
 		
 		Cavern cavern = temp.new Cavern(-1, 5, 6, 11, 14, -1);
 		getMapTiles()[10] = cavern;
@@ -120,6 +127,7 @@ public class Map {
 		getMapTiles()[11] = badValley;
 		getMapTiles()[11].setWarning(warningsV[3]);
 		getMapTiles()[11].setInn(3, (BadValley) getMapTiles()[11]);
+		view.buildBuildings("Inn", 2, 3);
 		
 		MapleWoods mapleWoods = temp.new MapleWoods(11, 7, 8, 13, 16, 15);
 		getMapTiles()[12] = mapleWoods;
@@ -148,6 +156,7 @@ public class Map {
 		getMapTiles()[17] = awfulValley;
 		getMapTiles()[17].setWarning(warningsV[4]);
 		getMapTiles()[17].setChapel(3, (AwfulValley) getMapTiles()[17]);
+		view.buildBuildings("Chapel", 1, 3);
 		
 		PineWoods pineWoods = temp.new PineWoods(-1, 14, 15, -1, -1, -1);
 		getMapTiles()[18] = pineWoods;
