@@ -22,7 +22,9 @@ public class GUI implements MouseListener{
 	int tileCount;
 	
 	public static JPanel Players = new JPanel();
-	public static JPanel Buttons = new JPanel();
+	
+	//TODO revert if needed (original buttons location)
+	//public static JPanel Buttons = new JPanel();
 	
 	//set tile values
 	final int x = 125;
@@ -111,6 +113,7 @@ public class GUI implements MouseListener{
 		
 		
 		//TODO add in function calls
+		/*
 		Buttons.setLayout(new FlowLayout());
 		JButton move = new JButton("Move");
 		move.addActionListener(new ActionListener(){
@@ -161,6 +164,7 @@ public class GUI implements MouseListener{
 		
 		Buttons.setLocation(0,(int)screenSize.getHeight()/3);
 		Buttons.setSize((int)screenSize.getWidth()/2,40);
+		*/
 	}
 	
 	/* Function to create mapTiles
@@ -443,8 +447,54 @@ public class GUI implements MouseListener{
 	}
 	
 	public void recordTurn(Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
+		JPanel Buttons = new JPanel();
+		Buttons.setLayout(new FlowLayout());
+		JButton move = new JButton("Move");
+		move.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the move function");
+			}
+		});
 		
-				
+		JButton hide = new JButton("Hide");
+		hide.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the hide function");
+			}
+		});
+		
+		JButton search = new JButton("Search");
+		search.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the search function");
+			}
+		});
+		
+		JButton rest = new JButton("Rest");
+		rest.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the rest function");
+			}
+		});
+		
+		JButton trade = new JButton("Trade");
+		trade.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the trade function");
+				doYouWantToTrade();
+			}
+		});
+		
+		
+		Buttons.add(move);
+		Buttons.add(hide);
+		Buttons.add(search);
+		Buttons.add(rest);
+		Buttons.add(trade);
+		JFrame frame = new JFrame();
+		
+		Buttons.setBackground(Color.gray);
+		frame.add(Buttons);
 		//TODO 
 		/*
 		all of the characters secretly and simultaneously
