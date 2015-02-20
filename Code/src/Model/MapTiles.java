@@ -117,7 +117,84 @@ public class MapTiles {
 		clearing[3].putDenizen(tile.guard[2]);	
 	}
 
+	public void setHouse(int i, CurstValley curstValley) {
+		this.clearing[i-1].house = true;
+		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
+		putNativeSoldiers(curstValley);
+	}
+	private void putNativeSoldiers(CurstValley tile) {
+		//THere are 3 guards
+		Denizen temp = new Denizen();
+		tile.soldiers[0] = temp.new GreatSwordsman("Guard");
+		tile.soldiers[1] = temp.new GreatSwordsman("Guard");
+		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
+		
+		//set to their start clearing
+		tile.soldiers[0].setStartClearing(3);
+		tile.soldiers[1].setStartClearing(3);	
+		//tile.soldiers[2].setStartClearing(3);
+		
+		tile.soldiers[0].setCurrentClearing(3);
+		tile.soldiers[1].setCurrentClearing(3);
+		//tile.soldiers[2].setCurrentClearing(3);	
+		
+		clearing[3].putDenizen(tile.soldiers[0]);
+		clearing[3].putDenizen(tile.soldiers[1]);
+		//clearing[3].putDenizen(tile.soldiers[2]);	
+	}
 	
+	public void setInn(int i, BadValley badValley) {
+		this.clearing[i-1].inn = true;
+		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
+		putNativeRogues(badValley);
+	}
+	private void putNativeRogues(BadValley badValley) {
+		//THere are 3 guards
+		Denizen temp = new Denizen();
+		badValley.rogues[0] = temp.new GreatSwordsman("Guard");
+		badValley.rogues[1] = temp.new GreatSwordsman("Guard");
+		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
+		
+		//set to their start clearing
+		badValley.rogues[0].setStartClearing(3);
+		badValley.rogues[1].setStartClearing(3);	
+		//tile.soldiers[2].setStartClearing(3);
+		
+		badValley.rogues[0].setCurrentClearing(3);
+		badValley.rogues[1].setCurrentClearing(3);
+		//tile.soldiers[2].setCurrentClearing(3);	
+		
+		clearing[3].putDenizen(badValley.rogues[0]);
+		clearing[3].putDenizen(badValley.rogues[1]);
+		//clearing[3].putDenizen(tile.soldiers[2]);	
+	}
+	
+	public void setChapel(int i, AwfulValley awfulValley) {
+		this.clearing[i-1].chapel = true;
+		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
+		putNativeOrder(awfulValley);
+	}
+	private void putNativeOrder(AwfulValley awfulValley) {
+		//THere are 3 guards
+		Denizen temp = new Denizen();
+		awfulValley.order[0] = temp.new GreatSwordsman("Guard");
+		awfulValley.order[1] = temp.new GreatSwordsman("Guard");
+		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
+		
+		//set to their start clearing
+		awfulValley.order[0].setStartClearing(3);
+		awfulValley.order[1].setStartClearing(3);	
+		//tile.soldiers[2].setStartClearing(3);
+		
+		awfulValley.order[0].setCurrentClearing(3);
+		awfulValley.order[1].setCurrentClearing(3);
+		//tile.soldiers[2].setCurrentClearing(3);	
+		
+		clearing[3].putDenizen(awfulValley.order[0]);
+		clearing[3].putDenizen(awfulValley.order[1]);
+		//clearing[3].putDenizen(tile.soldiers[2]);	
+	}
+
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
 //lost castle in one of 5 mountain tiles(cliff,crag,deepWoods,ledges,mountain)	
 	//each one represents 5 chits determined in private class
@@ -365,7 +442,8 @@ public class MapTiles {
 	}
 	
 	public class CurstValley extends MapTiles {
-		GreatSwordsman [] soldiers = new GreatSwordsman[3];//because it has a dwelling it also has natives
+		//greatswordsman,pikeman,pikeman,crossbowman
+		GreatSwordsman [] soldiers = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//TODO
 	}
@@ -375,7 +453,8 @@ public class MapTiles {
 	}
 	
 	public class BadValley extends MapTiles {
-		GreatSwordsman [] rogues = new GreatSwordsman[3];//because it has a dwelling it also has natives
+		//assassin,greatAxeman,greataxeman,s.swordsman,archer,assasin,swordsman,swordsman
+		GreatSwordsman [] rogues = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//TODO
 	}
@@ -401,7 +480,8 @@ public class MapTiles {
 	}
 	
 	public class AwfulValley extends MapTiles {
-		GreatSwordsman [] order = new GreatSwordsman[3];//because it has a dwelling it also has natives
+		//knight,knight,knight,knight
+		GreatSwordsman [] order = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//TODO
 	}
