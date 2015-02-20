@@ -1,6 +1,7 @@
 
 package Control;
 
+import Model.Die;
 import Model.Map;
 //import View.GUI;
 import CharacterProfiles.*;
@@ -71,9 +72,50 @@ public class Player {
 		//handles the action recorded during birdsong and activated during daylight
 		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase. The rest of his turn is not affected. An activity is cancelled if it violates the rules governing that activity.
 		//When he does a blank phase, he does no activity. The blank phase can still be used for trading, rearranging items, and blocking.
-		// TODO finish record action first
+		// TODO finish record action first	move, hide, search, trade and rest.
 		System.out.println("DO THE ACTION HERE");
 		
+		if(){//if move action
+			//check to see if they can
+			if( canHeMove(newLocation) ) map.moveCharacters(this, newLocation);//if yes then move
+			
+		}else if(){//if hide action
+			//roll on hide table, only a 6 does nothing
+			if(Die.dieRoll() != 6)	this.hidden = true;
+			
+		}else if(){//if search action
+			//with which table
+			String choice = view.whichSearchTable();//locate+loot
+			//where are you searching//can only search his own clearing using locate
+			
+			if(choice.compareTo("Locate") == 0){//using locate table
+				int result = Die.dieRoll();
+				switch (result){
+					case 1:  	choice
+					break;
+					case 2:  	PassageandClues
+					break;
+					case 3:  	Passages
+					break;
+					case 4:  	Discover Chits
+					break;
+					//5 and 6 do nothing
+				}
+				//TODO When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
+				//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
+				//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
+				
+			}else if(choice.compareTo("Looting") == 0){//using loot table
+				//need to have located it first before trying to loot
+				
+				//if you roll over the number of treasures there you get nothing
+			}
+
+			
+		}else if(){//if rest action
+			System.out.println("Nothing is Done here in this iteration");
+			
+		}	
 	}
 
 	
