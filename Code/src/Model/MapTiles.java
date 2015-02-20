@@ -388,12 +388,29 @@ public class MapTiles {
 		//TODO
 	}
 	
-//TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going
-//for dwellings in valley
-		//chapel has order in awfulvalley
-	//none of natives have any differences in first iteration
+	public class Mountain extends MapTiles {
+		//TODO
+	}
 	
+	public class Caves extends MapTiles {
+		//TODO
+	}
+	
+	public class Ruins extends MapTiles {
+		//TODO
+	}
+	
+	public class AwfulValley extends MapTiles {
+		GreatSwordsman [] order = new GreatSwordsman[3];//because it has a dwelling it also has natives
 
-
-
+		//TODO
+	}
+	
+	public class PineWoods extends MapTiles {
+		//TODO
+	}
+	
+	public class LindenWoods extends MapTiles {
+		//TODO
+	}
 }

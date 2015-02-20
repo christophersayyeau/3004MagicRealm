@@ -103,7 +103,8 @@ public class Map {
 				
 		DeepWoods deepWoods = temp.new DeepWoods(7, 3, 4, 9, 13, 12);
 		getMapTiles()[8] = deepWoods;
-		getMapTiles()[8].setWarning(warningsW[1]);
+		getMapTiles()[8].setWarning(warningsM[3]);
+		getMapTiles()[8].setTreasure(sites[5]);
 		
 		CurstValley curstValley = temp.new CurstValley(8, 4, -1, -1, -1, 13);
 		getMapTiles()[9] = curstValley;
@@ -113,7 +114,7 @@ public class Map {
 		Cavern cavern = temp.new Cavern(-1, 5, 6, 11, 14, -1);
 		getMapTiles()[10] = cavern;
 		getMapTiles()[10].setWarning(warningsC[2]);
-		getMapTiles()[10].setTreasure(sites[5]);
+		getMapTiles()[10].setTreasure(sites[6]);
 		
 		BadValley badValley = temp.new BadValley(10, 6, 7, 12, 15, 14);
 		getMapTiles()[11] = badValley;
@@ -122,17 +123,40 @@ public class Map {
 		
 		MapleWoods mapleWoods = temp.new MapleWoods(11, 7, 8, 13, 16, 15);
 		getMapTiles()[12] = mapleWoods;
-		getMapTiles()[12].setWarning(warningsW[2]);
+		getMapTiles()[12].setWarning(warningsW[1]);
 		
 		NutWoods nutWoods = temp.new NutWoods(12, 8, 9, -1, 17, 16);
 		getMapTiles()[13] = nutWoods;
-		getMapTiles()[13].setWarning(warningsW[3]);
+		getMapTiles()[13].setWarning(warningsW[2]);
 		
+		Mountain mountain = temp.new Mountain(-1, 10, 11, 15, 18, -1);
+		getMapTiles()[14] = mountain;
+		getMapTiles()[14].setWarning(warningsM[4]);
+		getMapTiles()[14].setTreasure(sites[7]);
 		
-//TODO!!!!!!!!!!!!!Don't add anymore tiles until we have a decent game going			
-		//get this working first then handle the rest of the tiles
+		Caves caves = temp.new Caves(14, 11, 12, 16, -1, 18);
+		getMapTiles()[15] = caves;
+		getMapTiles()[15].setWarning(warningsC[3]);
+		getMapTiles()[15].setSound(sounds[9]);
 		
+		Ruins ruins = temp.new Ruins(15, 12, 13, 17, 19, -1);
+		getMapTiles()[16] = ruins;
+		getMapTiles()[16].setWarning(warningsC[4]);
+		getMapTiles()[16].setLostCity();//instead of treasure or sound
 		
+		AwfulValley awfulValley = temp.new AwfulValley(16, 13, -1, -1, -1, 19);
+		getMapTiles()[17] = awfulValley;
+		getMapTiles()[17].setWarning(warningsV[4]);
+		getMapTiles()[17].setChapel(3, (AwfulValley) getMapTiles()[17]);
+		
+		PineWoods pineWoods = temp.new PineWoods(-1, 14, 15, -1, -1, -1);
+		getMapTiles()[18] = pineWoods;
+		getMapTiles()[18].setWarning(warningsW[3]);
+		
+		LindenWoods lindenWoods = temp.new LindenWoods(-1, 16, 17, -1, -1, -1);
+		getMapTiles()[19] = lindenWoods;
+		getMapTiles()[19].setWarning(warningsW[4]);
+				
 		System.out.println("FINISH ADDING TILES");
 	}
 
@@ -183,7 +207,7 @@ public class Map {
 		sounds[6] = temp.new RedChit("FLUTTER", 2);	//crag
 		sounds[7] = temp.new RedChit("PATTER", 5);	//highpass
 		sounds[8] = temp.new RedChit("ROAR", 4);	//borderland
-		sounds[9] = temp.new RedChit("SLITHER", 6);
+		sounds[9] = temp.new RedChit("SLITHER", 6);	//caves
 	}
 
 	private void buildTreasureChits() {
@@ -195,9 +219,9 @@ public class Map {
 		sites[2] = temp.new GoldChit("ALTAR", 1);	//lost city
 		sites[3] = temp.new GoldChit("LAIR", 3);	//lost city
 		sites[4] = temp.new GoldChit("VAULT", 3);	//cliff
-		sites[5] = temp.new GoldChit("CAIRNS", 5);	//cavern
-		sites[6] = temp.new GoldChit("POOL", 6);
-		sites[7] = temp.new GoldChit("SHRINE", 4);
+		sites[5] = temp.new GoldChit("CAIRNS", 5);	//deepWoods
+		sites[6] = temp.new GoldChit("POOL", 6);	//cavern
+		sites[7] = temp.new GoldChit("SHRINE", 4);	//mountain
 		
 	}
 
@@ -211,25 +235,25 @@ public class Map {
 		warningsV[1] = temp.new YellowChit("DANK");		//darkvalley
 		warningsV[2] = temp.new YellowChit("RUINS");	//curstValley
 		warningsV[3] = temp.new YellowChit("SMOKE");	//badvalley
-		warningsV[4] = temp.new YellowChit("STINK");
+		warningsV[4] = temp.new YellowChit("STINK");	//awfulvalley
 	//these are the W type	
 		warningsW[0] = temp.new YellowChit("BONES");				//oakWoods
-		warningsW[1] = temp.new YellowChit("DANK");					//deepwoods
-		warningsW[2] = temp.new YellowChit("RUINS");				//maplewoods
-		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire	//nutWoods
-		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire	
+		warningsW[1] = temp.new YellowChit("DANK");					//maplewoods
+		warningsW[2] = temp.new YellowChit("RUINS");				//nutWoods
+		warningsW[3] = temp.new YellowChit("SMOKE");//smallCampfire	//pinewoods
+		warningsW[4] = temp.new YellowChit("STINK");//LargeCampfire	//lindenwoods
 	//these are the C type	
 		warningsC[0] = temp.new YellowChit("BONES");	//highpass
 		warningsC[1] = temp.new YellowChit("DANK");		//borderland
 		warningsC[2] = temp.new YellowChit("RUINS");	//cavern
-		warningsC[3] = temp.new YellowChit("SMOKE");
-		warningsC[4] = temp.new YellowChit("STINK");
+		warningsC[3] = temp.new YellowChit("SMOKE");	//caves
+		warningsC[4] = temp.new YellowChit("STINK");	//Ruins
 	//these are the M type		
 		warningsM[0] = temp.new YellowChit("BONES");	//used for cliff
 		warningsM[1] = temp.new YellowChit("DANK");		//ledges
 		warningsM[2] = temp.new YellowChit("RUINS");	//crag
-		warningsM[3] = temp.new YellowChit("SMOKE");
-		warningsM[4] = temp.new YellowChit("STINK");
+		warningsM[3] = temp.new YellowChit("SMOKE");	//deepWoods
+		warningsM[4] = temp.new YellowChit("STINK");	//mountain
 		
 	}
 
