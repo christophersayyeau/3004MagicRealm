@@ -190,18 +190,9 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public int recordTurn(Player player, Model.Map gameMap) {//returns the number of phases
+	public void recordTurn(Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
 		
-		int phasesToday = 2;//get 2 phases standard
-		//if not in caves get an extra 2, unless your a dwarf
-		//compare the type, if it is not a cave
-		if(gameMap.getMapTile( player.getCurrentLocation()/10-1).getType().compareTo("C") != 0 ){
-			//if not a dwarf
-			if(player.getProfile().getType().compareTo("Dwarf") != 0){
-				phasesToday = 4;
-			}
-		}
-		
+				
 		//TODO 
 		/*
 		all of the characters secretly and simultaneously
@@ -214,7 +205,7 @@ public class GUI implements MouseListener{
 		
 		
 		System.out.println("User now builds his turn");	
-		return phasesToday; //needs to be set to the number of phases for the turn//value in player
+		 
 	}
 
 	public void hideMapChits() {

@@ -88,7 +88,20 @@ public class Game {
 			He can use his turn to	move, hide, search, trade and rest.
 			When each character does his turn, he must do it exactly as he recorded it.
 			 */
-			player1.setPhasesForToday( view.recordTurn(player1, map) );//after the user builds his turn it returns the number of phases
+		
+			int phasesToday = 2;//get 2 phases standard
+			//if not in caves get an extra 2, unless your a dwarf
+			//compare the type, if it is not a cave
+			if(map.getMapTile( player1.getCurrentLocation()/10-1).getType().compareTo("C") != 0 ){
+				//if not a dwarf
+				if(player1.getProfile().getType().compareTo("Dwarf") != 0){
+					phasesToday = 4;
+				}
+			}	
+			player1.setPhasesForToday( phasesToday );//after the user builds his turn it returns the number of phases
+			
+			view.recordTurn(player1, phasesToday, map);
+			
 			
 		System.out.println("SUNRISE");
 			//if it is a weekday
