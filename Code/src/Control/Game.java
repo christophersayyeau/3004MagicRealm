@@ -1,5 +1,7 @@
 package Control;
 
+import java.util.Random;
+
 import Model.Map;
 import View.*;
 
@@ -29,7 +31,7 @@ public class Game {
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
 		
-				System.out.println("HANDLE THE VISITORS LATER");
+				System.out.println("HANDLE THE VISITORS LATER/Never");
 				//setUp6Visitors(); //DONT HANDLE UNTIL GAME WORKS===EXTRA
 				/*
 				 * Visitors are really not essential but if you have the time, we will you the following: 
@@ -43,10 +45,12 @@ public class Game {
 	}
 
 	
-	public void startGame(Player player1) {
+	public void startGame() {
 		System.out.println("STARTING THE GAME");
-		map.moveCharacters(player1, player1.getCurrentLocation());//start position
 		
+		for(int a =0 ; a<numOfPlayers; a++){
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position
+		}
 
 		//update GUI for all players
 		view.Refresh();		
@@ -87,22 +91,22 @@ public class Game {
 			He can use his turn to	move, hide, search, trade and rest.
 			When each character does his turn, he must do it exactly as he recorded it.
 			 */
-		
-			int phasesToday = 2;//get 2 phases standard
-			//if not in caves get an extra 2, unless your a dwarf
-			//compare the type, if it is not a cave
-			if(map.getMapTile( player1.getCurrentLocation()/10-1).getType().compareTo("C") != 0 ){
-				//if not a dwarf
-				if(player1.getProfile().getType().compareTo("Dwarf") != 0){
-					phasesToday = 4;
+		for(int a =0 ; a<numOfPlayers; a++){
+				int phasesToday = 2;//get 2 phases standard
+				//if not in caves get an extra 2, unless your a dwarf
+				//compare the type, if it is not a cave
+				if(map.getMapTile( players[a].getCurrentLocation()/10-1).getType().compareTo("C") != 0 ){
+					//if not a dwarf
+					if(players[a].getProfile().getType().compareTo("Dwarf") != 0){
+						phasesToday = 4;
+					}
 				}
-			}
-
-			player1.setPhasesForToday( phasesToday );//figured out the number of phases
-			
-			//now build the turn in the GUI
-			view.recordTurn(player1, phasesToday, map);
-			
+	
+				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
+				
+				//now build the turn in the GUI
+				view.recordTurn(players[a], phasesToday, map);
+		}
 			
 		System.out.println("SUNRISE");
 			//if it is a weekday
@@ -120,9 +124,13 @@ public class Game {
 			
 		System.out.println("DAYLIGHT");
 			//players go in random order
-			System.out.println("player1 is first character today");
-			doTurn(player1);
-			view.Refresh();		
+			shufflePlayers(players);
+			
+			for(int a =0 ; a<numOfPlayers; a++){
+				//System.out.println("player1 is first character today");
+				doTurn(players[a]);
+				view.Refresh();		
+			}
 			
 		System.out.println("SUNSET");
 			//determine which clearings have characters
@@ -132,9 +140,11 @@ public class Game {
 		System.out.println("EVENING");
 			//randomize which clearings with characters go first
 			//combat is resolved//does not apply in first iteration
+			for(int a =0 ; a<numOfPlayers; a++){
+				players[a].rearangeBelongings();
+				view.trading(map, players[a]);//trade with other characters in clearing
+			}
 			
-			player1.rearangeBelongings();
-			view.trading(map, player1);//trade with other characters in clearing
 			view.Refresh();		
 			
 		System.out.println("MIDNIGHT");
@@ -147,7 +157,9 @@ public class Game {
 			view.hideMapChits();		
 			
 			//System.out.println("Weapons become unalerted");
-			player1.getProfile().getWeapon().setUnAlert();
+			for(int a =0 ; a<numOfPlayers; a++){
+				players[a].getProfile().getWeapon().setUnAlert();
+			}
 			
 			System.out.println("active Potions need to be expired here");
 				//System.out.println("Chapel removes curses");
@@ -165,10 +177,16 @@ public class Game {
 		//end game and calculate score
 		System.out.println("Game is now over");
 		
-		int finalScore = player1.calculateScore();
-		System.out.println("Player 1 got " + finalScore);
+		for(int a =0 ; a<numOfPlayers; a++){
+			int finalScore = players[a].calculateScore();
+			System.out.println("Player " + a + " got " + finalScore);
+			
+		}
+		//display on main screen
+		view.displayScore(players);
 	}
 	
+
 	private void doTurn(Player player) {//moved out of player
 		
 		System.out.println("Start Turn");
@@ -225,5 +243,19 @@ public class Game {
 			String s = view.createPlayer();
 			players[i] = new Player(s);
 		}
+	}
+	
+	private void shufflePlayers(Player[] players2) {
+		//to mix up the players
+	    Random rnd = new Random();
+	    for (int i = players2.length - 1; i > 0; i--)
+	    {
+	      int index = rnd.nextInt(i + 1);
+	      
+	      // Simple swap
+	      Player a = players2[index];
+	      players2[index] = players2[i];
+	      players2[i] = a;
+	    }
 	}
 }

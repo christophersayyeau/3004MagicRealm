@@ -359,6 +359,7 @@ public class Map {
 	public void giveTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
 		// TODO Auto-generated method stub
+		System.out.println("He got treasure");
 		
 	}
 	

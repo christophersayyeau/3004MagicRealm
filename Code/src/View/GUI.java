@@ -410,4 +410,9 @@ public class GUI implements MouseListener{
 		// TODO Auto-generated method stub
 		//display the treasure chit in this tile, technically only the player can see it but who cares
 	}
+	
+	public void displayScore(Player[] gamers) {
+		// TODO Auto-generated method stub
+		//display the final scores of all users
+	}
 }
