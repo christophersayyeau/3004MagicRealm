@@ -25,7 +25,8 @@ public class Map {
 	LostCastle lostCastle = new LostCastle();		//put in ledges
 	LostCity lostCity = new LostCity();				//put in ruins
 	
-	Ghost [] ghosts = new Ghost[2];
+	//Ghost [] ghosts = new Ghost[2];
+	
 	public Map(GUI v){
 		view = v;
 	}
@@ -172,7 +173,7 @@ public class Map {
 		System.out.println("FINISH ADDING TILES");
 	}
 	
-	private void buildGhosts() {
+/*	private void buildGhosts() {
 		Denizen temp = new Denizen();
 		ghosts[0] = temp.new Ghost();
 		ghosts[1] = temp.new Ghost();
@@ -180,7 +181,7 @@ public class Map {
 		//set to their start clearing
 		ghosts[0].setStartClearing(3);
 		ghosts[1].setStartClearing(3);
-	}
+	}*/
 
 /*	private void putGhostsAtStartPositions() {
 		//since they can't leave the tile we will add them here
@@ -196,13 +197,15 @@ public class Map {
 	}*/
 	private void resetGhosts(){
 
-		if(ghosts[0] != null){
-			getMapTiles()[1].removeDenizen(ghosts[0]);
+		//if(ghosts[0] != null){
+			getMapTiles()[1].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[0]);
+			getMapTiles()[1].clearing[3].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[0]);		
 			//getMapTiles()[1].clearing[3]
-		}
-		if(ghosts[1] != null){
-			getMapTiles()[1].removeDenizen(ghosts[1]);
-		}
+		//}
+	//	if(ghosts[1] != null){
+			getMapTiles()[1].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[1]);
+			getMapTiles()[1].clearing[3].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[1]);
+	//	}
 		
 		//now put them back in
 		getMapTiles()[1].setGhosts(3, (EvilValley) getMapTiles()[1]);//handled in MapTiles

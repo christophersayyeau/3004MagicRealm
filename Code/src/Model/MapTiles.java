@@ -315,7 +315,7 @@ public class MapTiles {
 	}
 	
 	public class EvilValley extends MapTiles {
-		Ghost [] ghosts = new Ghost[2];
+		public Ghost [] ghosts = new Ghost[2];
 		//constructor
 		public EvilValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building EvilValley");
