@@ -1015,7 +1015,7 @@ public class MapTiles {
 			clearing[0].getConnectedTo()[0] = 4;//clearing 2 connected to 4
 			clearing[1].getConnectedTo()[0] = 2;//clearing 4 connected to 2
 		clearing[1].getConnectedTo()[1] = 172;//clearing 4 connected to 2 in tile 17
-		clearing[2].getConnectedTo()[0] = 182;//clearing 5 connected to 2 in tile 18
+		clearing[2].getConnectedTo()[0] = 182;//clearing 5 connected to 2 in tile 18	//TODO Check all double digits
 		
 		}	
 	}

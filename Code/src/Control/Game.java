@@ -130,9 +130,11 @@ public class Game {
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
 				doTurn(players[a]);
-				view.Refresh();		
+				view.Refresh();	
+				
+				players[a].numPhases = 0;//reset the phases
 			}
-			
+				
 		System.out.println("SUNSET");
 			//determine which clearings have characters
 					//FLOWERS OF REST people wake up
@@ -162,7 +164,7 @@ public class Game {
 				players[a].getProfile().getWeapon().setUnAlert();
 			}
 			
-			System.out.println("active Potions need to be expired here");
+				//System.out.println("active Potions need to be expired here");
 				//System.out.println("Chapel removes curses");
 				//System.out.println("Combat Spells expire");
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
@@ -196,11 +198,12 @@ public class Game {
 		int numPhases = 0;
 		//now do turn as based on what he recorded
 		//go through each phase that he recorded
+		System.out.println("!!"+player.getPhasesForToday());
 		while(numPhases < player.getPhasesForToday() ){
 			player.rearangeBelongings();
 			view.trading(map, player);
 			
-			player.doAction(player.phaseActions[numPhases], map, this);//playing action chits as needed
+			player.doAction(player.getPhaseActions()[numPhases], map, this);//playing action chits as needed
 			
 			//blocking handled in iteration 2
 			//System.out.println("if player unhidden all monsters who move to his clearing/apear auto block player");

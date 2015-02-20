@@ -111,15 +111,14 @@ public class Map {
 		NutWoods nutWoods = temp.new NutWoods(6, 17, 2, -1, 0, 14);
 		getMapTiles()[7] = nutWoods;
 		getMapTiles()[7].setWarning(warningsW[2]);
-		
+
 		OakWoods oakWoods = temp.new OakWoods(10, 18, 16, 17, 6, 1);
 		getMapTiles()[8] = oakWoods;
 		getMapTiles()[8].setWarning(warningsW[0]);
 		
 		PineWoods pineWoods = temp.new PineWoods(-1, 19, 12, -1, -1, -1);
 		getMapTiles()[9] = pineWoods;
-		getMapTiles()[9].setWarning(warningsW[3]);		
-		System.out.println("FINISH ADDING TILES");
+		getMapTiles()[9].setWarning(warningsW[3]);				
 		
 		BorderLand borderLand = temp.new BorderLand(13, 4, 18, 8, 1, 11);
 		getMapTiles()[10] = borderLand;
@@ -170,6 +169,7 @@ public class Map {
 		getMapTiles()[19] = mountain;
 		getMapTiles()[19].setWarning(warningsM[4]);
 		getMapTiles()[19].setTreasure(sites[7]);
+		System.out.println("FINISH ADDING TILES");
 	}
 	
 /*	private void buildGhosts() {
@@ -287,8 +287,8 @@ public class Map {
 	public void moveCharacters(Player player1, int newLocation) {
 		//location and new location will be ex: 32, tile 3 clearing 2
 		
-		int currentTile = player1.getCurrentLocation()/10;
-		int currentClearing = player1.getCurrentLocation()%10;
+		int currentTile = player1.getCurrentLocation()/10-1;
+		int currentClearing = player1.getCurrentLocation()%10-1;
 		
 		//remove from old tile
 		getMapTiles()[currentTile].removePlayer(player1);
@@ -299,8 +299,8 @@ public class Map {
 		player1.setCurrentLocation(newLocation);		
 		
 		
-		int newTile = player1.getCurrentLocation()/10;
-		int newClearing = player1.getCurrentLocation()%10;
+		int newTile = player1.getCurrentLocation()/10-1;
+		int newClearing = player1.getCurrentLocation()%10-1;
 		
 		//add player to new tile
 		getMapTiles()[newTile].putPlayer(player1);
@@ -396,7 +396,7 @@ public class Map {
 		
 		int currentTile = oldLocation/10-1;
 		int currentClearing = oldLocation%10-1;
-		int newTile = newLocation/10-1;
+		//int newTile = newLocation/10-1;
 		int newClearing = newLocation%10-1;
 	
 		for(int a = 0; a<4; a++){

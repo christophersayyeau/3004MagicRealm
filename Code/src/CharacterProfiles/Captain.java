@@ -19,7 +19,7 @@ public class Captain extends Character{
 		setType("Captain");
 		
 		//startSpot[0] = inn;		//the Captain starts in the inn
-		currentLocation = 123;		//currently in tile 12 clearing 3, Bad Valley 3
+		currentLocation = 24;		//currently in tile 12 clearing 3, Bad Valley 3
 	//TODO	add more start location in second iteration
 //		startSpot[1] = house;
 //		startSpot[2] = guardHouse;
