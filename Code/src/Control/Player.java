@@ -11,12 +11,12 @@ public class Player {
 
 	//commented out view for hotseat game
 	//GUI view;
-	int numPhases = 0;
+	
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
 	private int phasesForToday = -1;//determined in recordTurn
-	
+	int numPhases = 0;
 	
 	public int getPhasesForToday() {
 		return phasesForToday;

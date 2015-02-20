@@ -130,9 +130,11 @@ public class Game {
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
 				doTurn(players[a]);
-				view.Refresh();		
+				view.Refresh();	
+				
+				players[a].numPhases = 0;//reset the phases
 			}
-			
+				
 		System.out.println("SUNSET");
 			//determine which clearings have characters
 					//FLOWERS OF REST people wake up
