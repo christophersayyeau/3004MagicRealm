@@ -430,67 +430,235 @@ public class MapTiles {
 	}
 
 	public class BorderLand extends MapTiles {
-		//TODO
+		//constructor
+		public BorderLand(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building BorderLand");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 
 	public class OakWoods extends MapTiles {
-		//TODO
+		//constructor
+		public OakWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Oakwoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class DeepWoods extends MapTiles {
-		//TODO
+		//constructor
+		public DeepWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Deepwoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class CurstValley extends MapTiles {
 		//greatswordsman,pikeman,pikeman,crossbowman
 		GreatSwordsman [] soldiers = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
-		//TODO
+		//constructor
+		public CurstValley(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building CurstValley");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class Cavern extends MapTiles {
-		//TODO
+		//constructor
+		public Cavern(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Cavern");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class BadValley extends MapTiles {
 		//assassin,greatAxeman,greataxeman,s.swordsman,archer,assasin,swordsman,swordsman
 		GreatSwordsman [] rogues = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
-		//TODO
+		//constructor
+		public BadValley(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building BadValley");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class MapleWoods extends MapTiles {
-		//TODO
+		//constructor
+		public MapleWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building MapleWoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class NutWoods extends MapTiles {
-		//TODO
+		//constructor
+		public NutWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building NutWoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class Mountain extends MapTiles {
-		//TODO
+		//constructor
+		public Mountain(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Mountain");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class Caves extends MapTiles {
-		//TODO
+		//constructor
+		public Caves(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Caves");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class Ruins extends MapTiles {
-		//TODO
+		//constructor
+		public Ruins(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building Ruins");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class AwfulValley extends MapTiles {
 		//knight,knight,knight,knight
 		GreatSwordsman [] order = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
-		//TODO
+		//constructor
+		public AwfulValley(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building AwfulValley");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class PineWoods extends MapTiles {
-		//TODO
+		//constructor
+		public PineWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building PineWoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 	
 	public class LindenWoods extends MapTiles {
-		//TODO
+		//constructor
+		public LindenWoods(int l, int tl, int tr, int r, int br, int bl){
+			System.out.println("Building LindenWoods");
+			left = l;
+			topLeft = tl;
+			topRight = tr;
+			
+			right = r;
+			bottomRight = br;
+			bottomLeft = bl;
+			
+			//TODO	
+		}	
 	}
 }
