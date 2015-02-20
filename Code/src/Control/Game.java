@@ -45,7 +45,6 @@ public class Game {
 	
 	public void startGame(Player player1) {
 		System.out.println("STARTING THE GAME");
-			
 		map.moveCharacters(player1, player1.getCurrentLocation());//start position
 		
 

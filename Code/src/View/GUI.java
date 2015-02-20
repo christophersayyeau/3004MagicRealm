@@ -131,12 +131,20 @@ public class GUI implements MouseListener{
 			}
 		});
 		
+		JButton trade = new JButton("Trade");
+		trade.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("Call the trade function");
+				doYouWantToTrade();
+			}
+		});
 		
 		
 		Buttons.add(move);
 		Buttons.add(hide);
 		Buttons.add(search);
 		Buttons.add(rest);
+		Buttons.add(trade);
 		
 		Buttons.setBackground(Color.gray);
 		
@@ -282,9 +290,19 @@ public class GUI implements MouseListener{
 			}
 		}
 	}
-	private boolean doYouWantToTrade() {
+	public boolean doYouWantToTrade() {
 		//just ask user if they want to trade with others in clearing, see declaration
-		// TODO return true if the user wants to trade
-		return false;
+		int n = JOptionPane.showConfirmDialog(Players,
+				"Would you like to trade?",
+				"Trade",
+				JOptionPane.YES_NO_OPTION);
+		if(n == 0){
+			System.out.println("Should return true for trade");
+			return true;
+		}
+		else{
+			System.out.println("Should return false for trade");
+			return false;
+		}
 	}
 }
