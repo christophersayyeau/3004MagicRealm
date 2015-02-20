@@ -78,10 +78,12 @@ public class Player {
 
 		//determine what the action is
 		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
+			//THere are rules to handle moving through mountains+caves
+			
 			int newLocation = Integer.parseInt(action.substring(5));
 			//check to see if they can
-			if( map.canHeMove(newLocation, this) ){
-				//TODO check the instructions
+			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
+				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
 			}
 			

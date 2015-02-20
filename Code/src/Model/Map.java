@@ -355,15 +355,27 @@ public class Map {
 		}
 	}
 	
-	//give the treasure values to the player
+	
 	public void giveTreasure(Player player, GoldChit treasure) {
+		//give the treasure values to the player
 		// TODO Auto-generated method stub
 		
 	}
 	
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
-	public boolean canHeMove(int newLocation, Player player) {
-		// TODO Auto-generated method stub
+	public boolean canHeMove(int oldLocation, int newLocation, Player player) {
+		
+		int currentTile = oldLocation/10-1;
+		int currentClearing = oldLocation%10-1;
+		int newTile = newLocation/10-1;
+		int newClearing = newLocation%10-1;
+	
+		for(int a = 0; a<4; a++){
+			//if(this.getMapTile(currentTile).clearing[currentClearing].getConnectedTo()[a] != null)//handle null
+				if(this.getMapTile(currentTile).clearing[currentClearing].getConnectedTo()[a] == newClearing)
+					return true;//if they are connected
+		}	
+		//if it isn't in the array
 		return false;
 	}
 
