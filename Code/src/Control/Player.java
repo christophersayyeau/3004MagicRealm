@@ -73,14 +73,14 @@ public class Player {
 		
 	void doAction(String action, Map map, Game game) {
 		//handles the action recorded during birdsong and activated during daylight
-		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase. The rest of his turn is not affected. An activity is cancelled if it violates the rules governing that activity.
-		//When he does a blank phase, he does no activity. The blank phase can still be used for trading, rearranging items, and blocking.
+		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase.
+		//When he does a blank phase, he does no activity.
 
-		
+		//determine what the action is
 		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
 			int newLocation = Integer.parseInt(action.substring(5));
 			//check to see if they can
-			if( canHeMove(newLocation) ) map.moveCharacters(this, newLocation);//if yes then move
+			if( map.canHeMove(newLocation, this) ) map.moveCharacters(this, newLocation);//if yes then move
 			
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing
@@ -109,12 +109,14 @@ public class Player {
 				//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
 				
 			}else if(choice.compareTo("Looting") == 0){//using loot table
+				int currentTile = profile.getCurrentLocation()/10-1;
+				
 				//need to have located it first before trying to loot
 				if (map.getMapTile(currentTile).treasure.found){
 					//if you roll over the number of treasures there you get nothing
 					int result = Die.dieRoll();
 					switch (result){
-						case 1:  	get treasure for player
+						case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);
 						break;
 //						case 2:  	2nd//since there is only going to be one treasure
 //						break;

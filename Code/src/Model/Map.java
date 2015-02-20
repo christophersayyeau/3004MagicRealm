@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Denizen.Ghost;
+import Model.MapChits.GoldChit;
 import Model.MapTiles.DarkValley;
 import Model.MapChits.*;
 import Model.MapTiles.*;
@@ -352,6 +353,18 @@ public class Map {
 				}
 			}
 		}
+	}
+	
+	//give the treasure values to the player
+	public void giveTreasure(Player player, GoldChit treasure) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	//checks if the player can go to the newLocation(TileClearing combined cordinate)
+	public boolean canHeMove(int newLocation, Player player) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

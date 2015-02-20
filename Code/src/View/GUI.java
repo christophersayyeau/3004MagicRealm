@@ -308,4 +308,11 @@ public class GUI implements MouseListener{
 			return false;
 		}
 	}
+
+	public String whichSearchTable() {
+		// TODO Auto-generated method stub
+		//ask user if they want to locate or loot 
+		//should probably remind users you need to locate before you can loot
+		return null;
+	}
 }

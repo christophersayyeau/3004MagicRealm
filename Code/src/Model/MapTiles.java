@@ -22,7 +22,7 @@ public class MapTiles {
 	@SuppressWarnings("unused")
 	private RedChit sound = null;
 	@SuppressWarnings("unused")
-	private GoldChit treasure = null;
+	public GoldChit treasure = null;
 	
 	//lost stuff will be boolean since their values are stored in map object
 	boolean lostCastle = false;
