@@ -23,7 +23,7 @@ public class Game {
 		
 		//get number of players + set gui
 		view = new GUI(this);
-		//numOfPlayers = view.numOfPlayers();
+		numOfPlayers = view.numOfPlayers();
 		
 		
 		//population for dwellings and ghosts handled in each valley's constructor
