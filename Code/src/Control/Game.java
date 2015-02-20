@@ -13,7 +13,6 @@ public class Game {
 	public int numOfPlayers;
 	
 	Map map;
-	
 		
 	//constructor
 	Game(){

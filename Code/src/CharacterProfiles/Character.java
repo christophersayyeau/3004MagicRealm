@@ -37,7 +37,6 @@ public class Character {
 	CombatChit action3 = new CombatChit();
 	
 	
-	
 	//Auto generated
 	public String getType() {
 		return type;

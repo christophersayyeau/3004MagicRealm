@@ -452,6 +452,7 @@ public class MapTiles {
 			clearing[3].setValue(4);
 			clearing[4].setValue(5);
 			clearing[5].setValue(6);
+			
 			//TODO	
 		}	
 	}
@@ -504,6 +505,7 @@ public class MapTiles {
 			clearing[3].setValue(4);
 			clearing[4].setValue(5);
 			clearing[5].setValue(6);
+			
 			//TODO	
 		}	
 	}
@@ -667,6 +669,7 @@ public class MapTiles {
 			clearing[3].setValue(4);
 			clearing[4].setValue(5);
 			clearing[5].setValue(6);
+			
 			//TODO	
 		}	
 	}
@@ -694,6 +697,7 @@ public class MapTiles {
 			clearing[3].setValue(4);
 			clearing[4].setValue(5);
 			clearing[5].setValue(6);
+			
 			//TODO	
 		}	
 	}
@@ -720,6 +724,7 @@ public class MapTiles {
 			clearing[2].setValue(3);
 			clearing[3].setValue(4);
 			clearing[4].setValue(5);
+			
 			//TODO	
 		}	
 	}

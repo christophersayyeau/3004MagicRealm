@@ -7,5 +7,4 @@ public class Die {
 		System.out.println("Rolled a " + roll);
 		return roll;
 	}
-
 }

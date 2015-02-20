@@ -47,8 +47,7 @@ public class MapChits {
 	 
 	 5"V" put on 5 valley tiles(Awful Valley, Bad Valley, Cursed Valley, Dark Valley, Evil Valley)
 	 
-	 5"W" put on 5 woods tiles(Linden Woods, Maple Woods, Nut Woods, Oak Woods, Pine Woods)
-	 
+	 5"W" put on 5 woods tiles(Linden Woods, Maple Woods, Nut Woods, Oak Woods, Pine Woods)	 
 	 
 	 */
 }
