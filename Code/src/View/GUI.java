@@ -164,6 +164,7 @@ public class GUI implements MouseListener{
 		//System.out.println(e.getSource());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
+		
 	}
 
 	@Override
