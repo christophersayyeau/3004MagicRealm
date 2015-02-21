@@ -69,25 +69,25 @@ public class Map {
 		AwfulValley awfulValley = temp.new AwfulValley(14, 7, -1, -1, -1, 5);
 		getMapTiles()[0] = awfulValley;
 		getMapTiles()[0].setWarning(warningsV[4]);
-		getMapTiles()[0].setChapel(3, (AwfulValley) getMapTiles()[17]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[0].setChapel(4, (AwfulValley) getMapTiles()[0]);
 		view.buildBuildings("Chapel", 1, 4);
 		
 		BadValley badValley = temp.new BadValley(11, 10, 8, 6, 12, 19);
 		getMapTiles()[1] = badValley;
 		getMapTiles()[1].setWarning(warningsV[3]);
-		getMapTiles()[1].setInn(3, (BadValley) getMapTiles()[11]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[1].setInn(4, (BadValley) getMapTiles()[1]);
 		view.buildBuildings("Inn", 2, 4);
 		
 		CurstValley curstValley = temp.new CurstValley(17, 3, -1, -1, -1, 7);
 		getMapTiles()[2] = curstValley;
 		getMapTiles()[2].setWarning(warningsV[2]);
-		getMapTiles()[2].setHouse(3, (CurstValley) getMapTiles()[9]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[2].setHouse(4, (CurstValley) getMapTiles()[2]);
 		view.buildBuildings("House", 3, 4);
 		
 		DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
 		getMapTiles()[3] = darkValley;
 		getMapTiles()[3].setWarning(warningsV[1]);
-		getMapTiles()[3].setGuardHouse(3, (DarkValley) getMapTiles()[4]);//CHRIS NEEDS TO FIGURE THIS OUT THIS OUT SHOULD BE ON LARGEST CLEARING
+		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
 		view.buildBuildings("GuardHouse", 4, 4);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 15, 18, 10, 13);
@@ -98,7 +98,7 @@ public class Map {
 		//putGhostsAtStartPositions();
 		//resetGhosts();//put in start positions
 		//mapTiles[1].putGhosts(3);
-		getMapTiles()[4].setGhosts(3, (EvilValley) getMapTiles()[4]);
+		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
 		
 		LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
 		getMapTiles()[5] = lindenWoods;
@@ -386,9 +386,9 @@ public class Map {
 	
 	public void giveTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
-		// TODO Auto-generated method stub
+		// TODO fix this in second iteration
 		System.out.println("He got treasure");
-		
+		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
 	
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
