@@ -197,17 +197,17 @@ public class Map {
 	private void resetGhosts(){
 
 		//if(ghosts[0] != null){
-			getMapTiles()[1].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[0]);
-			getMapTiles()[1].clearing[3].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[0]);		
+			getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);
+			getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[0].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);		
 			//getMapTiles()[1].clearing[3]
 		//}
 	//	if(ghosts[1] != null){
-			getMapTiles()[1].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[1]);
-			getMapTiles()[1].clearing[3].removeDenizen(((EvilValley) getMapTiles()[1]).ghosts[1]);
+			getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
+			getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[1].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
 	//	}
 		
 		//now put them back in
-		getMapTiles()[1].setGhosts(3, (EvilValley) getMapTiles()[1]);//handled in MapTiles
+		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);//handled in MapTiles
 
 		/*		
 		if(ghosts[0] != null) getMapTiles()[1].removeDenizen(ghosts[0]);

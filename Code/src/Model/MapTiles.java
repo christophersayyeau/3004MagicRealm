@@ -67,6 +67,7 @@ public class MapTiles {
 		}
 		monstersInTile =  ArrayUtils.remove(monstersInTile, a);
 		numMonstersInTile--;
+		
 	}
 		
 	public String getPlayers() {
@@ -202,23 +203,23 @@ public class MapTiles {
 	}
 
 	
-	public void setGhosts(int i, EvilValley evilValley) {
+	public void setGhosts( int i, EvilValley evilValley) {
 		//this.clearing[i-1].ghosts = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		putGhosts(evilValley);
+		putGhosts(evilValley, i-1);
 	}
-	private void putGhosts(EvilValley evilValley) {
+	private void putGhosts(EvilValley evilValley, int clearin) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		evilValley.ghosts[0] = temp.new Ghost();
 		evilValley.ghosts[1] = temp.new Ghost();
 				
 		//set to their start clearing
-		evilValley.ghosts[0].setStartClearing(3);
-		evilValley.ghosts[1].setStartClearing(3);	
+		evilValley.ghosts[0].setStartClearing(clearin);
+		evilValley.ghosts[1].setStartClearing(clearin);	
 				
-		evilValley.ghosts[0].setCurrentClearing(3);
-		evilValley.ghosts[1].setCurrentClearing(3);
+		evilValley.ghosts[0].setCurrentClearing(clearin);
+		evilValley.ghosts[1].setCurrentClearing(clearin);
 		//tile.soldiers[2].setCurrentClearing(3);	
 		
 		clearing[3].putDenizen(evilValley.ghosts[0]);

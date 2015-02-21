@@ -112,12 +112,13 @@ public class Game {
 		System.out.println("SUNRISE");
 			//if it is a weekday
 			if( day%7 != 0){
+				//System.out.println("Not Day"+day%7);
 				//die determines which denizen is prowling
 				map.denizensProwling();//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
 			
 			//after 7 days	
 			}else{
-				//System.out.println("Return monsters and natives to start positions");
+				//System.out.println("Return monsters and natives to start positions"+day%7);
 				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
 			}
 			
@@ -198,7 +199,7 @@ public class Game {
 		int numPhases = 0;
 		//now do turn as based on what he recorded
 		//go through each phase that he recorded
-		System.out.println("!!"+player.getPhasesForToday());
+		
 		while(numPhases < player.getPhasesForToday() ){
 			player.rearangeBelongings();
 			view.trading(map, player);

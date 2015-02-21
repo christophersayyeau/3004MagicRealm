@@ -449,7 +449,7 @@ public class GUI implements MouseListener{
 	
 	public void recordTurn(final Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
 		
-		//TODO 
+the panel is being pushed(to back) behind the window		
 				/*
 				all of the characters secretly and simultaneously
 				record what they will do during their turns. When each character does his
@@ -463,12 +463,12 @@ public class GUI implements MouseListener{
 		
 		JPanel Buttons = new JPanel();
 		Buttons.setLayout(new FlowLayout());
-		//TODO add in an address to move
+		
 		JButton move = new JButton("Move");
 		move.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the move function");
-				player.setPhaseActions("Move");	
+				player.setPhaseActions("Move");	//TODO need to include coordinate of location clearing
 			}
 		});
 		
@@ -500,7 +500,9 @@ public class GUI implements MouseListener{
 		trade.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				System.out.println("Call the trade function");
-				doYouWantToTrade();
+				//doYouWantToTrade();
+				//trading(map, player);
+				player.setPhaseActions("Trade");
 			}
 		});
 		
@@ -569,7 +571,7 @@ public class GUI implements MouseListener{
 
 	public String whichSearchTable() {
 		// TODO Auto-generated method stub
-		//ask user if they want to locate or loot 
+		//ask user if they want to "Locate" or "Looting" 
 		//should probably remind users you need to locate before you can loot
 		return null;
 	}

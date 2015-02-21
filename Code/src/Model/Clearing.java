@@ -47,11 +47,12 @@ public class Clearing {
 	public void removeDenizen(Denizen monster) {
 		//first find the monster in the array
 		int a;
+		//System.out.println("!!!!! "+ numMonstersInClearing);
 		for(a=0; a<numMonstersInClearing; a++){//num... will always be bigger than 0
 			//compare
-			
+		//System.out.println("Match: "+monster+monstersInClearing[a]);
 			if(monstersInClearing[a].equals(monster)){
-				System.out.println("Match FOund");
+				System.out.println("Match Found");
 				monstersInClearing =  ArrayUtils.remove(monstersInClearing, a);
 				numMonstersInClearing--;
 				return;//no need to go through rest of array

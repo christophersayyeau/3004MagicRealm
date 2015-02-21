@@ -108,6 +108,11 @@ public class Player {
 			//roll on hide table, only a 6 does nothing
 			if(Die.dieRoll() != 6)	this.hidden = true;
 			
+			
+		}else if(action.compareTo("Trade")==0){//if Trade action
+			//call of trade function
+			game.view.trading(map, this);
+			
 		}else if(action.compareTo("Search")==0){//if search action
 			//with which table
 			String choice = game.view.whichSearchTable();//locate+loot
