@@ -80,6 +80,7 @@ public class GUI implements MouseListener{
 		MainWindow.setTitle("Magic Realm");
 		MainWindow.setVisible(true);
 		MainWindow.setExtendedState(MainWindow.MAXIMIZED_BOTH);
+		MainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Map.setPreferredSize(new Dimension(1400,1400));
 		scrollPane.setBackground(Color.white);
@@ -449,7 +450,7 @@ public class GUI implements MouseListener{
 	
 	public void recordTurn(final Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
 		
-the panel is being pushed(to back) behind the window		
+//TODO the panel is being pushed(to back) behind the window		
 				/*
 				all of the characters secretly and simultaneously
 				record what they will do during their turns. When each character does his
@@ -517,10 +518,11 @@ the panel is being pushed(to back) behind the window
 		Buttons.setBackground(Color.gray);
 		//frame.add(Buttons);
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(Buttons);
 		frame.pack();
 		frame.setVisible(true);
+		
 		
 		System.out.println("User now builds his turn");	
 		 
