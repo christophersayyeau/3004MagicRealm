@@ -507,22 +507,37 @@ public class GUI implements MouseListener{
 			}
 		});
 		
+		JButton quit = new JButton("Quit");
+		trade.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				System.out.println("You have chosen to close the program");
+				System.exit(0);
+			}
+		});
 		
 		Buttons.add(move);
 		Buttons.add(hide);
 		Buttons.add(search);
 		Buttons.add(rest);
 		Buttons.add(trade);
-		JFrame frame = new JFrame("Options");
+		Buttons.add(quit);
+		JDialog frame = new JDialog();
 		
 		Buttons.setBackground(Color.gray);
-		//frame.add(Buttons);
+		frame.add(Buttons);
 		
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(Buttons);
 		frame.pack();
 		frame.setVisible(true);
+		frame.setModal(true);
 		
+		/*
+		String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade"};
+		int response = JOptionPane.showOptionDialog(null, "Message", "Title",
+		        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+		        null, options, options[0]);
+		*/
 		
 		System.out.println("User now builds his turn");	
 		 
