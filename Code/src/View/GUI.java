@@ -3,6 +3,7 @@ package View;
 import java.awt.*;
 import java.awt.event.*;
 
+
 import javax.swing.*;
 
 import Control.Game;
@@ -544,6 +545,7 @@ public class GUI implements MouseListener{
 			switch(response){
 			case 0:			//Move
 				System.out.println("Call the move function");
+				//TODO obtain mouse click value and send it into the setPhaseActions
 				player.setPhaseActions("Move23");	//TODO need to include coordinate of location clearing, here is temp value
 				break;
 			case 1:			//Hide
@@ -649,6 +651,18 @@ public class GUI implements MouseListener{
 	
 	public void displayClearing(String s){
 		String q[] = s.split(" ");
-		//map.
+		System.out.print("Display the name ");
+		for(int i=0; i<q.length;i++){
+			System.out.print(q[i]+" ");
+		}
+		System.out.println("");
+		int clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
+		System.out.println("Location number = "+clickedLocation);
+		//TODO need to obtain old location and player or move this code elsewhere
+		/*
+		Player player;
+		int oldLocation = player.getCurrentLocation();
+		System.out.println(map.canHeMove(oldLocation, newLocation, player));
+		*/
 	}
 }
