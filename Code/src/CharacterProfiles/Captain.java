@@ -23,8 +23,7 @@ public class Captain extends Character{
 	//TODO	add more start location in second iteration
 //		startSpot[1] = house;
 //		startSpot[2] = guardHouse;
-		System.out.println("!!!!Captain has more options for start spots!!!!");
-		
+				
 		weight = 2;				//Captain is Medium
 		
 		//trading groups
