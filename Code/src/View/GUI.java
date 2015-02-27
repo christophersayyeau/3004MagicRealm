@@ -111,61 +111,61 @@ public class GUI implements MouseListener{
 		qwe.setSize(50,50);
 		Map.add(qwe);
 		Map.setComponentZOrder(qwe, 0);*/
-		
-	//TODO can these functions be erased? Since they are handled at the bottom	
-		//TODO add in function calls
-		/*
-		Buttons.setLayout(new FlowLayout());
-		JButton move = new JButton("Move");
-		move.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the move function");
-			}
-		});
-		
-		JButton hide = new JButton("Hide");
-		hide.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the hide function");
-			}
-		});
-		
-		JButton search = new JButton("Search");
-		search.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the search function");
-			}
-		});
-		
-		JButton rest = new JButton("Rest");
-		rest.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the rest function");
-			}
-		});
-		
-		JButton trade = new JButton("Trade");
-		trade.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				System.out.println("Call the trade function");
-				doYouWantToTrade();
-			}
-		});
-		
-		
-		Buttons.add(move);
-		Buttons.add(hide);
-		Buttons.add(search);
-		Buttons.add(rest);
-		Buttons.add(trade);
-		
-		Buttons.setBackground(Color.gray);
-		
-		MainWindow.getContentPane().add(Buttons);
-		
-		Buttons.setLocation(0,(int)screenSize.getHeight()/3);
-		Buttons.setSize((int)screenSize.getWidth()/2,40);
-		*/
+													//These were replaced in recordTurn
+														//TO DO can these functions be erased? Since they are handled at the bottom	
+															//TO DO add in function calls
+															/*
+															Buttons.setLayout(new FlowLayout());
+															JButton move = new JButton("Move");
+															move.addActionListener(new ActionListener(){
+																public void actionPerformed(ActionEvent e){
+																	System.out.println("Call the move function");
+																}
+															});
+															
+															JButton hide = new JButton("Hide");
+															hide.addActionListener(new ActionListener(){
+																public void actionPerformed(ActionEvent e){
+																	System.out.println("Call the hide function");
+																}
+															});
+															
+															JButton search = new JButton("Search");
+															search.addActionListener(new ActionListener(){
+																public void actionPerformed(ActionEvent e){
+																	System.out.println("Call the search function");
+																}
+															});
+															
+															JButton rest = new JButton("Rest");
+															rest.addActionListener(new ActionListener(){
+																public void actionPerformed(ActionEvent e){
+																	System.out.println("Call the rest function");
+																}
+															});
+															
+															JButton trade = new JButton("Trade");
+															trade.addActionListener(new ActionListener(){
+																public void actionPerformed(ActionEvent e){
+																	System.out.println("Call the trade function");
+																	doYouWantToTrade();
+																}
+															});
+															
+															
+															Buttons.add(move);
+															Buttons.add(hide);
+															Buttons.add(search);
+															Buttons.add(rest);
+															Buttons.add(trade);
+															
+															Buttons.setBackground(Color.gray);
+															
+															MainWindow.getContentPane().add(Buttons);
+															
+															Buttons.setLocation(0,(int)screenSize.getHeight()/3);
+															Buttons.setSize((int)screenSize.getWidth()/2,40);
+															*/
 	}
 	
 	/* Function to create mapTiles
