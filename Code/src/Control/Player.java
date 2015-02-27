@@ -114,51 +114,58 @@ public class Player {
 			game.view.trading(map, this);
 			
 		}else if(action.compareTo("Search")==0){//if search action
-			//with which table
-			String choice = game.view.whichSearchTable();//locate+loot
 			//where are you searching//can only search his own clearing using locate
 			int currentTile = profile.getCurrentLocation()/10-1;
 			
-			if(choice.compareTo("Locate") == 0){//using locate table
-				int result = Die.dieRoll();
-				switch (result){
-					case 1:  	game.view.displayTreasure(currentTile);//technically you can choose but that is dumb
-								map.getMapTile(currentTile).treasure.found = true;
-					break;
-					case 2:  	//display all passages and mentally note that treasure
-					break;
-					case 3:  	//display all passages
-					break;
-					case 4:  	game.view.displayTreasure(currentTile);
-								map.getMapTile(currentTile).treasure.found = true;
-					break;
-					//5 and 6 do nothing
-				}
-				//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
-				//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
-				//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
+			if(map.getMapTile(currentTile).treasure != null){//this to check oif there is actually a treasure there to find
 				
-			}else if(choice.compareTo("Looting") == 0){//using loot table
-							
-				//need to have located it first before trying to loot
-				if (map.getMapTile(currentTile).treasure.found){
-					//if you roll over the number of treasures there you get nothing
+				//with which table
+				String choice = game.view.whichSearchTable();//locate+loot
+				
+				
+				if(choice.compareTo("Locate") == 0){//using locate table
 					int result = Die.dieRoll();
 					switch (result){
-						case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);
+						case 1:  	game.view.displayTreasure(currentTile);//technically you can choose but that is dumb
+									map.getMapTile(currentTile).treasure.found = true;
 						break;
-//						case 2:  	2nd//since there is only going to be one treasure
-//						break;
-//						case 3:  	3rd
-//						break;
-//						case 4:  	4th
-//						break;
-//						case 5:  	5th
-//						break;
-//						case 6:  	6th
-//						break;
+						case 2:  	//display all passages and mentally note that treasure
+						break;
+						case 3:  	//display all passages
+						break;
+						case 4:  	game.view.displayTreasure(currentTile);
+									map.getMapTile(currentTile).treasure.found = true;
+						break;
+						//5 and 6 do nothing
+					}
+					//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
+					//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
+					//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
+					
+				}else if(choice.compareTo("Looting") == 0){//using loot table
+	
+					//need to have located it first before trying to loot
+					if (map.getMapTile(currentTile).treasure.found){
+						//if you roll over the number of treasures there you get nothing
+						int result = Die.dieRoll();
+						switch (result){
+							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);
+							break;
+	//						case 2:  	2nd//since there is only going to be one treasure
+	//						break;
+	//						case 3:  	3rd
+	//						break;
+	//						case 4:  	4th
+	//						break;
+	//						case 5:  	5th
+	//						break;
+	//						case 6:  	6th
+	//						break;
+						}
 					}
 				}
+			}else{
+				System.out.println("There is no treasure to find");
 			}
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
