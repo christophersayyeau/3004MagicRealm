@@ -112,7 +112,7 @@ public class GUI implements MouseListener{
 		Map.add(qwe);
 		Map.setComponentZOrder(qwe, 0);*/
 		
-		
+	//TODO can these functions be erased? Since they are handled at the bottom	
 		//TODO add in function calls
 		/*
 		Buttons.setLayout(new FlowLayout());
@@ -444,7 +444,7 @@ public class GUI implements MouseListener{
 	
 	public void Refresh() {
 		// TODO Auto-generated method stub
-		//update all pictures, maps and related visuals
+		//update all pictures and related visuals to new locations
 		
 	}
 	
@@ -587,10 +587,24 @@ public class GUI implements MouseListener{
 	}
 
 	public String whichSearchTable() {
-		// TODO Auto-generated method stub
 		//ask user if they want to "Locate" or "Looting" 
-		//should probably remind users you need to locate before you can loot
-		return null;
+		Object[] choices = {"Locate", "Loot"};
+		
+		int n = (int) JOptionPane.showInputDialog(Players,
+				"Which Search Table Would You Like TO Use?" + "\n" + "/n" + "Can only loot after you have located a treasure",
+				"Search",
+				JOptionPane.INFORMATION_MESSAGE, null, choices, choices[0]);
+				//JOptionPane.YES_NO_OPTION);
+		//their answer is..
+System.out.println("!!TEST!!Should be 0 if locate, 1 if loot: " + n);
+		if(n == 0){//clicked locate
+			System.out.println("Should return true for trade");
+			return "Locate";
+		}
+		else{//clicked loot
+			System.out.println("Should return false for trade");
+			return "Looting";
+		}
 	}
 
 	public void displayTreasure(int tile) {
