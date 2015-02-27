@@ -34,8 +34,8 @@ public class Player {
 		return phaseActions[a];
 	}
 	public void setPhaseActions(String phaseActions1) {
+		this.phaseActions[numPhases] = phaseActions1;
 		numPhases++;
-		this.phaseActions[1] = phaseActions1;
 	}
 	public void setPhaseActions(String phaseActions1, int a) {
 		numPhases++;
@@ -86,6 +86,7 @@ public class Player {
 
 		
 	void doAction(String action, Map map, Game game) {
+		
 		//handles the action recorded during birdsong and activated during daylight
 		//If he is unable to do an activity, it is cancelled and the phase is treated as a blank phase.
 		//When he does a blank phase, he does no activity.

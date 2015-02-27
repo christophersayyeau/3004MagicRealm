@@ -201,6 +201,7 @@ public class Game {
 		//go through each phase that he recorded
 		
 		while(numPhases < player.getPhasesForToday() ){
+			
 			player.rearangeBelongings();
 			view.trading(map, player);
 			
