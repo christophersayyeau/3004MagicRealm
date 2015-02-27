@@ -449,97 +449,127 @@ public class GUI implements MouseListener{
 	}
 	
 	public void recordTurn(final Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
+			
+		/*
+		all of the characters secretly and simultaneously
+		record what they will do during their turns. When each character does his
+		turn, he must do it exactly as he recorded it.
+		He can use his turn to	move, hide, search, trade and rest.
+		When each character does his turn, he must do it exactly as he recorded it.
+		He can leave phases blank.
+		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
+		 */
 		
-//TODO the panel is being pushed(to back) behind the window		
-				/*
-				all of the characters secretly and simultaneously
-				record what they will do during their turns. When each character does his
-				turn, he must do it exactly as he recorded it.
-				He can use his turn to	move, hide, search, trade and rest.
-				When each character does his turn, he must do it exactly as he recorded it.
-				He can leave phases blank.
-				He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
-				 */
-		
-		
-		JPanel Buttons = new JPanel();
-		Buttons.setLayout(new FlowLayout());
-		
-		JButton move = new JButton("Move");
-		move.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+							/*//commented this out to be replaced with other stuff
+							JPanel Buttons = new JPanel();
+							Buttons.setLayout(new FlowLayout());
+							
+							JButton move = new JButton("Move");
+							move.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("Call the move function");
+									player.setPhaseActions("Move23");	//TO DO need to include coordinate of location clearing, here is temp value
+								}
+							});
+							
+							JButton hide = new JButton("Hide");
+							hide.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("Call the hide function");
+									player.setPhaseActions("Hide");	
+								}
+							});
+							
+							JButton search = new JButton("Search");
+							search.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("Call the search function");
+									player.setPhaseActions("Search");	
+								}
+							});
+							
+							JButton rest = new JButton("Rest");
+							rest.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("Call the rest function");
+									player.setPhaseActions("Rest");	
+								}
+							});
+							
+							JButton trade = new JButton("Trade");
+							trade.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("Call the trade function");
+									//doYouWantToTrade();
+									//trading(map, player);
+									player.setPhaseActions("Trade");
+								}
+							});
+							
+							JButton quit = new JButton("Quit");
+							trade.addActionListener(new ActionListener(){
+								public void actionPerformed(ActionEvent e){
+									System.out.println("You have chosen to close the program");
+									System.exit(0);
+								}
+							});
+							
+							Buttons.add(move);
+							Buttons.add(hide);
+							Buttons.add(search);
+							Buttons.add(rest);
+							Buttons.add(trade);
+							Buttons.add(quit);
+							JDialog frame = new JDialog();
+							
+							Buttons.setBackground(Color.gray);
+							frame.add(Buttons);
+							
+							//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+							frame.getContentPane().add(Buttons);
+							frame.pack();
+							frame.setVisible(true);
+							frame.setModal(true);
+							*/
+
+		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
+			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit"};
+			
+			int response = JOptionPane.showOptionDialog(null, "Build Your Turn, Here are your options: ", "Record Turn",
+			        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+			        null, options, options[0]);
+			
+			//System.out.println("Response "+response);
+			//based on answer
+			switch(response){
+			case 0:			//Move
 				System.out.println("Call the move function");
-				player.setPhaseActions("Move");	//TODO need to include coordinate of location clearing
-			}
-		});
-		
-		JButton hide = new JButton("Hide");
-		hide.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+				player.setPhaseActions("Move23");	//TODO need to include coordinate of location clearing, here is temp value
+				break;
+			case 1:			//Hide
 				System.out.println("Call the hide function");
 				player.setPhaseActions("Hide");	
-			}
-		});
-		
-		JButton search = new JButton("Search");
-		search.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+				break;
+			case 2:			//Search
 				System.out.println("Call the search function");
 				player.setPhaseActions("Search");	
-			}
-		});
-		
-		JButton rest = new JButton("Rest");
-		rest.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+				break;
+			case 3:			//Rest
 				System.out.println("Call the rest function");
 				player.setPhaseActions("Rest");	
-			}
-		});
-		
-		JButton trade = new JButton("Trade");
-		trade.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+				break;
+			case 4:			//Trade
 				System.out.println("Call the trade function");
-				//doYouWantToTrade();
-				//trading(map, player);
 				player.setPhaseActions("Trade");
-			}
-		});
-		
-		JButton quit = new JButton("Quit");
-		trade.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
+				break;
+			case 5:			//Quit
 				System.out.println("You have chosen to close the program");
 				System.exit(0);
+				break;
 			}
-		});
+		}	
 		
-		Buttons.add(move);
-		Buttons.add(hide);
-		Buttons.add(search);
-		Buttons.add(rest);
-		Buttons.add(trade);
-		Buttons.add(quit);
-		JDialog frame = new JDialog();
-		
-		Buttons.setBackground(Color.gray);
-		frame.add(Buttons);
-		
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(Buttons);
-		frame.pack();
-		frame.setVisible(true);
-		frame.setModal(true);
-		
-		/*
-		String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade"};
-		int response = JOptionPane.showOptionDialog(null, "Message", "Title",
-		        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
-		        null, options, options[0]);
-		*/
-		
-		System.out.println("User now builds his turn");	
+		System.out.println("User has now built his turn");	
 		 
 	}
 
@@ -590,19 +620,19 @@ public class GUI implements MouseListener{
 		//ask user if they want to "Locate" or "Looting" 
 		Object[] choices = {"Locate", "Loot"};
 		
-		int n = (int) JOptionPane.showInputDialog(Players,
-				"Which Search Table Would You Like TO Use?" + "\n" + "/n" + "Can only loot after you have located a treasure",
+		int n = JOptionPane.showOptionDialog(Players,
+				"Which Search Table Would You Like TO Use?" + "\n" + "Can only loot after you have located a treasure",
 				"Search",
-				JOptionPane.INFORMATION_MESSAGE, null, choices, choices[0]);
-				//JOptionPane.YES_NO_OPTION);
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, choices, choices[0]);
+				//JOptionPane.YES_NO_OPTION);old version
+		
 		//their answer is..
-System.out.println("!!TEST!!Should be 0 if locate, 1 if loot: " + n);
 		if(n == 0){//clicked locate
-			System.out.println("Should return true for trade");
+			System.out.println("Should return Locate");
 			return "Locate";
 		}
 		else{//clicked loot
-			System.out.println("Should return false for trade");
+			System.out.println("Should return Looting");
 			return "Looting";
 		}
 	}

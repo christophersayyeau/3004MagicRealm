@@ -94,7 +94,7 @@ public class Player {
 		}
 		
 		//determine what the action is
-		if((action.substring(0, 5)).compareTo("Move")==0){//if move action
+		if((action.substring(0, 4)).compareTo("Move")==0){//if move action
 			//THere are rules to handle moving through mountains+caves
 			
 			int newLocation = Integer.parseInt(action.substring(5));
