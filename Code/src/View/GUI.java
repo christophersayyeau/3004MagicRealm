@@ -234,7 +234,12 @@ public class GUI implements MouseListener{
 				i,
 				"Amazon");
 		String x = (String)s;
-		return Integer.valueOf(x);
+		if(s == null){
+			System.out.println("No characters have been selected");
+			return 0;
+		}
+		else
+			return Integer.valueOf(x);
 	}
 	
 	public void generateClearings(){
@@ -426,12 +431,12 @@ public class GUI implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		//TODO adjust the mouse pressed to do more than just output co-ordinates
 		//System.out.println(e.getSource());
 		JLabel j = (JLabel)e.getSource();
 		System.out.println(j.getName());
@@ -443,19 +448,16 @@ public class GUI implements MouseListener{
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -674,6 +676,7 @@ public class GUI implements MouseListener{
 		int clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
 		System.out.println("Location number = "+clickedLocation);
 		//TODO need to obtain old location and player or move this code elsewhere
+		//Maybe use a box with possible move locations?
 		/*
 		Player player;
 		int oldLocation = player.getCurrentLocation();
