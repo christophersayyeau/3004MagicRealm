@@ -24,9 +24,6 @@ public class GUI implements MouseListener{
 	
 	public static JPanel Players = new JPanel();
 	
-	//TODO revert if needed (original buttons location)
-	//public static JPanel Buttons = new JPanel();
-	
 	//set tile values
 	final int x = 125;
 	final int y = 215;
