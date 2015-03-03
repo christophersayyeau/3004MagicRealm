@@ -1,7 +1,7 @@
 package Model;
 
 import Control.Player;
-import Model.Denizen.Ghost;
+//import Model.Denizen.Ghost;
 import Model.MapChits.GoldChit;
 import Model.MapTiles.DarkValley;
 import Model.MapTiles.EvilValley;
