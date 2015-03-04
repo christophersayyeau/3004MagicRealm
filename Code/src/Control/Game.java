@@ -1,10 +1,6 @@
 package Control;
 
 import java.util.Random;
-
-//import CharacterProfiles.Amazon;
-//import CharacterProfiles.BlackKnight;
-//import CharacterProfiles.Captain;
 import Model.Map;
 import View.*;
 
@@ -265,7 +261,7 @@ public class Game {
 		}
 	}
 	
-	private void shufflePlayers(Player[] players2) {
+	protected void shufflePlayers(Player[] players2) {
 		//to mix up the players
 	    Random rnd = new Random();
 	    for (int i = players2.length - 1; i > 0; i--)
