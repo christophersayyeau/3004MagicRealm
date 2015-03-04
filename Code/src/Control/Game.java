@@ -2,9 +2,9 @@ package Control;
 
 import java.util.Random;
 
-import CharacterProfiles.Amazon;
-import CharacterProfiles.BlackKnight;
-import CharacterProfiles.Captain;
+//import CharacterProfiles.Amazon;
+//import CharacterProfiles.BlackKnight;
+//import CharacterProfiles.Captain;
 import Model.Map;
 import View.*;
 

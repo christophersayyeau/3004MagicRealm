@@ -199,7 +199,7 @@ public class GUI implements MouseListener{
 		//game.gotCharacter = true;
 		return (String)s;
 		
-		//TODO, only suppose to be 1 of each type max, but that isnt important right now, work on other stuff
+		//TODO, only suppose to be 1 of each type max, but that isnt important, work on other stuff
 	}
 	
 	public int chooseStart(Player currPlayer){
@@ -476,78 +476,78 @@ public class GUI implements MouseListener{
 		He can leave phases blank.
 		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
 		 */
-		
-							/*//commented this out to be replaced with other stuff
-							JPanel Buttons = new JPanel();
-							Buttons.setLayout(new FlowLayout());
-							
-							JButton move = new JButton("Move");
-							move.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("Call the move function");
-									player.setPhaseActions("Move23");	//TO DO need to include coordinate of location clearing, here is temp value
-								}
-							});
-							
-							JButton hide = new JButton("Hide");
-							hide.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("Call the hide function");
-									player.setPhaseActions("Hide");	
-								}
-							});
-							
-							JButton search = new JButton("Search");
-							search.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("Call the search function");
-									player.setPhaseActions("Search");	
-								}
-							});
-							
-							JButton rest = new JButton("Rest");
-							rest.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("Call the rest function");
-									player.setPhaseActions("Rest");	
-								}
-							});
-							
-							JButton trade = new JButton("Trade");
-							trade.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("Call the trade function");
-									//doYouWantToTrade();
-									//trading(map, player);
-									player.setPhaseActions("Trade");
-								}
-							});
-							
-							JButton quit = new JButton("Quit");
-							trade.addActionListener(new ActionListener(){
-								public void actionPerformed(ActionEvent e){
-									System.out.println("You have chosen to close the program");
-									System.exit(0);
-								}
-							});
-							
-							Buttons.add(move);
-							Buttons.add(hide);
-							Buttons.add(search);
-							Buttons.add(rest);
-							Buttons.add(trade);
-							Buttons.add(quit);
-							JDialog frame = new JDialog();
-							
-							Buttons.setBackground(Color.gray);
-							frame.add(Buttons);
-							
-							//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-							frame.getContentPane().add(Buttons);
-							frame.pack();
-							frame.setVisible(true);
-							frame.setModal(true);
-							*/
+									
+														/*//commented this out to be replaced with other stuff
+														JPanel Buttons = new JPanel();
+														Buttons.setLayout(new FlowLayout());
+														
+														JButton move = new JButton("Move");
+														move.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("Call the move function");
+																player.setPhaseActions("Move23");	//TO DO need to include coordinate of location clearing, here is temp value
+															}
+														});
+														
+														JButton hide = new JButton("Hide");
+														hide.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("Call the hide function");
+																player.setPhaseActions("Hide");	
+															}
+														});
+														
+														JButton search = new JButton("Search");
+														search.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("Call the search function");
+																player.setPhaseActions("Search");	
+															}
+														});
+														
+														JButton rest = new JButton("Rest");
+														rest.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("Call the rest function");
+																player.setPhaseActions("Rest");	
+															}
+														});
+														
+														JButton trade = new JButton("Trade");
+														trade.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("Call the trade function");
+																//doYouWantToTrade();
+																//trading(map, player);
+																player.setPhaseActions("Trade");
+															}
+														});
+														
+														JButton quit = new JButton("Quit");
+														trade.addActionListener(new ActionListener(){
+															public void actionPerformed(ActionEvent e){
+																System.out.println("You have chosen to close the program");
+																System.exit(0);
+															}
+														});
+														
+														Buttons.add(move);
+														Buttons.add(hide);
+														Buttons.add(search);
+														Buttons.add(rest);
+														Buttons.add(trade);
+														Buttons.add(quit);
+														JDialog frame = new JDialog();
+														
+														Buttons.setBackground(Color.gray);
+														frame.add(Buttons);
+														
+														//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+														frame.getContentPane().add(Buttons);
+														frame.pack();
+														frame.setVisible(true);
+														frame.setModal(true);
+														*/
 
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit"};
@@ -684,6 +684,12 @@ public class GUI implements MouseListener{
 	public int getNewLocation() {
 		// TODO Auto-generated method stub
 		//get the location of the clearing the user wants to move to
-		return 23;
+		return 21;
+	}
+
+	public static boolean cheatMode() {
+		//return true if user wants cheat mode
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
