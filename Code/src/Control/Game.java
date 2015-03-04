@@ -19,6 +19,9 @@ public class Game {
 	
 	Map map;
 		
+	Game(boolean a){		
+	}//useless constructor needed for cheat mode
+	
 	//constructor
 	Game(){
 		numOfPlayers = 0;
@@ -282,15 +285,15 @@ public class Game {
 
 		//Determine based on string where you start
 		if(s == "Inn"){
-			System.out.println("Starting at " + 24);
+			System.out.println("Starting at Inn: " + 24);
 			return 24;
 		}
 		else if(s == "House"){
-			System.out.println("Starting at " + 34);
+			System.out.println("Starting at House: " + 34);
 			return 34;
 		}
 		else if(s == "GuardHouse"){
-			System.out.println("Starting at " + 44);
+			System.out.println("Starting at GuardHouse: " + 44);
 			return 44;
 		}else{
 			System.out.println("ERROR: Can't determine location");

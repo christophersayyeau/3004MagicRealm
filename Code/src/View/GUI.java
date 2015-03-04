@@ -215,7 +215,7 @@ public class GUI implements MouseListener{
 				choices,
 				choices[0]);
 		
-		System.out.println("You have chosen to start at " + s);
+		//System.out.println("You have chosen to start at " + s);
 		
 		int startHere = Game.determineStart((String) s);
 		return startHere;
@@ -692,7 +692,7 @@ public class GUI implements MouseListener{
 		int n = JOptionPane.showConfirmDialog(null,  "Engage Cheat Mode?", "CheatMode", 
 				JOptionPane.YES_NO_OPTION);
 		
-		System.out.println(n);
+		//System.out.println(n);
 		if(n == 0){//yes
 			return true;
 		}else{//no

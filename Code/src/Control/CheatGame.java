@@ -6,6 +6,11 @@ public class CheatGame extends Game {
 	//must be capable of distinguishing between assigned counters and not assigned
 	//capable of picking roll of dice
 	
+	public CheatGame(){
+		//Constructor
+		super(true);//call the useless constructor so that nothing happens
+		
+	}
 	
 	
 	public void startCheatGame() {
