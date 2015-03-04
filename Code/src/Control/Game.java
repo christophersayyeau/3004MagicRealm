@@ -2,6 +2,9 @@ package Control;
 
 import java.util.Random;
 
+import CharacterProfiles.Amazon;
+import CharacterProfiles.BlackKnight;
+import CharacterProfiles.Captain;
 import Model.Map;
 import View.*;
 
@@ -272,5 +275,27 @@ public class Game {
 	      players2[index] = players2[i];
 	      players2[i] = a;
 	    }
+	}
+
+
+	public static int determineStart(String s) {
+
+		//Determine based on string where you start
+		if(s == "Inn"){
+			System.out.println("Starting at " + 24);
+			return 24;
+		}
+		else if(s == "House"){
+			System.out.println("Starting at " + 34);
+			return 34;
+		}
+		else if(s == "GuardHouse"){
+			System.out.println("Starting at " + 44);
+			return 44;
+		}else{
+			System.out.println("ERROR: Can't determine location");
+			return -1;
+		}
+		
 	}
 }

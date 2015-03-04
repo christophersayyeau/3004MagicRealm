@@ -217,7 +217,8 @@ public class GUI implements MouseListener{
 		
 		System.out.println("You have chosen to start at " + s);
 		
-		return 0;//TODO add if statement to get numbers
+		int startHere = Game.determineStart((String) s);
+		return startHere;
 	}
 	
 	//determines # of players for game
