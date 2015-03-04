@@ -95,14 +95,19 @@ public class Player {
 		}
 		
 		//determine what the action is
-		if((action.substring(0, 4)).compareTo("Move")==0){//if move action
+		//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
+		if(action.compareTo("Move") == 0){//if move action
 			//THere are rules to handle moving through mountains+caves
 			
-			int newLocation = Integer.parseInt(action.substring(5));
+			//int newLocation = Integer.parseInt(action.substring(5));
+			int newLocation = game.view.getNewLocation();
+			
 			//check to see if they can
 			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
+			}else{
+				System.out.println("Can't Move There, phase wasted");
 			}
 			
 		}else if(action.compareTo("Hide")==0){//if hide action

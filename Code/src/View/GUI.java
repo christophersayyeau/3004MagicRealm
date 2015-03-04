@@ -542,8 +542,7 @@ public class GUI implements MouseListener{
 			switch(response){
 			case 0:			//Move
 				System.out.println("Call the move function");
-				//TODO obtain mouse click value and send it into the setPhaseActions
-				player.setPhaseActions("Move23");	//TODO need to include coordinate of location clearing, here is temp value
+				player.setPhaseActions("Move");	//choose location during your turn
 				break;
 			case 1:			//Hide
 				System.out.println("Call the hide function");
@@ -661,5 +660,11 @@ public class GUI implements MouseListener{
 		int oldLocation = player.getCurrentLocation();
 		System.out.println(map.canHeMove(oldLocation, newLocation, player));
 		*/
+	}
+
+	public int getNewLocation() {
+		// TODO Auto-generated method stub
+		//get the location of the clearing the user wants to move to
+		return 23;
 	}
 }
