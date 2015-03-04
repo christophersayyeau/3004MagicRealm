@@ -23,7 +23,8 @@ public class GUI implements MouseListener{
 	int tileCount;
 	
 	public static JPanel Players = new JPanel();
-	
+	public static JPanel Date = new JPanel();
+	JLabel dLabel = new JLabel("Adjust dLabel for date");
 	//set tile values
 	final int x = 125;
 	final int y = 215;
@@ -100,6 +101,11 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(Players);
 		Players.setLocation(0,0);
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
+		
+		Date.add(dLabel);
+		Date.setBackground(Color.white);
+		MainWindow.getContentPane().add(Date);
+		Date.setLocation((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
 		
 		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
@@ -675,18 +681,14 @@ public class GUI implements MouseListener{
 		System.out.println("");
 		int clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
 		System.out.println("Location number = "+clickedLocation);
-		//TODO need to obtain old location and player or move this code elsewhere
-		//Maybe use a box with possible move locations?
-		/*
-		Player player;
-		int oldLocation = player.getCurrentLocation();
-		System.out.println(map.canHeMove(oldLocation, newLocation, player));
-		*/
+		
+		//TODO somehow get clickedLocation to getNewLocation, possibly store the value in global?
 	}
 
 	public int getNewLocation() {
 		// TODO Auto-generated method stub
 		//get the location of the clearing the user wants to move to based on hsi click
+		
 		return 21;
 	}
 
