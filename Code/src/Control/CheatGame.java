@@ -9,7 +9,9 @@ public class CheatGame extends Game {
 	public CheatGame(){
 		//Constructor
 		super(true);//call the useless constructor so that nothing happens
+		//now get to the constructing
 		
+		//TODO
 	}
 	
 	

@@ -19,11 +19,10 @@ public class Game {
 	
 	Map map;
 		
-	Game(boolean a){		
-	}//useless constructor needed for cheat mode
+	Game(boolean a){}//useless constructor needed for cheat mode
 	
 	//constructor
-	Game(){
+	public Game(){
 		numOfPlayers = 0;
 		//build the map
 		view = new GUI(this, map);
