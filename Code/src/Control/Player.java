@@ -81,7 +81,7 @@ public class Player {
 		}
 		
 		System.out.println("Built a " + profile.getType() + " Player");
-		System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
+		//System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
 	}
 
 		

@@ -10,7 +10,7 @@ public class Character {
 	
 	private String type;	//this is just their name, will be used to compare between them
 	
-//	Location [] startSpot = new Location[3];			//this will be the location on the map where this character starts, it will be specified in its relevent class
+	String [] startSpots = new String[1];			//this will be the location on the map where this character starts, it will be used to choose where to start
 
 	//this will be the startSpot at the beginning
 	protected int currentLocation;//integer value of mapTile/clearing
@@ -68,7 +68,9 @@ public class Character {
 	public void setCurrentLocation(int i) {
 		currentLocation = i;
 	}
-	
+	public String[] getStartLocations() {
+		return startSpots;
+	}
 	
 	//following used for final score
 	public int getGreatTreasure() {
@@ -86,4 +88,5 @@ public class Character {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	
 }

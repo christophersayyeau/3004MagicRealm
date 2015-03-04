@@ -9,6 +9,7 @@ package CharacterProfiles;
 //import CharacterProfiles.Character.Special;
 import Model.Armor;
 import Model.Armor.Helmet;
+import Model.ArrayUtils;
 import Model.Weapon.GreatAxe;
 
 public class Dwarf extends Character{
@@ -17,10 +18,14 @@ public class Dwarf extends Character{
 	public Dwarf(){
 		setType("Dwarf");
 		
-		//startSpot[0] = inn;		//the Dwarf starts in the inn
-		currentLocation = 24;		//currently in tile 2 clearing 3, Bad Valley 3
-	//TODO add more start location in second iteration
-	//	startSpot[1] = guardhouse;
+		startSpots[0] = "Inn";		//the Dwarf starts in the inn
+		
+		startSpots = ArrayUtils.add(startSpots, "GuardHouse");
+		//startSpots[1] = "Guardhouse";
+		
+		currentLocation = 24;		//currently in tile 2 clearing 3, Bad Valley 3, the Inn
+
+		
 		
 		weight = 3;				//Dwarf is Heavy
 		

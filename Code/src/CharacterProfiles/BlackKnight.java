@@ -17,7 +17,7 @@ public class BlackKnight extends Character{
 	public BlackKnight(){
 		setType("BlackKnight");
 		
-		//startSpot[0] = inn;		//the BlKn starts in the inn
+		startSpots[0] = "Inn";		//the BlKn starts in the inn
 		currentLocation = 24;		//currently in tile 2 clearing 3, Bad Valley 3
 		
 		weight = 2;				//BlKn is Medium

@@ -194,12 +194,30 @@ public class GUI implements MouseListener{
 				JOptionPane.PLAIN_MESSAGE,
 				null,
 				possibilities,
-				"Amazon");
+				possibilities[0]);
 		System.out.println("You have chosen to be a " + s);
 		//game.gotCharacter = true;
 		return (String)s;
 		
 		//TODO, only suppose to be 1 of each type max, but that isnt important right now, work on other stuff
+	}
+	
+	public int chooseStart(Player currPlayer){
+		String[] choices = currPlayer.getProfile().getStartLocations();
+		
+		//used to choose from start positions available
+		Object s = JOptionPane.showInputDialog(
+				Players,
+				"Choose Where You Would Like To Start?\n",
+				"Choose your StartSpot",
+				JOptionPane.PLAIN_MESSAGE,
+				null,
+				choices,
+				choices[0]);
+		
+		System.out.println("You have chosen to start at " + s);
+		
+		return 0;//TODO add if statement to get numbers
 	}
 	
 	//determines # of players for game

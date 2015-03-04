@@ -248,8 +248,15 @@ public class Game {
 	public void createPlayers(){
 		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
-			String s = view.createPlayer();
+			//ask user for which player type
+			String s = view.createPlayer();		
+			
+			//create player
 			players[i] = new Player(s);
+			
+			//handle start location
+			int locale = view.chooseStart(players[i]);
+			players[i].setCurrentLocation(locale);
 		}
 	}
 	

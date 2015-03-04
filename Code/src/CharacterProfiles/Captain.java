@@ -18,12 +18,15 @@ public class Captain extends Character{
 	public Captain(){
 		setType("Captain");
 		
-		//startSpot[0] = inn;		//the Captain starts in the inn
-		currentLocation = 24;		//currently in tile 12 clearing 3, Bad Valley 3
-	//TODO	add more start location in second iteration
-//		startSpot[1] = house;
-//		startSpot[2] = guardHouse;
-				
+		startSpots[0] = "Inn";		//the Captain starts in the inn
+		
+		startSpots = ArrayUtils.add(startSpots, "House");
+		//startSpots[1] = "House";
+		startSpots = ArrayUtils.add(startSpots, "GuardHouse");
+		//startSpots[2] = "GuardHouse";
+		
+		currentLocation = 24;		//currently in tile 12 clearing 3, Bad Valley 3, the Inn
+		
 		weight = 2;				//Captain is Medium
 		
 		//trading groups
