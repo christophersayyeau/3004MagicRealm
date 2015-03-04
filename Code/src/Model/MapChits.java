@@ -5,10 +5,11 @@ public class MapChits {
 	int clearing = -1;//number value on chit tells location
 	String type;
 	
+	public boolean found = false;//treasures not found until serach table
 
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
-		public boolean found = false;
+		
 		//constructor
 		public GoldChit(String word, int spot){
 			clearing = spot;
@@ -19,6 +20,7 @@ public class MapChits {
 
 	//Sounds	10 of these
 	public class RedChit extends MapChits {
+		//found value only used in cheat mode
 		//constructor
 		public RedChit(String word, int spot){
 			clearing = spot;
@@ -28,6 +30,7 @@ public class MapChits {
 	
 	//Warnings or Map	20 of these, split into 4 groups of 5(V,W,C,M)
 	public class YellowChit extends MapChits {
+		//found value only used in cheat mode
 		//constructor
 		public YellowChit(String word){
 			type = word;

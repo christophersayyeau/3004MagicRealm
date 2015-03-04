@@ -224,7 +224,7 @@ public class Map {
 
 	private void buildSoundChits() {
 		MapChits temp = new MapChits();
-		//assign values to sounds
+		//assign values to sounds					//tile in normal mode
 		sounds[0] = temp.new RedChit("HOWL", 4);	//lost castle
 		sounds[1] = temp.new RedChit("FLUTTER", 1);	//lost castle
 		sounds[2] = temp.new RedChit("ROAR", 6);	//lost castle
@@ -240,7 +240,7 @@ public class Map {
 	private void buildTreasureChits() {
 		MapChits temp = new MapChits();
 		
-		//assign values to treasure
+		//assign values to treasure					//tiles in normal mode
 		sites[0] = temp.new GoldChit("STATUE", 2);	//lost castle
 		sites[1] = temp.new GoldChit("HOARD", 6);	//lost castle
 		sites[2] = temp.new GoldChit("ALTAR", 1);	//lost city
@@ -256,7 +256,7 @@ public class Map {
 	private void buildWarningChits() {
 		MapChits temp = new MapChits();
 		
-		//assign the values to the warnings
+		//assign the values to the warnings				//location in normal mode
 	//these are the V type	
 		warningsV[0] = temp.new YellowChit("BONES");	//evilvalley
 		warningsV[1] = temp.new YellowChit("DANK");		//darkvalley
@@ -297,8 +297,7 @@ public class Map {
 	
 		//change the profile value
 		player1.setCurrentLocation(newLocation);		
-		
-		
+			
 		int newTile = player1.getCurrentLocation()/10-1;
 		int newClearing = player1.getCurrentLocation()%10-1;
 		
@@ -440,6 +439,18 @@ public class Map {
 				
 			}
 		}
+		
+	}
+
+	
+	public void returnDenizensToStartCheat() {
+		//return monsters and ghosts to starting clearing, regenerating those that died
+		resetGhostsCheat();
+		resetMonsters();
+	}
+
+	private void resetGhostsCheat() {
+		// TODO Auto-generated method stub
 		
 	}
 

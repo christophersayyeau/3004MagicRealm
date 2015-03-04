@@ -39,7 +39,7 @@ public class CheatGame extends Game {
 		System.out.println("STARTING THE CHEAT GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){
-			map.moveCharactersCheat(players[a], players[a].getCurrentLocation());//start position			
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position			
 		}
 		
 		//update GUI for all players
@@ -80,7 +80,7 @@ public class CheatGame extends Game {
 			//after 7 days	
 			}else{
 				//System.out.println("Return monsters and natives to start positions"+day%7);
-				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
+				map.returnDenizensToStartCheat();	//return monsters and ghosts to starting clearing
 			}
 			
 			view.Refresh();					
@@ -173,7 +173,10 @@ public class CheatGame extends Game {
 			}
 		}
 		
-		//TODO if user not already picked for this tile then do it here
+		//TODO if user not already picked warnings and stuff for this tile then do it here
+		if(){
+			
+		}
 		view.revealMapChits(player.profile.getCurrentLocation()/10-1);//now reveal and replace chits
 			//System.out.println("Dwelling Summon new prowling natives");
 			//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");

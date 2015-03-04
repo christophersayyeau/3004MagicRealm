@@ -124,10 +124,10 @@ public class MapTiles {
 		clearing[3].putDenizen(tile.guard[2]);	
 	}
 
-	public void setHouse(int i, CurstValley curstValley) {
+	public void setHouse(int i, CurstValley valley) {
 		this.clearing[i-1].house = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		putNativeSoldiers(curstValley);
+		putNativeSoldiers(valley);
 	}
 	private void putNativeSoldiers(CurstValley tile) {
 		//THere are 3 guards
@@ -150,80 +150,80 @@ public class MapTiles {
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 	
-	public void setInn(int i, BadValley badValley) {
+	public void setInn(int i, BadValley valley) {
 		this.clearing[i-1].inn = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		putNativeRogues(badValley);
+		putNativeRogues(valley);
 	}
-	private void putNativeRogues(BadValley badValley) {
+	private void putNativeRogues(BadValley valley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		badValley.rogues[0] = temp.new GreatSwordsman("Rogue");
-		badValley.rogues[1] = temp.new GreatSwordsman("Rogue");
+		valley.rogues[0] = temp.new GreatSwordsman("Rogue");
+		valley.rogues[1] = temp.new GreatSwordsman("Rogue");
 		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
-		badValley.rogues[0].setStartClearing(3);
-		badValley.rogues[1].setStartClearing(3);	
+		valley.rogues[0].setStartClearing(3);
+		valley.rogues[1].setStartClearing(3);	
 		//tile.soldiers[2].setStartClearing(3);
 		
-		badValley.rogues[0].setCurrentClearing(3);
-		badValley.rogues[1].setCurrentClearing(3);
+		valley.rogues[0].setCurrentClearing(3);
+		valley.rogues[1].setCurrentClearing(3);
 		//tile.soldiers[2].setCurrentClearing(3);	
 		
-		clearing[3].putDenizen(badValley.rogues[0]);
-		clearing[3].putDenizen(badValley.rogues[1]);
+		clearing[3].putDenizen(valley.rogues[0]);
+		clearing[3].putDenizen(valley.rogues[1]);
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 	
-	public void setChapel(int i, AwfulValley awfulValley) {
+	public void setChapel(int i, AwfulValley valley) {
 		this.clearing[i-1].chapel = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		putNativeOrder(awfulValley);
+		putNativeOrder(valley);
 	}
-	private void putNativeOrder(AwfulValley awfulValley) {
+	private void putNativeOrder(AwfulValley valley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		awfulValley.order[0] = temp.new GreatSwordsman("Order");
-		awfulValley.order[1] = temp.new GreatSwordsman("Order");
+		valley.order[0] = temp.new GreatSwordsman("Order");
+		valley.order[1] = temp.new GreatSwordsman("Order");
 		//tile.soldiers[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
-		awfulValley.order[0].setStartClearing(3);
-		awfulValley.order[1].setStartClearing(3);	
+		valley.order[0].setStartClearing(3);
+		valley.order[1].setStartClearing(3);	
 		//tile.soldiers[2].setStartClearing(3);
 		
-		awfulValley.order[0].setCurrentClearing(3);
-		awfulValley.order[1].setCurrentClearing(3);
+		valley.order[0].setCurrentClearing(3);
+		valley.order[1].setCurrentClearing(3);
 		//tile.soldiers[2].setCurrentClearing(3);	
 		
-		clearing[3].putDenizen(awfulValley.order[0]);
-		clearing[3].putDenizen(awfulValley.order[1]);
+		clearing[3].putDenizen(valley.order[0]);
+		clearing[3].putDenizen(valley.order[1]);
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 
 	
-	public void setGhosts( int i, EvilValley evilValley) {
+	public void setGhosts( int i, EvilValley valley) {
 		//this.clearing[i-1].ghosts = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
-		putGhosts(evilValley, i-1);
+		putGhosts(valley, i-1);
 	}
-	private void putGhosts(EvilValley evilValley, int clearin) {
+	private void putGhosts(EvilValley valley, int clearin) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
-		evilValley.ghosts[0] = temp.new Ghost();
-		evilValley.ghosts[1] = temp.new Ghost();
+		valley.ghosts[0] = temp.new Ghost();
+		valley.ghosts[1] = temp.new Ghost();
 				
 		//set to their start clearing
-		evilValley.ghosts[0].setStartClearing(clearin);
-		evilValley.ghosts[1].setStartClearing(clearin);	
+		valley.ghosts[0].setStartClearing(clearin);
+		valley.ghosts[1].setStartClearing(clearin);	
 				
-		evilValley.ghosts[0].setCurrentClearing(clearin);
-		evilValley.ghosts[1].setCurrentClearing(clearin);
+		valley.ghosts[0].setCurrentClearing(clearin);
+		valley.ghosts[1].setCurrentClearing(clearin);
 		//tile.soldiers[2].setCurrentClearing(3);	
 		
-		clearing[3].putDenizen(evilValley.ghosts[0]);
-		clearing[3].putDenizen(evilValley.ghosts[1]);
+		clearing[3].putDenizen(valley.ghosts[0]);
+		clearing[3].putDenizen(valley.ghosts[1]);
 	}
 	
 //lost city in one of 5 cave tiles(borderland,cavern,caves,highpass,ruins)	
@@ -1016,7 +1016,7 @@ public class MapTiles {
 			clearing[0].getConnectedTo()[0] = 64;//clearing 2 connected to 4
 			clearing[1].getConnectedTo()[0] = 62;//clearing 4 connected to 2
 		clearing[1].getConnectedTo()[1] = 152;//clearing 4 connected to 2 in tile 15
-		clearing[2].getConnectedTo()[0] = 12;//clearing 5 connected to 2 in tile 1	//TODO Check all double digits
+		clearing[2].getConnectedTo()[0] = 12;//clearing 5 connected to 2 in tile 1	
 		
 		}	
 	}

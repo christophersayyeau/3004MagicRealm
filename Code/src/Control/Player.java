@@ -261,7 +261,7 @@ public class Player {
 					//check to see if they can
 					if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 						//there are rules about how much weight
-						map.moveCharactersCheat(this, newLocation);//if yes then move
+						map.moveCharacters(this, newLocation);//if yes then move
 					}else{
 						System.out.println("Can't Move There, phase wasted");
 					}
