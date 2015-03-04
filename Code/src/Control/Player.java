@@ -256,7 +256,7 @@ public class Player {
 					//THere are rules to handle moving through mountains+caves
 					
 					//int newLocation = Integer.parseInt(action.substring(5));
-					int newLocation = game.view.getNewLocation();
+					int newLocation = cheatGame.view.getNewLocation();
 					
 					//check to see if they can
 					if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
@@ -273,29 +273,29 @@ public class Player {
 					
 				}else if(action.compareTo("Trade")==0){//if Trade action
 					//call of trade function
-					game.view.trading(map, this);
+					cheatGame.view.trading(map, this);
 					
-				}else if(action.compareTo("Search")==0){//if search action
+				}else if(action.compareTo("Search")==0){//if search action//TODO all of related treasure stuff should be fixed as above with added cheating stuff as well
 					//where are you searching//can only search his own clearing using locate
 					int currentTile = profile.getCurrentLocation()/10-1;
 					
 					if(map.getMapTile(currentTile).treasure != null){//this to check oif there is actually a treasure there to find
 						
 						//with which table
-						String choice = game.view.whichSearchTable();//locate+loot
+						String choice = cheatGame.view.whichSearchTable();//locate+loot
 						
 						
 						if(choice.compareTo("Locate") == 0){//using locate table
 							int result = Die.dieRollCheat();
 							switch (result){
-								case 1:  	game.view.displayTreasure(currentTile);//technically you can choose but that is dumb
+								case 1:  	cheatGame.view.displayTreasure(currentTile);//technically you can choose but that is dumb
 											map.getMapTile(currentTile).treasure.found = true;
 								break;
 								case 2:  	//display all passages and mentally note that treasure
 								break;
 								case 3:  	//display all passages
 								break;
-								case 4:  	game.view.displayTreasure(currentTile);
+								case 4:  	cheatGame.view.displayTreasure(currentTile);
 											map.getMapTile(currentTile).treasure.found = true;
 								break;
 								//5 and 6 do nothing

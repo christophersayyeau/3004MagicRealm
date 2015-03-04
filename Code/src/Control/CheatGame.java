@@ -173,6 +173,7 @@ public class CheatGame extends Game {
 			}
 		}
 		
+		//TODO if user not already picked for this tile then do it here
 		view.revealMapChits(player.profile.getCurrentLocation()/10-1);//now reveal and replace chits
 			//System.out.println("Dwelling Summon new prowling natives");
 			//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");

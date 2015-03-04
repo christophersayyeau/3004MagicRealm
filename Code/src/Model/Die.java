@@ -7,4 +7,9 @@ public class Die {
 		System.out.println("Rolled a " + roll);
 		return roll;
 	}
+
+	public static int dieRollCheat() {
+		// TODO Ask user what roll they want
+		return 0;
+	}
 }

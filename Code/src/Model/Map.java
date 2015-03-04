@@ -416,7 +416,7 @@ public class Map {
 	
 	
 	
-	
+	//CHEAT MODE----------------------------------------------------------------------
 	
 	public void buildCheat() {//same as build() only since it is cheat mode dwellings and ghosts get put by user, sonds and warnings are added after user lands in tile
 		// TODO Auto-generated method stub
