@@ -413,7 +413,34 @@ public class Map {
 		return mapTiles[tile-1].clearing[clearing-1];
 	}
 
-
 	
-	//NOTE: if there is time create a way of building the board yourself
+	
+	
+	
+	
+	public void buildCheat() {//same as build() only since it is cheat mode dwellings and ghosts get put by user, sonds and warnings are added after user lands in tile
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void denizensProwlingCheat() {//ghosts always prowling
+		//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
+		
+		//circle through all tiles
+		for(int a=0; a<20; a++){
+			//cycle thourhg all monsters
+			for(int b=0; b<mapTiles[a].numMonstersInTile; b++){
+				//if it isn't a ghost
+				if(mapTiles[a].monstersInTile[b].name.compareTo("GHOST") != 0){
+					
+					//determine if it will be prowling
+					if(Die.dieRollCheat() == 6)
+						mapTiles[a].monstersInTile[b].prowling = true;//turn on prowling
+				}
+				
+			}
+		}
+		
+	}
+
 }

@@ -28,7 +28,7 @@ public class CheatGame extends Game {
 		//build the map
 		view = new GUI(this, map);
 		map = new Map(view);
-		map.cheatBuild();
+		map.buildCheat();
 		
 		//get number of players + set gui
 		numOfPlayers = view.numOfPlayers();
@@ -39,7 +39,7 @@ public class CheatGame extends Game {
 		System.out.println("STARTING THE CHEAT GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){
-			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position			
+			map.moveCharactersCheat(players[a], players[a].getCurrentLocation());//start position			
 		}
 		
 		//update GUI for all players
@@ -75,7 +75,7 @@ public class CheatGame extends Game {
 			if( day%7 != 0){
 				//System.out.println("Not Day"+day%7);
 				//die determines which denizen is prowling
-				map.cheatDenizensProwling();//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
+				map.denizensProwlingCheat();//technically it is a row thing on a chart we don't have, but we will give it a 1/6 chance
 			
 			//after 7 days	
 			}else{

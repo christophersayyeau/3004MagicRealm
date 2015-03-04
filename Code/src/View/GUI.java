@@ -683,7 +683,7 @@ public class GUI implements MouseListener{
 
 	public int getNewLocation() {
 		// TODO Auto-generated method stub
-		//get the location of the clearing the user wants to move to
+		//get the location of the clearing the user wants to move to based on hsi click
 		return 21;
 	}
 
