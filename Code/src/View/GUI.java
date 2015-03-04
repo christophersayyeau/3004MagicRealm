@@ -689,7 +689,14 @@ public class GUI implements MouseListener{
 
 	public static boolean cheatMode() {
 		//return true if user wants cheat mode
-		// TODO Auto-generated method stub
-		return false;
+		int n = JOptionPane.showConfirmDialog(null,  "Engage Cheat Mode?", "CheatMode", 
+				JOptionPane.YES_NO_OPTION);
+		
+		System.out.println(n);
+		if(n == 0){//yes
+			return true;
+		}else{//no
+			return false;
+		}
 	}
 }
