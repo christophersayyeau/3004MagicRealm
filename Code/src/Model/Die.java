@@ -1,5 +1,7 @@
 package Model;
 
+import View.GUI;
+
 public class Die {
 
 	public static int dieRoll() {
@@ -9,7 +11,6 @@ public class Die {
 	}
 
 	public static int dieRollCheat() {
-		// TODO Ask user what roll they want
-		return 0;
+		return GUI.diceAnswer();
 	}
 }

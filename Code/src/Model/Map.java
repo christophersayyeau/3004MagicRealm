@@ -307,7 +307,7 @@ public class Map {
 		
 	}
 	
-	public void moveDenizen(Denizen monster, int newClearing, int tile) {
+	public void moveDenizen(Denizen monster, int newClearing, int tile) {		
 		tile--;//so that it is at the correct location
 		//can only move from clearing to clearing		
 		int currentClearing = monster.getCurrentLocation();
@@ -329,6 +329,7 @@ public class Map {
 		//return monsters and ghosts to starting clearing, regenerating those that died
 		resetGhosts();
 		resetMonsters();
+		
 	}
 	
 	private void resetMonsters() {
@@ -385,7 +386,7 @@ public class Map {
 	
 	public void giveTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
-		// TODO fix this in second iteration
+		// TODO fix this in second iteration part 2
 		System.out.println("He got treasure");
 		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
@@ -450,8 +451,15 @@ public class Map {
 	}
 
 	private void resetGhostsCheat() {
-		// TODO Auto-generated method stub
+		// TODO need to figure out how to replace the 4 with whatever the user picked
+		getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);
+		getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[0].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);		
 		
+		getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
+		getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[1].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
+
+		//now put them back in
+		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);//handled in MapTiles
 	}
 
 }

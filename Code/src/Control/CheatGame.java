@@ -173,10 +173,13 @@ public class CheatGame extends Game {
 			}
 		}
 		
-		//TODO if user not already picked warnings and stuff for this tile then do it here
-		if(){
-			
+		//if the user has not yet picked the value of sound and warning
+		if(map.getMapTile(player.profile.getCurrentLocation()/10-1).getWarning() == null) {
+			//set the new values
+			map.getMapTile(player.profile.getCurrentLocation()/10-1).setSound(   view.getSoundTreasureCheat()   );
+			map.getMapTile(player.profile.getCurrentLocation()/10-1).setWarning( view.getWarningCheat()  );
 		}
+		
 		view.revealMapChits(player.profile.getCurrentLocation()/10-1);//now reveal and replace chits
 			//System.out.println("Dwelling Summon new prowling natives");
 			//System.out.println("IF native leader, site card or faceup site chit in clearing = summon prowling visistro");

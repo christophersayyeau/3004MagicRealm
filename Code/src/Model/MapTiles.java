@@ -16,7 +16,7 @@ public class MapTiles {
 	int numMonstersInTile = 0;
 	
 	//each tile has 1 warning chit
-	private YellowChit warning;
+	private YellowChit warning = null;
 	
 	//some tiles have sounds or treasure
 	@SuppressWarnings("unused")
@@ -98,7 +98,7 @@ public class MapTiles {
 		lostCity = true;		
 	}
 	
-	public void setGuardHouse(int i, DarkValley tile) {
+	public void setGuardHouse(int i, DarkValley tile) {//TODO the natives are no longer set in cheat mode on specific tiles
 		this.clearing[i-1].guardHouse = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putNativeGuards(tile);

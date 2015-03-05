@@ -3,12 +3,13 @@ package View;
 import java.awt.*;
 import java.awt.event.*;
 
-
 import javax.swing.*;
 
 import Control.Game;
 import Control.Player;
 import Model.Map;
+import Model.MapChits.RedChit;
+import Model.MapChits.YellowChit;
 
 public class GUI implements MouseListener{
 	
@@ -692,6 +693,9 @@ public class GUI implements MouseListener{
 		return 21;
 	}
 
+	
+	
+	//CHEAT MODE----------------------------------------------------------------------------------
 	public static boolean cheatMode() {
 		//return true if user wants cheat mode
 		int n = JOptionPane.showConfirmDialog(null,  "Engage Cheat Mode?", "CheatMode", 
@@ -703,5 +707,21 @@ public class GUI implements MouseListener{
 		}else{//no
 			return false;
 		}
+	}
+
+	public RedChit getSoundTreasureCheat() {
+		// TODO cheat mode, need to pick from available sounds or treasure or lostcastlecity if in right type of tile, remove the picked one from the future choices and return the picked choice
+		//if putting lost castlecity then return null
+		return null;
+	}
+
+	public YellowChit getWarningCheat() {
+		// TODO cheat mode, need to pick from available warnings, remove the picked one from the future choices and return the picked choice
+		return null;
+	}
+
+	public static int diceAnswer() {
+		// TODO ask user what they want as an answer on dice 1-6
+		return 0;//return value of dice
 	}
 }
