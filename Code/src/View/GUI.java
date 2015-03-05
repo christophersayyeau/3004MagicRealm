@@ -755,7 +755,7 @@ public class GUI implements MouseListener{
 						buildBuildings("Inn", 1, 4);
 						options = (String[]) ArrayUtils.remove(options, 2);
 			break;
-		case 3:			awfulValley.guard = new GreatSwordsman[2];
+		case 3:			awfulValley.guard = new GreatSwordsman[3];
 						awfulValley.setGuardHouse(4, awfulValley);
 						buildBuildings("GuardHouse", 1, 4);
 						options = (String[]) ArrayUtils.remove(options, 3);
@@ -793,7 +793,7 @@ public class GUI implements MouseListener{
 						buildBuildings("Inn", 2, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 			break;
-		case "GuardHouse":		badValley.guard = new GreatSwordsman[2];
+		case "GuardHouse":		badValley.guard = new GreatSwordsman[3];
 						badValley.setGuardHouse(4, badValley);
 						buildBuildings("GuardHouse", 2, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
@@ -831,7 +831,7 @@ public class GUI implements MouseListener{
 						buildBuildings("Inn", 3, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 			break;
-		case "GuardHouse":		curstValley.guard = new GreatSwordsman[2];
+		case "GuardHouse":		curstValley.guard = new GreatSwordsman[3];
 						curstValley.setGuardHouse(4, curstValley);
 						buildBuildings("GuardHouse", 3, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
@@ -869,7 +869,7 @@ public class GUI implements MouseListener{
 						buildBuildings("Inn", 4, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 			break;
-		case "GuardHouse":		darkValley.guard = new GreatSwordsman[2];
+		case "GuardHouse":		darkValley.guard = new GreatSwordsman[3];
 						darkValley.setGuardHouse(4, darkValley);
 						buildBuildings("GuardHouse", 4, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));

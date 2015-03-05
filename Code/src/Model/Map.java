@@ -90,7 +90,7 @@ public class Map {
 		DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
 		getMapTiles()[3] = darkValley;
 		getMapTiles()[3].setWarning(warningsV[1]);
-		getMapTiles()[3].guard = new GreatSwordsman[2];//build the natives here
+		getMapTiles()[3].guard = new GreatSwordsman[3];//build the natives here
 		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
 		view.buildBuildings("GuardHouse", 4, 4);
 		
@@ -431,40 +431,41 @@ public class Map {
 				buildWarningChits();
 				buildSoundChits();
 				buildTreasureChits();
-		//TODO make cheat modeish, need to remove denizens, warnings, treasures etc		
+		//TODO make cheat modeish, need to remove  warnings, treasures, sounds	
 				
 				//build the tiles then add to array	
 				AwfulValley awfulValley = temp.new AwfulValley(14, 7, -1, -1, -1, 5);
 				getMapTiles()[0] = awfulValley;
 				getMapTiles()[0].setWarning(warningsV[4]);
-		//		getMapTiles()[0].setChapel(4, (AwfulValley) getMapTiles()[0]);
-		//		view.buildBuildings("Chapel", 1, 4);
+							//		getMapTiles()[0].setChapel(4, (AwfulValley) getMapTiles()[0]);
+							//		view.buildBuildings("Chapel", 1, 4);
 				
 				BadValley badValley = temp.new BadValley(11, 10, 8, 6, 12, 19);
 				getMapTiles()[1] = badValley;
 				getMapTiles()[1].setWarning(warningsV[3]);
-		//		getMapTiles()[1].setInn(4, (BadValley) getMapTiles()[1]);
-		//		view.buildBuildings("Inn", 2, 4);
+							//		getMapTiles()[1].setInn(4, (BadValley) getMapTiles()[1]);
+							//		view.buildBuildings("Inn", 2, 4);
 				
 				CurstValley curstValley = temp.new CurstValley(17, 3, -1, -1, -1, 7);
 				getMapTiles()[2] = curstValley;
 				getMapTiles()[2].setWarning(warningsV[2]);
-		//		getMapTiles()[2].setHouse(4, (CurstValley) getMapTiles()[2]);
-		//		view.buildBuildings("House", 3, 4);
+							//		getMapTiles()[2].setHouse(4, (CurstValley) getMapTiles()[2]);
+							//		view.buildBuildings("House", 3, 4);
 				
 				DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
 				getMapTiles()[3] = darkValley;
 				getMapTiles()[3].setWarning(warningsV[1]);
-		//		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
-		//		view.buildBuildings("GuardHouse", 4, 4);
+							//		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
+							//		view.buildBuildings("GuardHouse", 4, 4);
 				
 				EvilValley evilValley = temp.new EvilValley(-1, -1, 15, 18, 10, 13);
 				getMapTiles()[4] = evilValley;
 				getMapTiles()[4].setWarning(warningsV[0]);
-		//		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
+							//		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
 				
 				//now handle adding the dwellings and ghosts
 				view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
+				
 				
 				LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
 				getMapTiles()[5] = lindenWoods;
@@ -558,7 +559,6 @@ public class Map {
 		}
 		
 	}
-
 	
 	public void returnDenizensToStartCheat() {
 		//return monsters and ghosts to starting clearing, regenerating those that died
@@ -567,15 +567,8 @@ public class Map {
 	}
 
 	private void resetGhostsCheat() {
-		// TODO need to figure out how to replace the 4 with whatever the user picked
-		getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);
-		getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[0].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[0]);		
+		// TODO need to regen them
 		
-		getMapTiles()[4].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
-		getMapTiles()[4].clearing[((EvilValley) getMapTiles()[4]).ghosts[1].currentClearing].removeDenizen(((EvilValley) getMapTiles()[4]).ghosts[1]);
-
-		//now put them back in
-		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);//handled in MapTiles
 	}
 
 }

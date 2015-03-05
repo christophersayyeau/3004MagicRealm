@@ -189,4 +189,21 @@ public class CheatGame extends Game {
 		//System.out.println("if not player can block monsters that appear or move to his clearing");
 		
 	}
+	
+	/*Create players for hotseat
+	 */
+	public void createPlayers(){
+		players = new Player[numOfPlayers];
+		for(int i = 0; i < numOfPlayers; ++i){
+			//ask user for which player type
+			String s = view.createPlayer();		
+			
+			//create player
+			players[i] = new Player(s);
+			
+			//handle start location
+			int locale = view.chooseStart(players[i]);
+			players[i].setCurrentLocation(locale);
+		}
+	}
 }
