@@ -10,7 +10,7 @@ public class ArrayUtils {
 		return (Denizen[]) remove((Object) array, index);
 	}
 	
-	private static Object remove(Object array, int index) {		      
+	public static Object remove(Object array, int index) {		      
 		int length = getLength(array);		
 		if (index < 0 || index >= length) {		
 			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       

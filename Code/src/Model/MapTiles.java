@@ -2,11 +2,15 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.Denizen.Ghost;
+import Model.Denizen.GreatSwordsman;
 import Model.Denizen.*;
 import Model.MapChits.*;
 
 public class MapTiles {
 	
+	
+
 	public Clearing [] clearing;
 	
 	//overall class, will create subclasses based on tiles
@@ -33,6 +37,14 @@ public class MapTiles {
 	int bottomLeft = -1;	int bottomRight = -1;
 	
 	String type = "";//use this to determine whether mountain, woods, etc
+
+	//the natives
+	public GreatSwordsman[] guard;
+	public GreatSwordsman[] order;
+	public GreatSwordsman[] rogues;
+	public GreatSwordsman[] soldiers;
+	public Ghost[] ghosts;
+	
 	public String getType() {
 		return type;
 	}
@@ -98,38 +110,38 @@ public class MapTiles {
 		lostCity = true;		
 	}
 	
-	public void setGuardHouse(int i, DarkValley tile) {//TODO the natives are no longer set in cheat mode on specific tiles
+	public void setGuardHouse(int i, MapTiles tile) {
 		this.clearing[i-1].guardHouse = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putNativeGuards(tile);
 	}
-	private void putNativeGuards(DarkValley tile) {
+	private void putNativeGuards(MapTiles tile) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		tile.guard[0] = temp.new GreatSwordsman("Guard");
 		tile.guard[1] = temp.new GreatSwordsman("Guard");
-		tile.guard[2] = temp.new GreatSwordsman("Guard");
+		//tile.guard[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
 		tile.guard[0].setStartClearing(3);
 		tile.guard[1].setStartClearing(3);	
-		tile.guard[2].setStartClearing(3);
+		//tile.guard[2].setStartClearing(3);
 		
 		tile.guard[0].setCurrentClearing(3);
 		tile.guard[1].setCurrentClearing(3);
-		tile.guard[2].setCurrentClearing(3);	
+		//tile.guard[2].setCurrentClearing(3);	
 		
 		clearing[3].putDenizen(tile.guard[0]);
 		clearing[3].putDenizen(tile.guard[1]);
-		clearing[3].putDenizen(tile.guard[2]);	
+		//clearing[3].putDenizen(tile.guard[2]);	
 	}
 
-	public void setHouse(int i, CurstValley valley) {
+	public void setHouse(int i, MapTiles valley) {
 		this.clearing[i-1].house = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putNativeSoldiers(valley);
 	}
-	private void putNativeSoldiers(CurstValley tile) {
+	private void putNativeSoldiers(MapTiles tile) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		tile.soldiers[0] = temp.new GreatSwordsman("Soldier");
@@ -150,12 +162,12 @@ public class MapTiles {
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 	
-	public void setInn(int i, BadValley valley) {
+	public void setInn(int i, MapTiles valley) {
 		this.clearing[i-1].inn = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putNativeRogues(valley);
 	}
-	private void putNativeRogues(BadValley valley) {
+	private void putNativeRogues(MapTiles valley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		valley.rogues[0] = temp.new GreatSwordsman("Rogue");
@@ -176,12 +188,12 @@ public class MapTiles {
 		//clearing[3].putDenizen(tile.soldiers[2]);	
 	}
 	
-	public void setChapel(int i, AwfulValley valley) {
+	public void setChapel(int i, MapTiles valley) {
 		this.clearing[i-1].chapel = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putNativeOrder(valley);
 	}
-	private void putNativeOrder(AwfulValley valley) {
+	private void putNativeOrder(MapTiles valley) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		valley.order[0] = temp.new GreatSwordsman("Order");
@@ -203,12 +215,12 @@ public class MapTiles {
 	}
 
 	
-	public void setGhosts( int i, EvilValley valley) {
+	public void setGhosts( int i, MapTiles valley) {
 		//this.clearing[i-1].ghosts = true;
 		//all garrison natives start the game at their dwellings and dont move unless hired(not implemented)
 		putGhosts(valley, i-1);
 	}
-	private void putGhosts(EvilValley valley, int clearin) {
+	private void putGhosts(MapTiles valley, int clearin) {
 		//THere are 3 guards
 		Denizen temp = new Denizen();
 		valley.ghosts[0] = temp.new Ghost();
@@ -316,7 +328,7 @@ public class MapTiles {
 	}
 	
 	public class EvilValley extends MapTiles {
-		public Ghost [] ghosts = new Ghost[2];
+		//public Ghost [] ghosts = new Ghost[2];
 		//constructor
 		public EvilValley(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building EvilValley");
@@ -354,7 +366,7 @@ public class MapTiles {
 	}
 	
 	public class DarkValley extends MapTiles {
-		GreatSwordsman [] guard = new GreatSwordsman[3];//because it has a dwelling it also has natives
+		//GreatSwordsman [] guard = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//constructor
 		public DarkValley(int l, int tl, int tr, int r, int br, int bl){
@@ -605,7 +617,7 @@ public class MapTiles {
 	
 	public class CurstValley extends MapTiles {
 		//greatswordsman,pikeman,pikeman,crossbowman
-		GreatSwordsman [] soldiers = new GreatSwordsman[2];//because it has a dwelling it also has natives
+		//GreatSwordsman [] soldiers = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//constructor
 		public CurstValley(int l, int tl, int tr, int r, int br, int bl){
@@ -690,7 +702,7 @@ public class MapTiles {
 	
 	public class BadValley extends MapTiles {
 		//assassin,greatAxeman,greataxeman,s.swordsman,archer,assasin,swordsman,swordsman
-		GreatSwordsman [] rogues = new GreatSwordsman[2];//because it has a dwelling it also has natives
+		//GreatSwordsman [] rogues = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//constructor
 		public BadValley(int l, int tl, int tr, int r, int br, int bl){
@@ -925,7 +937,7 @@ public class MapTiles {
 	
 	public class AwfulValley extends MapTiles {
 		//knight,knight,knight,knight
-		GreatSwordsman [] order = new GreatSwordsman[2];//because it has a dwelling it also has natives
+		//GreatSwordsman [] order = new GreatSwordsman[2];//because it has a dwelling it also has natives
 
 		//constructor
 		public AwfulValley(int l, int tl, int tr, int r, int br, int bl){
