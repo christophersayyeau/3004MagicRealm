@@ -2,14 +2,16 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 import Control.Game;
 import Control.Player;
+import Model.ArrayUtils;
+import Model.Denizen.*;
 import Model.Map;
 import Model.MapChits.RedChit;
 import Model.MapChits.YellowChit;
+import Model.MapTiles;
 
 public class GUI implements MouseListener{
 	
@@ -723,5 +725,189 @@ public class GUI implements MouseListener{
 	public static int diceAnswer() {
 		// TODO ask user what they want as an answer on dice 1-6
 		return 0;//return value of dice
+	}
+
+	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
+											MapTiles curstValley, MapTiles darkValley,
+											MapTiles evilValley) {
+		//ask user to choose where to add dwellings and ghosts, then add dwelling pictures
+		
+		String[] options = new String[] {"Chapel", "House", "Inn", "GuardHouse", "Ghosts"};
+		
+		//First ask what to put in the awfulValley
+		Object response = JOptionPane.showOptionDialog(null, "What Dwelling to You Want in the Awful Valley", "Dwellings",
+		        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+		        null, options, options[0]);
+
+		switch((int)response){
+		case 0:			awfulValley.order = new GreatSwordsman[2];			//create the array of natives
+						awfulValley.setChapel(4, awfulValley);				//put the dwelling and then the natives
+						buildBuildings("Chapel", 1, 4);						//put picture
+						options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+			break;
+		case 1:			awfulValley.soldiers = new GreatSwordsman[2];
+						awfulValley.setHouse(4, awfulValley);
+						buildBuildings("House", 1, 4);	
+						options = (String[]) ArrayUtils.remove(options, 1);
+			break;
+		case 2:			awfulValley.rogues = new GreatSwordsman[2];
+						awfulValley.setInn(4, awfulValley);
+						buildBuildings("Inn", 1, 4);
+						options = (String[]) ArrayUtils.remove(options, 2);
+			break;
+		case 3:			awfulValley.guard = new GreatSwordsman[2];
+						awfulValley.setGuardHouse(4, awfulValley);
+						buildBuildings("GuardHouse", 1, 4);
+						options = (String[]) ArrayUtils.remove(options, 3);
+			break;
+		case 4:			awfulValley.ghosts = new Ghost[2];
+						awfulValley.setGhosts(4, awfulValley);
+						options = (String[]) ArrayUtils.remove(options, 4);
+			break;
+		}
+				
+	//Second ask what to put in badValley
+		response = JOptionPane.showInputDialog(null, "What Dwelling to You Want in the Bad Valley",	"Dwellings2",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	options, options[0]);
+		
+		while(response == null){//handle the wise ass who choses null
+			response = JOptionPane.showInputDialog(null, "Can't Be Null",	"Dwellings2",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+		}
+			
+		switch((String)response){
+		case "Chapel":			badValley.order = new GreatSwordsman[2];			//create the array of natives
+						badValley.setChapel(4, badValley);				//put the dwelling and then the natives
+						buildBuildings("Chapel", 2, 4);						//put picture
+						options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+			break;
+		case "House":			badValley.soldiers = new GreatSwordsman[2];
+						badValley.setHouse(4, badValley);
+						buildBuildings("House", 2, 4);	
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
+			break;
+		case "Inn":			badValley.rogues = new GreatSwordsman[2];
+						badValley.setInn(4, badValley);
+						buildBuildings("Inn", 2, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
+			break;
+		case "GuardHouse":		badValley.guard = new GreatSwordsman[2];
+						badValley.setGuardHouse(4, badValley);
+						buildBuildings("GuardHouse", 2, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
+			break;
+		case "Ghosts":			badValley.ghosts = new Ghost[2];
+						badValley.setGhosts(4, badValley);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+			break;
+		}
+		
+	//ask what to put in curst vallye
+		response = JOptionPane.showInputDialog(null, "What Dwelling to You Want in the Curst Valley",	"Dwellings3",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	options, options[0]);
+		
+		while(response == null){//handle the wiseass who choses null
+			response = JOptionPane.showInputDialog(null, "Can't Be Null",	"Dwellings3",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+		}
+			
+		switch((String)response){
+		case "Chapel":			curstValley.order = new GreatSwordsman[2];			//create the array of natives
+						curstValley.setChapel(4, curstValley);				//put the dwelling and then the natives
+						buildBuildings("Chapel", 3, 4);						//put picture
+						options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+			break;
+		case "House":			curstValley.soldiers = new GreatSwordsman[2];
+						curstValley.setHouse(4, curstValley);
+						buildBuildings("House", 3, 4);	
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
+			break;
+		case "Inn":			curstValley.rogues = new GreatSwordsman[2];
+						curstValley.setInn(4, curstValley);
+						buildBuildings("Inn", 3, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
+			break;
+		case "GuardHouse":		curstValley.guard = new GreatSwordsman[2];
+						curstValley.setGuardHouse(4, curstValley);
+						buildBuildings("GuardHouse", 3, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
+			break;
+		case "Ghosts":			curstValley.ghosts = new Ghost[2];
+						curstValley.setGhosts(4, curstValley);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+			break;
+		}
+	
+		//ask what to put in darkvalley
+		response = JOptionPane.showInputDialog(null, "What Dwelling to You Want in the Dark Valley",	"Dwellings4",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	options, options[0]);
+		
+		while(response == null){//handle the wiseass who choses null
+			response = JOptionPane.showInputDialog(null, "Can't Be Null",	"Dwellings4",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+		}
+			
+		switch((String)response){
+		case "Chapel":			darkValley.order = new GreatSwordsman[2];			//create the array of natives
+						darkValley.setChapel(4, darkValley);				//put the dwelling and then the natives
+						buildBuildings("Chapel", 4, 4);						//put picture
+						options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+			break;
+		case "House":			darkValley.soldiers = new GreatSwordsman[2];
+						darkValley.setHouse(4, darkValley);
+						buildBuildings("House", 4, 4);	
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
+			break;
+		case "Inn":			darkValley.rogues = new GreatSwordsman[2];
+						darkValley.setInn(4, darkValley);
+						buildBuildings("Inn", 4, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
+			break;
+		case "GuardHouse":		darkValley.guard = new GreatSwordsman[2];
+						darkValley.setGuardHouse(4, darkValley);
+						buildBuildings("GuardHouse", 4, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
+			break;
+		case "Ghosts":			darkValley.ghosts = new Ghost[2];
+						darkValley.setGhosts(4, darkValley);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+			break;
+		}
+		
+		//put what it is left in evilvalley
+		System.out.println("Putting "+ options[0] + " in EvilValley");
+		switch(options[0]){
+			case "Chapel":			evilValley.order = new GreatSwordsman[2];			//create the array of natives
+							evilValley.setChapel(4, evilValley);				//put the dwelling and then the natives
+							buildBuildings("Chapel", 5, 4);						//put picture
+							options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+				break;
+			case "House":			evilValley.soldiers = new GreatSwordsman[2];
+							evilValley.setHouse(4, evilValley);
+							buildBuildings("House", 5, 4);	
+							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
+				break;
+			case "Inn":			evilValley.rogues = new GreatSwordsman[2];
+							evilValley.setInn(4, evilValley);
+							buildBuildings("Inn", 5, 4);
+							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
+				break;
+			case "GuardHouse":		evilValley.guard = new GreatSwordsman[2];
+							evilValley.setGuardHouse(4, evilValley);
+							buildBuildings("GuardHouse", 5, 4);
+							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
+				break;
+			case "Ghosts":			evilValley.ghosts = new Ghost[2];
+							evilValley.setGhosts(4, evilValley);
+							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+				break;
+		}
+		
 	}
 }

@@ -58,4 +58,20 @@ public class ArrayUtils {
 		}		
 		return Array.newInstance(newArrayComponentType, 1);		
 	}
+	
+	
+	
+	//to find in array
+	public static int indexOf(String needle, String[] haystack)	{
+	    for (int i=0; i<haystack.length; i++)
+	    {
+	        System.out.println("Comparing "+haystack[i]+needle + haystack[i].compareTo(needle));
+	    	if (haystack[i] != null && haystack[i].compareTo(needle) == 0 || needle == null && haystack[i] == null)	{ 
+	    		System.out.println("Index is "+ i);
+	        	return i;
+	    	}
+	    }
+
+	    return -1;
+	}
 }
