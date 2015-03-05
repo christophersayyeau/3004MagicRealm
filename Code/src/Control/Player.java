@@ -103,6 +103,10 @@ public class Player {
 			int newLocation = game.view.getNewLocation();
 			
 			//check to see if they can
+			System.out.println("New location = "+newLocation);
+			System.out.println("Current Location = "+profile.getCurrentLocation());
+			
+			//TODO check to see if any issues with canHeMove -> Constantly goes to else
 			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move

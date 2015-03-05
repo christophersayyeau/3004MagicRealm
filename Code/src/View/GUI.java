@@ -18,6 +18,9 @@ public class GUI implements MouseListener{
 	Game game;
 	Map map;
 	
+	Boolean move = false;
+	int clickedLocation;
+	
 	public static JFrame MainWindow = new JFrame();
 	public static JPanel Map = new JPanel();
 	public static JScrollPane scrollPane = new JScrollPane(Map);
@@ -453,6 +456,8 @@ public class GUI implements MouseListener{
 		System.out.println("y = " + e.getY());
 		
 		displayClearing(j.getName());
+		
+		move = false;
 	}
 
 	@Override
@@ -682,7 +687,7 @@ public class GUI implements MouseListener{
 			System.out.print(q[i]+" ");
 		}
 		System.out.println("");
-		int clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
+		clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
 		System.out.println("Location number = "+clickedLocation);
 		
 		//TODO somehow get clickedLocation to getNewLocation, possibly store the value in global?
@@ -691,8 +696,12 @@ public class GUI implements MouseListener{
 	public int getNewLocation() {
 		// TODO Auto-generated method stub
 		//get the location of the clearing the user wants to move to based on hsi click
-		
-		return 21;
+		while(move == true){
+			//System.out.println("Move is true");
+		}
+		move = true;
+		//System.out.println("Move is false");
+		return clickedLocation;
 	}
 
 	
