@@ -787,6 +787,7 @@ public class GUI implements MouseListener{
 		case 4:			awfulValley.ghosts = new Ghost[2];
 						awfulValley.setGhosts(4, awfulValley);
 						options = (String[]) ArrayUtils.remove(options, 4);
+						awfulValley.setGhostTile(true);
 			break;
 		}
 				
@@ -825,6 +826,7 @@ public class GUI implements MouseListener{
 		case "Ghosts":			badValley.ghosts = new Ghost[2];
 						badValley.setGhosts(4, badValley);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+						badValley.setGhostTile(true);
 			break;
 		}
 		
@@ -863,6 +865,7 @@ public class GUI implements MouseListener{
 		case "Ghosts":			curstValley.ghosts = new Ghost[2];
 						curstValley.setGhosts(4, curstValley);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+						curstValley.setGhostTile(true);
 			break;
 		}
 	
@@ -901,6 +904,7 @@ public class GUI implements MouseListener{
 		case "Ghosts":			darkValley.ghosts = new Ghost[2];
 						darkValley.setGhosts(4, darkValley);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+						darkValley.setGhostTile(true);
 			break;
 		}
 		
@@ -930,6 +934,7 @@ public class GUI implements MouseListener{
 			case "Ghosts":			evilValley.ghosts = new Ghost[2];
 							evilValley.setGhosts(4, evilValley);
 							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+							evilValley.setGhostTile(true);
 				break;
 		}
 		

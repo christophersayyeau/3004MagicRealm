@@ -567,8 +567,80 @@ public class Map {
 	}
 
 	private void resetGhostsCheat() {
-		// TODO need to regen them
-		
+
+		for(int a=0; a<5; a++){
+			if(getMapTiles()[a].isGhostTile()){
+				//remove ghosts
+				getMapTiles()[a].removeDenizen(getMapTiles()[a].ghosts[0]);
+				getMapTiles()[a].clearing[ getMapTiles()[a].ghosts[0].currentClearing].removeDenizen( getMapTiles()[a].ghosts[0] );		
+
+				getMapTiles()[a].removeDenizen( getMapTiles()[a].ghosts[1]);
+				getMapTiles()[a].clearing[ getMapTiles()[a].ghosts[1].currentClearing].removeDenizen( getMapTiles()[a].ghosts[1] );
+
+				//put them back
+				getMapTiles()[a].setGhosts(4, getMapTiles()[a]);
+			}
+		}
+						/*
+						//check each tile until you find the one with ghosts
+						if(getMapTiles()[0].isGhostTile()){
+							//remove ghosts
+							getMapTiles()[0].removeDenizen(getMapTiles()[0].ghosts[0]);
+							getMapTiles()[0].clearing[ getMapTiles()[0].ghosts[0].currentClearing].removeDenizen( getMapTiles()[0].ghosts[0] );		
+				
+							getMapTiles()[0].removeDenizen( getMapTiles()[0].ghosts[1]);
+							getMapTiles()[0].clearing[ getMapTiles()[0].ghosts[1].currentClearing].removeDenizen( getMapTiles()[0].ghosts[1] );
+				
+							//put them back
+							getMapTiles()[0].setGhosts(4, getMapTiles()[0]);
+							
+						}else if(getMapTiles()[1].isGhostTile()){
+							//remove ghosts
+							getMapTiles()[1].removeDenizen(getMapTiles()[1].ghosts[0]);
+							getMapTiles()[1].clearing[ getMapTiles()[1].ghosts[0].currentClearing].removeDenizen( getMapTiles()[1].ghosts[0] );		
+				
+							getMapTiles()[1].removeDenizen( getMapTiles()[1].ghosts[1]);
+							getMapTiles()[1].clearing[ getMapTiles()[1].ghosts[1].currentClearing].removeDenizen( getMapTiles()[1].ghosts[1] );
+				
+							//put them back
+							getMapTiles()[1].setGhosts(4, getMapTiles()[1]);
+							
+						}else if(getMapTiles()[2].isGhostTile()){
+							//remove ghosts
+							getMapTiles()[2].removeDenizen(getMapTiles()[2].ghosts[0]);
+							getMapTiles()[2].clearing[ getMapTiles()[2].ghosts[0].currentClearing].removeDenizen( getMapTiles()[2].ghosts[0] );		
+				
+							getMapTiles()[2].removeDenizen( getMapTiles()[2].ghosts[1]);
+							getMapTiles()[2].clearing[ getMapTiles()[2].ghosts[1].currentClearing].removeDenizen( getMapTiles()[2].ghosts[1] );
+				
+							//put them back
+							getMapTiles()[2].setGhosts(4, getMapTiles()[2]);
+							
+						}else if(getMapTiles()[3].isGhostTile()){
+							//remove ghosts
+							getMapTiles()[3].removeDenizen(getMapTiles()[3].ghosts[0]);
+							getMapTiles()[3].clearing[ getMapTiles()[3].ghosts[0].currentClearing].removeDenizen( getMapTiles()[3].ghosts[0] );		
+				
+							getMapTiles()[3].removeDenizen( getMapTiles()[3].ghosts[1]);
+							getMapTiles()[3].clearing[ getMapTiles()[3].ghosts[1].currentClearing].removeDenizen( getMapTiles()[3].ghosts[1] );
+				
+							//put them back
+							getMapTiles()[3].setGhosts(4, getMapTiles()[3]);
+							
+						}else if(getMapTiles()[4].isGhostTile()){
+							//remove ghosts
+							getMapTiles()[4].removeDenizen(getMapTiles()[4].ghosts[0]);
+							getMapTiles()[4].clearing[ getMapTiles()[4].ghosts[0].currentClearing].removeDenizen( getMapTiles()[4].ghosts[0] );		
+				
+							getMapTiles()[4].removeDenizen( getMapTiles()[4].ghosts[1]);
+							getMapTiles()[4].clearing[ getMapTiles()[4].ghosts[1].currentClearing].removeDenizen( getMapTiles()[4].ghosts[1] );
+				
+							//put them back
+							getMapTiles()[4].setGhosts(4, getMapTiles()[4]);
+				
+						}else{
+							System.out.println("EROR in reseting the GHosts");
+						}*/
 	}
 
 }

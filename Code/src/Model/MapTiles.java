@@ -43,6 +43,15 @@ public class MapTiles {
 	public GreatSwordsman[] soldiers;
 	public Ghost[] ghosts;
 	
+	private boolean ghostTile = false;//use for cheat mode regeneration
+	
+	public boolean isGhostTile() {
+		return ghostTile;
+	}
+	public void setGhostTile(boolean ghostTile) {
+		this.ghostTile = ghostTile;
+	}
+	
 	public String getType() {
 		return type;
 	}
