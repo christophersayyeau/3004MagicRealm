@@ -2,8 +2,6 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
-import Model.Denizen.Ghost;
-import Model.Denizen.GreatSwordsman;
 import Model.Denizen.*;
 import Model.MapChits.*;
 

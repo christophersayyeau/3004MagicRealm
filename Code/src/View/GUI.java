@@ -723,8 +723,32 @@ public class GUI implements MouseListener{
 	}
 
 	public static int diceAnswer() {
-		// TODO ask user what they want as an answer on dice 1-6
-		return 0;//return value of dice
+		//return value of dice
+				
+		String[] options = new String[] {"1", "2", "3", "4","5", "6"};
+		
+		int response = JOptionPane.showOptionDialog(null, "What Does The Die Roll?", "Dice",
+		        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+		        null, options, options[0]);
+
+		//based on answer
+		switch(response){
+		case 0:			
+			return 1;
+		case 1:			
+			return 2;
+		case 2:			
+			return 3;
+		case 3:			
+			return 4;
+		case 4:			
+			return 5;
+		case 5:			
+			return 6;
+		}
+		
+		System.out.println("ERROR IN DICE SELECTION");
+		return -1;//nonsense value
 	}
 
 	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
