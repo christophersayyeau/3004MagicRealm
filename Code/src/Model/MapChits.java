@@ -2,7 +2,7 @@ package Model;
 
 public class MapChits {
 
-	int clearing = -1;//number value on chit tells location
+	public int clearing = -1;//number value on chit tells location
 	public String type;
 	
 	public boolean found = false;//treasures not found until serach table

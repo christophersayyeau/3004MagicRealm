@@ -80,7 +80,8 @@ public class CheatGame extends Game {
 			//after 7 days	
 			}else{
 				//System.out.println("Return monsters and natives to start positions"+day%7);
-				map.returnDenizensToStartCheat();	//return monsters and ghosts to starting clearing
+				//map.returnDenizensToStartCheat();	//return monsters and ghosts to starting clearing
+				map.returnDenizensToStart();
 			}
 			
 			view.Refresh();					
@@ -176,7 +177,7 @@ public class CheatGame extends Game {
 		//if the user has not yet picked the value of sound and warning
 		if(map.getMapTile(currentTileNum).getWarning() == null) {
 			//set the new values
-			map.getMapTile(currentTileNum).setSoundTreasure(   view.getSoundTreasureCheat()   );
+			map.getMapTile(currentTileNum).setSoundTreasureCheat(   view.getSoundTreasureCheat(  map.getMapTile(currentTileNum).getType() )   );
 			map.getMapTile(currentTileNum).setWarning( view.getWarningCheat( map.getMapTile(currentTileNum).getType() )  );
 		System.out.println("TESTING THE BUILDING OF TILECHITS IN CHEAT MODE: warning is "+ map.getMapTile(currentTileNum).getWarning().type);
 		}

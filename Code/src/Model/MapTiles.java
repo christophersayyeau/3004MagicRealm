@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.MapChits.RedChit;
 import Model.Denizen.*;
 import Model.MapChits.*;
 
@@ -1038,5 +1039,14 @@ public class MapTiles {
 		clearing[2].getConnectedTo()[0] = 12;//clearing 5 connected to 2 in tile 1	
 		
 		}	
+	}
+
+	public void setSoundTreasureCheat(RedChit soundTreasureCheat) {
+		// TODO Auto-generated method stub
+		
+		//will receive null from valleys and woods
+		//will receive goldChit for treasure
+		//will receive redCHit for sound
+		//will receive yellow for losts or error
 	}
 }

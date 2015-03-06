@@ -8,11 +8,10 @@ import javax.swing.*;
 import Control.Game;
 import Control.Player;
 import Model.ArrayUtils;
+import Model.MapChits;
 import Model.Denizen.*;
 import Model.Map;
-import Model.MapChits;
-import Model.MapChits.RedChit;
-import Model.MapChits.YellowChit;
+import Model.MapChits.*;
 import Model.MapTiles;
 
 public class GUI implements MouseListener{
@@ -722,10 +721,83 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public RedChit getSoundTreasureCheat() {
-		// TODO cheat mode, need to pick from available sounds or treasure or lostcastlecity if in right type of tile, remove the picked one from the future choices and return the picked choice
-		//if putting lost castlecity then return null
-		return null;
+	public MapChits getSoundTreasureCheat(String tileType) {
+		//need to pick from available sounds or treasure or lostcastlecity if in right type of tile, remove the picked one from the future choices 
+		
+		String[] choices = null;
+		MapChits temp = new MapChits();
+		
+		if(tileType.compareTo("V")==0){//if a valley
+			System.out.println("Valley don't have sounds or treasures");
+			return null;
+			
+		}else if(tileType.compareTo("C")==0){//cave		
+			//create the array to ask
+			
+			//first add the lost
+			if(!map.getLostCity().found)
+				choices = ArrayUtils.add(choices, "Lost City");
+	
+		}else if(tileType.compareTo("W")==0){//woods
+			System.out.println("Woods have nothing in them");
+			return null;
+			
+		}else if(tileType.compareTo("M")==0){//mountain
+			//create the array to ask
+			
+			//first add the lost
+			if(!map.getLostCastle().found)
+				choices = ArrayUtils.add(choices, "Lost Castle");
+		}else{
+			System.out.println("ERROR IN TYPE IDENTIFICATION FOR SOUNDS AND TREASURES");
+			choices = ArrayUtils.add(choices, "ERROR HAS OCCURED");
+		}
+		
+		//now create the rest of the array
+		for(int a=0; a<10; a++){		//go through all sounds
+					if(!map.getSound(a).found)	//has it already been claimed
+						choices = ArrayUtils.add(choices, map.getSound(a).type + map.getSound(a).clearing);	//add the title to the array
+		}
+		for(int a=0; a<8; a++){		//go through all treasures
+				if(!map.getTreasure(a).found)	//has it already been claimed
+					choices = ArrayUtils.add(choices, map.getTreasure(a).type);	//add the title to the array
+		}
+		
+		//now ask user to pick
+		Object response = JOptionPane.showInputDialog(null, "What Sound, Treasure of Other would you like in this tile?",	"Map Pieces",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	choices, choices[0]);
+		//interpret response
+		switch((String)response){
+			//first handle the sounds
+			case "HOWL4":		return map.getSound(0);
+			case "FLUTTER1":	return map.getSound(1);	
+			case "ROAR6":		return map.getSound(2);
+			case "PATTER2":		return map.getSound(3);
+			case "SLITHER3":	return map.getSound(4);
+			case "HOWL5":		return map.getSound(5);
+			case "FLUTTER2":	return map.getSound(6);
+			case "PATTER5":		return map.getSound(7);
+			case "ROAR4":		return map.getSound(8);
+			case "SLITHER6":	return map.getSound(9);
+			
+			//next handle the treasure
+			case "STATUE":		return map.getTreasure(0);
+			case "HOARD":		return map.getTreasure(1);
+			case "ALTAR":		return map.getTreasure(2);
+			case "LAIR":		return map.getTreasure(3);
+			case "VAULT":		return map.getTreasure(4);
+			case "CAIRNS":		return map.getTreasure(5);
+			case "POOL":		return map.getTreasure(6);
+			case "SHRINE":		return map.getTreasure(7);
+			
+			//finally handle losts	
+			case "Lost Castle": return temp.new YellowChit("LOSTCASTLE");//create a temporary warning value since no other warning uses this function
+			case "Lost City":	return temp.new YellowChit("LOSTCITY");	
+		}
+		//return the picked choice, if it was woods or valley null was returned
+		return temp.new YellowChit("Major Error");
+		
 	}
 
 	public YellowChit getWarningCheat(String tileType) {
