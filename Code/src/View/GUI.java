@@ -695,7 +695,7 @@ public class GUI implements MouseListener{
 	}
 
 	public int getNewLocation() {
-		// TODO Auto-generated method stub
+		// TODO THe move function is getting stuck waiting for something
 		//get the location of the clearing the user wants to move to based on hsi click
 		while(move == true){
 			//System.out.println("Move is true");
@@ -770,33 +770,66 @@ public class GUI implements MouseListener{
 		//interpret response
 		switch((String)response){
 			//first handle the sounds
-			case "HOWL4":		return map.getSound(0);
-			case "FLUTTER1":	return map.getSound(1);	
-			case "ROAR6":		return map.getSound(2);
-			case "PATTER2":		return map.getSound(3);
-			case "SLITHER3":	return map.getSound(4);
-			case "HOWL5":		return map.getSound(5);
-			case "FLUTTER2":	return map.getSound(6);
-			case "PATTER5":		return map.getSound(7);
-			case "ROAR4":		return map.getSound(8);
-			case "SLITHER6":	return map.getSound(9);
+			case "HOWL4":		map.getSound(0).found = true;	//remove from future choices
+				return map.getSound(0);
+			case "FLUTTER1":	map.getSound(1).found = true;
+				return map.getSound(1);	
+			case "ROAR6":		map.getSound(2).found = true;
+				return map.getSound(2);
+			case "PATTER2":		map.getSound(3).found = true;
+				return map.getSound(3);
+			case "SLITHER3":	map.getSound(4).found = true;
+				return map.getSound(4);
+			case "HOWL5":		map.getSound(5).found = true;
+				return map.getSound(5);
+			case "FLUTTER2":	map.getSound(6).found = true;
+				return map.getSound(6);
+			case "PATTER5":		map.getSound(7).found = true;
+				return map.getSound(7);
+			case "ROAR4":		map.getSound(8).found = true;
+				return map.getSound(8);
+			case "SLITHER6":	map.getSound(9).found = true;
+				return map.getSound(9);
 			
 			//next handle the treasure
-			case "STATUE":		return map.getTreasure(0);
-			case "HOARD":		return map.getTreasure(1);
-			case "ALTAR":		return map.getTreasure(2);
-			case "LAIR":		return map.getTreasure(3);
-			case "VAULT":		return map.getTreasure(4);
-			case "CAIRNS":		return map.getTreasure(5);
-			case "POOL":		return map.getTreasure(6);
-			case "SHRINE":		return map.getTreasure(7);
+			case "STATUE":		map.getTreasure(0).found = true;
+				return map.getTreasure(0);
+			case "HOARD":		map.getTreasure(1).found = true;
+				return map.getTreasure(1);
+			case "ALTAR":		map.getTreasure(2).found = true;
+				return map.getTreasure(2);
+			case "LAIR":		map.getTreasure(3).found = true;
+				return map.getTreasure(3);
+			case "VAULT":		map.getTreasure(4).found = true;
+				return map.getTreasure(4);
+			case "CAIRNS":		map.getTreasure(5).found = true;
+				return map.getTreasure(5);
+			case "POOL":		map.getTreasure(6).found = true;
+				return map.getTreasure(6);
+			case "SHRINE":		map.getTreasure(7).found = true;
+				return map.getTreasure(7);
 			
 			//finally handle losts	
-			case "Lost Castle": return temp.new YellowChit("LOSTCASTLE");//create a temporary warning value since no other warning uses this function
-			case "Lost City":	return temp.new YellowChit("LOSTCITY");	
+			case "Lost Castle": map.getLostCastle().found = true;
+				//build it here
+				buildCastleCheat();
+				return temp.new YellowChit("LOSTCASTLE");//create a temporary warning value since no other warning uses this function
+			case "Lost City":	map.getLostCity().found = true;
+				//build it here
+				buildCityCheat();
+				return temp.new YellowChit("LOSTCITY");	
 		}
 		//return the picked choice, if it was woods or valley null was returned
 		return temp.new YellowChit("Major Error");
+		
+	}
+
+	private void buildCityCheat() {
+		// TODO add sounds and treasures
+		
+	}
+	private void buildCastleCheat() {
+		// TODO add sounds and treasures
 		
 	}
 

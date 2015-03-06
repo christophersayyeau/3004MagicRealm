@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
+import Model.MapChits.GoldChit;
 import Model.MapChits.RedChit;
 import Model.Denizen.*;
 import Model.MapChits.*;
@@ -1041,12 +1042,42 @@ public class MapTiles {
 		}	
 	}
 
-	public void setSoundTreasureCheat(RedChit soundTreasureCheat) {
-		// TODO Auto-generated method stub
+	public void setSoundTreasureCheat(MapChits mapChit) {
 		
 		//will receive null from valleys and woods
+		if( mapChit == null){
+			//nothing should happen since woods and valleys get nothing		
+		
 		//will receive goldChit for treasure
-		//will receive redCHit for sound
-		//will receive yellow for losts or error
+		}else if(mapChit.getClass() == GoldChit.class){
+			//meaning this is a treasure
+			this.setTreasure((GoldChit) mapChit);
+		
+		//will receive redCHit for sound	
+		}else if(mapChit.getClass() == RedChit.class){
+			//meaning that this is a sound
+			this.setSound((RedChit) mapChit);
+		
+		//will receive yellow for losts or error	
+		}else if(mapChit.getClass() == YellowChit.class){
+			//meaning that this is losts or errors
+		
+			//add them to the tile
+			if(mapChit.type.compareTo("LOSTCITY") == 0){
+				this.setLostCity();
+				
+			}else if(mapChit.type.compareTo("LOSTCASTLE") == 0){
+				this.setLostCastle();//this sets it to true
+							
+				//errors
+			}else if(mapChit.type.compareTo("Major Error") == 0){
+				System.out.println("Error Couldnt identify type in GUI");
+			}else{
+				System.out.println("CAN'T IDENTIFY THE GOLDEN CHIT");
+			}
+		
+		}else{
+			System.out.println("CANT IDENTIFY CLASS TYPE IN MAPTILES");
+		}
 	}
 }

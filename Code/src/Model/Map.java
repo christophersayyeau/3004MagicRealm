@@ -501,56 +501,56 @@ public class Map {
 				PineWoods pineWoods = temp.new PineWoods(-1, 19, 12, -1, -1, -1);
 				getMapTiles()[9] = pineWoods;
 					//getMapTiles()[9].setWarning(warningsW[3]);				
-//TODO make cheat modeish, need to remove  treasures, sounds				
+				
 				BorderLand borderLand = temp.new BorderLand(13, 4, 18, 8, 1, 11);
 				getMapTiles()[10] = borderLand;
 					//getMapTiles()[10].setWarning(warningsC[1]);
-				getMapTiles()[10].setSound(sounds[8]);
+				//getMapTiles()[10].setSound(sounds[8]);
 				
 				Cavern cavern = temp.new Cavern(-1, 13, 10, 1, 19, -1);
 				getMapTiles()[11] = cavern;
 					//getMapTiles()[11].setWarning(warningsC[2]);
-				getMapTiles()[11].setTreasure(sites[6]);
+				//getMapTiles()[11].setTreasure(sites[6]);
 				
 				Caves caves = temp.new Caves(19, 1, 6, 14, -1, 9);
 				getMapTiles()[12] = caves;
 					//getMapTiles()[12].setWarning(warningsC[3]);
-				getMapTiles()[12].setSound(sounds[9]);
+				//getMapTiles()[12].setSound(sounds[9]);
 				
 				HighPass highPass = temp.new HighPass(-1, -1, 4, 10, 11, -1);
 				getMapTiles()[13] = highPass;
 					//getMapTiles()[13].setWarning(warningsC[0]);
-				getMapTiles()[13].setSound(sounds[7]);
+				//getMapTiles()[13].setSound(sounds[7]);
 				
 				Ruins ruins = temp.new Ruins(12, 6, 7, 0, 5, -1);
 				getMapTiles()[14] = ruins;
 					//getMapTiles()[14].setWarning(warningsC[4]);
-				getMapTiles()[14].setLostCity();//instead of treasure or sound
+				//getMapTiles()[14].setLostCity();//instead of treasure or sound
 			
 				Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 18, 4);	//only the last 2 values have tiles there
 				getMapTiles()[15] = cliff;
 					//getMapTiles()[15].setWarning(warningsM[0]);
-				getMapTiles()[15].setTreasure(sites[4]);
+				//getMapTiles()[15].setTreasure(sites[4]);
 				
 				Crag crag = temp.new Crag(18, -1, -1, 3, 17, 8);
 				getMapTiles()[16] = crag;
 					//getMapTiles()[16].setWarning(warningsM[2]);
-				getMapTiles()[16].setSound(sounds[6]);
+				//getMapTiles()[16].setSound(sounds[6]);
 				
 				DeepWoods deepWoods = temp.new DeepWoods(8, 16, 3, 2, 7, 6);
 				getMapTiles()[17] = deepWoods;
 					//getMapTiles()[17].setWarning(warningsM[3]);
-				getMapTiles()[17].setTreasure(sites[5]);
+				//getMapTiles()[17].setTreasure(sites[5]);
 				
 				Ledges ledges = temp.new Ledges(4, 15, -1, 16, 8, 10);
 				getMapTiles()[18] = ledges;
 					//getMapTiles()[18].setWarning(warningsM[1]);
-				getMapTiles()[18].setLostCastle();//instead of a sound or treasure
+				//getMapTiles()[18].setLostCastle();//instead of a sound or treasure
 				
 				Mountain mountain = temp.new Mountain(-1, 11, 1, 12, 9, -1);
 				getMapTiles()[19] = mountain;
 					//getMapTiles()[19].setWarning(warningsM[4]);
-				getMapTiles()[19].setTreasure(sites[7]);
+			    //setMapTiles()[19].setTreasure(sites[7]);
 				System.out.println("FINISH ADDING TILES");
 	
 	}
