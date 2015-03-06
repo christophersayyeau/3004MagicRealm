@@ -168,16 +168,17 @@ public class CheatGame extends Game {
 				//check to see if prowling		
 				if(map.getMapTile(currentTileNum).monstersInTile[a].prowling){
 					//move to the new clearing
-					map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], player.profile.getCurrentLocation()%10-1, currentTileNum);
+					map.moveDenizen(map.getMapTile(currentTileNum).monstersInTile[a], currentTileNum, currentTileNum);
 				}
 			}
 		}
 		
 		//if the user has not yet picked the value of sound and warning
-		if(map.getMapTile(player.profile.getCurrentLocation()/10-1).getWarning() == null) {
+		if(map.getMapTile(currentTileNum).getWarning() == null) {
 			//set the new values
-			map.getMapTile(player.profile.getCurrentLocation()/10-1).setSound(   view.getSoundTreasureCheat()   );
-			map.getMapTile(player.profile.getCurrentLocation()/10-1).setWarning( view.getWarningCheat()  );
+			map.getMapTile(currentTileNum).setSoundTreasure(   view.getSoundTreasureCheat()   );
+			map.getMapTile(currentTileNum).setWarning( view.getWarningCheat( map.getMapTile(currentTileNum).getType() )  );
+		System.out.println("TESTING THE BUILDING OF TILECHITS IN CHEAT MODE: warning is "+ map.getMapTile(currentTileNum).getWarning().type);
 		}
 		
 		view.revealMapChits(player.profile.getCurrentLocation()/10-1);//now reveal and replace chits

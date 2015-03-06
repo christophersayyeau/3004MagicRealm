@@ -2,6 +2,7 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 import Control.Game;
@@ -9,6 +10,7 @@ import Control.Player;
 import Model.ArrayUtils;
 import Model.Denizen.*;
 import Model.Map;
+import Model.MapChits;
 import Model.MapChits.RedChit;
 import Model.MapChits.YellowChit;
 import Model.MapTiles;
@@ -726,11 +728,51 @@ public class GUI implements MouseListener{
 		return null;
 	}
 
-	public YellowChit getWarningCheat() {
-		// TODO cheat mode, need to pick from available warnings, remove the picked one from the future choices and return the picked choice
+	public YellowChit getWarningCheat(String tileType) {
+		//cheat mode, need to pick from available warnings, remove the picked one from the future choices and return the picked choice
+		String[] choices = null;
+		YellowChit[] temp = null;
+		//determine what type of tile based on string
+		if(tileType.compareTo("V")==0){//if a valley
+			temp = map.warningsV;
+	
+		}else if(tileType.compareTo("C")==0){//cave
+			temp = map.warningsC;
+		}else if(tileType.compareTo("W")==0){//woods
+			temp = map.warningsW;
+		}else if(tileType.compareTo("M")==0){//mountain
+			temp = map.warningsM;
+		}else{
+			System.out.println("ERORO CANT IDENTIFY TYPE IN getWarningCheat");
+		}
+		
+		//create the array to ask
+		for(int a=0; a<5; a++){		//go through all warning values
+				if(!temp[a].found)	//if not already used
+					choices = ArrayUtils.add(choices, temp[a].type);	//add the title to the array
+		}
+		
+		//now ask which one to send
+		Object response = JOptionPane.showInputDialog(null, "What Warning Would you like in this Tile?",	"Warnings",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	choices, choices[0]);
+		//interpret response
+		switch((String)response){
+			case "BONES":		
+				return temp[0];
+			case "DANK":		
+				return temp[1];
+			case "RUINS":		
+				return temp[2];
+			case "SMOKE":		
+				return temp[3];
+			case "STINK":		
+				return temp[4];
+		}
 		return null;
 	}
 
+	
 	public static int diceAnswer() {
 		//return value of dice
 				
@@ -760,6 +802,7 @@ public class GUI implements MouseListener{
 		return -1;//nonsense value
 	}
 
+	
 	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
 											MapTiles curstValley, MapTiles darkValley,
 											MapTiles evilValley) {

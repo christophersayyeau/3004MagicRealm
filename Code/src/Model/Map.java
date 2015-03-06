@@ -14,10 +14,10 @@ public class Map {
 
 	//an array of tiles, the values will be hardcoded in
 	private MapTiles [] mapTiles = new MapTiles[20];
-	YellowChit [] warningsV = new YellowChit[5];
-	YellowChit [] warningsW = new YellowChit[5];
-	YellowChit [] warningsC = new YellowChit[5];
-	YellowChit [] warningsM = new YellowChit[5];
+	public YellowChit [] warningsV = new YellowChit[5];
+	public YellowChit [] warningsW = new YellowChit[5];
+	public YellowChit [] warningsC = new YellowChit[5];
+	public YellowChit [] warningsM = new YellowChit[5];
 	
 	GoldChit [] sites = new GoldChit[8];
 	RedChit [] sounds = new RedChit[10];
@@ -431,36 +431,36 @@ public class Map {
 				buildWarningChits();
 				buildSoundChits();
 				buildTreasureChits();
-		//TODO make cheat modeish, need to remove  warnings, treasures, sounds	
+		//TODO make cheat modeish, need to remove  treasures, sounds	
 				
 				//build the tiles then add to array	
 				AwfulValley awfulValley = temp.new AwfulValley(14, 7, -1, -1, -1, 5);
 				getMapTiles()[0] = awfulValley;
-				getMapTiles()[0].setWarning(warningsV[4]);
+				//getMapTiles()[0].setWarning(warningsV[4]);
 							//		getMapTiles()[0].setChapel(4, (AwfulValley) getMapTiles()[0]);
 							//		view.buildBuildings("Chapel", 1, 4);
 				
 				BadValley badValley = temp.new BadValley(11, 10, 8, 6, 12, 19);
 				getMapTiles()[1] = badValley;
-				getMapTiles()[1].setWarning(warningsV[3]);
+				//getMapTiles()[1].setWarning(warningsV[3]);
 							//		getMapTiles()[1].setInn(4, (BadValley) getMapTiles()[1]);
 							//		view.buildBuildings("Inn", 2, 4);
 				
 				CurstValley curstValley = temp.new CurstValley(17, 3, -1, -1, -1, 7);
 				getMapTiles()[2] = curstValley;
-				getMapTiles()[2].setWarning(warningsV[2]);
+				//getMapTiles()[2].setWarning(warningsV[2]);
 							//		getMapTiles()[2].setHouse(4, (CurstValley) getMapTiles()[2]);
 							//		view.buildBuildings("House", 3, 4);
 				
 				DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
 				getMapTiles()[3] = darkValley;
-				getMapTiles()[3].setWarning(warningsV[1]);
+				//getMapTiles()[3].setWarning(warningsV[1]);
 							//		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
 							//		view.buildBuildings("GuardHouse", 4, 4);
 				
 				EvilValley evilValley = temp.new EvilValley(-1, -1, 15, 18, 10, 13);
 				getMapTiles()[4] = evilValley;
-				getMapTiles()[4].setWarning(warningsV[0]);
+				//getMapTiles()[4].setWarning(warningsV[0]);
 							//		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
 				
 				//now handle adding the dwellings and ghosts
@@ -469,72 +469,72 @@ public class Map {
 				
 				LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
 				getMapTiles()[5] = lindenWoods;
-				getMapTiles()[5].setWarning(warningsW[4]);
+				//getMapTiles()[5].setWarning(warningsW[4]);
 				
 				MapleWoods mapleWoods = temp.new MapleWoods(1, 8, 17, 7, 14, 12);
 				getMapTiles()[6] = mapleWoods;
-				getMapTiles()[6].setWarning(warningsW[1]);
+				//getMapTiles()[6].setWarning(warningsW[1]);
 				
 				NutWoods nutWoods = temp.new NutWoods(6, 17, 2, -1, 0, 14);
 				getMapTiles()[7] = nutWoods;
-				getMapTiles()[7].setWarning(warningsW[2]);
+				//getMapTiles()[7].setWarning(warningsW[2]);
 
 				OakWoods oakWoods = temp.new OakWoods(10, 18, 16, 17, 6, 1);
 				getMapTiles()[8] = oakWoods;
-				getMapTiles()[8].setWarning(warningsW[0]);
+				//getMapTiles()[8].setWarning(warningsW[0]);
 				
 				PineWoods pineWoods = temp.new PineWoods(-1, 19, 12, -1, -1, -1);
 				getMapTiles()[9] = pineWoods;
-				getMapTiles()[9].setWarning(warningsW[3]);				
+				//getMapTiles()[9].setWarning(warningsW[3]);				
 				
 				BorderLand borderLand = temp.new BorderLand(13, 4, 18, 8, 1, 11);
 				getMapTiles()[10] = borderLand;
-				getMapTiles()[10].setWarning(warningsC[1]);
+				//getMapTiles()[10].setWarning(warningsC[1]);
 				getMapTiles()[10].setSound(sounds[8]);
 				
 				Cavern cavern = temp.new Cavern(-1, 13, 10, 1, 19, -1);
 				getMapTiles()[11] = cavern;
-				getMapTiles()[11].setWarning(warningsC[2]);
+				//getMapTiles()[11].setWarning(warningsC[2]);
 				getMapTiles()[11].setTreasure(sites[6]);
 				
 				Caves caves = temp.new Caves(19, 1, 6, 14, -1, 9);
 				getMapTiles()[12] = caves;
-				getMapTiles()[12].setWarning(warningsC[3]);
+				//getMapTiles()[12].setWarning(warningsC[3]);
 				getMapTiles()[12].setSound(sounds[9]);
 				
 				HighPass highPass = temp.new HighPass(-1, -1, 4, 10, 11, -1);
 				getMapTiles()[13] = highPass;
-				getMapTiles()[13].setWarning(warningsC[0]);
+				//getMapTiles()[13].setWarning(warningsC[0]);
 				getMapTiles()[13].setSound(sounds[7]);
 				
 				Ruins ruins = temp.new Ruins(12, 6, 7, 0, 5, -1);
 				getMapTiles()[14] = ruins;
-				getMapTiles()[14].setWarning(warningsC[4]);
+				//getMapTiles()[14].setWarning(warningsC[4]);
 				getMapTiles()[14].setLostCity();//instead of treasure or sound
 			
 				Cliff cliff = temp.new Cliff(-1, -1, -1, -1, 18, 4);	//only the last 2 values have tiles there
 				getMapTiles()[15] = cliff;
-				getMapTiles()[15].setWarning(warningsM[0]);
+				//getMapTiles()[15].setWarning(warningsM[0]);
 				getMapTiles()[15].setTreasure(sites[4]);
 				
 				Crag crag = temp.new Crag(18, -1, -1, 3, 17, 8);
 				getMapTiles()[16] = crag;
-				getMapTiles()[16].setWarning(warningsM[2]);
+				//getMapTiles()[16].setWarning(warningsM[2]);
 				getMapTiles()[16].setSound(sounds[6]);
 				
 				DeepWoods deepWoods = temp.new DeepWoods(8, 16, 3, 2, 7, 6);
 				getMapTiles()[17] = deepWoods;
-				getMapTiles()[17].setWarning(warningsM[3]);
+				//getMapTiles()[17].setWarning(warningsM[3]);
 				getMapTiles()[17].setTreasure(sites[5]);
 				
 				Ledges ledges = temp.new Ledges(4, 15, -1, 16, 8, 10);
 				getMapTiles()[18] = ledges;
-				getMapTiles()[18].setWarning(warningsM[1]);
+				//getMapTiles()[18].setWarning(warningsM[1]);
 				getMapTiles()[18].setLostCastle();//instead of a sound or treasure
 				
 				Mountain mountain = temp.new Mountain(-1, 11, 1, 12, 9, -1);
 				getMapTiles()[19] = mountain;
-				getMapTiles()[19].setWarning(warningsM[4]);
+				//getMapTiles()[19].setWarning(warningsM[4]);
 				getMapTiles()[19].setTreasure(sites[7]);
 				System.out.println("FINISH ADDING TILES");
 	
