@@ -14,11 +14,11 @@ public class LostCity {
 	public boolean found = false;//used in cheat mode
 	
 	//to give them values
-	public void setSound(int num, RedChit s) {
+	public void setSound(RedChit s) {
 		//this.sound[num] = s;
 		this.sound = ArrayUtils.add(sound, s);
 	}
-	public void setTreasure(int num, GoldChit s) {
+	public void setTreasure(GoldChit s) {
 		//this.treasure[num] = s;
 		this.treasure = ArrayUtils.add(treasure, s);
 	}

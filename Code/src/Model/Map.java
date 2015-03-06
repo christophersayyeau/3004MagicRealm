@@ -65,17 +65,17 @@ public class Map {
 		buildTreasureChits();
 		
 		//first construct the LOST CASTLE and CITY
-		lostCastle.setTreasure(0, sites[0]);
-		lostCastle.setTreasure(1, sites[1]);
-		lostCastle.setSound(0, sounds[0]);
-		lostCastle.setSound(1, sounds[1]);
-		lostCastle.setSound(2, sounds[2]);
+		lostCastle.setTreasure(sites[0]);
+		lostCastle.setTreasure(sites[1]);
+		lostCastle.setSound(sounds[0]);
+		lostCastle.setSound(sounds[1]);
+		lostCastle.setSound(sounds[2]);
 		
-		lostCity.setTreasure(0, sites[2]);
-		lostCity.setTreasure(1, sites[3]);
-		lostCity.setSound(0, sounds[3]);
-		lostCity.setSound(1, sounds[4]);
-		lostCity.setSound(2, sounds[5]);
+		lostCity.setTreasure(sites[2]);
+		lostCity.setTreasure(sites[3]);
+		lostCity.setSound(sounds[3]);
+		lostCity.setSound(sounds[4]);
+		lostCity.setSound(sounds[5]);
 		
 		
 		//build the tiles then add to array	
