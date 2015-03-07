@@ -7,7 +7,7 @@ public class Clearing {
 
 	public Player playersInClearing;//for know it is a single value, this will need to c\be changed
 	
-	Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
+	public Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInClearing = 0;
 	
 	private int value = -1;

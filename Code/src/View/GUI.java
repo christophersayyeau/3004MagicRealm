@@ -2,12 +2,14 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 import Control.Game;
 import Control.Player;
 import Model.ArrayUtils;
+import Model.Clearing;
 import Model.MapChits;
 import Model.Denizen.*;
 import Model.Map;
@@ -681,6 +683,10 @@ public class GUI implements MouseListener{
 		//display the final scores of all users
 	}
 	
+
+	/* Function to output what is in a specific clearing in
+	 * 
+	 */
 	public void displayClearing(String s){
 		String q[] = s.split(" ");
 		System.out.print("Display the name ");
@@ -691,6 +697,44 @@ public class GUI implements MouseListener{
 		clickedLocation = Integer.parseInt(s.replaceAll("\\s+",""));
 		System.out.println("Location number = "+clickedLocation);
 		
+		int pos[] = new int[2];
+		pos = convertNameToPosition(q);
+		int x=0, y=0;
+		x = pos[0];
+		y= pos[1];
+		System.out.println("Array Location = " + String.valueOf(x) + String.valueOf(y));
+		
+		Clearing c = map.getMapTile(x).clearing[y];
+		ArrayList<String> list = new ArrayList<String>();
+		if(c.chapel)
+			list.add("Chapel");
+		else if(c.guardHouse)
+			list.add("GuardHouse");
+		else if(c.house)
+			list.add("House");
+		else if(c.inn)
+			list.add("Inn");
+		else if(c.playersInClearing != null)	//TODO change to a loop to check for multiple players
+			list.add(c.playersInClearing.getProfile().getType());
+		for(int i=0; i < c.monstersInClearing.length; ++i){
+			if(c.monstersInClearing[i] != null)
+				list.add(c.monstersInClearing[i].getName());
+		}
+		
+		if(list.size() == 0)
+			list.add("Empty");
+		
+		String [] list2 = new String[list.size()];
+		list2 = list.toArray(list2);
+		
+		Object z = JOptionPane.showInputDialog(
+				Players,
+				"Inside of clearing:\n",
+				"Tile " + q[0] + " Clearing " + q[1],
+				JOptionPane.PLAIN_MESSAGE,
+				null,
+				list2,
+				list2[0]);
 		//TODO somehow get clickedLocation to getNewLocation, possibly store the value in global?
 	}
 
@@ -1171,5 +1215,37 @@ public class GUI implements MouseListener{
 				break;
 		}
 		
+	}
+	
+	/*Updates map after it is created in game
+	 * 
+	 */
+	public void updateMap(Map m){
+		map = m;
+	}
+	
+	/*function to convert name tile and clearing
+	 * into position in arrays
+	 * ie: tile 8 clearing 5 becomes 7 2
+	 */
+	public int[] convertNameToPosition(String q []){
+		int pos[] = new int[2];
+		pos[0] = Integer.parseInt(q[0]) - 1;
+		if(pos[0] < 5){
+			if(Integer.parseInt(q[1]) > 2)
+				pos[1] = Integer.parseInt(q[1]) - 2;
+			else
+				pos[1] = Integer.parseInt(q[1]) - 1;
+		}
+		else if(pos[0] < 10){
+			if(Integer.parseInt(q[1]) > 3)
+				pos[1] = Integer.parseInt(q[1]) - 3;
+			else
+				pos[1] = Integer.parseInt(q[1]) - 2;
+		}
+		else{
+			pos[1] = Integer.parseInt(q[1]) - 1;
+		}
+		return pos;
 	}
 }

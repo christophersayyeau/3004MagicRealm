@@ -45,6 +45,9 @@ public class Denizen {
 	public void setStartClearing(int newLocation) {
 		startClearing = newLocation;
 	}
+	public String getName(){
+		return name;
+	}
 	
 		
 	//now for the monsters and natives

@@ -24,6 +24,7 @@ public class Game {
 		view = new GUI(this, map);
 		map = new Map(view);
 		map.build();
+		view.updateMap(map);
 		
 		//get number of players + set gui
 		numOfPlayers = view.numOfPlayers();
