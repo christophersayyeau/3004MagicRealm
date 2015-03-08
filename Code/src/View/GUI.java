@@ -721,6 +721,11 @@ public class GUI implements MouseListener{
 				list.add(c.monstersInClearing[i].getName());
 		}
 		
+		if(map.getMapTile(x).getWarning().found)
+			list.add(map.getMapTile(x).getWarning().type);
+		else
+			list.add("Unkown Warning");
+		
 		if(list.size() == 0)
 			list.add("Empty");
 		
@@ -1231,18 +1236,22 @@ public class GUI implements MouseListener{
 	public int[] convertNameToPosition(String q []){
 		int pos[] = new int[2];
 		pos[0] = Integer.parseInt(q[0]) - 1;
+		
+		//for valley
 		if(pos[0] < 5){
 			if(Integer.parseInt(q[1]) > 2)
 				pos[1] = Integer.parseInt(q[1]) - 2;
 			else
 				pos[1] = Integer.parseInt(q[1]) - 1;
 		}
+		//for woods
 		else if(pos[0] < 10){
 			if(Integer.parseInt(q[1]) > 3)
 				pos[1] = Integer.parseInt(q[1]) - 3;
 			else
 				pos[1] = Integer.parseInt(q[1]) - 2;
 		}
+		//other tiles
 		else{
 			pos[1] = Integer.parseInt(q[1]) - 1;
 		}
