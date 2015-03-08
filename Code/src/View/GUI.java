@@ -736,7 +736,7 @@ public class GUI implements MouseListener{
 				Players,
 				"Inside of clearing:\n",
 				"Tile " + q[0] + " Clearing " + q[1],
-				JOptionPane.PLAIN_MESSAGE,
+				JOptionPane.INFORMATION_MESSAGE,
 				null,
 				list2,
 				list2[0]);
