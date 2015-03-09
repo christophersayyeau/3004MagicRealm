@@ -18,7 +18,7 @@ public class Amazon extends Character{
 		setType("Amazon");
 		
 		startSpots[0] = "Inn";		//the Amazon starts in the inn
-		currentLocation = 24;		//currently in tile 2 clearing 5, Bad Valley 5
+		currentLocation = 25;		//currently in tile 2 clearing 5, Bad Valley 5
 			
 		weight = 2;				//Amazon is Medium
 		

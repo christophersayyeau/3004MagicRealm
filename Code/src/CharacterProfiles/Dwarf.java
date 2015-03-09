@@ -23,7 +23,7 @@ public class Dwarf extends Character{
 		startSpots = ArrayUtils.add(startSpots, "GuardHouse");
 		//startSpots[1] = "Guardhouse";
 		
-		currentLocation = 24;		//currently in tile 2 clearing 3, Bad Valley 3, the Inn
+		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3, the Inn
 
 		
 		

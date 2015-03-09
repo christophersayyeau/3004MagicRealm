@@ -15,7 +15,7 @@ public class Elf extends Character{
 		setType("Elf");
 		
 		startSpots[0] = "Inn";		//the Elf starts in the inn
-		currentLocation = 24;		//currently in tile 2 clearing 3, Bad Valley 3
+		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3
 		
 		weight = 1;				//Elf is Light
 		
