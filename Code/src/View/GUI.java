@@ -124,6 +124,7 @@ public class GUI implements MouseListener{
 		Date.setBackground(Color.white);
 		MainWindow.getContentPane().add(Date);
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
+		Date.setSize((int)screenSize.getWidth()/2,25);
 		
 		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
