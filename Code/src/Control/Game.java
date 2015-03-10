@@ -281,16 +281,16 @@ public class Game {
 
 		//Determine based on string where you start
 		if(s == "Inn"){
-			System.out.println("Starting at Inn: " + 24);
-			return 24;
+			System.out.println("Starting at Inn: " + 25);
+			return 25;
 		}
 		else if(s == "House"){
-			System.out.println("Starting at House: " + 34);
-			return 34;
+			System.out.println("Starting at House: " + 35);
+			return 35;
 		}
 		else if(s == "GuardHouse"){
-			System.out.println("Starting at GuardHouse: " + 44);
-			return 44;
+			System.out.println("Starting at GuardHouse: " + 45);
+			return 45;
 		}else{
 			System.out.println("ERROR: Can't determine location");
 			return -1;

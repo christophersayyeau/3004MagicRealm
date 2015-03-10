@@ -623,7 +623,7 @@ public class GUI implements MouseListener{
 
 	public void trading(Map gameMap, Player player1) {
 		// For now we assume he trades meaningless baubles and get some gold
-		
+//TODO HERE IS YOUR ISSUE		
 		int currentTile = player1.getProfile().getCurrentLocation()/10-1;
 		int currentClearing = player1.getProfile().getCurrentLocation()%10-1;
 		
