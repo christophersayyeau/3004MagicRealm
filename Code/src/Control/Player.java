@@ -1,6 +1,9 @@
 
 package Control;
 
+import javax.swing.JLabel;
+import javax.swing.text.View;
+
 import Model.Die;
 import Model.Map;
 //import View.GUI;
@@ -96,9 +99,10 @@ public class Player {
 		
 		//determine what the action is
 		//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
+		
 		if(action.compareTo("Move") == 0){//if move action
 			//THere are rules to handle moving through mountains+caves
-			
+			game.view.Instruction.setVisible(true);
 			//int newLocation = Integer.parseInt(action.substring(5));
 			int newLocation = game.view.getNewLocation();
 			
@@ -106,7 +110,6 @@ public class Player {
 			System.out.println("New location = "+newLocation);
 			System.out.println("Current Location = "+profile.getCurrentLocation());
 			
-			//TODO check to see if any issues with canHeMove -> Constantly goes to else
 			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
@@ -114,6 +117,7 @@ public class Player {
 			}else{
 				System.out.println("Can't Move There, phase wasted");
 			}
+			game.view.Instruction.setVisible(false);
 			
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing

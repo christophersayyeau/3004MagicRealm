@@ -304,7 +304,6 @@ public class Map {
 		
 	}
 
-	//TODO fix moveCharacter
 	public void moveCharacters(Player player1, int newLocation) {
 		//location and new location will be ex: 32, tile 3 clearing 2
 		
@@ -319,26 +318,26 @@ public class Map {
 		
 		
 		if(newLocation > 0){
-		//remove from old tile
-		getMapTiles()[temp[0]].removePlayer(player1);
-		getMapTiles()[temp[0]].clearing[temp[1]].removePlayer(player1);
+			//remove from old tile
+			getMapTiles()[temp[0]].removePlayer(player1);
+			getMapTiles()[temp[0]].clearing[temp[1]].removePlayer(player1);
 		
 	
-		//change the profile value
+			//change the profile value
 		
-		player1.setCurrentLocation(newLocation);		
+			player1.setCurrentLocation(newLocation);		
 			
-		System.out.println("New location number = "+newLocation);
-		int newTile = player1.getCurrentLocation()/10;
-		int newClearing = player1.getCurrentLocation()%10;
+			System.out.println("New location number = "+newLocation);
+			int newTile = player1.getCurrentLocation()/10;
+			int newClearing = player1.getCurrentLocation()%10;
 		
-		pos[0] = Integer.toString(newTile);
-		pos[1] = Integer.toString(newClearing);
-		temp = view.convertNameToPosition(pos);
+			pos[0] = Integer.toString(newTile);
+			pos[1] = Integer.toString(newClearing);
+			temp = view.convertNameToPosition(pos);
 		
-		//add player to new tile
-		getMapTiles()[temp[0]].putPlayer(player1);
-		getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
+			//add player to new tile
+			getMapTiles()[temp[0]].putPlayer(player1);
+			getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
 		}
 	}
 	
@@ -427,14 +426,13 @@ public class Map {
 		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
 	
-	//TODO fix this up so it takes the right array location
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
 	public boolean canHeMove(int oldLocation, int newLocation, Player player) {
 		
 		int currentTile = oldLocation/10;
 		int currentClearing = oldLocation%10;
 		//int newTile = newLocation/10-1;
-		int newClearing = newLocation%10;
+		int newClearing = newLocation;
 		
 		
 		String[] pos = new String[2];
@@ -445,9 +443,10 @@ public class Map {
 		
 		//TODO testing
 		view.updateMap(this);
+		
 		for(int a = 0; a<4; a++){
 			//if(this.getMapTile(currentTile).clearing[currentClearing].getConnectedTo()[a] != null)//handle null
-				if(this.getMapTile(currentTile).clearing[temp[1]].getConnectedTo()[a] == newClearing)
+				if(this.getMapTile(temp[0]).clearing[temp[1]].getConnectedTo()[a] == newClearing)
 					return true;//if they are connected
 		}	
 		//if it isn't in the array

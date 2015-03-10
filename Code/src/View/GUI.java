@@ -33,6 +33,7 @@ public class GUI implements MouseListener{
 	
 	public static JPanel Players = new JPanel();
 	public static JPanel Date = new JPanel();
+	public static JPanel Instruction = new JPanel();
 	JLabel dLabel = new JLabel("Adjust dLabel for date");
 	//set tile values
 	final int x = 125;
@@ -111,10 +112,18 @@ public class GUI implements MouseListener{
 		Players.setLocation(0,0);
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
 		
+		
+		MainWindow.getContentPane().add(Instruction);
+		Instruction.setLocation(0,(int)screenSize.getHeight()/3);
+		Instruction.setSize((int)screenSize.getWidth()/2,25);
+		JLabel moveLabel = new JLabel("Click on a clearing to move the character");
+		Instruction.add(moveLabel);
+		Instruction.setVisible(false);
+		
 		Date.add(dLabel);
 		Date.setBackground(Color.white);
 		MainWindow.getContentPane().add(Date);
-		Date.setLocation((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
+		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		
 		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
@@ -623,9 +632,15 @@ public class GUI implements MouseListener{
 
 	public void trading(Map gameMap, Player player1) {
 		// For now we assume he trades meaningless baubles and get some gold
-//TODO HERE IS YOUR ISSUE		
-		int currentTile = player1.getProfile().getCurrentLocation()/10-1;
-		int currentClearing = player1.getProfile().getCurrentLocation()%10-1;
+		
+		String[] pos = new String[2];
+		pos[0] = Integer.toString(player1.getProfile().getCurrentLocation()/10);
+		pos[1] = Integer.toString(player1.getProfile().getCurrentLocation()%10);
+		int[] temp = new int[2];
+		temp = convertNameToPosition(pos);
+		
+		int currentTile = temp[0];
+		int currentClearing = temp[1];
 		
 		//first determine if there is anyone else in clearing
 		if(player1.isThereOthersInCLearing(gameMap, currentTile, currentClearing)){
@@ -744,7 +759,6 @@ public class GUI implements MouseListener{
 				list2,
 				list2[0]);
 				*/
-		//TODO somehow get clickedLocation to getNewLocation, possibly store the value in global?
 	}
 
 	public int getNewLocation() {
@@ -1260,5 +1274,9 @@ public class GUI implements MouseListener{
 			pos[1] = Integer.parseInt(q[1]) - 1;
 		}
 		return pos;
+	}
+	
+	public void changeDate(String s){
+		dLabel.setText(s);
 	}
 }
