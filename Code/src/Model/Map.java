@@ -607,7 +607,7 @@ public class Map {
 
 	private void resetGhostsCheat() {
 
-		for(int a=0; a<5; a++){
+		for(int a=0; a<5; a++){//serach through the array of valleys
 			if(getMapTiles()[a].isGhostTile()){
 				//remove ghosts
 				getMapTiles()[a].removeDenizen(getMapTiles()[a].ghosts[0]);

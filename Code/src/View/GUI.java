@@ -893,9 +893,83 @@ public class GUI implements MouseListener{
 	}
 
 	private void buildCityCheat() {
-		// TODO chris add sounds and treasures just like Castle
+		//add sounds and treasures just like Castle
 		String[] choices = null;
+		//now create the array
+		for(int a=0; a<10; a++){		//go through all sounds
+					if(!map.getSound(a).found)	//has it already been claimed
+						choices = ArrayUtils.add(choices, map.getSound(a).type + map.getSound(a).clearing);	//add the title to the array
+		}
+		for(int a=0; a<8; a++){		//go through all treasures
+				if(!map.getTreasure(a).found)	//has it already been claimed
+					choices = ArrayUtils.add(choices, map.getTreasure(a).type);	//add the title to the array
+		}
 		
+		//now ask user to pick
+		Object response = JOptionPane.showInputDialog(null, "What Sound, Treasure would you like in the Lost City?",	"Lost city",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	choices, choices[0]);
+		
+		//interpret response		
+	switch((String)response){
+			//first handle the sounds
+			case "HOWL4":		map.getSound(0).found = true;	//remove from future choices
+				map.getLostCity().setSound(map.getSound(0));
+				break;
+			case "FLUTTER1":	map.getSound(1).found = true;
+				map.getLostCity().setSound(map.getSound(1));
+				break;
+			case "ROAR6":		map.getSound(2).found = true;
+				map.getLostCity().setSound(map.getSound(2));
+				break;
+			case "PATTER2":		map.getSound(3).found = true;
+				map.getLostCity().setSound(map.getSound(3));
+				break;
+			case "SLITHER3":	map.getSound(4).found = true;
+				map.getLostCity().setSound(map.getSound(4));
+				break;
+			case "HOWL5":		map.getSound(5).found = true;
+				map.getLostCity().setSound(map.getSound(5));
+				break;
+			case "FLUTTER2":	map.getSound(6).found = true;
+				map.getLostCity().setSound(map.getSound(6));
+				break;
+			case "PATTER5":		map.getSound(7).found = true;
+				map.getLostCity().setSound(map.getSound(7));
+				break;
+			case "ROAR4":		map.getSound(8).found = true;
+				map.getLostCity().setSound(map.getSound(8));
+				break;
+			case "SLITHER6":	map.getSound(9).found = true;
+				map.getLostCity().setSound(map.getSound(9));
+				break;
+			
+			//next handle the treasure
+			case "STATUE":		map.getTreasure(0).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(0));
+				break;
+			case "HOARD":		map.getTreasure(1).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(1));
+				break;
+			case "ALTAR":		map.getTreasure(2).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(2));
+				break;
+			case "LAIR":		map.getTreasure(3).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(3));
+				break;
+			case "VAULT":		map.getTreasure(4).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(4));
+				break;
+			case "CAIRNS":		map.getTreasure(5).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(5));
+				break;
+			case "POOL":		map.getTreasure(6).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(6));
+				break;
+			case "SHRINE":		map.getTreasure(7).found = true;
+				map.getLostCity().setTreasure(map.getTreasure(7));
+				break;
+		}
 	}
 	private void buildCastleCheat() {
 		// add sounds and treasures
@@ -1021,7 +1095,6 @@ public class GUI implements MouseListener{
 		return null;
 	}
 
-	
 	public static int diceAnswer() {
 		//return value of dice
 				
@@ -1050,11 +1123,10 @@ public class GUI implements MouseListener{
 		System.out.println("ERROR IN DICE SELECTION");
 		return -1;//nonsense value
 	}
-
 	
 	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
 											MapTiles curstValley, MapTiles darkValley,
-											MapTiles evilValley) {//chris simplify this like I did in building castle/city
+											MapTiles evilValley) {
 		//ask user to choose where to add dwellings and ghosts, then add dwelling pictures
 		
 		String[] options = new String[] {"Chapel", "House", "Inn", "GuardHouse", "Ghosts"};
