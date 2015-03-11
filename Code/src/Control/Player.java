@@ -113,6 +113,8 @@ public class Player {
 			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
+				//TODO add in code to move icon around
+				
 				System.out.println("You can move here, moving character now");
 			}else{
 				System.out.println("Can't Move There, phase wasted");

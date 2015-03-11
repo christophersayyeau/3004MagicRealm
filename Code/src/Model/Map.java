@@ -431,7 +431,7 @@ public class Map {
 		
 		int currentTile = oldLocation/10;
 		int currentClearing = oldLocation%10;
-		//int newTile = newLocation/10-1;
+		//int newTile = newLocation/10;
 		int newClearing = newLocation;
 		
 		

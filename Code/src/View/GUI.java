@@ -22,6 +22,7 @@ public class GUI implements MouseListener{
 	Map map;
 	
 	Boolean move = false;
+	boolean pause = false;
 	int clickedLocation;
 	
 	public static JFrame MainWindow = new JFrame();
@@ -34,12 +35,19 @@ public class GUI implements MouseListener{
 	public static JPanel Players = new JPanel();
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
-	JLabel dLabel = new JLabel("Adjust dLabel for date");
+	JLabel dLabel = new JLabel("Label for date");
+	JLabel moveLabel = new JLabel("Click on a clearing to move the character");
 	//set tile values
 	final int x = 125;
 	final int y = 215;
 	final int tileX = 300;
 	final int tileY = 305;
+	
+	JLabel amazon = new JLabel();
+	
+	int playerX;
+	int playerY;
+	
 	
 	//constructor, called in player.java
 	public GUI(Game g, Map m)
@@ -116,15 +124,26 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(Instruction);
 		Instruction.setLocation(0,(int)screenSize.getHeight()/3);
 		Instruction.setSize((int)screenSize.getWidth()/2,25);
-		JLabel moveLabel = new JLabel("Click on a clearing to move the character");
+		
 		Instruction.add(moveLabel);
 		Instruction.setVisible(false);
-		
 		Date.add(dLabel);
 		Date.setBackground(Color.white);
 		MainWindow.getContentPane().add(Date);
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
+		
+		ImageIcon amazonIcon = new ImageIcon("res/character/amazon.png");
+		ImageIcon bknightIcon = new ImageIcon("res/character/black_knight.png");
+		ImageIcon captainIcon = new ImageIcon("res/character/captain.png");
+		ImageIcon dwarfIcon = new ImageIcon("res/character/dwarf.png");
+		ImageIcon elfIcon = new ImageIcon("res/character/elf.png");
+		ImageIcon swordsmanIcon = new ImageIcon("res/character/swordsman.png");
+		
+		
+		amazon.setIcon(amazonIcon);
+		amazon.setVisible(true);
+		amazon.setSize(50,50);
 		
 		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
@@ -134,6 +153,8 @@ public class GUI implements MouseListener{
 		qwe.setSize(50,50);
 		Map.add(qwe);
 		Map.setComponentZOrder(qwe, 0);*/
+		
+		
 													//These were replaced in recordTurn
 														//TO DO can these functions be erased? Since they are handled at the bottom	
 															//TO DO add in function calls
@@ -461,16 +482,19 @@ public class GUI implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		//TODO adjust the mouse pressed to do more than just output co-ordinates
+		//TODO adjust the mouse pressed to do more if needed
 		//System.out.println(e.getSource());
 		JLabel j = (JLabel)e.getSource();
 		System.out.println(j.getName());
 		System.out.println("x = " + e.getX());
 		System.out.println("y = " + e.getY());
 		
+		playerX = j.getX();
+		playerY = j.getY();
 		displayClearing(j.getName());
 		
 		move = false;
+		pause = false;
 	}
 
 	@Override
@@ -579,17 +603,17 @@ public class GUI implements MouseListener{
 														*/
 
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
-			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit"};
+			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
 			int response = JOptionPane.showOptionDialog(null, "Build Your Turn, Here are your options: ", "Record Turn",
 			        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 			        null, options, options[0]);
 			
-			//System.out.println("Response "+response);
 			//based on answer
 			switch(response){
 			case 0:			//Move
 				System.out.println("Call the move function");
+				moveLabel.setText("Click on a clearing to move the character");
 				player.setPhaseActions("Move");	//choose location during your turn
 				break;
 			case 1:			//Hide
@@ -611,6 +635,19 @@ public class GUI implements MouseListener{
 			case 5:			//Quit
 				System.out.println("You have chosen to close the program");
 				System.exit(0);
+				break;
+			
+			case 6:			//View clearing/map
+				System.out.println("Click on a clearing to continue game");
+				moveLabel.setText("Click on a clearing to continue game");
+				Instruction.setVisible(true);
+				pause = true;
+				//Pause the game until mouse is clicked
+				while(pause == true){
+					
+				}
+				Instruction.setVisible(false);
+				a--;
 				break;
 			}
 		}	
@@ -724,7 +761,7 @@ public class GUI implements MouseListener{
 		
 		
 		//TODO uncomment display tile info if needed
-		/*
+		
 		Clearing c = map.getMapTile(x).clearing[y];
 		ArrayList<String> list = new ArrayList<String>();
 		if(c.chapel)
@@ -761,12 +798,10 @@ public class GUI implements MouseListener{
 				null,
 				list2,
 				list2[0]);
-				*/
+				
 	}
 
 	public int getNewLocation() {
-		// TODO THe move function is getting stuck waiting for something
-		//get the location of the clearing the user wants to move to based on hsi click
 		while(move == true){
 			//System.out.println("Move is true");
 		}
