@@ -43,7 +43,7 @@ public class CheatGame extends Game {
 		}
 		
 		//update GUI for all players
-		view.Refresh();	
+		view.Refresh("Cheating Day 1 BirdSong");	
 		
 		System.out.println("Starting FIRST ENCOUNTER: TREASURE HUNT");
 		
@@ -84,7 +84,7 @@ public class CheatGame extends Game {
 				map.returnDenizensToStart();
 			}
 			
-			view.Refresh();					
+			view.Refresh("Cheating Day "+day+ ": Daylight");					
 			System.out.println("DAYLIGHT");
 			
 			//players go in random order
@@ -93,7 +93,7 @@ public class CheatGame extends Game {
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
 				doTurnCheat(players[a]);
-				view.Refresh();	
+				view.Refresh("Cheating Day "+day+ ": Daylight /n\nPlayer "+(a+1) + "'s turn");	
 				
 				players[a].numPhases = 0;//reset the phases
 			}
@@ -107,7 +107,7 @@ public class CheatGame extends Game {
 				view.trading(map, players[a]);//trade with other characters in clearing
 			}
 			
-			view.Refresh();	
+			view.Refresh("Cheating Day "+day+ ": Midnight");	
 			System.out.println("MIDNIGHT");
 			
 			view.hideMapChits();		
@@ -119,11 +119,11 @@ public class CheatGame extends Game {
 				
 			//turn off monsters
 			map.denizensProwlingStop();//not sure if needed, couldnt hurt though
-			view.Refresh();	
+			view.Refresh("Cheating Day "+(day+1)+ ": BirdSong");	
 			
 			//end of day
 			System.out.println("Day " + day + "is now over.");
-			day++;	
+			day++;				
 		}
 		//end game and calculate score
 		System.out.println("Game is now over");

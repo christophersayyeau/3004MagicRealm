@@ -56,7 +56,7 @@ public class Game {
 		}
 
 		//update GUI for all players
-		view.Refresh();		
+		view.Refresh("Day 1: BirdSong");		
 		
 		System.out.println("Starting FIRST ENCOUNTER: TREASURE HUNT");
 		/*The FIRST ENCOUNTER introduces moving, hiding, searching and
@@ -86,7 +86,7 @@ public class Game {
 		while(day<=28){
 			//using the 3rd edition rules for the contents of a day
 		System.out.println("BIRDSONG");
-		view.changeDate("Day "+day+" BIRDSONG");
+		//view.changeDate("Day "+day+" BIRDSONG");
 		
 			/*
 			all of the characters secretly and simultaneously
@@ -113,7 +113,7 @@ public class Game {
 		}
 			
 		System.out.println("SUNRISE");
-		view.changeDate("Day "+day+" SUNRISE");
+		//view.changeDate("Day "+day+" SUNRISE");
 			//if it is a weekday
 			if( day%7 != 0){
 				//System.out.println("Not Day"+day%7);
@@ -126,29 +126,29 @@ public class Game {
 				map.returnDenizensToStart();	//return monsters and ghosts to starting clearing
 			}
 			
-		view.Refresh();		
+		view.Refresh("Day "+day+": Daylight");		
 			
 		System.out.println("DAYLIGHT");
-		view.changeDate("Day "+day+" DAYLIGHT");
+		//view.changeDate("Day "+day+" DAYLIGHT");handled in refresh
 			//players go in random order
 			shufflePlayers(players);
 			
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
 				doTurn(players[a]);
-				view.Refresh();	
+				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");	
 				
 				players[a].numPhases = 0;//reset the phases
 			}
 				
 		System.out.println("SUNSET");
-		view.changeDate("Day "+day+" SUNSET");
+		//view.changeDate("Day "+day+": SUNSET");
 			//determine which clearings have characters
 					//FLOWERS OF REST people wake up
 					//all day spells expire
 			
 		System.out.println("EVENING");
-		view.changeDate("Day "+day+" EVENING");
+		//view.changeDate("Day "+day+" EVENING");
 			//randomize which clearings with characters go first
 			//combat is resolved//does not apply in first iteration
 			for(int a =0 ; a<numOfPlayers; a++){
@@ -156,10 +156,10 @@ public class Game {
 				view.trading(map, players[a]);//trade with other characters in clearing
 			}
 			
-			view.Refresh();		
+			view.Refresh("Day "+day+": Midnight");		
 			
 		System.out.println("MIDNIGHT");
-		view.changeDate("Day "+day+" MIDNIGHT");
+		//view.changeDate("Day "+day+" MIDNIGHT");
 			/*
 			 All face up map chits (except the “LOST CITY” and “LOST
 			CASTLE” chits) turn face down. Face up Site chits are put in their clearings
@@ -179,7 +179,7 @@ public class Game {
 				//System.out.println("Permanent spells fall inert, terms of hire expire, mission and campaign chits expire. ");
 			//turn off monsters
 			map.denizensProwlingStop();//not sure if needed, couldnt hurt though
-			view.Refresh();		
+			view.Refresh("Day "+(day+1)+" Birdsong");		
 			
 			//end of day
 			System.out.println("Day " + day + "is now over.");

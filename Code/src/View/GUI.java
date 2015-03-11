@@ -488,10 +488,10 @@ public class GUI implements MouseListener{
 		
 	}
 	
-	public void Refresh() {
+	public void Refresh(String labelText) {
 		// TODO Auto-generated method stub
 		//update all pictures and related visuals to new locations
-		
+		changeDate(labelText);
 	}
 	
 	public void recordTurn(final Player player, int phasesAvailable, Model.Map gameMap) {//returns the number of phases
