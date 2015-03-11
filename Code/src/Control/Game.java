@@ -150,7 +150,7 @@ public class Game {
 		System.out.println("EVENING");
 		//view.changeDate("Day "+day+" EVENING");
 			//randomize which clearings with characters go first
-			//combat is resolved//does not apply in first iteration
+			//combat is resolved TODO
 			for(int a =0 ; a<numOfPlayers; a++){
 				players[a].rearangeBelongings();
 				view.trading(map, players[a]);//trade with other characters in clearing

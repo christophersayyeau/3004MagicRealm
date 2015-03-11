@@ -40,7 +40,7 @@ public class CheatGame extends Game {
 		System.out.println("STARTING THE CHEAT GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){
-			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position			
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position, TODO test if characters appear in Inn			
 		}
 		
 		//update GUI for all players
@@ -102,7 +102,7 @@ public class CheatGame extends Game {
 			System.out.println("SUNSET");
 			System.out.println("EVENING");
 			//randomize which clearings with characters go first
-			//combat is resolved//does not apply in first iteration
+			//combat is resolved TODO
 			for(int a =0 ; a<numOfPlayers; a++){
 				players[a].rearangeBelongings();
 				view.trading(map, players[a]);//trade with other characters in clearing
