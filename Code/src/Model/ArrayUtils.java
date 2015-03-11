@@ -2,6 +2,8 @@ package Model;
 
 import java.lang.reflect.Array;
 
+import Control.Player;
+
 //taken from ArrayUtils library, one modification to code
 public class ArrayUtils {
 	
@@ -67,6 +69,19 @@ public class ArrayUtils {
 	    {
 	        System.out.println("Comparing "+haystack[i]+needle + haystack[i].compareTo(needle));
 	    	if (haystack[i] != null && haystack[i].compareTo(needle) == 0 || needle == null && haystack[i] == null)	{ 
+	    		System.out.println("Index is "+ i);
+	        	return i;
+	    	}
+	    }
+
+	    return -1;
+	}
+
+	public static int indexOf(Player needle, Player[] haystack) {
+		for (int i=0; i<haystack.length; i++)
+	    {
+	        System.out.println("Comparing "+haystack[i].getProfile().getType()+needle.getProfile().getType() + haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()));
+	    	if (haystack[i] != null && haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()) == 0 || needle == null && haystack[i] == null)	{ 
 	    		System.out.println("Index is "+ i);
 	        	return i;
 	    	}

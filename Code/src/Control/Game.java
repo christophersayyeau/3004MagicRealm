@@ -150,6 +150,8 @@ public class Game {
 		System.out.println("EVENING");
 		//view.changeDate("Day "+day+" EVENING");
 			//randomize which clearings with characters go first
+			shufflePlayers(players);
+			
 			//combat is resolved TODO
 /*current combat rules
 one round of combat between 2 players
@@ -162,9 +164,17 @@ no running away
 
 combat resolved into 1 death, 2 death or combat stop
 ignore fatigued and wounded counters*/
+		for(int a=0; a<numOfPlayers; a++){	//go through all players
+			if(!players[a].getProfile().foughtToday){		//check to see if already fought today
+				if(map.getClearing(players[a].getCurrentLocation()/10, players[a].getCurrentLocation()%10).numPLayersInClearing != 1){//if there are more then 1 characters
+					//there is fighting
+					
+				}
+			}
+		}
 		
 			//handle cleanup
-			for(int a =0 ; a<numOfPlayers; a++){
+			for(int a =0 ; a<numOfPlayers; a++){				
 				players[a].rearangeBelongings();
 				view.trading(map, players[a]);//trade with other characters in clearing
 			}

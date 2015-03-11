@@ -35,6 +35,8 @@ public class Character {
 	CombatChit action1 = new CombatChit();
 	CombatChit action2 = new CombatChit();
 	CombatChit action3 = new CombatChit();
+
+	public boolean foughtToday = false;
 	
 	
 	//Auto generated

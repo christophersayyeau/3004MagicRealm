@@ -5,7 +5,8 @@ import Model.ArrayUtils;
 
 public class Clearing {
 
-	public Player playersInClearing;//for know it is a single value, this will need to c\be changed
+	public Player[] playersInClearing;//for know it is a single value, this will need to c\be changed
+	public int numPLayersInClearing = 0;
 	
 	public Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInClearing = 0;
@@ -32,12 +33,14 @@ public class Clearing {
 
 
 	public void putPlayer(Player player1) {
-		//this only works because we have 1 character
-		playersInClearing = player1;
+		//playersInClearing = player1;
+		ArrayUtils.add(playersInClearing, player1);
+		this.numPLayersInClearing++;
 	}
 	public void removePlayer(Player player1) {
-		//this only works because we have 1 character
-		playersInClearing = null;	
+		//playersInClearing = null;	
+		ArrayUtils.remove(playersInClearing, ArrayUtils.indexOf(player1, playersInClearing));
+		this.numPLayersInClearing--;
 	}
 
 	public void putDenizen(Denizen monster) {
@@ -60,5 +63,4 @@ public class Clearing {
 		}
 		System.out.println("Not Found");
 	}
-
 }
