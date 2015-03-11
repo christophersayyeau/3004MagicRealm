@@ -164,7 +164,7 @@ public class Player {
 						//if you roll over the number of treasures there you get nothing
 						int result = Die.dieRoll();
 						switch (result){
-							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO this function declariation nneeds work
+							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO treasure stuff this function declariation nneeds work
 							break;
 	//						case 2:  	2nd//since there is only going to be one treasure
 	//						break;

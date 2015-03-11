@@ -694,9 +694,11 @@ public class GUI implements MouseListener{
 		//display the treasure chit in this tile, technically only the player can see it but who cares
 	}
 	
-	public void displayScore(Player[] gamers) {
-		// TODO Auto-generated method stub
+	public void displayScore(Player[] gamers) {		
 		//display the final scores of all users
+		for(int a =0; a< gamers.length; a++){	//go to all users
+			// TODO display in label everbodies scores
+		}
 	}
 	
 
