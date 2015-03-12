@@ -4,6 +4,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+
+
+//go SEE A TA's office hours and get this finished properly and quickly in an afternoon
+
 public class Client implements Runnable{
 	Socket SOCK;
 	Scanner INPUT;
