@@ -1421,8 +1421,36 @@ public class GUI implements MouseListener{
 
 	public void selectFightGear(Player player) {
 		// TODO prep player for combat
-/*		1)select fight counter and attack direction
-		2)select armors
-		3)select move counter and defense direction*/
+		//1)select fight counter and attack direction
+	/*	can choose not to make attack
+		can play Fight chit during melee step to alert weapon instead
+		need a Fight chit to do attack
+		attack has direction and time(before it hits)
+		attack directions: thrust(straight)
+							Swing(sides)
+							Smash(down)
+		attack time=time on weapon, if none then time on Fight chit
+		
+		//2)select armors 	always have armor active
+		//armor protects from direction chosen
+		some armor needs to choose which direction to protect
+		
+		//3)select move counter and defense direction
+		can choose not to evade
+		need a Move chit to evade
+		evading has direction and time(to complete dodge)
+		evading directions:	charge(straight)
+							Dodge(sides)
+							Duck(down)
+		time = Time on Move chit
+		
+		action chits can only be used once per round
+		max of 2 effort per round, if higher it is cancelled
+		
+					//can Fight chit only if its strength >=weight of weapon
+					//can Move chit only if its strength >= weight of his stuff
+		
+		if weapon hits it becomes unalerted
+		if misses it becomes alerted*/
 	}
 }

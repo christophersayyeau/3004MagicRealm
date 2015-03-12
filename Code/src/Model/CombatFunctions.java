@@ -1,20 +1,44 @@
 package Model;
 
+import View.GUI;
 import Control.Player;
 
 public class CombatFunctions{
 
-	public static void resolveCombat(Player player, Player opponent) {
+	public static void resolveCombat(GUI view, Player player, Player opponent) {
 		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
-		// TODO combat resolution
+		
 /*		one round of combat between 2 players
 		no running away
 		2* limit
 		combat resolved into 1 death, 2 death or combat stop
 		ignore fatigued and wounded counters*/
 		
+		view.selectFightGear(player);
+		view.selectFightGear(opponent);
 		
 		
+		// TODO combat resolution
+		/*each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+		1st round hit order is weapon length,then faster attack time
+		
+		if hit inflicts harm (THML)+levels of sharpness
+		if don't hit armor sharp stars increase harm a level
+		if hit armor 1 sharp star dosn't count, rest increase harm
+		
+		if hit with missile weapon, roll on missile table and adjust harm
+		if strength of Fight chit bigger that weight of weapon increase 1 level only
+		
+		denizen harm compared to vulnerability
+		
+		when armor hit by harm equal to toughness becomes damaged
+		when armor hit by greater it is destroyed
+		if damaged armor damaged again it is destroyed;*/
+		
+		
+		//set true so they don't fight again
+		player.getProfile().foughtToday = true;
+		opponent.getProfile().foughtToday = true;
 		System.out.println("Fight FInished");
 	}
 	
