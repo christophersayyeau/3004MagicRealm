@@ -67,6 +67,9 @@ public class CheatGame extends Game {
 				}
 				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
+				//reset fought today
+				players[a].getProfile().foughtToday = false;
+				
 				//now build the turn in the GUI
 				view.recordTurn(players[a], phasesToday, map);
 			}
@@ -102,7 +105,7 @@ public class CheatGame extends Game {
 			System.out.println("SUNSET");
 			System.out.println("EVENING");
 			//randomize which clearings with characters go first
-			//combat is resolved TODO copy game version
+			//combat is resolved TODO copy game version once it is finished
 			
 			//handle the rest of acitivites
 			for(int a =0 ; a<numOfPlayers; a++){

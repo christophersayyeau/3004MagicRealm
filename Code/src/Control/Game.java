@@ -110,6 +110,9 @@ public class Game {
 	
 				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
+				//reset fought today
+				players[a].getProfile().foughtToday = false;
+				
 				//now build the turn in the GUI
 				view.recordTurn(players[a], phasesToday, map);
 		}
@@ -187,11 +190,11 @@ System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayers
 						System.out.println("No one available for combat");
 					}else{
 						//there is fighting
-						view.selectFightGear(players[a]);
-						view.selectFightGear(opponent);
+							//view.selectFightGear(players[a]);moved to CombatFunctions
+							//view.selectFightGear(opponent);
 						
 						//combat is resolved
-						CombatFunctions.resolveCombat(players[a], opponent);						
+						CombatFunctions.resolveCombat(view, players[a], opponent);						
 					}
 				}//others in clearing who have not fought will be called later in this for loop
 			}

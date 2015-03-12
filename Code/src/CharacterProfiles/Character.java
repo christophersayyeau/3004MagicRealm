@@ -38,8 +38,6 @@ public class Character {
 
 	public boolean foughtToday = false;
 	
-	
-	//Auto generated
 	public String getType() {
 		return type;
 	}
