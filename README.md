@@ -1,10 +1,9 @@
 # 3004MagicRealm
 
-Step 0 and 1 should be done by the 11th
-GUI still has lots of TODOs and needs the missing images added
+Step 0 and 1 should be done by now.
+GUI still has lots of TODOs and needs the missing objects added.
 Networking needs to be added.
 THe simplest form of combat needs to be handled.
-Cheat Mode must be finished.
 
 Step 2
 Searching and Treasure stuff needs to be fixed.
