@@ -1391,4 +1391,38 @@ public class GUI implements MouseListener{
 	public void changeDate(String s){
 		dLabel.setText(s);
 	}
+
+	public Player fightWho(Clearing clearing) {	//ask user from available choices who he whishes to fight in combat
+		//choose player to fight based on players[a].getProfile().foughtToday must be false
+		
+		//create the array to ask
+		String[] choices = null;
+		Player[] values = null;
+		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
+				if(!clearing.playersInClearing[a].getProfile().foughtToday){	//if not already fought
+					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
+					values = ArrayUtils.add(values, clearing.playersInClearing[a]);
+				}
+		}
+		
+		if(choices == null){
+			return null;//should return null if there are no choices, return player you will fight
+		
+		}else{	//there is in fact an opponent
+			//now ask which one to send
+			int response = JOptionPane.showOptionDialog(null, "Who would you like to fight?",	"Oponents",
+					JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+					null,	choices, choices[0]);
+		
+			//return the player value
+			return values[response];
+		}	
+	}
+
+	public void selectFightGear(Player player) {
+		// TODO prep player for combat
+/*		1)select fight counter and attack direction
+		2)select armors
+		3)select move counter and defense direction*/
+	}
 }

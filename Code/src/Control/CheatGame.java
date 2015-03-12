@@ -102,9 +102,9 @@ public class CheatGame extends Game {
 			System.out.println("SUNSET");
 			System.out.println("EVENING");
 			//randomize which clearings with characters go first
-			//combat is resolved TODO
+			//combat is resolved TODO copy game version
 			
-			//handle the cleanup
+			//handle the rest of acitivites
 			for(int a =0 ; a<numOfPlayers; a++){
 				players[a].rearangeBelongings();
 				view.trading(map, players[a]);//trade with other characters in clearing

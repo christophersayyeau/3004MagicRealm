@@ -1,6 +1,8 @@
 package Control;
 
 import java.util.Random;
+
+import Model.CombatFunctions;
 import Model.Map;
 import View.*;
 
@@ -152,7 +154,7 @@ public class Game {
 			//randomize which clearings with characters go first
 			shufflePlayers(players);
 			
-			//combat is resolved TODO
+			
 /*current combat rules
 one round of combat between 2 players
 no running away
@@ -165,15 +167,37 @@ no running away
 combat resolved into 1 death, 2 death or combat stop
 ignore fatigued and wounded counters*/
 		for(int a=0; a<numOfPlayers; a++){	//go through all players
-			if(!players[a].getProfile().foughtToday){		//check to see if already fought today
-				if(map.getClearing(players[a].getCurrentLocation()/10, players[a].getCurrentLocation()%10).numPLayersInClearing != 1){//if there are more then 1 characters
-					//there is fighting
+			
+			//create an array for the positions
+			int currentTile = players[a].getCurrentLocation()/10;
+			int currentClearing = players[a].getCurrentLocation()%10;
+			String[] pos = new String[2];
+			pos[0] = Integer.toString(currentTile);
+			pos[1] = Integer.toString(currentClearing);
+			int[] temp = new int[2];
+			temp = view.convertNameToPosition(pos);
+			
+System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayersInClearing);		
+			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing
+				if(!players[a].getProfile().foughtToday){		//check to see if already fought today	
 					
-				}
+					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]));//will return opponent or null
+					
+					if(opponent == null){
+						System.out.println("No one available for combat");
+					}else{
+						//there is fighting
+						view.selectFightGear(players[a]);
+						view.selectFightGear(opponent);
+						
+						//combat is resolved
+						CombatFunctions.resolveCombat(players[a], opponent);						
+					}
+				}//others in clearing who have not fought will be called later in this for loop
 			}
 		}
 		
-			//handle cleanup
+			//handle rest of activity
 			for(int a =0 ; a<numOfPlayers; a++){				
 				players[a].rearangeBelongings();
 				view.trading(map, players[a]);//trade with other characters in clearing
