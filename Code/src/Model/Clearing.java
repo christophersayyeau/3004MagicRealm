@@ -34,7 +34,7 @@ public class Clearing {
 
 	public void putPlayer(Player player1) {
 		//playersInClearing = player1;
-		ArrayUtils.add(playersInClearing, player1);
+		playersInClearing = ArrayUtils.add(playersInClearing, player1);
 		this.numPLayersInClearing++;
 	}
 	public void removePlayer(Player player1) {

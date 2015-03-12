@@ -14,7 +14,7 @@ public class MapTiles {
 	public Clearing [] clearing;
 	
 	//overall class, will create subclasses based on tiles
-	Player[] playersInTile;//for know it is a single value, this will need to c\be changed
+	Player[] playersInTile = new Player[0];//for know it is a single value, this will need to c\be changed
 
 	public Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInTile = 0;
@@ -64,7 +64,7 @@ public class MapTiles {
 	
 	public void putPlayer(Player player1) {
 		//playersInTile = player1;
-		ArrayUtils.add(playersInTile, player1);
+		playersInTile = ArrayUtils.add(playersInTile, player1);
 	}
 	public void removePlayer(Player player1) {
 		//playersInTile = null;	

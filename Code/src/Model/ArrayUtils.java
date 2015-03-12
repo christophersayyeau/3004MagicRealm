@@ -45,7 +45,8 @@ public class ArrayUtils {
 		@SuppressWarnings("unchecked") // type must be T
 	    final		
 		T[] newArray = (T[]) copyArrayGrow1(array, type);	    
-		newArray[newArray.length - 1] = element;		
+		newArray[newArray.length - 1] = element;	
+		
 		return newArray;		
 	}
 	
@@ -80,9 +81,9 @@ public class ArrayUtils {
 	public static int indexOf(Player needle, Player[] haystack) {
 		for (int i=0; i<haystack.length; i++)
 	    {
-	        System.out.println("Comparing "+haystack[i].getProfile().getType()+needle.getProfile().getType() + haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()));
+	        //System.out.println("Comparing "+haystack[i].getProfile().getType()+needle.getProfile().getType() + haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()));
 	    	if (haystack[i] != null && haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()) == 0 || needle == null && haystack[i] == null)	{ 
-	    		System.out.println("Index is "+ i);
+	    		//System.out.println("Index is "+ i);
 	        	return i;
 	    	}
 	    }

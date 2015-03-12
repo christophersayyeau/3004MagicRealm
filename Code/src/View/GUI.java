@@ -772,8 +772,10 @@ public class GUI implements MouseListener{
 			list.add("House");
 		else if(c.inn)
 			list.add("Inn");
-		else if(c.playersInClearing != null)	//TODO change to a loop to check for multiple players
-			list.add(c.playersInClearing.getProfile().getType());
+		else if(c.playersInClearing != null){//check for players in clearing
+			for(int n=0; n<c.numPLayersInClearing; n++)
+				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
+		}
 		for(int i=0; i < c.monstersInClearing.length; ++i){
 			if(c.monstersInClearing[i] != null)
 				list.add(c.monstersInClearing[i].getName());
@@ -1363,7 +1365,7 @@ public class GUI implements MouseListener{
 	 */
 	public int[] convertNameToPosition(String q []){
 		int pos[] = new int[2];
-		pos[0] = Integer.parseInt(q[0]) - 1;
+		pos[0] = Integer.parseInt(q[0]) - 1;//decrease the tile umber
 		
 		//for valley
 		if(pos[0] < 5){

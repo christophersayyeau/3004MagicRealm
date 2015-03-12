@@ -316,6 +316,9 @@ public class Map {
 		int[] temp = new int[2];
 		temp = view.convertNameToPosition(pos);
 		
+		//make sure they exist in tile
+		getMapTiles()[temp[0]].putPlayer(player1);
+		getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
 		
 		if(newLocation > 0){
 			//remove from old tile

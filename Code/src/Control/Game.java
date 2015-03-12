@@ -50,7 +50,7 @@ public class Game {
 	public void startGame() {
 		System.out.println("STARTING THE GAME");
 		
-		for(int a =0 ; a<numOfPlayers; a++){
+		for(int a =0 ; a<numOfPlayers; a++){			
 			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position
 			
 		}
