@@ -122,7 +122,11 @@ public class Player {
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
 				//TODO add in code to move icon around
-				
+				/*
+				game.view.amazon.setLocation(game.view.getPlayerX(),game.view.getPlayerY());
+				game.view.Map.add(game.view.amazon);
+				game.view.amazon.setVisible(true);
+				*/
 				System.out.println("You can move here, moving character now");
 			}else{
 				System.out.println("Can't Move There, phase wasted");

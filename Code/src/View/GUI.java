@@ -43,7 +43,7 @@ public class GUI implements MouseListener{
 	final int tileX = 300;
 	final int tileY = 305;
 	
-	JLabel amazon = new JLabel();
+	public JLabel amazon = new JLabel();
 	
 	int playerX;
 	int playerY;
@@ -133,6 +133,8 @@ public class GUI implements MouseListener{
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
 		
+		
+		//TODO edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/character/amazon.png");
 		ImageIcon bknightIcon = new ImageIcon("res/character/black_knight.png");
 		ImageIcon captainIcon = new ImageIcon("res/character/captain.png");
@@ -144,6 +146,9 @@ public class GUI implements MouseListener{
 		amazon.setIcon(amazonIcon);
 		amazon.setVisible(true);
 		amazon.setSize(50,50);
+		amazon.setLocation(560,1175);
+		Map.add(amazon);
+		Map.setComponentZOrder(amazon, 0);
 		
 		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
@@ -1446,4 +1451,6 @@ public class GUI implements MouseListener{
 					//can Fight chit only if its strength >=weight of weapon
 					//can Move chit only if its strength >= weight of his stuff
 	}
+	public int getPlayerX(){ return playerX;}
+	public int getPlayerY(){ return playerY;}
 }
