@@ -32,9 +32,12 @@ public class Character {
 	protected Special [] specials = new Special[2];
 	
 	//Combat chits, should have 12, 4 of each
-	CombatChit action1 = new CombatChit();
-	CombatChit action2 = new CombatChit();
-	CombatChit action3 = new CombatChit();
+	public CombatChit action1 = new CombatChit();
+	public int action1Num = 4;
+	public CombatChit action2 = new CombatChit();
+	public int action2Num = 4;
+	public CombatChit action3 = new CombatChit();
+	public int action3Num = 4;
 
 	public boolean foughtToday = false;
 	

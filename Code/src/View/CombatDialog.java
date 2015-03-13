@@ -1,23 +1,7 @@
 package View;
 
-import java.awt.Container;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
 import Model.ArrayUtils;
 import Control.Player;
 
@@ -148,15 +132,7 @@ public class CombatDialog extends JDialog{
 
 
 	public CombatDialog(Player player) {	
-
-		//	attack has direction and time(before it hits)
-		//	need a Fight chit to do attack
-		//	attack time=time on weapon, if none then time on Fight chit;
-		//TODO ask about Fight chit to use	
-		
-
-
-
+		//	attack has direction and time(before it hits)		
 		//attack directions: thrust(straight)	Swing(sides)	Smash(down)
 		String[] choices = {"Thrust", "Swing", "Smash", "Do Nothing"};//can choose not to make attack
 
@@ -188,7 +164,35 @@ public class CombatDialog extends JDialog{
 			player.setCombatAttackDirection("Make Weapon Alert");
 			break;
 		}
+		
+		
+		//	need a Fight chit to do attack
+		
+		String[] options = null;
+		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
+			if(player.getProfile().action1.getType().compareTo("Fight") == 0)	//only fight type allowed
+				options = ArrayUtils.add(options, player.getProfile().action1.getType());
+		}
+		for(int a=0; a< player.getProfile().action2Num; a++){	//add all of the second action available
+			if(player.getProfile().action2.getType().compareTo("Fight") == 0)
+				options = ArrayUtils.add(options, player.getProfile().action2.getType());
+		}
+		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
+			if(player.getProfile().action3.getType().compareTo("Fight") == 0)
+				options = ArrayUtils.add(options, player.getProfile().action3.getType());
+		}
 
+		//now ask user to pick
+		response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Use?",	"Attack",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	options, options[0]);
+System.out.println(response);
+		//interpret response		
+		switch((String)response){
+		case "Thrust":						//TODO set to the right words	involving strenght, time and effort
+			player.setCombatAttackDirection("Thrust");
+			break;
+		}
 	}
 }
 		    

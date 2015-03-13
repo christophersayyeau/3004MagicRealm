@@ -21,6 +21,7 @@ public class CombatFunctions{
 		// TODO combat resolution
 		/*each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 		1st round hit order is weapon length,then faster attack time
+		//	attack time=time on weapon, if none then time on Fight chit;
 		
 		if hit inflicts harm (THML)+levels of sharpness
 		if don't hit armor sharp stars increase harm a level

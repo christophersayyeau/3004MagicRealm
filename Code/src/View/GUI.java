@@ -1423,9 +1423,9 @@ public class GUI implements MouseListener{
 		System.out.println("Creating Gear Setup Stuff");
 		
 		//1)select fight counter and attack direction
-		//CombatDialog combat = new CombatDialog( player);
-		//combat.show();
-		CombatDialog combat = new CombatDialog(player);
+			//CombatDialog combat = new CombatDialog( player);
+			//combat.show();
+		CombatDialog combat = new CombatDialog(player);	//go get direction and attack chit type
 		
 		//2)select armors 	always have armor active
 		//TODO armor protects from direction chosen

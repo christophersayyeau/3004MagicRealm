@@ -3,20 +3,20 @@ package Model;
 //this handles all of the actions available to characters
 public class CombatChit {
 	//use type to specify action
-	int type = -1;//set to garbage value
+	private String type = null;//set to garbage value
 	
 	//time to do action
-	int time = -1;
+	private int time = -1;
 	
 	//number of asterisks
-	int effort = -1;
+	private int effort = -1;
 	
 	//strength of action L,M,H
-	int strength = -1;
+	private int strength = -1;
 	
 	public void setType(String string) {
 		//compare the strings to determine what it is
-		if(string.compareTo("Move") == 0){
+/*		if(string.compareTo("Move") == 0){
 			//System.out.println("Set to Move");
 			type = 0;		
 		}else if(string.compareTo("Fight") == 0){
@@ -35,8 +35,21 @@ public class CombatChit {
 		//nothing recognized
 		}else{
 			System.out.println("Something is Wrong, no Type Selected for Action");
-		}
-		
+		}*/
+		type = string;
+	}
+	
+	public String getType(){
+		return type;
+	}
+	public int getTime(){
+		return time;
+	}
+	public int getEffort(){
+		return effort;
+	}
+	public int getStrength(){
+		return strength;
 	}
 	
 	public void setTime(int i) {
@@ -51,16 +64,16 @@ public class CombatChit {
 		//compare the strings to determine what it is
 		if(string.compareTo("L") == 0){
 			//System.out.println("Set to Light");
-			type = 0;		
+			strength = 0;		
 		}else if(string.compareTo("M") == 0){
 			//System.out.println("Set to Medium");
-			type = 1;
+			strength = 1;
 		}else if(string.compareTo("H") == 0){
 			//System.out.println("Set to Heavy");
-			type = 2;
+			strength = 2;
 		}else if(string.compareTo("T") == 0){
 			//System.out.println("Set to Titan");
-			type = 3;
+			strength = 3;
 			
 		//nothing recognized
 		}else{
