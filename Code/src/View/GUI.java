@@ -1420,18 +1420,16 @@ public class GUI implements MouseListener{
 	}
 
 	public void selectFightGear(Player player) {
-		
+		System.out.println("Creating Gear Setup Stuff");
 		
 		//1)select fight counter and attack direction
+		//CombatDialog combat = new CombatDialog( player);
+		//combat.show();
 		CombatDialog combat = new CombatDialog(player);
-		combat.show();
-			
-		
-		
 		
 		//2)select armors 	always have armor active
-		//TODOarmor protects from direction chosen
-		some armor needs to choose which direction to protect
+		//TODO armor protects from direction chosen
+		/*some armor needs to choose which direction to protect
 		
 		//3)select move counter and defense direction
 		can choose not to evade
@@ -1443,7 +1441,7 @@ public class GUI implements MouseListener{
 		time = Time on Move chit
 		
 		action chits can only be used once per round
-		max of 2 effort per round, if higher it is cancelled
+		max of 2 effort per round, if higher it is cancelled*/
 		
 					//can Fight chit only if its strength >=weight of weapon
 					//can Move chit only if its strength >= weight of his stuff

@@ -19,7 +19,7 @@ public class CombatFunctions{
 		
 		
 		// TODO combat resolution
-		/each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+		/*each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 		1st round hit order is weapon length,then faster attack time
 		
 		if hit inflicts harm (THML)+levels of sharpness
