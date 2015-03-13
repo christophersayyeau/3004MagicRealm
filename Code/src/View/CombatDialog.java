@@ -190,7 +190,9 @@ System.out.println(response);
 		//interpret response		
 		switch((String)response){
 		case "Thrust":						//TODO set to the right words	involving strenght, time and effort
+											//lower the num of action# since you can only use it once a day
 			player.setCombatAttackDirection("Thrust");
+			player.attackEffort = -1;
 			break;
 		}
 	}

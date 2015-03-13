@@ -26,6 +26,9 @@ public class Player {
 	public void setCombatAttackDirection(String combatAttackDirection) {
 		this.combatAttackDirection = combatAttackDirection;
 	}
+	public int attackEffort = -1;
+	public int attackStrength = -1;
+	public int attackTime = -1;//use these for combat
 	
 	private int phasesForToday = -1;//determined in recordTurn
 	int numPhases = 0;

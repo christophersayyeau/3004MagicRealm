@@ -1432,12 +1432,13 @@ public class GUI implements MouseListener{
 			//combat.show();
 		CombatDialog combat = new CombatDialog(player);	//go get direction and attack chit type
 		
-		//2)select armors 	always have armor active
-		//TODO armor protects from direction chosen
-		/*some armor needs to choose which direction to protect
+		//2)select armors 	always have armor active		
+		//some armor needs to choose which direction to protect
+		ArmorDialog protect = new ArmorDialog(player);
 		
+		//TODO do same thing as attacking
 		//3)select move counter and defense direction
-		can choose not to evade
+		/*can choose not to evade
 		need a Move chit to evade
 		evading has direction and time(to complete dodge)
 		evading directions:	charge(straight)
@@ -1445,8 +1446,8 @@ public class GUI implements MouseListener{
 							Duck(down)
 		time = Time on Move chit
 		
-		action chits can only be used once per round
-		max of 2 effort per round, if higher it is cancelled*/
+		action chits can only be used once per round*/
+		
 		
 					//can Fight chit only if its strength >=weight of weapon
 					//can Move chit only if its strength >= weight of his stuff

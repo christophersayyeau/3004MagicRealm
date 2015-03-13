@@ -17,8 +17,17 @@ public class CombatFunctions{
 		view.selectFightGear(player);
 		view.selectFightGear(opponent);
 		
+		//Does fastest fellow hit
+		if(player.attackTime < opponent.attackTime) {//player goes first
+		}else{//oponnent goes first
+		}
+		//longest weapon goes first
+		if(player.getProfile().getWeapon().weaponLength > opponent.getProfile().getWeapon().weaponLength){//player goes first			
+		}else{		
+		}
 		
 		// TODO combat resolution
+		//max of 2 effort per round, if higher it is cancelled
 		/*each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 		1st round hit order is weapon length,then faster attack time
 		//	attack time=time on weapon, if none then time on Fight chit;
@@ -37,7 +46,8 @@ public class CombatFunctions{
 		
 		when armor hit by harm equal to toughness becomes damaged
 		when armor hit by greater it is destroyed
-		if damaged armor damaged again it is destroyed;*/
+		if damaged armor damaged again it is destroyed;
+		restore all action chits for next round*/
 		
 		
 		//set true so they don't fight again
