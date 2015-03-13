@@ -163,8 +163,11 @@ public class Weapon {
 		}
 	}
 
-	public void setUnAlert() {
-		alerted = false;
+	public void setalert(boolean v) {
+		alerted = v;
+	}
+	public boolean getAlert() {
+		return alerted;
 	}
 	
 }

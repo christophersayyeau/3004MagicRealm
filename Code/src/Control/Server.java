@@ -36,7 +36,7 @@ public class Server {
 			Game game = new Game();
 			
 			game.createPlayers();
-			
+	game.view.selectFightGear(game.players[0]);		//TODO erase this line after we know it is working
 			//now start the game
 			game.startGame();
 		}

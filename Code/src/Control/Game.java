@@ -220,7 +220,7 @@ System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayers
 			
 			//System.out.println("Weapons become unalerted");
 			for(int a =0 ; a<numOfPlayers; a++){
-				players[a].getProfile().getWeapon().setUnAlert();
+				players[a].getProfile().getWeapon().setalert(false);
 			}
 			
 				//System.out.println("active Potions need to be expired here");

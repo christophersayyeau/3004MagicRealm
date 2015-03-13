@@ -18,9 +18,17 @@ public class Player {
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
+
+	private String combatAttackDirection = null;	
+	public String getCombatAttackDirection() {
+		return combatAttackDirection;
+	}
+	public void setCombatAttackDirection(String combatAttackDirection) {
+		this.combatAttackDirection = combatAttackDirection;
+	}
+	
 	private int phasesForToday = -1;//determined in recordTurn
 	int numPhases = 0;
-	
 	public int getPhasesForToday() {
 		return phasesForToday;
 	}

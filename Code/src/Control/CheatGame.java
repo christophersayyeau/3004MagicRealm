@@ -120,7 +120,7 @@ public class CheatGame extends Game {
 			
 			//System.out.println("Weapons become unalerted");
 			for(int a =0 ; a<numOfPlayers; a++){
-				players[a].getProfile().getWeapon().setUnAlert();
+				players[a].getProfile().getWeapon().setalert(false);
 			}
 				
 			//turn off monsters
