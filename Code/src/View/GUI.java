@@ -135,86 +135,32 @@ public class GUI implements MouseListener{
 		
 		
 		//TODO edit code to be able to use icons
-		ImageIcon amazonIcon = new ImageIcon("res/character/amazon.png");
-		ImageIcon bknightIcon = new ImageIcon("res/character/black_knight.png");
-		ImageIcon captainIcon = new ImageIcon("res/character/captain.png");
-		ImageIcon dwarfIcon = new ImageIcon("res/character/dwarf.png");
-		ImageIcon elfIcon = new ImageIcon("res/character/elf.png");
-		ImageIcon swordsmanIcon = new ImageIcon("res/character/swordsman.png");
+		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
+		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
+		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
+		ImageIcon dwarfIcon = new ImageIcon("res/characters/dwarf.png");
+		ImageIcon elfIcon = new ImageIcon("res/characters/elf.png");
+		ImageIcon swordsmanIcon = new ImageIcon("res/characters/swordsman.png");
 		
-		
+		//TODO maybe change "amazon" to "player" and store the imageicon into player class?
+		//hardcoding only 1 type for the time being (and only really handles 1 player)
 		amazon.setIcon(amazonIcon);
 		amazon.setVisible(true);
+		//amazon.setLocation(560,1175);
 		amazon.setSize(50,50);
-		amazon.setLocation(560,1175);
 		Map.add(amazon);
 		Map.setComponentZOrder(amazon, 0);
 		
-		/*ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
+		/*
+		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
 		qwe.setIcon(p1);
 		qwe.setVisible(true);
 		qwe.setLocation(560,1175);
 		qwe.setSize(50,50);
 		Map.add(qwe);
-		Map.setComponentZOrder(qwe, 0);*/
-		
-		
-													//These were replaced in recordTurn
-														//TO DO can these functions be erased? Since they are handled at the bottom	
-															//TO DO add in function calls
-															/*
-															Buttons.setLayout(new FlowLayout());
-															JButton move = new JButton("Move");
-															move.addActionListener(new ActionListener(){
-																public void actionPerformed(ActionEvent e){
-																	System.out.println("Call the move function");
-																}
-															});
-															
-															JButton hide = new JButton("Hide");
-															hide.addActionListener(new ActionListener(){
-																public void actionPerformed(ActionEvent e){
-																	System.out.println("Call the hide function");
-																}
-															});
-															
-															JButton search = new JButton("Search");
-															search.addActionListener(new ActionListener(){
-																public void actionPerformed(ActionEvent e){
-																	System.out.println("Call the search function");
-																}
-															});
-															
-															JButton rest = new JButton("Rest");
-															rest.addActionListener(new ActionListener(){
-																public void actionPerformed(ActionEvent e){
-																	System.out.println("Call the rest function");
-																}
-															});
-															
-															JButton trade = new JButton("Trade");
-															trade.addActionListener(new ActionListener(){
-																public void actionPerformed(ActionEvent e){
-																	System.out.println("Call the trade function");
-																	doYouWantToTrade();
-																}
-															});
-															
-															
-															Buttons.add(move);
-															Buttons.add(hide);
-															Buttons.add(search);
-															Buttons.add(rest);
-															Buttons.add(trade);
-															
-															Buttons.setBackground(Color.gray);
-															
-															MainWindow.getContentPane().add(Buttons);
-															
-															Buttons.setLocation(0,(int)screenSize.getHeight()/3);
-															Buttons.setSize((int)screenSize.getWidth()/2,40);
-															*/
+		Map.setComponentZOrder(qwe, 0);
+		*/
 	}
 	
 	/* Function to create mapTiles

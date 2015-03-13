@@ -117,19 +117,17 @@ public class Player {
 			//int newLocation = Integer.parseInt(action.substring(5));
 			int newLocation = game.view.getNewLocation();
 			
-			//check to see if they can
 			System.out.println("New location = "+newLocation);
 			System.out.println("Current Location = "+profile.getCurrentLocation());
 			
 			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
 				//there are rules about how much weight
 				map.moveCharacters(this, newLocation);//if yes then move
+				
 				//TODO add in code to move icon around
-				/*
+				//Make the code more generalized, figure out how/where to store icons
 				game.view.amazon.setLocation(game.view.getPlayerX(),game.view.getPlayerY());
-				game.view.Map.add(game.view.amazon);
-				game.view.amazon.setVisible(true);
-				*/
+				
 				System.out.println("You can move here, moving character now");
 			}else{
 				System.out.println("Can't Move There, phase wasted");
@@ -263,6 +261,7 @@ public class Player {
 		return profile.getCurrentLocation();
 	}
 	public void setCurrentLocation(int newLocation) {
+		//TODO set starting icon location and set visible here
 		profile.setCurrentLocation(newLocation);
 	}
 	
