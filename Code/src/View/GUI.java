@@ -54,7 +54,6 @@ public class GUI implements MouseListener{
 	int playerX;
 	int playerY;
 	
-	
 	//constructor, called in player.java
 	public GUI(Game g, Map m)
 	{
@@ -204,7 +203,7 @@ public class GUI implements MouseListener{
 	/* Allows player selection
 	 * 
 	 */
-	public String createPlayer(){
+	public static String createPlayer(){
 		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		Object s = JOptionPane.showInputDialog(
 				Players,
@@ -307,13 +306,7 @@ public class GUI implements MouseListener{
 		l2.setLocation(x2, y2);
 		l3.setLocation(x3, y3);
 		l4.setLocation(x4, y4);
-		
-		/*ImageIcon i = new ImageIcon("res/characters/test.png");
-		l1.setIcon(i);
-		l2.setIcon(i);
-		l3.setIcon(i);
-		l4.setIcon(i);*/
-		
+
 		Map.setComponentZOrder(l1, 0);
 		Map.setComponentZOrder(l2, 0);
 		Map.setComponentZOrder(l3, 0);
@@ -1426,4 +1419,6 @@ public class GUI implements MouseListener{
 	public static void showServerIP(String string) {
 		JOptionPane.showMessageDialog(null, "Server IP: " + string);	
 	}
+	
+	
 }

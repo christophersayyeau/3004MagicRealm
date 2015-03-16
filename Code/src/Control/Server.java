@@ -17,9 +17,10 @@ public class Server {
 	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>();
 	public static ArrayList<String> CurrentPlayers = new ArrayList<String>();
 	static int PORT = 9073;
+	static int x;
 	
 	
-	public static void main(String args[]){
+	/*public static void main(String args[]){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
 
 		if(GUI.cheatMode()){//using cheatMode
@@ -44,10 +45,11 @@ public class Server {
 			//now start the game
 			game.startGame();
 		}
-	}
+	}*/
 	
 	//networking code
-	/*public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException {
+		x = 0;
 		try
 		{
 			ServerSocket SERVER = new ServerSocket(PORT);
@@ -65,9 +67,10 @@ public class Server {
 				System.out.println("Client connected from: " + SOCK.getLocalAddress().getHostName());
 				String s = AddPlayer(SOCK);
 				
-				//create an instance of the game and start
-				//Thread X = new Thread(GAME);
-				//X.start();
+				
+				ServerController gameServer = new ServerController(SOCK);
+				Thread X = new Thread(gameServer);
+				X.start();
 			}
 		}
 		catch(Exception X) { System.out.print(X);}
@@ -75,8 +78,9 @@ public class Server {
 	
 	public static String AddPlayer(Socket X) throws IOException
 	{
-		Scanner INPUT = new Scanner(X.getInputStream());
-		String player = INPUT.nextLine();
+		//Scanner INPUT = new Scanner(X.getInputStream());
+		//String player = INPUT.nextLine();
+		String player = Integer.toString(x++);
 		CurrentPlayers.add(player);
 		
 		for(int i=1; i <= Server.ConnectionArray.size(); ++i)
@@ -87,6 +91,6 @@ public class Server {
 			OUT.flush();
 		}
 		return player;
-	}*/
+	}
 	
 }

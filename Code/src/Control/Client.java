@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 //go SEE A TA's office hours and get this finished properly and quickly in an afternoon
 
 public class Client{
-	static String serverIP;
+	static String serverIP = "192.168.56.1";
 	private static ClientController cController;
 	
 	Client(){
@@ -23,6 +23,7 @@ public class Client{
 		{
 			final int PORT = 9073;
 			String HOST = serverIP;
+			System.out.print(HOST);
 			Socket SOCK = new Socket(HOST, PORT);
 			System.out.println("You connected to: " + HOST);
 			
@@ -41,6 +42,14 @@ public class Client{
 			JOptionPane.showMessageDialog(null, "Server not responding.");
 			System.exit(0);
 		}
+	}
+	
+	public static void main(String args[])
+	{
+		String s = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+		//System.out.print(serverIP);
+		Connect();
 	}
 }
 
