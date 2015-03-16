@@ -458,7 +458,7 @@ public class Map {
 	
 	//checks whats in a clearing
 	public Clearing getClearing(int tile, int clearing){
-		return mapTiles[tile-1].clearing[clearing-1];
+		return mapTiles[tile].clearing[clearing];
 	}
 
 	

@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 //go SEE A TA's office hours and get this finished properly and quickly in an afternoon
 
 public class Client{
-	static String serverIP = "192.168.56.1";
+	static String serverIP = "172.17.149.61";
 	private static ClientController cController;
 	
 	Client(){

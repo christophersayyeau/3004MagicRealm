@@ -20,7 +20,7 @@ public class Server {
 	static int x;
 	
 	
-	/*public static void main(String args[]){
+	public static void main(String args[]){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
 
 		if(GUI.cheatMode()){//using cheatMode
@@ -45,8 +45,8 @@ public class Server {
 			//now start the game
 			game.startGame();
 		}
-	}*/
-	
+	}
+	/*
 	//networking code
 	public static void main(String args[]) throws IOException {
 		x = 0;
@@ -92,5 +92,5 @@ public class Server {
 		}
 		return player;
 	}
-	
+	*/
 }

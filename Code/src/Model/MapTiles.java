@@ -436,16 +436,20 @@ public class MapTiles {
 			
 			clearing[0].getConnectedTo()[0] = 194;//clearing 1 connected to 4
 			clearing[0].getConnectedTo()[1] = 196;//clearing 1 connected to 6
+			clearing[0].getConnectedTo()[2] = 193;//clearing 1 connected to 3
 		clearing[1].getConnectedTo()[0] = 54;//clearing 2 connected to 4 in tile 5
 			clearing[1].getConnectedTo()[1] = 195;//clearing 2 connected to 5
 		clearing[2].getConnectedTo()[0] = 162;//clearing 3 connected to 2 in tile 16
 			clearing[2].getConnectedTo()[1] = 196;//clearing 3 connected to 6
+			clearing[2].getConnectedTo()[2] = 191;//clearing 3 connected to 1
 			clearing[3].getConnectedTo()[0] = 191;//clearing 4 connected to 1
 		clearing[3].getConnectedTo()[1] = 114;//clearing 4 connected to 4 in tile 11
+			clearing[3].getConnectedTo()[2] = 196;//clearing 4 connected to 6
 			clearing[4].getConnectedTo()[0] = 192;//clearing 5 connected to 2
 		clearing[4].getConnectedTo()[1] = 92;//clearing 5 connected to 2 in tile 9
 			clearing[5].getConnectedTo()[0] = 191;//clearing 6 connected to 1
 			clearing[5].getConnectedTo()[1] = 193;//clearing 6 connected to 3
+			clearing[5].getConnectedTo()[2] = 194;//clearing 6 connected to 4
 		}
 	}
 	
