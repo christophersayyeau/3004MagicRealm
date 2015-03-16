@@ -14,7 +14,7 @@ public class ClientController implements Runnable{
 	PrintWriter OUT;
 	
 	ClientController(Socket X){
-		
+		this.SOCK = X;
 	}
 	
 	@Override
