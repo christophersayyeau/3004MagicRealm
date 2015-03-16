@@ -37,6 +37,8 @@ public class Clearing {
 		playersInClearing = ArrayUtils.add(playersInClearing, player1);
 		this.numPLayersInClearing++;
 	}
+	
+	//TODO removePlayer not working
 	public void removePlayer(Player player1) {
 		//playersInClearing = null;	
 		ArrayUtils.remove(playersInClearing, ArrayUtils.indexOf(player1, playersInClearing));
