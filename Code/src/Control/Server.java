@@ -2,17 +2,21 @@ package Control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 import View.GUI;
 
 public class Server {
 	
-	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>(4);
+	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>();
 	public static ArrayList<String> CurrentPlayers = new ArrayList<String>();
+	static int PORT = 9073;
 	
 	
 	public static void main(String args[]){
@@ -46,9 +50,12 @@ public class Server {
 	/*public static void main(String args[]) throws IOException {
 		try
 		{
-			int PORT = 9073;
 			ServerSocket SERVER = new ServerSocket(PORT);
 			System.out.println("Waiting for clients...");
+			
+			InetAddress.getLocalHost();
+			System.out.print(InetAddress.getLocalHost());
+			GUI.showServerIP(""+InetAddress.getLocalHost());
 			
 			while(true)
 			{

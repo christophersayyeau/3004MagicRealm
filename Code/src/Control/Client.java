@@ -1,76 +1,47 @@
 package Control;
 
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
-
+import javax.swing.JOptionPane;
 
 //go SEE A TA's office hours and get this finished properly and quickly in an afternoon
 
-public class Client implements Runnable{
-	Socket SOCK;
-	Scanner INPUT;
-	Scanner SEND = new Scanner(System.in);
-	PrintWriter OUT;
+public class Client{
+	static String serverIP;
+	private static ClientController cController;
 	
-	@Override
-	public void run() {
+	Client(){
+		serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+	}
+	
+	public static void Connect()
+	{
 		try
 		{
-			try
-			{
-				INPUT = new Scanner(SOCK.getInputStream());
-				OUT = new PrintWriter(SOCK.getOutputStream());
-				OUT.flush();
-				CheckStream();
-			}
-			finally
-			{
-				SOCK.close();
-			}
-		}
-		catch(Exception X) { System.out.print(X); }
-		
-	}
-	
-	public void CheckStream()
-	{
-		while(true)
-		{
-			RECEIVE();
-		}
-	}
-	
-	//function to receive messages from server
-	public void RECEIVE()
-	{
-		//evaluate message from the client then do stuff
-		if(INPUT.hasNext())
-		{
-			String MESSAGE = INPUT.nextLine();
-			if(MESSAGE.contains("#?!"))
-			{
-				String TEMP1 = MESSAGE.substring(3);
-				TEMP1 = TEMP1.replace("[", "");
-				TEMP1 = TEMP1.replace("]", "");
-				
-				String[] CurrentUsers = TEMP1.split(", ");
-				
-				//TODO add player to players array
-				
-			}
+			final int PORT = 9073;
+			String HOST = serverIP;
+			Socket SOCK = new Socket(HOST, PORT);
+			System.out.println("You connected to: " + HOST);
 			
+			cController = new ClientController(SOCK);
+			
+			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
+			//OUT.println(UserName);
+			//OUT.flush();
+			
+			Thread X = new Thread(cController);
+			X.start();			
+		}
+		catch(Exception X)
+		{
+			System.out.print(X);
+			JOptionPane.showMessageDialog(null, "Server not responding.");
+			System.exit(0);
 		}
 	}
-	
-	//function to send message to the server
-	public void SEND(String X)
-	{
-		OUT.println(/*UserName + ": " +*/ X);
-		OUT.flush();
-	}
-
 }
 
 ///do not use this class until second iteration

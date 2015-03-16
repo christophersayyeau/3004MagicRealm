@@ -2,6 +2,7 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.net.InetAddress;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -35,6 +36,11 @@ public class GUI implements MouseListener{
 	public static JPanel Players = new JPanel();
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
+	
+	public static JList jlPlayers = new JList();
+	private static JScrollPane spPlayers = new JScrollPane();
+	private static JButton startButton = new JButton();
+	
 	JLabel dLabel = new JLabel("Label for date");
 	JLabel moveLabel = new JLabel("Click on a clearing to move the character");
 	//set tile values
@@ -111,15 +117,6 @@ public class GUI implements MouseListener{
 		MainWindow.getContentPane().add(scrollPane);
 		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
 		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
-
-		Players.setLayout(new BorderLayout()); 
-
-		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
-		Players.setBackground(Color.white);
-		MainWindow.getContentPane().add(Players);
-		Players.setLocation(0,0);
-		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);
-		
 		
 		MainWindow.getContentPane().add(Instruction);
 		Instruction.setLocation(0,(int)screenSize.getHeight()/3);
@@ -133,6 +130,31 @@ public class GUI implements MouseListener{
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
 		
+		
+		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
+		//jlPlayers.setListData(test);
+		jlPlayers.setForeground(Color.black);
+		jlPlayers.setBackground(Color.LIGHT_GRAY);
+		spPlayers.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		spPlayers.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		spPlayers.setViewportView(jlPlayers);
+		Players.add(spPlayers);
+		spPlayers.setSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/5));
+		
+		startButton.setBackground(Color.black);
+		startButton.setForeground(Color.white);
+		startButton.setText("Start Game");
+		MainWindow.getContentPane().add(startButton);
+		startButton.setLocation(0,(int)screenSize.getHeight()/5);
+		startButton.setSize(new Dimension(200,100));
+		startButton.setEnabled(true);
+		
+		Players.setLayout(new BorderLayout()); 
+		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
+		Players.setBackground(Color.white);
+		MainWindow.getContentPane().add(Players);
+		Players.setLocation(0,0);
+		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);	
 		
 		//TODO edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
@@ -1400,4 +1422,8 @@ public class GUI implements MouseListener{
 	}
 	public int getPlayerX(){ return playerX;}
 	public int getPlayerY(){ return playerY;}
+
+	public static void showServerIP(String string) {
+		JOptionPane.showMessageDialog(null, "Server IP: " + string);	
+	}
 }
