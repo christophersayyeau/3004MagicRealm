@@ -113,8 +113,10 @@ public class Player {
 		
 		if(action.compareTo("Move") == 0){//if move action
 			//THere are rules to handle moving through mountains+caves
-			game.view.Instruction.setVisible(true);
+			game.view.moveLabel.setText("Click on a clearing to move the character");
+			//game.view.Instruction.setVisible(true);
 			//int newLocation = Integer.parseInt(action.substring(5));
+			game.view.setMove(true);
 			int newLocation = game.view.getNewLocation();
 			
 			System.out.println("New location = "+newLocation);
@@ -132,7 +134,7 @@ public class Player {
 			}else{
 				System.out.println("Can't Move There, phase wasted");
 			}
-			game.view.Instruction.setVisible(false);
+			//game.view.Instruction.setVisible(false);
 			
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing

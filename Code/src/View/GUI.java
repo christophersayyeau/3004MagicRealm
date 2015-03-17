@@ -42,7 +42,7 @@ public class GUI implements MouseListener{
 	private static JButton startButton = new JButton();
 	
 	JLabel dLabel = new JLabel("Label for date");
-	JLabel moveLabel = new JLabel("Click on a clearing to move the character");
+	public JLabel moveLabel = new JLabel("Click on a clearing to move the character");
 	//set tile values
 	final int x = 125;
 	final int y = 215;
@@ -567,7 +567,8 @@ public class GUI implements MouseListener{
 														frame.setVisible(true);
 														frame.setModal(true);
 														*/
-
+		Instruction.setVisible(true);
+		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
@@ -579,7 +580,7 @@ public class GUI implements MouseListener{
 			switch(response){
 			case 0:			//Move
 				System.out.println("Call the move function");
-				moveLabel.setText("Click on a clearing to move the character");
+				
 				player.setPhaseActions("Move");	//choose location during your turn
 				break;
 			case 1:			//Hide
@@ -606,13 +607,14 @@ public class GUI implements MouseListener{
 			case 6:			//View clearing/map
 				System.out.println("Click on a clearing to continue game");
 				moveLabel.setText("Click on a clearing to continue game");
-				Instruction.setVisible(true);
+				//Instruction.setVisible(true);
 				pause = true;
 				//Pause the game until mouse is clicked
 				while(pause == true){
 					
 				}
-				Instruction.setVisible(false);
+				//Instruction.setVisible(false);
+				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
 				a--;
 				break;
 			}
@@ -773,12 +775,13 @@ public class GUI implements MouseListener{
 		while(move == true){
 			//System.out.println("Move is true");
 		}
-		move = true;
 		//System.out.println("Move is false");
 		return clickedLocation;
 	}
 
-	
+	public void setMove(boolean moving){
+		move = moving;
+	}
 	
 	//CHEAT MODE----------------------------------------------------------------------------------
 	public static boolean cheatMode() {
