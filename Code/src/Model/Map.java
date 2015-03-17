@@ -444,13 +444,12 @@ public class Map {
 		int[] temp = new int[2];
 		temp = view.convertNameToPosition(pos);
 		
-		//TODO testing
 		view.updateMap(this);
 		
 		for(int a = 0; a<4; a++){
 			//if(this.getMapTile(currentTile).clearing[currentClearing].getConnectedTo()[a] != null)//handle null
-				if(this.getMapTile(temp[0]).clearing[temp[1]].getConnectedTo()[a] == newClearing)
-					return true;//if they are connected
+			if(this.getMapTile(temp[0]).clearing[temp[1]].getConnectedTo()[a] == newClearing)
+				return true;//if they are connected
 		}	
 		//if it isn't in the array
 		return false;

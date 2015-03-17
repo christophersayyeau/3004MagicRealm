@@ -580,7 +580,6 @@ public class GUI implements MouseListener{
 			switch(response){
 			case 0:			//Move
 				System.out.println("Call the move function");
-				
 				player.setPhaseActions("Move");	//choose location during your turn
 				break;
 			case 1:			//Hide
