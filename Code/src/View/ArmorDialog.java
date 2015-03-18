@@ -1,11 +1,10 @@
 package View;
 
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import Control.Player;
 
-public class ArmorDialog extends JDialog{
+public class ArmorDialog {
 
 	public static void getArmor(Player player) {
 		//ask which direction the chield protects you {from ALL_DIRECTIONS, THRUST_AND_SWING, SMASH, ANY_ONE_DIRECTION}

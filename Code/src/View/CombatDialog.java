@@ -1,11 +1,10 @@
 package View;
 
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import Model.ArrayUtils;
 import Control.Player;
 
-public class CombatDialog extends JDialog{
+public class CombatDialog {
 	  
 							/*public CombatDialog(Player player) { i used the other version at bottom
 								    

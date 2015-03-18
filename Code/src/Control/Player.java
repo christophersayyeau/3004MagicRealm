@@ -27,13 +27,13 @@ public class Player {
 	public void setCombatAttackDirection(String combatAttackDirection) {
 		this.combatAttackDirection = combatAttackDirection;
 	}
-
+	
 	private CombatChit attack = null;
 	public CombatChit getAttack() {
 		return attack;
 	}
-	public void setAttack(CombatChit attack) {
-		this.attack = attack;
+	public void setAttack(CombatChit at) {
+		this.attack = at;
 	}
 
 	private String shieldDirection = null;//will remain null if they have no shield to use
@@ -44,8 +44,20 @@ public class Player {
 		return shieldDirection;
 	}
 	
-	
-	
+	private String evadeDirection = null;	
+	public String getEvadeDirection() {
+		return evadeDirection;
+	}
+	public void setEvadeDirection(String evadeDirection) {
+		this.evadeDirection = evadeDirection;
+	}
+	private CombatChit evade = null;
+	public CombatChit getEvade() {
+		return evade;
+	}
+	public void setEvade(CombatChit ev) {
+		this.evade = ev;
+	}
 	
 	
 	
