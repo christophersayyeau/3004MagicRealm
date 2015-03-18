@@ -18,7 +18,7 @@ public class CombatFunctions{
 		view.selectFightGear(opponent);
 		
 		//Does fastest fellow hit
-		if(player.attackTime < opponent.attackTime) {//player goes first
+		if(player.getAttack().getTime() < opponent.getAttack().getTime()) {//player goes first
 		}else{//oponnent goes first
 		}
 		//longest weapon goes first
@@ -51,8 +51,8 @@ public class CombatFunctions{
 		
 		
 		//set true so they don't fight again
-		player.getProfile().foughtToday = true;
-		opponent.getProfile().foughtToday = true;
+		player.getProfile().setFoughtToday(true);
+		opponent.getProfile().setFoughtToday(true);
 		System.out.println("Fight FInished");
 	}
 	

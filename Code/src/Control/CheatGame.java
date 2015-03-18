@@ -70,8 +70,8 @@ public class CheatGame extends Game {
 				}
 				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
-				//reset fought today
-				players[a].getProfile().foughtToday = false;
+				//reset fought today and action count
+				players[a].getProfile().resetFight();
 				
 				//now build the turn in the GUI
 				view.recordTurn(players[a], phasesToday, map);

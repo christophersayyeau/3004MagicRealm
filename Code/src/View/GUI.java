@@ -1371,7 +1371,7 @@ public class GUI implements MouseListener{
 		String[] choices = null;
 		Player[] values = null;
 		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
-				if(!clearing.playersInClearing[a].getProfile().foughtToday){	//if not already fought
+				if(!clearing.playersInClearing[a].getProfile().getFoughtToday()){	//if not already fought
 					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
 					values = ArrayUtils.add(values, clearing.playersInClearing[a]);
 				}

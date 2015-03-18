@@ -113,7 +113,8 @@ public class Game {
 				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
 				//reset fought today
-				players[a].getProfile().foughtToday = false;
+				players[a].getProfile().resetFight();
+				//players[a].getProfile().foughtToday = false;
 				
 				//now build the turn in the GUI
 				view.recordTurn(players[a], phasesToday, map);
@@ -184,7 +185,7 @@ ignore fatigued and wounded counters*/
 			
 System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayersInClearing);		
 			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing
-				if(!players[a].getProfile().foughtToday){		//check to see if already fought today	
+				if(!players[a].getProfile().getFoughtToday()){		//check to see if already fought today	
 					
 					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]));//will return opponent or null
 					

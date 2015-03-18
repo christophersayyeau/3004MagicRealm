@@ -82,4 +82,7 @@ public class CombatChit {
 		}
 	}
 	
+	public String toString(){
+		return(type + ":  Time "+ time + ", Effort "+ effort+ ", Strength " + strength);
+	}
 }

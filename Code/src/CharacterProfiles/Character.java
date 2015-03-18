@@ -39,7 +39,13 @@ public class Character {
 	public CombatChit action3 = new CombatChit();
 	public int action3Num = 4;
 
-	public boolean foughtToday = false;
+	private boolean foughtToday = false;
+	public boolean getFoughtToday(){
+		return foughtToday;
+	}
+	public void setFoughtToday(boolean s){
+		foughtToday = s;
+	}
 	
 	public String getType() {
 		return type;
@@ -90,6 +96,12 @@ public class Character {
 	}
 	public void setGold(int gold) {
 		this.gold = gold;
+	}
+	public void resetFight() {
+		foughtToday = false;
+		action1Num = 4;
+		action2Num = 4;
+		action3Num = 4;	
 	}
 	
 }

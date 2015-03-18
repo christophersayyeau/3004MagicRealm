@@ -4,6 +4,7 @@ package Control;
 import javax.swing.JLabel;
 import javax.swing.text.View;
 
+import Model.CombatChit;
 import Model.Die;
 import Model.Map;
 //import View.GUI;
@@ -18,7 +19,7 @@ public class Player {
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
 	
-
+//use these for combat
 	private String combatAttackDirection = null;	
 	public String getCombatAttackDirection() {
 		return combatAttackDirection;
@@ -26,9 +27,23 @@ public class Player {
 	public void setCombatAttackDirection(String combatAttackDirection) {
 		this.combatAttackDirection = combatAttackDirection;
 	}
-	public int attackEffort = -1;
-	public int attackStrength = -1;
-	public int attackTime = -1;//use these for combat
+
+	private CombatChit attack = null;
+	public CombatChit getAttack() {
+		return attack;
+	}
+	public void setAttack(CombatChit attack) {
+		this.attack = attack;
+	}
+
+	
+
+	
+	
+	
+	
+	
+	
 	
 	private int phasesForToday = -1;//determined in recordTurn
 	int numPhases = 0;

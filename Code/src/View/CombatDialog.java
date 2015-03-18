@@ -159,41 +159,119 @@ public class CombatDialog extends JDialog{
 			break;
 		case "Do Nothing":		
 			player.setCombatAttackDirection("Do Nothing");
-			break;
+			return;//dont do anything
 		case "Make Weapon Alert":	
 			player.setCombatAttackDirection("Make Weapon Alert");
 			break;
 		}
 		
 		
-		//	need a Fight chit to do attack
-		
+		//	need a Fight chit to do attack		
 		String[] options = null;
 		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
 			if(player.getProfile().action1.getType().compareTo("Fight") == 0)	//only fight type allowed
-				options = ArrayUtils.add(options, player.getProfile().action1.getType());
+				options = ArrayUtils.add(options, player.getProfile().action1.toString());
 		}
 		for(int a=0; a< player.getProfile().action2Num; a++){	//add all of the second action available
 			if(player.getProfile().action2.getType().compareTo("Fight") == 0)
-				options = ArrayUtils.add(options, player.getProfile().action2.getType());
+				options = ArrayUtils.add(options, player.getProfile().action2.toString());
 		}
 		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
 			if(player.getProfile().action3.getType().compareTo("Fight") == 0)
-				options = ArrayUtils.add(options, player.getProfile().action3.getType());
+				options = ArrayUtils.add(options, player.getProfile().action3.toString());
 		}
 
 		//now ask user to pick
 		response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Use?",	"Attack",
 				JOptionPane.PLAIN_MESSAGE,
 				null,	options, options[0]);
-System.out.println(response);
-		//interpret response		
-		switch((String)response){
-		case "Thrust":						//TODO set to the right words	involving strenght, time and effort
-											//lower the num of action# since you can only use it once a day
-			player.setCombatAttackDirection("Thrust");
-			player.attackEffort = -1;
-			break;
+
+		//going to seperate based on user type
+		if(player.getProfile().getType().compareTo("Amazon") == 0){
+			//interpret response	Fight:  Time 4,  Effort 1,	Strength 1
+			switch((String)response){
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action1);
+				player.getProfile().action1Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(player.getProfile().getType().compareTo("BlackKnight") == 0){
+			switch((String)response){
+			case "Fight:  Time 4, Effort 2, Strength 2":	//42H					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				player.setAttack(player.getProfile().action3);
+				player.getProfile().action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(player.getProfile().getType().compareTo("Captain") == 0){
+			switch((String)response){
+			case "Fight:  Time 6, Effort 0, Strength 2":	//60H					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M
+				player.setAttack(player.getProfile().action3);
+				player.getProfile().action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(player.getProfile().getType().compareTo("Dwarf") == 0){
+			switch((String)response){
+			case "Fight:  Time 5, Effort 2, Strength 3":	//52T					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 5, Effort 1, Strength 3":	//51T
+				player.setAttack(player.getProfile().action3);
+				player.getProfile().action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(player.getProfile().getType().compareTo("Elf") == 0){
+			switch((String)response){
+			case "Fight:  Time 3, Effort 1, Strength 1":	//31M					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 4, Effort 0, Strength 1":	//40M
+				player.setAttack(player.getProfile().action3);
+				player.getProfile().action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(player.getProfile().getType().compareTo("Swordsman") == 0){
+			switch((String)response){
+			case "Fight:  Time 4, Effort 0, Strength 0":	//40L					
+				//set the values for your attack
+				player.setAttack(player.getProfile().action1);
+				player.getProfile().action1Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 5, Effort 0, Strength 1":	//50M
+				player.setAttack(player.getProfile().action2);
+				player.getProfile().action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 2, Effort 2, Strength 0":	//22L
+				player.setAttack(player.getProfile().action3);
+				player.getProfile().action3Num--;	//lower the num of action# since you can only use it once a day
+				break;	
+			}
+			
+		}else{
+			System.out.println("CANNOT IDENTIRY WHO IS DOING ACTION");
 		}
 	}
 }
