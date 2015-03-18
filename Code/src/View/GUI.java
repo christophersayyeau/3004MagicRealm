@@ -1397,11 +1397,14 @@ public class GUI implements MouseListener{
 		//1)select fight counter and attack direction
 			//CombatDialog combat = new CombatDialog( player);
 			//combat.show();
-		CombatDialog combat = new CombatDialog(player);	//go get direction and attack chit type
+		//CombatDialog combat = new CombatDialog(player);	//go get direction and attack chit type
+		CombatDialog.getAttack(player);
 		
 		//2)select armors 	always have armor active		
 		//some armor needs to choose which direction to protect
-		ArmorDialog protect = new ArmorDialog(player);
+		//ArmorDialog protect = new ArmorDialog(player);
+		if(player.getProfile().shieldActive)	//only need to make a choice if you have a shield
+			ArmorDialog.getArmor(player);
 		
 		//TODO do same thing as attacking
 		//3)select move counter and defense direction
@@ -1419,6 +1422,7 @@ public class GUI implements MouseListener{
 					//can Fight chit only if its strength >=weight of weapon
 					//can Move chit only if its strength >= weight of his stuff
 	}
+	
 	public int getPlayerX(){ return playerX;}
 	public int getPlayerY(){ return playerY;}
 

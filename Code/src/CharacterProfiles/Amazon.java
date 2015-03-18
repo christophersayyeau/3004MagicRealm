@@ -44,6 +44,7 @@ public class Amazon extends Character{
 		
 		Shield shield = temp.new Shield();
 		getDefense()[2] = shield;
+		shieldActive = true;
 		
 		
 		//Action types

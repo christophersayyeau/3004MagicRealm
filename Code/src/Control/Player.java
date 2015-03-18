@@ -36,8 +36,13 @@ public class Player {
 		this.attack = attack;
 	}
 
-	
-
+	private String shieldDirection = null;//will remain null if they have no shield to use
+	public void setShieldDirection(String direct) {
+		this.shieldDirection = direct;
+	}
+	public String getShieldDirection(){
+		return shieldDirection;
+	}
 	
 	
 	
@@ -378,4 +383,5 @@ public class Player {
 				}	
 		
 	}
+
 }

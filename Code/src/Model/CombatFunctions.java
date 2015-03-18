@@ -17,6 +17,8 @@ public class CombatFunctions{
 		view.selectFightGear(player);
 		view.selectFightGear(opponent);
 		
+		
+		// TODO combat resolution
 		//Does fastest fellow hit
 		if(player.getAttack().getTime() < opponent.getAttack().getTime()) {//player goes first
 		}else{//oponnent goes first
@@ -26,7 +28,7 @@ public class CombatFunctions{
 		}else{		
 		}
 		
-		// TODO combat resolution
+		
 		//max of 2 effort per round, if higher it is cancelled
 		/*each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 		1st round hit order is weapon length,then faster attack time
@@ -44,6 +46,7 @@ public class CombatFunctions{
 		
 		denizen harm compared to vulnerability
 		
+		when armor hit by attack inflicting less harm it ignores
 		when armor hit by harm equal to toughness becomes damaged
 		when armor hit by greater it is destroyed
 		if damaged armor damaged again it is destroyed;

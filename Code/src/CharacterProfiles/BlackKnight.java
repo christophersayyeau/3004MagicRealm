@@ -41,6 +41,7 @@ public class BlackKnight extends Character{
 		
 		Shield shield = temp.new Shield();
 		getDefense()[1] = shield;
+		shieldActive = true;
 		
 		//Action types
 		action1.setType("Move");	//set the type

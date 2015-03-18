@@ -8,6 +8,10 @@ public class Armor
 	int damaged_price;
 	int destroyed_price;
 	Protect protect;
+	
+	public String getDirection(){
+		return protect.name();
+	}
 
 	public class Suit_of_Armor extends Armor
 	{

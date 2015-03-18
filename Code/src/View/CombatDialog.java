@@ -131,7 +131,7 @@ public class CombatDialog extends JDialog{
 
 
 
-	public CombatDialog(Player player) {	
+	public static void getAttack(Player player) {	
 		//	attack has direction and time(before it hits)		
 		//attack directions: thrust(straight)	Swing(sides)	Smash(down)
 		String[] choices = {"Thrust", "Swing", "Smash", "Do Nothing"};//can choose not to make attack
@@ -271,7 +271,7 @@ public class CombatDialog extends JDialog{
 			}
 			
 		}else{
-			System.out.println("CANNOT IDENTIRY WHO IS DOING ACTION");
+			System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
 		}
 	}
 }
