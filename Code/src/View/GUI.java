@@ -2,11 +2,16 @@ package View;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.*;
 
+import Control.Client;
 import Control.Game;
 import Control.Player;
 import Model.ArrayUtils;
@@ -18,9 +23,13 @@ import Model.MapChits.*;
 import Model.MapTiles;
 
 public class GUI implements MouseListener{
-	
+	static String serverIP = "134.117.28.22";
 	Game game;
 	Map map;
+	static Client client;
+	static Player player;
+	
+	static String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"} ;
 	
 	Boolean move = false;
 	boolean pause = false;
@@ -58,134 +67,48 @@ public class GUI implements MouseListener{
 		map = m;
 	}
 	
+	public static void Connect()
+	{
+		try
+		{
+			final int PORT = 9073;
+			String HOST = serverIP;
+			Socket SOCK = new Socket(HOST, PORT);
+			System.out.println("You connected to: " + HOST);
+			avaiableChars(SOCK);
+			
+			client = new Client(SOCK);
+			
+			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
+			OUT.println(player.getProfile().getType());
+			OUT.flush();
+			
+			Thread X = new Thread(client);
+			X.start();			
+		}
+		catch(Exception X)
+		{
+			System.out.print(X);
+			JOptionPane.showMessageDialog(null, "Server not responding.");
+			System.exit(0);
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+		//System.out.print(serverIP);
+		player = new Player(createPlayer());
+		Connect();
+	}
+	
 	//constructor, called in player.java
 	public GUI(Game g)
 	{
-		//allows to position tiles
-		//map = m;
-		Map.setLayout(null);
-		Map.setBackground(Color.white);
-				
-		tileCount = 0;
-		mapTiles = new JLabel[20];
-		clearingTiles = new JLabel[20][6];
-		//1st row
-		tileBuilder("res/tiles/cliff.png", 2, 0);
-		//second row
-		tileBuilder("res/tiles/evil_valley.png", 1, 1);
-		tileBuilder("res/tiles/ledges.png", 3, 1);
-		tileBuilder("res/tiles/crag.png", 5, 1);
-		tileBuilder("res/tiles/dark_valley.png", 7, 1);
-		//third row
-		tileBuilder("res/tiles/high_pass.png", 0, 2);
-		tileBuilder("res/tiles/borderland.png", 2, 2);
-		tileBuilder("res/tiles/oak_woods.png", 4, 2);
-		tileBuilder("res/tiles/deep_woods.png", 6, 2);
-		tileBuilder("res/tiles/curst_valley.png", 8, 2);
-		//forth row
-		tileBuilder("res/tiles/cavern.png", 1, 3);
-		tileBuilder("res/tiles/bad_valley.png", 3, 3);
-		tileBuilder("res/tiles/maple_woods.png", 5, 3);
-		tileBuilder("res/tiles/nut_woods.png", 7, 3);
-		//fifth row
-		tileBuilder("res/tiles/mountain.png", 2, 4);
-		tileBuilder("res/tiles/caves.png", 4, 4);
-		tileBuilder("res/tiles/ruins.png", 6, 4);
-		tileBuilder("res/tiles/awful_valley.png", 8, 4);
-		
-		//sixth row
-		tileBuilder("res/tiles/pine_woods.png", 3, 5);
-		tileBuilder("res/tiles/linden_woods.png", 7, 5);
-		
-		generateClearings();
-		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		
-		MainWindow.setBackground(Color.LIGHT_GRAY);
-		MainWindow.getContentPane().setLayout(null);
-		MainWindow.setTitle("Magic Realm");
-		MainWindow.setVisible(true);
-		MainWindow.setExtendedState(MainWindow.MAXIMIZED_BOTH);
-		MainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		Map.setPreferredSize(new Dimension(1400,1400));
-		scrollPane.setBackground(Color.white);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		scrollPane.setViewportView(Map);
-		scrollPane.setPreferredSize(new Dimension((int)screenSize.getWidth()/2 - 20, (int)screenSize.getHeight()- 100));
-		Map.setAutoscrolls(true);
-		//Map.addMouseListener(this);
-		
-		MainWindow.getContentPane().add(scrollPane);
-		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
-		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
-		
-		MainWindow.getContentPane().add(Instruction);
-		Instruction.setLocation(0,(int)screenSize.getHeight()/3);
-		Instruction.setSize((int)screenSize.getWidth()/2,25);
-		
-		Instruction.add(moveLabel);
-		Instruction.setVisible(false);
-		Date.add(dLabel);
-		Date.setBackground(Color.white);
-		MainWindow.getContentPane().add(Date);
-		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
-		Date.setSize((int)screenSize.getWidth()/2,25);
-		
-		
-		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
-		//jlPlayers.setListData(test);
-		jlPlayers.setForeground(Color.black);
-		jlPlayers.setBackground(Color.LIGHT_GRAY);
-		spPlayers.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		spPlayers.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		spPlayers.setViewportView(jlPlayers);
-		Players.add(spPlayers);
-		spPlayers.setSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/5));
-		
-		startButton.setBackground(Color.black);
-		startButton.setForeground(Color.white);
-		startButton.setText("Start Game");
-		MainWindow.getContentPane().add(startButton);
-		startButton.setLocation(0,(int)screenSize.getHeight()/5);
-		startButton.setSize(new Dimension(200,100));
-		startButton.setEnabled(true);
-		
-		Players.setLayout(new BorderLayout()); 
-		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
-		Players.setBackground(Color.white);
-		MainWindow.getContentPane().add(Players);
-		Players.setLocation(0,0);
-		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);	
-		
-		//TODO edit code to be able to use icons
-		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
-		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
-		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
-		ImageIcon dwarfIcon = new ImageIcon("res/characters/dwarf.png");
-		ImageIcon elfIcon = new ImageIcon("res/characters/elf.png");
-		ImageIcon swordsmanIcon = new ImageIcon("res/characters/swordsman.png");
-		
-		//TODO maybe change "amazon" to "player" and store the imageicon into player class?
-		//hardcoding only 1 type for the time being (and only really handles 1 player)
-		amazon.setIcon(amazonIcon);
-		amazon.setVisible(true);
-		//amazon.setLocation(560,1175);
-		amazon.setSize(50,50);
-		Map.add(amazon);
-		Map.setComponentZOrder(amazon, 0);
-		
-		/*
-		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
-		JLabel qwe = new JLabel();
-		qwe.setIcon(p1);
-		qwe.setVisible(true);
-		qwe.setLocation(560,1175);
-		qwe.setSize(50,50);
-		Map.add(qwe);
-		Map.setComponentZOrder(qwe, 0);
-		*/
+		buildMap();
+		initilizeWindow();		
+		initPlayers();
 	}
 	
 	/* Function to create mapTiles
@@ -208,7 +131,7 @@ public class GUI implements MouseListener{
 	 * 
 	 */
 	public static String createPlayer(){
-		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
+		//String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		Object s = JOptionPane.showInputDialog(
 				Players,
 				"Which character would you like to be?\n",
@@ -217,6 +140,7 @@ public class GUI implements MouseListener{
 				null,
 				possibilities,
 				possibilities[0]);
+		
 		System.out.println("You have chosen to be a " + s);
 		//game.gotCharacter = true;
 		return (String)s;
@@ -224,7 +148,7 @@ public class GUI implements MouseListener{
 		//TODO, only suppose to be 1 of each type max, but that isnt important, work on other stuff
 	}
 	
-	public int chooseStart(Player currPlayer){
+	public static int chooseStart(Player currPlayer){
 		String[] choices = currPlayer.getProfile().getStartLocations();
 		
 		//used to choose from start positions available
@@ -1422,5 +1346,141 @@ public class GUI implements MouseListener{
 		JOptionPane.showMessageDialog(null, "Server IP: " + string);	
 	}
 	
+	private void buildMap(){
+		Map.setLayout(null);
+		Map.setBackground(Color.white);
+				
+		tileCount = 0;
+		mapTiles = new JLabel[20];
+		clearingTiles = new JLabel[20][6];
+		//1st row
+		tileBuilder("res/tiles/cliff.png", 2, 0);
+		//second row
+		tileBuilder("res/tiles/evil_valley.png", 1, 1);
+		tileBuilder("res/tiles/ledges.png", 3, 1);
+		tileBuilder("res/tiles/crag.png", 5, 1);
+		tileBuilder("res/tiles/dark_valley.png", 7, 1);
+		//third row
+		tileBuilder("res/tiles/high_pass.png", 0, 2);
+		tileBuilder("res/tiles/borderland.png", 2, 2);
+		tileBuilder("res/tiles/oak_woods.png", 4, 2);
+		tileBuilder("res/tiles/deep_woods.png", 6, 2);
+		tileBuilder("res/tiles/curst_valley.png", 8, 2);
+		//forth row
+		tileBuilder("res/tiles/cavern.png", 1, 3);
+		tileBuilder("res/tiles/bad_valley.png", 3, 3);
+		tileBuilder("res/tiles/maple_woods.png", 5, 3);
+		tileBuilder("res/tiles/nut_woods.png", 7, 3);
+		//fifth row
+		tileBuilder("res/tiles/mountain.png", 2, 4);
+		tileBuilder("res/tiles/caves.png", 4, 4);
+		tileBuilder("res/tiles/ruins.png", 6, 4);
+		tileBuilder("res/tiles/awful_valley.png", 8, 4);
+		
+		//sixth row
+		tileBuilder("res/tiles/pine_woods.png", 3, 5);
+		tileBuilder("res/tiles/linden_woods.png", 7, 5);
+		
+		generateClearings();
+	}
 	
+	private void initilizeWindow(){
+		//allows to position tiles
+		//map = m;
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				
+		MainWindow.setBackground(Color.LIGHT_GRAY);
+		MainWindow.getContentPane().setLayout(null);
+		MainWindow.setTitle("Magic Realm");
+		MainWindow.setVisible(true);
+		MainWindow.setExtendedState(MainWindow.MAXIMIZED_BOTH);
+		MainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				
+		Map.setPreferredSize(new Dimension(1400,1400));
+		scrollPane.setBackground(Color.white);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setViewportView(Map);
+		scrollPane.setPreferredSize(new Dimension((int)screenSize.getWidth()/2 - 20, (int)screenSize.getHeight()- 100));
+		Map.setAutoscrolls(true);
+		//Map.addMouseListener(this);
+				
+		MainWindow.getContentPane().add(scrollPane);
+		scrollPane.setLocation((int)screenSize.getWidth()/2, 0);
+		scrollPane.setSize((int)screenSize.getWidth()/2, (int)screenSize.getHeight()-60);
+				
+		MainWindow.getContentPane().add(Instruction);
+		Instruction.setLocation(0,(int)screenSize.getHeight()/3);
+		Instruction.setSize((int)screenSize.getWidth()/2,25);
+				
+		Instruction.add(moveLabel);
+		Instruction.setVisible(false);
+		Date.add(dLabel);
+		Date.setBackground(Color.white);
+		MainWindow.getContentPane().add(Date);
+		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
+		Date.setSize((int)screenSize.getWidth()/2,25);
+				
+				
+		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
+		//jlPlayers.setListData(test);
+		jlPlayers.setForeground(Color.black);
+		jlPlayers.setBackground(Color.LIGHT_GRAY);
+		spPlayers.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		spPlayers.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		spPlayers.setViewportView(jlPlayers);
+		Players.add(spPlayers);
+		spPlayers.setSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/5));
+				
+		startButton.setBackground(Color.black);
+		startButton.setForeground(Color.white);
+		startButton.setText("Start Game");
+		MainWindow.getContentPane().add(startButton);
+		startButton.setLocation(0,(int)screenSize.getHeight()/5);
+		startButton.setSize(new Dimension(200,100));
+		startButton.setEnabled(true);
+				
+		Players.setLayout(new BorderLayout()); 
+		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
+		Players.setBackground(Color.white);
+		MainWindow.getContentPane().add(Players);
+		Players.setLocation(0,0);
+		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);	
+	}
+	
+	private void initPlayers(){
+		//TODO edit code to be able to use icons
+		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
+		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
+		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
+		ImageIcon dwarfIcon = new ImageIcon("res/characters/dwarf.png");
+		ImageIcon elfIcon = new ImageIcon("res/characters/elf.png");
+		ImageIcon swordsmanIcon = new ImageIcon("res/characters/swordsman.png");
+				
+		//TODO maybe change "amazon" to "player" and store the imageicon into player class?
+		//hardcoding only 1 type for the time being (and only really handles 1 player)
+		amazon.setIcon(amazonIcon);
+		amazon.setVisible(true);
+		//amazon.setLocation(560,1175);
+		amazon.setSize(50,50);
+		Map.add(amazon);
+		Map.setComponentZOrder(amazon, 0);
+				
+		/*
+		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
+		JLabel qwe = new JLabel();
+		qwe.setIcon(p1);
+		qwe.setVisible(true);
+		qwe.setLocation(560,1175);
+		qwe.setSize(50,50);
+		Map.add(qwe);
+		Map.setComponentZOrder(qwe, 0);
+		*/
+	}
+	
+	private static void avaiableChars(Socket X) throws IOException{
+		Scanner INPUT = new Scanner(X.getInputStream());
+		String s = INPUT.nextLine();
+		System.out.println(s);
+	}
 }

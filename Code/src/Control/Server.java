@@ -14,10 +14,10 @@ import View.GUI;
 
 public class Server {
 	
+	public static ArrayList<String> characters;
 	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>();
-	public static ArrayList<String> CurrentPlayers = new ArrayList<String>();
+	public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
 	static int PORT = 9073;
-	static int x;
 	
 	
 	public static void main(String args[]){
@@ -46,10 +46,16 @@ public class Server {
 			game.startGame();
 		}
 	}
-	/*
+	
 	//networking code
-	public static void main(String args[]) throws IOException {
-		x = 0;
+	/*public static void main(String args[]) throws IOException {
+		characters = new ArrayList<String>();
+		characters.add("Amazon");
+		characters.add("Black Knight");
+		characters.add("Captain");
+		characters.add("Dwarf");
+		characters.add("Elf");
+		characters.add("Swordsman");
 		try
 		{
 			ServerSocket SERVER = new ServerSocket(PORT);
@@ -63,9 +69,14 @@ public class Server {
 			{
 				Socket SOCK = SERVER.accept();
 				ConnectionArray.add(SOCK);
+				
+				PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
+				OUT.println(characters);
+				OUT.flush();
 			
 				System.out.println("Client connected from: " + SOCK.getLocalAddress().getHostName());
-				String s = AddPlayer(SOCK);
+				
+				AddPlayer(SOCK);
 				
 				
 				ServerController gameServer = new ServerController(SOCK);
@@ -78,10 +89,11 @@ public class Server {
 	
 	public static String AddPlayer(Socket X) throws IOException
 	{
-		//Scanner INPUT = new Scanner(X.getInputStream());
-		//String player = INPUT.nextLine();
-		String player = Integer.toString(x++);
+		Scanner INPUT = new Scanner(X.getInputStream());
+		String s = INPUT.nextLine();
+		Player player = new Player(s);
 		CurrentPlayers.add(player);
+		characters.remove(player.getProfile().getType());
 		
 		for(int i=1; i <= Server.ConnectionArray.size(); ++i)
 		{
@@ -90,7 +102,7 @@ public class Server {
 			OUT.println("#?!"+ CurrentPlayers);
 			OUT.flush();
 		}
-		return player;
-	}
-	*/
+		INPUT.close();
+		return player.getProfile().getType();
+	}*/
 }
