@@ -80,7 +80,7 @@ public class EvadeDialog {
 				player.getProfile().action1Num--;
 				
 			}else if(player.getProfile().getType().compareTo("Swordsman") == 0){
-				//TODO there will need to be a fix somewhere, because there is no option here
+				System.out.println("If we reach here there is serious issues");
 				
 			}else{
 				System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
