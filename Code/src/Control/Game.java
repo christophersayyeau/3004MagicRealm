@@ -157,51 +157,8 @@ public class Game {
 			
 		System.out.println("EVENING");
 		//view.changeDate("Day "+day+" EVENING");
-			//randomize which clearings with characters go first
-			shufflePlayers(players);
+		combat();
 			
-			
-/*current combat rules
-one round of combat between 2 players
-no running away
-2* limit
-
-1)select fight counter and attack direction
-2)select armors
-3)select move counter and defense direction
-
-combat resolved into 1 death, 2 death or combat stop
-ignore fatigued and wounded counters*/
-		for(int a=0; a<numOfPlayers; a++){	//go through all players
-			
-			//create an array for the positions
-			int currentTile = players[a].getCurrentLocation()/10;
-			int currentClearing = players[a].getCurrentLocation()%10;
-			String[] pos = new String[2];
-			pos[0] = Integer.toString(currentTile);
-			pos[1] = Integer.toString(currentClearing);
-			int[] temp = new int[2];
-			temp = view.convertNameToPosition(pos);
-			
-System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayersInClearing);		
-			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing
-				if(!players[a].getProfile().getFoughtToday()){		//check to see if already fought today	
-					
-					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]));//will return opponent or null
-					
-					if(opponent == null){
-						System.out.println("No one available for combat");
-					}else{
-						//there is fighting
-							//view.selectFightGear(players[a]);moved to CombatFunctions
-							//view.selectFightGear(opponent);
-						
-						//combat is resolved
-						CombatFunctions.resolveCombat(view, players[a], opponent);						
-					}
-				}//others in clearing who have not fought will be called later in this for loop
-			}
-		}
 		
 			//handle rest of activity
 			for(int a =0 ; a<numOfPlayers; a++){				
@@ -251,6 +208,53 @@ System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayers
 		view.displayScore(players);
 	}
 	
+
+	protected void combat() {
+		//randomize which clearings with characters go first
+		shufflePlayers(players);
+
+		/*current combat rules
+one round of combat between 2 players
+no running away
+2* limit
+
+1)select fight counter and attack direction
+2)select armors
+3)select move counter and defense direction
+
+combat resolved into 1 death, 2 death or combat stop
+ignore fatigued and wounded counters*/
+		for(int a=0; a<numOfPlayers; a++){	//go through all players
+
+			//create an array for the positions
+			int currentTile = players[a].getCurrentLocation()/10;
+			int currentClearing = players[a].getCurrentLocation()%10;
+			String[] pos = new String[2];
+			pos[0] = Integer.toString(currentTile);
+			pos[1] = Integer.toString(currentClearing);
+			int[] temp = new int[2];
+			temp = view.convertNameToPosition(pos);
+
+			System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayersInClearing);		
+			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing
+				if(!players[a].getProfile().getFoughtToday()){		//check to see if already fought today	
+
+					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]));//will return opponent or null
+
+					if(opponent == null){
+						System.out.println("No one available for combat");
+					}else{
+						//there is fighting
+						//view.selectFightGear(players[a]);moved to CombatFunctions
+						//view.selectFightGear(opponent);
+
+						//combat is resolved
+						CombatFunctions.resolveCombat(view, players[a], opponent);						
+					}
+				}//others in clearing who have not fought will be called later in this for loop
+			}
+		}
+	}
 
 	private void doTurn(Player player) {//moved out of player
 		

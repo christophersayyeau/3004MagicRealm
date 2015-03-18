@@ -108,7 +108,7 @@ public class CheatGame extends Game {
 			System.out.println("SUNSET");
 			System.out.println("EVENING");
 			//randomize which clearings with characters go first
-			//combat is resolved TODO copy game version once it is finished
+			combat();
 			
 			//handle the rest of acitivites
 			for(int a =0 ; a<numOfPlayers; a++){
