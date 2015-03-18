@@ -23,8 +23,10 @@ public class Game {
 	public Game(){
 		numOfPlayers = 0;
 		//build the map
-		view = new GUI(this, map);
+		view = new GUI(this);
 		map = new Map(view);
+		view.setMap(map);//give it a map value after it is built
+		
 		map.build();
 		view.updateMap(map);
 		

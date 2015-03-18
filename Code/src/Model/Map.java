@@ -465,7 +465,7 @@ public class Map {
 	
 	//CHEAT MODE----------------------------------------------------------------------
 	
-	public void buildCheat() {//same as build() only since it is cheat mode dwellings and ghosts get put by user, sonds and warnings are added after user lands in tile
+	public void buildCheat() {//same as build() only since it is cheat mode dwellings and ghosts get put by user, sonds and warnings are added after user
 		//starting on top of picture 4842, left to right
 		
 				//built a temporary mapTile object so I have access to its subclass
@@ -577,8 +577,19 @@ public class Map {
 				getMapTiles()[19] = mountain;
 					//getMapTiles()[19].setWarning(warningsM[4]);
 			    //setMapTiles()[19].setTreasure(sites[7]);
-				System.out.println("FINISH ADDING TILES");
+				System.out.println("FINISH ADDING TILES");			
+	}
 	
+	public void buildMapChits(){
+				//now add the warnings and such
+				//if the user has not yet picked the value of sound and warning
+				
+					//set the new values
+				for(int a=0; a<20; a++){	//loop through all tiles		
+					getMapTile(a).setSoundTreasureCheat(   	view.getSoundTreasureCheat(  getMapTile(a).getType() , a)  );
+					getMapTile(a).setWarning( 				view.getWarningCheat( 		 getMapTile(a).getType() , a)  );
+					System.out.println("TESTING THE BUILDING OF TILECHITS IN CHEAT MODE: warning is "+ getMapTile(a).getWarning().type);
+				}
 	}
 
 	public void denizensProwlingCheat() {//ghosts always prowling

@@ -54,11 +54,15 @@ public class GUI implements MouseListener{
 	int playerX;
 	int playerY;
 	
+	public void setMap(Map m){
+		map = m;
+	}
+	
 	//constructor, called in player.java
-	public GUI(Game g, Map m)
+	public GUI(Game g)
 	{
 		//allows to position tiles
-		map = m;
+		//map = m;
 		Map.setLayout(null);
 		Map.setBackground(Color.white);
 				
@@ -796,9 +800,9 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public MapChits getSoundTreasureCheat(String tileType) {
+	public MapChits getSoundTreasureCheat(String tileType, int tileNum) {
 		//need to pick from available sounds or treasure or lostcastlecity if in right type of tile, remove the picked one from the future choices 
-		
+
 		String[] choices = null;
 		MapChits temp = new MapChits();
 		
@@ -839,7 +843,7 @@ public class GUI implements MouseListener{
 		}
 		
 		//now ask user to pick
-		Object response = JOptionPane.showInputDialog(null, "What Sound, Treasure of Other would you like in this tile?",	"Map Pieces",
+		Object response = JOptionPane.showInputDialog(null, "What Sound, Treasure of Other would you like in tile "+ tileNum + "?",	"Map Pieces",
 				JOptionPane.PLAIN_MESSAGE,
 				null,	choices, choices[0]);
 		//interpret response
@@ -1058,14 +1062,14 @@ public class GUI implements MouseListener{
 				}
 	}
 
-	public YellowChit getWarningCheat(String tileType) {
+	public YellowChit getWarningCheat(String tileType, int tileNum) {
 		//cheat mode, need to pick from available warnings, remove the picked one from the future choices and return the picked choice
 		String[] choices = null;
 		YellowChit[] temp = null;
+		
 		//determine what type of tile based on string
-		if(tileType.compareTo("V")==0){//if a valley
+		if(tileType.compareTo("V")==0){//if a valley			
 			temp = map.warningsV;
-	
 		}else if(tileType.compareTo("C")==0){//cave
 			temp = map.warningsC;
 		}else if(tileType.compareTo("W")==0){//woods
@@ -1083,20 +1087,20 @@ public class GUI implements MouseListener{
 		}
 		
 		//now ask which one to send
-		Object response = JOptionPane.showInputDialog(null, "What Warning Would you like in this Tile?",	"Warnings",
+		Object response = JOptionPane.showInputDialog(null, "What Warning Would you like in Tile "+ tileNum + "?",	"Warnings",
 				JOptionPane.PLAIN_MESSAGE,
 				null,	choices, choices[0]);
 		//interpret response
 		switch((String)response){
-			case "BONES":		
+			case "BONES":	temp[0].found = true;		
 				return temp[0];
-			case "DANK":		
+			case "DANK":	temp[1].found = true;	
 				return temp[1];
-			case "RUINS":		
+			case "RUINS":	temp[2].found = true;	
 				return temp[2];
-			case "SMOKE":		
+			case "SMOKE":	temp[3].found = true;	
 				return temp[3];
-			case "STINK":		
+			case "STINK":	temp[4].found = true;
 				return temp[4];
 		}
 		return null;
