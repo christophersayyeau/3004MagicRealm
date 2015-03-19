@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.*;
+
+import com.sun.xml.internal.ws.util.StringUtils;
 
 import Control.Client;
 import Control.Game;
@@ -22,13 +26,13 @@ import Model.MapChits.*;
 import Model.MapTiles;
 
 public class GUI implements MouseListener{
-	static String serverIP = "134.117.28.22";
+	static String serverIP = "172.17.135.218";
 	Game game;
 	Map map;
 	static Client client;
 	static Player player;
 	
-	static String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"} ;
+	static String[] possibilities = new String[6];
 	
 	Boolean move = false;
 	boolean pause = false;
@@ -75,12 +79,14 @@ public class GUI implements MouseListener{
 			Socket SOCK = new Socket(HOST, PORT);
 			System.out.println("You connected to: " + HOST);
 			avaiableChars(SOCK);
-			
-			client = new Client(SOCK);
+			String s = createPlayer();
+			player = new Player(s);
 			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
-			OUT.println(player.getProfile().getType());
+			OUT.println("AddPlayer:" + player.getProfile().getType());
 			OUT.flush();
+			
+			client = new Client(SOCK);
 			
 			Thread X = new Thread(client);
 			X.start();			
@@ -98,7 +104,6 @@ public class GUI implements MouseListener{
 		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
-		player = new Player(createPlayer());
 		Connect();
 	}
 	
@@ -1356,10 +1361,6 @@ public class GUI implements MouseListener{
 	
 	public int getPlayerX(){ return playerX;}
 	public int getPlayerY(){ return playerY;}
-
-	public static void showServerIP(String string) {
-		JOptionPane.showMessageDialog(null, "Server IP: " + string);	
-	}
 	
 	private void buildMap(){
 		Map.setLayout(null);
@@ -1495,8 +1496,21 @@ public class GUI implements MouseListener{
 	
 	private static void avaiableChars(Socket X) throws IOException{
 		Scanner INPUT = new Scanner(X.getInputStream());
+		List<String> n = new ArrayList<String>();
+		
 		String s = INPUT.nextLine();
+		s = s.replace("[", "");
+		s = s.replace("]", "");
+		s = s.replace(" ", "");
+
+		n = Arrays.asList(s.split(","));
+		
+		for(int x=0; x < n.size(); ++x){
+			possibilities[x] = n.get(x);
+		}
 		System.out.println(s);
+		System.out.println(possibilities);
+		INPUT.close();
 	}
 
 	public static void combatMessage(String message) {

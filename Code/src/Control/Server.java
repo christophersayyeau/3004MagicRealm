@@ -1,8 +1,15 @@
 package Control;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import View.GUI;
+import java.util.Scanner;
+
+import View.ServerGUI;
 
 public class Server {
 	
@@ -12,7 +19,7 @@ public class Server {
 	static int PORT = 9073;
 	
 	
-	public static void main(String args[]){
+	/*public static void main(String args[]){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
 
 		if(GUI.cheatMode()){//using cheatMode
@@ -36,10 +43,10 @@ public class Server {
 			//now start the game
 			game.startGame();
 		}
-	}
+	}*/
 	
 	//networking code
-	/*public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException {
 		characters = new ArrayList<String>();
 		characters.add("Amazon");
 		characters.add("Black Knight");
@@ -54,7 +61,7 @@ public class Server {
 			
 			InetAddress.getLocalHost();
 			System.out.print(InetAddress.getLocalHost());
-			GUI.showServerIP(""+InetAddress.getLocalHost());
+			ServerGUI.showServerIP(""+InetAddress.getLocalHost());
 			
 			while(true)
 			{
@@ -67,7 +74,7 @@ public class Server {
 			
 				System.out.println("Client connected from: " + SOCK.getLocalAddress().getHostName());
 				
-				AddPlayer(SOCK);
+				//AddPlayer(SOCK);
 				
 				
 				ServerController gameServer = new ServerController(SOCK);
@@ -81,6 +88,7 @@ public class Server {
 	public static String AddPlayer(Socket X) throws IOException
 	{
 		Scanner INPUT = new Scanner(X.getInputStream());
+		//while(!INPUT.hasNext()){}
 		String s = INPUT.nextLine();
 		Player player = new Player(s);
 		CurrentPlayers.add(player);
@@ -95,5 +103,5 @@ public class Server {
 		}
 		INPUT.close();
 		return player.getProfile().getType();
-	}*/
+	}
 }

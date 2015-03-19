@@ -3,10 +3,11 @@ package Control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ServerController implements Runnable{
-	
+	public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
 	Socket SOCK;
 	private Scanner INPUT;
 	private PrintWriter OUT;
@@ -82,6 +83,10 @@ public class ServerController implements Runnable{
 		if(message.contains("StartGame"))
 		{
 			
+		}
+		else if(message.contains("AddPlayer"))
+		{
+			CurrentPlayers.add(new Player(message.substring(message.indexOf(":"))));
 		}
 	}
 }

@@ -108,22 +108,22 @@ public class Player {
 	
 	//constructor for choosing type
 	public Player(String s){
-		if(s == "Amazon"){
+		if(s.equals("Amazon")){
 			profile = new Amazon();
 		}
-		else if(s == "Black Knight"){
+		else if(s.equals("Black Knight")){
 			profile = new BlackKnight();
 		}
-		else if(s == "Captain"){
+		else if(s.equals("Captain")){
 			profile = new Captain();
 		}
-		else if(s == "Dwarf"){
+		else if(s.equals("Dwarf")){
 			profile = new Dwarf();
 		}
-		else if(s == "Elf"){
+		else if(s.equals("Elf")){
 			profile = new Elf();
 		}
-		else if(s == "Swordsman"){
+		else if(s.equals("Swordsman")){
 			profile = new Swordsman();
 		}
 		
