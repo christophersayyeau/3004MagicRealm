@@ -1,9 +1,6 @@
 
 package Control;
 
-import javax.swing.JLabel;
-import javax.swing.text.View;
-
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
@@ -21,6 +18,8 @@ public class Player {
 	public boolean alive = true;//whether he is dead or not
 	
 //use these for combat
+	public int effortThisRound = 0;//used to determine if they are too tired
+	
 	private String combatAttackDirection = null;	
 	public String getCombatAttackDirection() {
 		return combatAttackDirection;
@@ -74,6 +73,7 @@ public class Player {
 
 	//these will store the actions the user wants to do in order
 	private String [] phaseActions = new String[5];//we can increase it later
+	
 	public String [] getPhaseActions() {
 		return phaseActions;
 	}

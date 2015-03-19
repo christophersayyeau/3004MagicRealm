@@ -1,11 +1,8 @@
 package Control;
 
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
 
 import View.GUI;
 

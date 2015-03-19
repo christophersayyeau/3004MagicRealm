@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -1482,5 +1481,10 @@ public class GUI implements MouseListener{
 		Scanner INPUT = new Scanner(X.getInputStream());
 		String s = INPUT.nextLine();
 		System.out.println(s);
+	}
+
+	public static void combatMessage(String message) {
+		//DIsplay Message to user
+		JOptionPane.showMessageDialog(null, message);		
 	}
 }
