@@ -700,3 +700,21 @@ java.lang.ClassNotFoundException: org.eclipse.e4.ui.internal.workbench.addons.Ha
 
 !ENTRY org.eclipse.ui 2 2 2015-02-27 09:32:24.363
 !MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2015-03-19 13:07:31.402 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.7.0_10
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_CA
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\Ryan\Documents\GitHub\3004MagicRealm\Code
+
+!ENTRY org.eclipse.ui 4 4 2015-03-19 13:07:38.995
+!MESSAGE Unable to find Action Set: adt.actionSet.wizards
+
+!ENTRY org.eclipse.ui 4 4 2015-03-19 13:07:39.037
+!MESSAGE Unable to find Action Set: adt.actionSet.refactorings
+
+!ENTRY org.eclipse.ui 4 4 2015-03-19 13:07:39.038
+!MESSAGE Unable to find Action Set: adt.actionSet.avdManager
+
+!ENTRY org.eclipse.ui 4 4 2015-03-19 13:07:39.039
+!MESSAGE Unable to find Action Set: adt.actionSet.lint
