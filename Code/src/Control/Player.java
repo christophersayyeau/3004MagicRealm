@@ -152,6 +152,7 @@ public class Player {
 			game.view.setMove(true);
 			int newLocation = game.view.getNewLocation();
 			
+			
 			System.out.println("New location = "+newLocation);
 			System.out.println("Current Location = "+profile.getCurrentLocation());
 			

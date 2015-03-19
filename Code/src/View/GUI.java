@@ -531,13 +531,17 @@ public class GUI implements MouseListener{
 				break;
 			
 			case 6:			//View clearing/map
-				System.out.println("Click on a clearing to continue game");
+				//System.out.println("Click on a clearing to continue game");
 				moveLabel.setText("Click on a clearing to continue game");
 				//Instruction.setVisible(true);
 				pause = true;
+				
 				//Pause the game until mouse is clicked
 				while(pause == true){
-					
+					try {
+					       Thread.sleep(200);
+					    } catch(InterruptedException e) {
+					    }
 				}
 				//Instruction.setVisible(false);
 				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
@@ -703,10 +707,15 @@ public class GUI implements MouseListener{
 
 	public int getNewLocation() {
 		while(move == true){
-			//System.out.println("Move is true");
+			try {
+			       Thread.sleep(200);
+			    } catch(InterruptedException e) {
+			    }
 		}
 		//System.out.println("Move is false");
 		return clickedLocation;
+		
+		
 	}
 
 	public void setMove(boolean moving){
