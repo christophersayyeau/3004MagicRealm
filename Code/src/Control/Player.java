@@ -18,6 +18,7 @@ public class Player {
 	
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
+	public boolean alive = true;//whether he is dead or not
 	
 //use these for combat
 	private String combatAttackDirection = null;	
@@ -61,7 +62,7 @@ public class Player {
 	
 	
 	
-	
+	//use the following for determining actions recordTUrn
 	private int phasesForToday = -1;//determined in recordTurn
 	int numPhases = 0;
 	public int getPhasesForToday() {

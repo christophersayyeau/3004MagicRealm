@@ -38,10 +38,9 @@ public class Server {
 
 			System.out.println("PLaying Game Normally");
 			//build the game and select the players
-			Game game = new Game();
-			
+			Game game = new Game();			
 			game.createPlayers();
-	game.view.selectFightGear(game.players[0]);		//TODO erase this line after we know it is working
+
 			//now start the game
 			game.startGame();
 		}
