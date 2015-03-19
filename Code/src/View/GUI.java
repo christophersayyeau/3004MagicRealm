@@ -667,6 +667,8 @@ public class GUI implements MouseListener{
 		else if(c.inn)
 			list.add("Inn");
 		else if(c.playersInClearing != null){//check for players in clearing
+			//TODO figure out the issue with playersInClearing[n], pos 0 doesn't exist after
+			//repeated movement onto a single clearing
 			for(int n=0; n<c.numPLayersInClearing; n++){
 				System.out.println("Display num players in clearing " + c.numPLayersInClearing);
 				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
