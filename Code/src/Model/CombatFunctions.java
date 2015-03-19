@@ -170,51 +170,113 @@ public class CombatFunctions{
 		//hit inflicts harm (THML)
 		harmLevel += weaponHarm.weight;		//strength of weapon
 		
+		//hit gets bonus based on sharpness
 		
-		//TODO combat resolution see page 28 and page 5 of flowchart
-		//figure out if the armor intercepts hit
-		/*switch (attacker.getCombatAttackDirection()){
-			case "Thrust":		
-				
-				break;
-			case "Swing":	
-				
-				break;
-			case "Smash":		
-				
-				break;
-			case "Do Nothing":		//Dont do anything and let the next guy attack you				
-				return;
-			case "Make Weapon Alert":	
-				
-				break;
-			
+		//check to see if you should even bother checking
+		//only decrease the value by 1 to minimum of 0
+		if(weaponHarm.sharpness >=1){
+			System.out.println("Get BOnus Damage for Sharpness");
+			//figure out if the armor intercepts hit(ALL_DIRECTIONS, THRUST_AND_SWING, SMASH, ANY_ONE_DIRECTION)
+			switch (attacker.getCombatAttackDirection()){
+				case "Thrust":
+					//search through armor to see if pprotected
+					for(int i=0; i< defender.getProfile().getDefense().length; i++){
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("THRUST_AND_SWING") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getShieldDirection().compareTo("THRUST") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+					}
+					
+					//gone through all armor, if reach here it isn't intercepted
+					harmLevel += weaponHarm.sharpness;	//sharpness of weapon
+					break;
+				case "Swing":	
+					//search through armor to see if pprotected
+					for(int i=0; i< defender.getProfile().getDefense().length; i++){
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("THRUST_AND_SWING") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getShieldDirection().compareTo("SWING") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+					}
+					
+					//gone through all armor, if reach here it isn't intercepted
+					harmLevel += weaponHarm.sharpness;	//sharpness of weapon
+					break;
+				case "Smash":		
+					//search through armor to see if pprotected
+					for(int i=0; i< defender.getProfile().getDefense().length; i++){
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getProfile().getDefense(i).getDirection().compareTo("SMASH") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+						if(defender.getShieldDirection().compareTo("SMASH") == 0){
+							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							break;
+						}
+					}
+					
+					//gone through all armor, if reach here it isn't intercepted
+					harmLevel += weaponHarm.sharpness;	//sharpness of weapon
+					break;
+					
+				case "Do Nothing":		System.out.println("ERROR, this should have been stopped by the if statements in resolveCombat");				
+					return;			
+				case "Make Weapon Alert":	
+					attacker.getProfile().getWeapon().alerted = true;
+					return;				//no need to figure out anything else		
+			}
 		}
 		
-		
-		//hit gets bonus based on sharpness
-		if armor dosnt intercept
-		harmLevel += weaponHarm.sharpness;	//sharpness of weapon
-		if armor hits
-			if sharpness >= 1
-			harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
-
+		//Handle missile weapon difference	
 		//if hit with missile weapon, roll on missile table and adjust harm
 		if(attacker.getProfile().getWeapon().missile){
-			harmLevel += Weapon.missileRoll();
+			harmLevel += Weapon.missileRoll();//TODO cheat Mode difference?
 		}else{
 			//you are attacking up close
 				//commented out rules since they only apply to striking weapons
 				//if strength of Fight chit bigger that weight of weapon increase 1 level only
 					//if(attacker.getAttack().getStrength() > attacker.getProfile().getWeapon().weight)
 					//	harmLevel +=1;	
+			System.out.println("Up Close And Personal");
+		}
+		
+		
+		
+		//TODO combat resolution below this line, see page 28 and page 5 of flowchart
+		/*
+		if(attackHitArmor){//if the attack hit armor
+			check if armor damage
+			when armor hit by attack inflicting less harm it ignores then unalert weapon then return
+			
+		}else{
+			
 		}
 		
 		
 
 		denizen harm compared to vulnerability
 
-		when armor hit by attack inflicting less harm it ignores
+		
 		when armor hit by harm equal to toughness becomes damaged
 		when armor hit by greater it is destroyed
 		if damaged armor damaged again it is destroyed;

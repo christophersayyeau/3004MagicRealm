@@ -169,5 +169,9 @@ public class Weapon {
 	public boolean getAlert() {
 		return alerted;
 	}
+	public static int missileRoll() {
+		// TODO table needs to be put her
+		return -99;
+	}
 	
 }
