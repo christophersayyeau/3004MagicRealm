@@ -32,6 +32,7 @@ public class EvadeDialog {
 				break;
 			case "Do Nothing":		
 				player.setEvadeDirection("Do Nothing");
+				player.setEvade(null);
 				return;//dont do anything
 			}
 			

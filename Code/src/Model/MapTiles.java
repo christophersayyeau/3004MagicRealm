@@ -68,7 +68,7 @@ public class MapTiles {
 	}
 	public void removePlayer(Player player1) {
 		//playersInTile = null;	
-		ArrayUtils.remove(playersInTile, ArrayUtils.indexOf(player1, playersInTile));
+		playersInTile = (Player[]) ArrayUtils.remove(playersInTile, ArrayUtils.indexOf(player1, playersInTile));
 	}
 	
 	public void putDenizen(Denizen monster) {

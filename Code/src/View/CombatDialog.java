@@ -158,6 +158,7 @@ public class CombatDialog {
 			break;
 		case "Do Nothing":		
 			player.setCombatAttackDirection("Do Nothing");
+			player.setAttack(null);
 			return;//dont do anything
 		case "Make Weapon Alert":	
 			player.setCombatAttackDirection("Make Weapon Alert");

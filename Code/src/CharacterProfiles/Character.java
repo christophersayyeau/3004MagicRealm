@@ -101,6 +101,8 @@ public class Character {
 	}
 	public void resetFight() {
 		foughtToday = false;
+		
+		//TODO second step, fatigue, change these to only reset if he rests(activity to get rid of wounds fatigue see page 21)
 		action1Num = 4;
 		action2Num = 4;
 		action3Num = 4;	

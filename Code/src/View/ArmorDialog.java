@@ -28,13 +28,13 @@ public class ArmorDialog {
 		switch((String)response){
 		//first handle the sounds
 		case "Thrust":		
-			player.setShieldDirection("Thrust");
+			player.setShieldDirection("THRUST");
 			break;
 		case "Swing":	
-			player.setShieldDirection("Swing");
+			player.setShieldDirection("SWING");
 			break;
 		case "Smash":		
-			player.setShieldDirection("Smash");
+			player.setShieldDirection("SMASH");
 			break;
 		}
 	}
