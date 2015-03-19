@@ -12,6 +12,8 @@ Combat needs multiround, resting implications finished, dead characters dropping
 Cloak of Mist, magic Spectacles.
 Victory Points.
 
+All of above steps must be finished BEFORE april. We will need time to create the text documents.
+
 Step 3
 Finish other steps first.
 
