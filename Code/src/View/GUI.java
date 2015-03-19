@@ -667,8 +667,10 @@ public class GUI implements MouseListener{
 		else if(c.inn)
 			list.add("Inn");
 		else if(c.playersInClearing != null){//check for players in clearing
-			for(int n=0; n<c.numPLayersInClearing; n++)
+			for(int n=0; n<c.numPLayersInClearing; n++){
+				System.out.println("Display num players in clearing " + c.numPLayersInClearing);
 				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
+			}
 		}
 		for(int i=0; i < c.monstersInClearing.length; ++i){
 			if(c.monstersInClearing[i] != null)
@@ -1293,6 +1295,7 @@ public class GUI implements MouseListener{
 		//create the array to ask
 		String[] choices = null;
 		Player[] values = null;
+		/*
 		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
 				if(!clearing.playersInClearing[a].getProfile().getFoughtToday()){	//if not already fought
 					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
@@ -1311,7 +1314,9 @@ public class GUI implements MouseListener{
 		
 			//return the player value
 			return values[response];
-		}	
+		}
+		*/
+		return null;
 	}
 
 	public void selectFightGear(Player player) {
