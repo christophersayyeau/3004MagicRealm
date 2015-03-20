@@ -250,7 +250,11 @@ public class CombatFunctions{
 		//Handle missile weapon difference	
 		//if hit with missile weapon, roll on missile table and adjust harm
 		if(attacker.getProfile().getWeapon().missile){
-			harmLevel += Weapon.missileRoll();//TODO cheat Mode difference?
+			harmLevel += Weapon.missileRoll();//TODO cheat Mode difference, make call to missileRollCheat instead
+			
+			//make sure it isn't negative
+			if(harmLevel < 0)
+				harmLevel = 0;
 		}else{
 			//you are attacking up close
 				//commented out rules since they only apply to striking weapons
@@ -263,8 +267,8 @@ public class CombatFunctions{
 		
 		
 		//TODO combat resolution below this line, see page 28 and page 5 of flowchart
-		/*
-		if(attackHitArmor){//if the attack hit armor
+		
+		/*if(attackHitArmor){//if the attack hit armor
 			check if armor damage
 			when armor hit by attack inflicting less harm it ignores then unalert weapon then return
 			

@@ -169,9 +169,36 @@ public class Weapon {
 	public boolean getAlert() {
 		return alerted;
 	}
+	
 	public static int missileRoll() {
-		// TODO table needs to be put her
-		return -99;
+		int a = Die.dieRoll();
+		//interpret result
+		switch (a){
+		case 1:		return 2;	//increase by 2
+		case 2:		return 1;	//increase of 1
+		case 3:		return 0;	//no change
+		case 4:		return -1;	//decrease 1
+		case 5:		return -2;	//decrease 2
+		case 6:		return -3;	//decrease 3
+		}
+		
+		System.out.println("If you are reading this missileRoll is BUsted");
+		return -99;//garbage value
+	}
+	public static int missileRollCheat(){
+		int a = Die.dieRollCheat();
+		//interpret result
+		switch (a){
+		case 1:		return 2;	//increase by 2
+		case 2:		return 1;	//increase of 1
+		case 3:		return 0;	//no change
+		case 4:		return -1;	//decrease 1
+		case 5:		return -2;	//decrease 2
+		case 6:		return -3;	//decrease 3
+		}
+		
+		System.out.println("If you are reading this missileRoll is BUsted");
+		return -99;//garbage value
 	}
 	
 }
