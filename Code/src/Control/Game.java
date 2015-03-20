@@ -157,7 +157,7 @@ public class Game {
 			
 		System.out.println("EVENING");
 		//view.changeDate("Day "+day+" EVENING");
-		combat();
+		combat(false);//false because it isnt cheat mode
 			
 		
 			//handle rest of activity
@@ -209,7 +209,7 @@ public class Game {
 	}
 	
 
-	protected void combat() {
+	protected void combat(boolean cheating) {
 		//randomize which clearings with characters go first
 		shufflePlayers(players);
 
@@ -249,7 +249,7 @@ ignore fatigued and wounded counters*/
 						//view.selectFightGear(opponent);
 
 						//combat is resolved
-						CombatFunctions.resolveCombat(view, players[a], opponent);						
+						CombatFunctions.resolveCombat(view, players[a], opponent, cheating);						
 					}
 				}//others in clearing who have not fought will be called later in this for loop
 			}

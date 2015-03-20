@@ -7,7 +7,7 @@ import Control.Player;
 public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flowchart
 
 	//will set up players and then figure out their attack order
-	public static void resolveCombat(GUI view, Player player, Player opponent) {	//TODO this will need to be extensively tested once finished
+	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {	//TODO this will need to be extensively tested once finished
 		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
 		
 		/*	one round of combat between 2 players
@@ -32,10 +32,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
 			
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(player, opponent);
+				finishCombat(player, opponent, cheating);
 				
 				if(opponent.alive){
-					finishCombat(opponent, player);
+					finishCombat(opponent, player, cheating);
 				}
 			
 			//if the opponent has longer reach
@@ -43,10 +43,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
 				
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(opponent, player);
+				finishCombat(opponent, player, cheating);
 			
 				if(player.alive){
-					finishCombat(player, opponent);
+					finishCombat(player, opponent, cheating);
 				}
 				
 			//both have same length	
@@ -57,28 +57,28 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
 					
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(player, opponent);
+					finishCombat(player, opponent, cheating);
 					
 					if(opponent.alive){
-						finishCombat(opponent, player);
+						finishCombat(opponent, player, cheating);
 					}
 					
 				}else{//oponnent goes first	
 					System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
 					
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(opponent, player);
+					finishCombat(opponent, player, cheating);
 					
 					if(player.alive){
-						finishCombat(player, opponent);
+						finishCombat(player, opponent, cheating);
 					}
 				}
 			}
 	
 		}else if(player.getAttack() == null){//only opponent is attacking
-			finishCombat(opponent, player);
+			finishCombat(opponent, player, cheating);
 		}else{//only player is attacking
-			finishCombat(player, opponent);
+			finishCombat(player, opponent, cheating);
 		}
 		//fastest fellow hits first in subsequent rounds(if equal it is weapon length)
 		//COPY IT FORMM WHEN WEPONLENGTH IS SAME
@@ -104,7 +104,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 	
 	//will determine if attack hits and remove the effort needed
-	private static void finishCombat(Player attacker, Player defender) {
+	private static void finishCombat(Player attacker, Player defender, boolean cheating) {
 		//max of 2 effort per round, if higher it is cancelled
 		if(attacker.effortThisRound+attacker.getAttack().getEffort() <= 2){
 			//does the defender try and evade and does he have the juice for it
@@ -114,7 +114,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				if(attacker.getAttack().getTime() < defender.getEvade().getTime()){//if it undercuts
 					
 					//if attack time lower then maneuver time it undercuts and autohits
-					attackHits(attacker, defender);				
+					attackHits(attacker, defender, cheating);				
 		
 				}else{
 					//attacktime equal or larger
@@ -125,7 +125,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 							attacker.getCombatAttackDirection().compareTo("Smash")==0 	&& defender.getEvadeDirection().compareTo("Duck")==0	){
 											
 						//manage to hit the defener while he tries to dodge
-						attackHits(attacker, defender);
+						attackHits(attacker, defender, cheating);
 		
 					}else{
 						//Dosn't intercept
@@ -142,7 +142,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		
 			}else{
 				//defender isn't menauvering or is too tired
-				attackHits(attacker, defender);	
+				attackHits(attacker, defender, cheating);	
 			}
 			//increase this value so you only use to this day
 			attacker.effortThisRound += attacker.getAttack().getEffort();
@@ -154,7 +154,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 	}
 
 	//attack has hit target, now resolve damage
-	private static void attackHits(Player attacker, Player defender) {
+	private static void attackHits(Player attacker, Player defender, boolean cheating) {
 		//simplify process by getting harm level now
 		Harm weaponHarm;
 		if(attacker.getProfile().getWeapon().alerted){
@@ -273,7 +273,12 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		//Handle missile weapon difference	
 		//if hit with missile weapon, roll on missile table and adjust harm
 		if(attacker.getProfile().getWeapon().missile){
-			harmLevel += Weapon.missileRoll();//TODO cheat Mode difference, make call to missileRollCheat instead
+			
+			//if in cheatmode get to decide roll
+			if(cheating)
+				harmLevel += Weapon.missileRollCheat();
+			else	
+				harmLevel += Weapon.missileRoll();
 			
 			//make sure it isn't negative
 			if(harmLevel < 0)
