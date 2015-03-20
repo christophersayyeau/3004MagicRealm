@@ -101,7 +101,7 @@ public class GUI implements MouseListener{
 	
 	public static void main(String args[])
 	{
-		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
+		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");//TODO what is the point of this?
 		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
 		Connect();
@@ -145,11 +145,14 @@ public class GUI implements MouseListener{
 				possibilities,
 				possibilities[0]);
 		
+		//TODO, only suppose to be 1 of each type max, but that isnt important, work on other stuff
+		
+		
 		System.out.println("You have chosen to be a " + s);
 		//game.gotCharacter = true;
 		return (String)s;
 		
-		//TODO, only suppose to be 1 of each type max, but that isnt important, work on other stuff
+		
 	}
 	
 	public static int chooseStart(Player currPlayer){
@@ -629,9 +632,8 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public void displayTreasure(int tile) {
-		// TODO Auto-generated method stub
-		//display the treasure chit in this tile, technically only the player can see it but who cares
+	public void revealTreasure(int tile) {
+		// TODO reveal the treasure chit's value in this tile
 	}
 	
 	public void displayScore(Player[] gamers) {		

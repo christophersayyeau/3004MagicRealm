@@ -192,14 +192,14 @@ public class Player {
 				if(choice.compareTo("Locate") == 0){//using locate table
 					int result = Die.dieRoll();
 					switch (result){
-						case 1:  	game.view.displayTreasure(currentTile);//technically you can choose but that is dumb
+						case 1:  	game.view.revealTreasure(currentTile);//technically you can choose but that is dumb
 									map.getMapTile(currentTile).treasure.found = true;
 						break;
 						case 2:  	//display all passages and mentally note that treasure
 						break;
 						case 3:  	//display all passages
 						break;
-						case 4:  	game.view.displayTreasure(currentTile);
+						case 4:  	game.view.revealTreasure(currentTile);
 									map.getMapTile(currentTile).treasure.found = true;
 						break;
 						//5 and 6 do nothing
@@ -349,14 +349,14 @@ public class Player {
 						if(choice.compareTo("Locate") == 0){//using locate table
 							int result = Die.dieRollCheat();
 							switch (result){
-								case 1:  	cheatGame.view.displayTreasure(currentTile);//technically you can choose but that is dumb
+								case 1:  	cheatGame.view.revealTreasure(currentTile);//technically you can choose but that is dumb
 											map.getMapTile(currentTile).treasure.found = true;
 								break;
 								case 2:  	//display all passages and mentally note that treasure
 								break;
 								case 3:  	//display all passages
 								break;
-								case 4:  	cheatGame.view.displayTreasure(currentTile);
+								case 4:  	cheatGame.view.revealTreasure(currentTile);
 											map.getMapTile(currentTile).treasure.found = true;
 								break;
 								//5 and 6 do nothing
