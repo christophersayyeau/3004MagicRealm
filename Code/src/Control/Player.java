@@ -179,7 +179,7 @@ public class Player {
 			//call of trade function
 			game.view.trading(map, this);
 			
-		}else if(action.compareTo("Search")==0){//if search action//TODO all of related treasure stuff should be fixed
+		}else if(action.compareTo("Search")==0){//if search action//TODO second part, all of related treasure stuff should be fixed
 			//where are you searching//can only search his own clearing using locate
 			int currentTile = profile.getCurrentLocation()/10-1;
 			
@@ -215,7 +215,7 @@ public class Player {
 						//if you roll over the number of treasures there you get nothing
 						int result = Die.dieRoll();
 						switch (result){
-							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO treasure stuff this function declariation nneeds work
+							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO second step, treasure stuff this function declariation nneeds work
 							break;
 	//						case 2:  	2nd//since there is only going to be one treasure
 	//						break;
@@ -235,8 +235,10 @@ public class Player {
 			}
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
-			System.out.println("Nothing is Done here in this iteration");
+			System.out.println("Resting Now");
 			
+			//TODO second step, resting (activity to get rid of wounds fatigue see page 21)
+		
 		}	
 	}
 
@@ -336,7 +338,7 @@ public class Player {
 					//call of trade function
 					cheatGame.view.trading(map, this);
 					
-				}else if(action.compareTo("Search")==0){//if search action//TODO all of related treasure stuff should be fixed as above with added cheating stuff as well
+				}else if(action.compareTo("Search")==0){//if search action//TODO second part, all of related treasure stuff should be fixed as above with added cheating stuff as well
 					//where are you searching//can only search his own clearing using locate
 					int currentTile = profile.getCurrentLocation()/10-1;
 					
@@ -395,6 +397,100 @@ public class Player {
 					System.out.println("Nothing is Done here in this iteration");
 					
 				}	
+		
+	}
+	
+	
+	public void choiceOfActiveChits(String response) {	
+		//user picked an action chit based on current active ones
+		//interpret result and set the attack
+		
+		if(profile.getType().compareTo("Amazon") == 0){
+			//interpret response	Fight:  Time 4,  Effort 1,	Strength 1
+			switch(response){
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("BlackKnight") == 0){
+			switch(response){
+			case "Fight:  Time 4, Effort 2, Strength 2":	//42H					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Captain") == 0){
+			switch(response){
+			case "Fight:  Time 6, Effort 0, Strength 2":	//60H					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Dwarf") == 0){
+			switch(response){
+			case "Fight:  Time 5, Effort 2, Strength 3":	//52T					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 5, Effort 1, Strength 3":	//51T
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Elf") == 0){
+			switch(response){
+			case "Fight:  Time 3, Effort 1, Strength 1":	//31M					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 4, Effort 0, Strength 1":	//40M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Swordsman") == 0){
+			switch(response){
+			case "Fight:  Time 4, Effort 0, Strength 0":	//40L					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 5, Effort 0, Strength 1":	//50M
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				break;
+			case "Fight:  Time 2, Effort 2, Strength 0":	//22L
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				break;	
+			}
+			
+		}else{
+			System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
+		}
 		
 	}
 

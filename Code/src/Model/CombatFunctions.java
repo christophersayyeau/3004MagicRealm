@@ -1,5 +1,7 @@
 package Model;
 
+import javax.swing.JOptionPane;
+
 import Model.Armor.Protect;
 import View.GUI;
 import Control.Player;
@@ -7,7 +9,7 @@ import Control.Player;
 public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flowchart
 
 	//will set up players and then figure out their attack order
-	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {	//TODO this will need to be extensively tested once finished
+	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {	//TODO second step, this will need to be extensively tested when out of TODOs
 		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
 		
 		/*	one round of combat between 2 players
@@ -82,6 +84,8 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		}
 		//fastest fellow hits first in subsequent rounds(if equal it is weapon length)
 		//COPY IT FORMM WHEN WEPONLENGTH IS SAME
+		
+		//if effortThisRound > 1 he must TODO second step fatigue one effort worth of actionchit
 		
 		//reset at end of round			CHANGE WHEN MULTI ROUND
 		player.effortThisRound = 0;
@@ -323,7 +327,8 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			//damages the defender, compare to defender's toughness
 			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
 				System.out.println("Player dead");
-				//TODO kill character, remove from game logic then dispose of window
+				//TODO kill character, remove from all arrays he is a part of, then dispose of his window
+				//?clearing, tile, map, game, server, client?
 				
 			}else{
 				//if harm less then vulnerability but more than negligable suffers a wound
@@ -332,10 +337,28 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				
 				}else{	//inflicted Light or higher damage
 					System.out.println("Wounded Once");
-					//TODO wound action chit
-					//?roll 2 dice take higest and wound that many action chits
+					//wound action chit 					//?roll 2 dice take higest and wound that many action chits, done in example, no mention in rules		
+					//FIrst get the active ones
+					String[] options = null;
+					CombatChit.getActiveChits(defender, options);
+					
+					//next ask which one to wound
+					//now ask defender to pick
+					Object response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Wound?",	"Wounding",
+							JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
+
+					//going to seperate based on user type then apply result
+					//TODO second step, wound and fatigue change this to almost identical version with minor change player.choiceOfActiveChits((String)response);
+					
+					
+					
 					
 					//Once all action CHits wounded he is killed
+					//if they are all less then 1
+					if(defender.getProfile().action1Num < 1 && defender.getProfile().action2Num < 1 && defender.getProfile().action3Num < 1 ){
+						System.out.println("Player dead");
+						//TODO kill character, same as above
+					}
 				}
 			}	
 		}

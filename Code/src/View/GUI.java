@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-import com.sun.xml.internal.ws.util.StringUtils;
+import com.sun.xml.internal.ws.util.StringUtils;//TODO is this needed?
 
 import Control.Client;
 import Control.Game;
@@ -377,10 +377,7 @@ public class GUI implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		
-	}
-
+	public void mouseClicked(MouseEvent e) {}
 	@Override
 	public void mousePressed(MouseEvent e) {
 		//TODO adjust the mouse pressed to do more if needed
@@ -397,25 +394,19 @@ public class GUI implements MouseListener{
 		move = false;
 		pause = false;
 	}
-
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		
-	}
-
+	public void mouseReleased(MouseEvent e) {}
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		
-	}
-
+	public void mouseEntered(MouseEvent e) {}
 	@Override
-	public void mouseExited(MouseEvent e) {
-		
-	}
+	public void mouseExited(MouseEvent e) {}
+	
 	
 	public void Refresh(String labelText) {
-		// TODO Auto-generated method stub
-		//update all pictures and related visuals to new locations
+		//Called thourhgout the day to refresh the screen
+		// TODO update all pictures and related visuals to new locations
+		//not sure if already taken care of elsewhere in code
+		//maybee just link to those
 		changeDate(labelText);
 	}
 	
@@ -563,14 +554,14 @@ public class GUI implements MouseListener{
 	}
 
 	public void hideMapChits() {
-		//end of day, all map chits that can be seen are unseen
-		// TODO Auto-generated method stub
+		
+		// TODO third step, end of day, all map chits that can be seen are unseen
 		
 	}
 
 	public void revealMapChits(int i) {
 		//caled at end of player turn
-		// TODO Auto-generated method stub
+		// TODO third step, end of player turn, reveal monster, warning chits
 		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
 
@@ -633,7 +624,7 @@ public class GUI implements MouseListener{
 	}
 
 	public void revealTreasure(int tile) {
-		// TODO reveal the treasure chit's value in this tile
+		// TODO second step, reveal the treasure chit's value in this tile
 	}
 	
 	public void displayScore(Player[] gamers) {		

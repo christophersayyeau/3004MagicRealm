@@ -424,7 +424,7 @@ public class Map {
 	
 	public void giveTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
-		// TODO fix this treasure stuff in second iteration part 2
+		// TODO second part fix this treasure stuff 
 		System.out.println("He got treasure");
 		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}

@@ -1,5 +1,7 @@
 package Model;
 
+import Control.Player;
+
 //this handles all of the actions available to characters
 public class CombatChit {
 	//use type to specify action
@@ -85,4 +87,22 @@ public class CombatChit {
 	public String toString(){
 		return(type + ":  Time "+ time + ", Effort "+ effort+ ", Strength " + strength);
 	}
+
+	public static String[] getActiveChits(Player player, String[] options) {	//moved from CombatDialog
+		
+		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
+			if(player.getProfile().action1.getType().compareTo("Fight") == 0)	//only fight type allowed
+				options = ArrayUtils.add(options, player.getProfile().action1.toString());
+		}
+		for(int a=0; a< player.getProfile().action2Num; a++){	//add all of the second action available
+			if(player.getProfile().action2.getType().compareTo("Fight") == 0)
+				options = ArrayUtils.add(options, player.getProfile().action2.toString());
+		}
+		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
+			if(player.getProfile().action3.getType().compareTo("Fight") == 0)
+				options = ArrayUtils.add(options, player.getProfile().action3.toString());
+		}
+		return options;
+	}
+
 }

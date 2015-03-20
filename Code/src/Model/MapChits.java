@@ -14,7 +14,7 @@ public class MapChits {
 		public GoldChit(String word, int spot){
 			clearing = spot;
 			type = word;
-			//TODO link this with the treasure list
+			//TODO second part, link this with the treasure list
 		}
 	}
 
