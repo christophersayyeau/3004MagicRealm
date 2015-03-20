@@ -15,7 +15,12 @@ public class Character {
 	//this will be the startSpot at the beginning
 	protected int currentLocation;//integer value of mapTile/clearing
 	
-	int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
+	protected int weight;		//this represents character's weight/vulnerability. 1=Light, 2=Medium, 3=Heavy
+	public int getVulnerability(){
+		return weight;
+	}
+	
+	
 	int fame = 0;		//players fame value, can be negative
 	int notoriety = 0;	//players notoriety, can be negative
 	private int gold = 10;	//players start out with 10 gold, can't be negative

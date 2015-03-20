@@ -1,9 +1,10 @@
 package Model;
 
+import Model.Armor.Protect;
 import View.GUI;
 import Control.Player;
 
-public class CombatFunctions{
+public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flowchart
 
 	//will set up players and then figure out their attack order
 	public static void resolveCombat(GUI view, Player player, Player opponent) {	//TODO this will need to be extensively tested once finished
@@ -172,6 +173,10 @@ public class CombatFunctions{
 		
 		//hit gets bonus based on sharpness
 		
+		//use this for damage to armor
+		Armor armorDamage = null;
+		int locationOfArmor = -1;
+		
 		//check to see if you should even bother checking
 		//only decrease the value by 1 to minimum of 0
 		if(weaponHarm.sharpness >=1){
@@ -183,14 +188,20 @@ public class CombatFunctions{
 					for(int i=0; i< defender.getProfile().getDefense().length; i++){
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("THRUST_AND_SWING") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getShieldDirection().compareTo("THRUST") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 					}
@@ -203,14 +214,20 @@ public class CombatFunctions{
 					for(int i=0; i< defender.getProfile().getDefense().length; i++){
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("THRUST_AND_SWING") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getShieldDirection().compareTo("SWING") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 					}
@@ -223,14 +240,20 @@ public class CombatFunctions{
 					for(int i=0; i< defender.getProfile().getDefense().length; i++){
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("ALL_DIRECTIONS") == 0){//if hits armor	
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getProfile().getDefense(i).getDirection().compareTo("SMASH") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 						if(defender.getShieldDirection().compareTo("SMASH") == 0){
 							harmLevel += weaponHarm.sharpness-1;//only lose 1 star, can't give negative
+							armorDamage = defender.getProfile().getDefense(i);
+							locationOfArmor = i;
 							break;
 						}
 					}
@@ -265,27 +288,52 @@ public class CombatFunctions{
 		}
 		
 		
-		
-		//TODO combat resolution below this line, see page 28 and page 5 of flowchart
-		
-		/*if(attackHitArmor){//if the attack hit armor
-			check if armor damage
-			when armor hit by attack inflicting less harm it ignores then unalert weapon then return
-			
-		}else{
-			
+		//now handle damage to armor
+		if(armorDamage != null){	//did it hit something
+			//compare final harm inflicted by attack to toughness of armor
+			if(harmLevel > armorDamage.getToughness()){			//greater than
+				System.out.println("Armor destroyed");
+				defender.getProfile().getDefense(locationOfArmor).protect = Protect.NOTHING;//set it to defend against against nothing
+				defender.getProfile().getDefense(locationOfArmor).setDestroyed(true);
+				
+			}else if(harmLevel == armorDamage.getToughness()){		//equal to
+				System.out.println("Armor damaged");
+				//if hit twice then destroyed
+				if(defender.getProfile().getDefense(locationOfArmor).isDamaged()){ //if already damaged
+					System.out.println("Armor destroyed");
+					defender.getProfile().getDefense(locationOfArmor).protect = Protect.NOTHING;//set it to defend against against nothing
+					defender.getProfile().getDefense(locationOfArmor).setDestroyed(true);
+					
+					//might as well reset this here
+					defender.getProfile().getDefense(locationOfArmor).setDamaged(false);
+				}else{
+					//first damage
+					System.out.println("Armor damaged First TIme");
+					defender.getProfile().getDefense(locationOfArmor).setDamaged(true);
+				}
+			}else{			//less than
+				System.out.println("Armor not affected because " + armorDamage.getToughness() + " > " + harmLevel);
+			}	
+		}else{						//didn't hit armor
+			//damages the defender, compare to defender's toughness
+			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
+				System.out.println("Player dead");
+				//TODO kill character, remove from game logic then dispose of window
+				
+			}else{
+				//if harm less then vulnerability but more than negligable suffers a wound
+				if(harmLevel > 0){
+					System.out.println("That Didn't Even Hurt");
+				
+				}else{	//inflicted Light or higher damage
+					System.out.println("Wounded Once");
+					//TODO wound action chit
+					//?roll 2 dice take higest and wound that many action chits
+					
+					//Once all action CHits wounded he is killed
+				}
+			}	
 		}
-		
-		
-
-		denizen harm compared to vulnerability
-
-		
-		when armor hit by harm equal to toughness becomes damaged
-		when armor hit by greater it is destroyed
-		if damaged armor damaged again it is destroyed;
-
-		combat resolved into 1 death, 2 death or combat stop*/	
 		
 		//unalert weapon
 		attacker.getProfile().getWeapon().alerted = false;

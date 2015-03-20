@@ -2,13 +2,37 @@ package Model;
 
 public class Armor 
 {
-	public enum Protect {ALL_DIRECTIONS, THRUST_AND_SWING, SMASH, ANY_ONE_DIRECTION};
+	public enum Protect {ALL_DIRECTIONS, THRUST_AND_SWING, SMASH, ANY_ONE_DIRECTION, NOTHING}//nothing used when destroyed
+
+	private boolean destroyed = false;	//starts of not broken
+	public boolean isDestroyed() {
+		return destroyed;
+	}
+	public void setDestroyed(boolean destroyed) {
+		this.destroyed = destroyed;
+	}
+	private boolean damaged = false;	//starts of not broken
+	public boolean isDamaged() {
+		return damaged;
+	}
+	public void setDamaged(boolean damaged) {
+		this.damaged = damaged;
+	}
 	
+	//how much punishment can it take
+	private int toughness;
+	public int getToughness() {
+		return toughness;
+	}
+	public void setToughness(int tough) {
+		this.toughness = tough;
+	}
+
 	int intact_price;
 	int damaged_price;
 	int destroyed_price;
 	Protect protect;
-	
+
 	public String getDirection(){
 		return protect.name();
 	}
@@ -21,6 +45,7 @@ public class Armor
 			intact_price = 17;
 			damaged_price = 12;
 			destroyed_price = 0;
+			toughness = 3;	//heavy
 		}
 	}
 	
@@ -32,6 +57,7 @@ public class Armor
 			intact_price = 9;
 			damaged_price = 6;
 			destroyed_price = 0;
+			toughness = 2; //med
 		}
 	}
 	
@@ -43,6 +69,7 @@ public class Armor
 			intact_price = 5;
 			damaged_price = 3;
 			destroyed_price = 0;
+			toughness = 2; //med
 		}
 	}
 	
@@ -54,6 +81,7 @@ public class Armor
 			intact_price = 7;
 			damaged_price = 5;
 			destroyed_price = 0;
+			toughness = 2; //med
 		}
 	}
 	
@@ -65,6 +93,7 @@ public class Armor
 			intact_price = 25;
 			damaged_price = 18;
 			destroyed_price = 5;
+			toughness = 4; //treme
 		}
 	}
 	
@@ -76,6 +105,7 @@ public class Armor
 			intact_price = 25;
 			damaged_price = 21;
 			destroyed_price = 15;
+			toughness = 3; //heavy
 		}
 	}
 	
@@ -87,6 +117,7 @@ public class Armor
 			intact_price = 30;
 			damaged_price = 27;
 			destroyed_price = 20;
+			toughness = 3; //heavy
 		}
 	}
 	
@@ -98,6 +129,7 @@ public class Armor
 			intact_price = 20;
 			damaged_price = 16;
 			destroyed_price = 10;
+			toughness = 3; //heavy
 		}
 	}
 
