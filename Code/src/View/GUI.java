@@ -135,6 +135,9 @@ public class GUI implements MouseListener{
 	 * 
 	 */
 	public static String createPlayer(){
+		
+		//TODO possibilities is empty, find the other variable to use
+		//Use possibilities to test the game (for now)
 		//String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		Object s = JOptionPane.showInputDialog(
 				Players,
