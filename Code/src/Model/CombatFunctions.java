@@ -328,7 +328,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
 				System.out.println("Player dead");
 				//TODO kill character, remove from all arrays he is a part of, then dispose of his window
-				//?clearing, tile, map, game, server, client?
+				//where is he stored? clearing, tile, map, game, server, client?
 				
 			}else{
 				//if harm less then vulnerability but more than negligable suffers a wound
@@ -358,6 +358,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					if(defender.getProfile().action1Num < 1 && defender.getProfile().action2Num < 1 && defender.getProfile().action3Num < 1 ){
 						System.out.println("Player dead");
 						//TODO kill character, same as above
+					
 					}
 				}
 			}	

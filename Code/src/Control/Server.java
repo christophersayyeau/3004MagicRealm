@@ -92,7 +92,7 @@ public class Server {
 		String s = INPUT.nextLine();
 		Player player = new Player(s);
 		CurrentPlayers.add(player);
-		characters.remove(player.getProfile().getType());
+		characters.remove(player.getProfile().getType());//TODO Does this remove the character from the options? If yes erase both todos (GUI.java has the other)
 		
 		for(int i=1; i <= Server.ConnectionArray.size(); ++i)
 		{
