@@ -658,9 +658,6 @@ public class GUI implements MouseListener{
 		y= pos[1];
 		System.out.println("Array Location = " + String.valueOf(x) + String.valueOf(y));
 		
-		
-		//TODO uncomment display tile info if needed
-		
 		Clearing c = map.getMapTile(x).clearing[y];
 		ArrayList<String> list = new ArrayList<String>();
 		if(c.chapel)

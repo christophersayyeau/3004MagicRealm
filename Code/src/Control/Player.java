@@ -1,6 +1,8 @@
 
 package Control;
 
+import javax.swing.ImageIcon;
+
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
@@ -12,6 +14,14 @@ public class Player {
 
 	//commented out view for hotseat game
 	//GUI view;
+	
+	//May have players have their own icons
+	ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
+	ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
+	ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
+	ImageIcon dwarfIcon = new ImageIcon("res/characters/dwarf.png");
+	ImageIcon elfIcon = new ImageIcon("res/characters/elf.png");
+	ImageIcon swordsmanIcon = new ImageIcon("res/characters/swordsman.png");
 	
 	Character profile;
 	boolean hidden = true;//whether the character is hidden or not
