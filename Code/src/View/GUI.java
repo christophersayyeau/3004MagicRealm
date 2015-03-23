@@ -138,7 +138,7 @@ public class GUI implements MouseListener{
 		
 		//TODO possibilities is empty, find the other variable to use
 		//Use possibilities to test the game (for now)
-		//String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
+		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		Object s = JOptionPane.showInputDialog(
 				Players,
 				"Which character would you like to be?\n",
@@ -387,8 +387,8 @@ public class GUI implements MouseListener{
 		//System.out.println(e.getSource());
 		JLabel j = (JLabel)e.getSource();
 		System.out.println(j.getName());
-		System.out.println("x = " + e.getX());
-		System.out.println("y = " + e.getY());
+		System.out.println("x = " + j.getX());
+		System.out.println("y = " + j.getY());
 		
 		playerX = j.getX();
 		playerY = j.getY();
@@ -1354,6 +1354,8 @@ public class GUI implements MouseListener{
 	
 	public int getPlayerX(){ return playerX;}
 	public int getPlayerY(){ return playerY;}
+	public void setPlayerX(int x){ playerX = x; }
+	public void setPlayerY(int y){ playerY = y; }
 	
 	private void buildMap(){
 		Map.setLayout(null);

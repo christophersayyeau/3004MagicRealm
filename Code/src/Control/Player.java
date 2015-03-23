@@ -325,28 +325,28 @@ public class Player {
 		
 		//determine what the action is
 				//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
-				if(action.compareTo("Move") == 0){//if move action
-					//THere are rules to handle moving through mountains+caves
+		if(action.compareTo("Move") == 0){//if move action
+				//THere are rules to handle moving through mountains+caves
 					
-					//int newLocation = Integer.parseInt(action.substring(5));
-					int newLocation = cheatGame.view.getNewLocation();
+				//int newLocation = Integer.parseInt(action.substring(5));
+				int newLocation = cheatGame.view.getNewLocation();
+				
+				//check to see if they can
+				if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
+					//there are rules about how much weight
+					map.moveCharacters(this, newLocation);//if yes then move
+				}else{
+					System.out.println("Can't Move There, phase wasted");
+				}
 					
-					//check to see if they can
-					if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
-						//there are rules about how much weight
-						map.moveCharacters(this, newLocation);//if yes then move
-					}else{
-						System.out.println("Can't Move There, phase wasted");
-					}
-					
-				}else if(action.compareTo("Hide")==0){//if hide action
+		}else if(action.compareTo("Hide")==0){//if hide action
 					//roll on hide table, only a 6 does nothing
-					if(Die.dieRollCheat() != 6)	this.hidden = true;
+			if(Die.dieRollCheat() != 6)	this.hidden = true;
 					
 					
-				}else if(action.compareTo("Trade")==0){//if Trade action
+			}else if(action.compareTo("Trade")==0){//if Trade action
 					//call of trade function
-					cheatGame.view.trading(map, this);
+				cheatGame.view.trading(map, this);
 					
 				}else if(action.compareTo("Search")==0){//if search action//TODO second part, all of related treasure stuff should be fixed as above with added cheating stuff as well
 					//where are you searching//can only search his own clearing using locate
