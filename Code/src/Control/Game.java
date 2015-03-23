@@ -8,7 +8,7 @@ import View.*;
 
 public class Game {
 	
-	//need these for hotseat play
+	static //need these for hotseat play
 	GUI view;
 	
 	//player related
@@ -345,14 +345,28 @@ ignore fatigued and wounded counters*/
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
+			view.setPlayerX(455);
+			view.setPlayerY(705);
+			view.amazon.setLocation(455,705);
+			/*
+			Inn = 455, 705
+			House = 1165, 495
+			GuardHouse = 965, 410
+			*/
 			return 25;
 		}
 		else if(s == "House"){
 			System.out.println("Starting at House: " + 35);
+			view.setPlayerX(1165);
+			view.setPlayerY(495);
+			view.amazon.setLocation(1165,495);
 			return 35;
 		}
 		else if(s == "GuardHouse"){
 			System.out.println("Starting at GuardHouse: " + 45);
+			view.setPlayerX(965);
+			view.setPlayerY(410);
+			view.amazon.setLocation(965,410);
 			return 45;
 		}else{
 			System.out.println("ERROR: Can't determine location");
