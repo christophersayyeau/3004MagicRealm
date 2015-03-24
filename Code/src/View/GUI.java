@@ -101,7 +101,7 @@ public class GUI implements MouseListener{
 	
 	public static void main(String args[])
 	{
-		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");//TODO what is the point of this?
+		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
 		Connect();
@@ -384,13 +384,12 @@ public class GUI implements MouseListener{
 	public void mouseClicked(MouseEvent e) {}
 	@Override
 	public void mousePressed(MouseEvent e) {
-		//TODO adjust the mouse pressed to do more if needed
-		//System.out.println(e.getSource());
 		JLabel j = (JLabel)e.getSource();
+		/*
 		System.out.println(j.getName());
 		System.out.println("x = " + j.getX());
 		System.out.println("y = " + j.getY());
-		
+		*/
 		playerX = j.getX();
 		playerY = j.getY();
 		displayClearing(j.getName());

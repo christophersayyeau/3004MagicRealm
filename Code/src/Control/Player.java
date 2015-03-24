@@ -309,7 +309,6 @@ public class Player {
 		return profile.getCurrentLocation();
 	}
 	public void setCurrentLocation(int newLocation) {
-		//TODO set starting icon location and set visible here
 		profile.setCurrentLocation(newLocation);
 	}
 	
