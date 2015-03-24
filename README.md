@@ -13,7 +13,7 @@ Step 2
 Searching and Treasure stuff needs to be fixed.
 Text on left side of GUI showing what is going on.
 Combat needs multiround, resting implications finished, dead characters dropping stuff.
-Cloak of Mist, magic Spectacles.
+Cloak of Mist, Magic Spectacles.
 Victory Points.
 
 All of above steps must be finished BEFORE april. We will need time to create the text documents.
