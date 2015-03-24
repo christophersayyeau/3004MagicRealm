@@ -1,9 +1,13 @@
 # 3004MagicRealm
+WorkPlan
+Chris will finish combat, make it multiround, restingstuff, drops.
+Ryan will finish GUI.
+Stefan will finish networking.
+Once a group member is finished he will pick the next thing from this list that needs doing.
 
-Step 0 and 1 should be done by now.
+Step 0 and 1 should have been done by now.
 GUI still has lots of TODOs and needs the missing objects added.
 Networking needs to be added.
-THe simplest form of combat needs to be handled.
 
 Step 2
 Searching and Treasure stuff needs to be fixed.
@@ -14,10 +18,6 @@ Victory Points.
 
 All of above steps must be finished BEFORE april. We will need time to create the text documents.
 
-Step 3
+Step 3-4
+Create text documents needed.
 Finish other steps first.
-
-Step 4
-If you have time to work on this:  STOP and create the text documents needed instead.
-
-We will use this to post messages to each other while we construct the project.
