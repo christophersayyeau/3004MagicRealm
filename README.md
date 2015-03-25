@@ -15,6 +15,7 @@ Text on left side of GUI showing what is going on.
 Combat needs multiround, resting implications finished, dead characters dropping stuff.
 CLOAK OF MIST:  This card allows its owner to record an extra phase to do the Hide activity.
 MAGIC SPECTACLES:  This card allows its owner to record an extra phase to do the Search activity.
+NOTE: whoever figures these items out needs to do the same for the specials of characters.
 Victory Points.
 
 All of above steps must be finished BEFORE april. We will need time to create the text documents.
