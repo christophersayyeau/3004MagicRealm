@@ -1515,16 +1515,14 @@ public class GUI implements MouseListener{
 		//DIsplay Message to user
 		JOptionPane.showMessageDialog(null, message);		
 	}
-<<<<<<< HEAD
 
 	public static void selectFatigue(Player person) {
 		// TODO Since effort is 2 then need to fatigue 1 effort worth of action Chits
 		
-=======
+	}
 	
 	public static String displayMessage(String message){
 		JOptionPane.showMessageDialog(null, message);
 		return "";
->>>>>>> origin/master
 	}
 }
