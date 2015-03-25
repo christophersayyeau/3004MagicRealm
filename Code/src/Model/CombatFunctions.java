@@ -12,102 +12,184 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 	//will set up players and then figure out their attack order
 	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {	//TODO second step, this will need to be extensively tested when out of TODOs
 		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
-		
-		/*	one round of combat between 2 players
-		no running away
-		2* limit
-		combat resolved into 1 death, 2 death or combat stop
-		ignore fatigued and wounded counters*/
-		
+
+		//First round
 		//first get the combatents ready for combat
 		view.selectFightGear(player);
 		view.selectFightGear(opponent);
-		
+
 		//Now handle COmbat
 		//first check if they are doing anything
 		if(player.getAttack() != null && opponent.getAttack() != null){
 			//who goes first?
 			//1st round hit order is weapon length,then faster attack time
 			//	attack time=time on Fight chit
-			
+
 			//longest weapon goes first in first round of combat
 			if(player.getProfile().getWeapon().weaponLength > opponent.getProfile().getWeapon().weaponLength){//player goes first	
 				System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
-			
+
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 				finishCombat(player, opponent, cheating, view);
-				
+
 				if(opponent.alive){
 					finishCombat(opponent, player, cheating, view);
 				}
-			
-			//if the opponent has longer reach
+
+				//if the opponent has longer reach
 			}else if(player.getProfile().getWeapon().weaponLength < opponent.getProfile().getWeapon().weaponLength){	
 				System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
-				
+
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 				finishCombat(opponent, player, cheating, view);
-			
+
 				if(player.alive){
 					finishCombat(player, opponent, cheating, view);
 				}
-				
-			//both have same length	
+
+				//both have same length	
 			}else{
 				System.out.println("Same Weapon Length, basing it on Attack TIme");
 				//related to attack time	
 				if(player.getAttack().getTime() <= opponent.getAttack().getTime()) {//player goes first
 					System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
-					
+
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 					finishCombat(player, opponent, cheating, view);
-					
+
 					if(opponent.alive){
 						finishCombat(opponent, player, cheating, view);
 					}
-					
+
 				}else{//oponnent goes first	
 					System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
-					
+
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
 					finishCombat(opponent, player, cheating, view);
-					
+
 					if(player.alive){
 						finishCombat(player, opponent, cheating, view);
 					}
 				}
 			}
-	
-		}else if(player.getAttack() == null){//only opponent is attacking
+
+		}else if(opponent.getAttack() != null){//only opponent is attacking
 			finishCombat(opponent, player, cheating, view);
-		}else{//only player is attacking
+		}else if(player.getAttack() != null){//only player is attacking
 			finishCombat(player, opponent, cheating, view);
+		}else{//no combat
+			player.getProfile().setFoughtToday(true);
+			opponent.getProfile().setFoughtToday(true);
+			System.out.println("Cancelled Combat");
+			return;
 		}
-		//fastest fellow hits first in subsequent rounds(if equal it is weapon length)
-		//COPY IT FORMM WHEN WEPONLENGTH IS SAME
-		
-		//if effortThisRound > 1 he must TODO second step fatigue one effort worth of actionchit
-		
-		//reset at end of round			CHANGE WHEN MULTI ROUND
-		player.effortThisRound = 0;
-		opponent.effortThisRound = 0;
-	
-		
-		
-		
-		
-		
-		
-		
+
+		endOfRound(player, opponent);
+		//end OF ROUND1
+
+		//Start next round of combat
+		//Multiple rounds, ends when 1 dead or both choose do nothing
+		while(player != null && opponent != null) {
+			//choose gear
+			view.selectFightGear(player);
+			view.selectFightGear(opponent);
+
+			if(player.getAttack() == null && opponent.getAttack() == null){	//both want combat to stop
+				player.getProfile().setFoughtToday(true);
+				opponent.getProfile().setFoughtToday(true);
+				System.out.println("Cancelled Combat");
+				return;
+			}else{
+				//fastest fellow hits first in subsequent rounds(if equal it is weapon length)
+				if(player.getAttack() != null && opponent.getAttack() != null){
+					//who goes first?
+					//faster attack time
+					//	attack time=time on Fight chit
+
+					if(player.getAttack().getTime() < opponent.getAttack().getTime()){//player goes first	
+						System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
+
+						//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+						finishCombat(player, opponent, cheating, view);
+
+						if(opponent.alive){
+							finishCombat(opponent, player, cheating, view);
+						}
+
+						//if the opponent has faster time
+					}else if(player.getAttack().getTime() > opponent.getAttack().getTime()){	
+						System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
+
+						//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+						finishCombat(opponent, player, cheating, view);
+
+						if(player.alive){
+							finishCombat(player, opponent, cheating, view);
+						}
+
+						//both have same time	
+					}else{
+						System.out.println("Same Attack TIme, based on Weapon Length");
+						//related to weapon length
+						if(player.getProfile().getWeapon().weaponLength >= opponent.getProfile().getWeapon().weaponLength) {//player goes first
+							System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
+
+							//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+							finishCombat(player, opponent, cheating, view);
+
+							if(opponent.alive){
+								finishCombat(opponent, player, cheating, view);
+							}
+
+						}else{//oponnent goes first	
+							System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
+
+							//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
+							finishCombat(opponent, player, cheating, view);
+
+							if(player.alive){
+								finishCombat(player, opponent, cheating, view);
+							}
+						}
+					}
+
+				}else if(opponent.getAttack() != null){//only opponent is attacking
+					finishCombat(opponent, player, cheating, view);
+				}else if(player.getAttack() != null){//only player is attacking
+					finishCombat(player, opponent, cheating, view);
+				}else{//no combat, should never be reached since it would have been caught earlier
+					System.out.println("ERRORCancelled CombatERROR");
+					return;
+				} 
+			}
+			endOfRound(player, opponent);
+		}
+
 		//set true so they don't fight again today, will be reset in CHaracter.resetFIght() at the beginning of each day
 		player.getProfile().setFoughtToday(true);
 		opponent.getProfile().setFoughtToday(true);
-		//restore all action chits for next day done in Character.resetFight()
 		
 		System.out.println("Fight FInished");
 	}
 
-	
+
+	private static void endOfRound(Player player, Player opponent) {
+		//if effortThisRound > 1 he must fatigue one effort worth of action chits
+		if(player.effortThisRound > 1){
+			GUI.selectFatigue(player);
+		}
+		if(opponent.effortThisRound > 1){
+			GUI.selectFatigue(opponent);
+		}
+		
+		//reset at end of round			
+		player.effortThisRound = 0;
+		opponent.effortThisRound = 0;
+		player.resetFightGear();
+		opponent.resetFightGear();
+	}
+
+
 	//will determine if attack hits and remove the effort needed
 	private static void finishCombat(Player attacker, Player defender, boolean cheating, GUI view) {
 		//max of 2 effort per round, if higher it is cancelled

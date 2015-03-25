@@ -502,5 +502,17 @@ public class Player {
 		}
 		
 	}
+	
+	//reset at end of round to not confuse next round
+	public void resetFightGear() {
+		//put the directions and values to normal
+		this.setCombatAttackDirection(null);
+		this.setAttack(null);
+		
+		this.setShieldDirection(null);
+		
+		this.setEvadeDirection(null);
+		this.setEvade(null);
+	}
 
 }

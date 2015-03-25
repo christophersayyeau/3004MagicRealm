@@ -1517,4 +1517,9 @@ public class GUI implements MouseListener{
 		//DIsplay Message to user
 		JOptionPane.showMessageDialog(null, message);		
 	}
+
+	public static void selectFatigue(Player person) {
+		// TODO Since effort is 2 then need to fatigue 1 effort worth of action Chits
+		
+	}
 }
