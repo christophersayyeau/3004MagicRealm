@@ -2,6 +2,9 @@ package Control;
 
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import View.GUI;
@@ -13,9 +16,11 @@ public class Client implements Runnable{
 	Scanner INPUT;
 	Scanner SEND = new Scanner(System.in);
 	PrintWriter OUT;
+	Player player;
 	
-	public Client(Socket X){
+	public Client(Socket X, Player p){
 		this.SOCK = X;
+		this.player = p;
 	}
 	
 	@Override
@@ -69,7 +74,10 @@ public class Client implements Runnable{
 			{
 				//StartGame();
 			}
-			
+			else if(MESSAGE.contains("ChooseChar"))
+			{
+				createPlayer(MESSAGE);
+			}
 		}
 	}
 	
@@ -78,6 +86,27 @@ public class Client implements Runnable{
 	{
 		OUT.println(/*UserName + ": " +*/ X);
 		OUT.flush();
+	}
+	
+	public void createPlayer(String message){
+		/*List<String> n = new ArrayList<String>();
+		
+		String s = (message.substring(message.indexOf(";")+ 1));
+		s = s.replace("[", "");
+		s = s.replace("]", "");
+		s = s.replace(" ", "");
+
+		n = Arrays.asList(s.split(","));
+		
+		/*for(int x=0; x < n.size(); ++x){
+			GUI.possibilities[x] = n.get(x);
+		}
+		*/
+		String s = GUI.displayMessage("Please select a different character.");
+		player = null;
+		player = new Player(GUI.createPlayer());
+		
+		SEND("AddPlayer:"+ player.getProfile().getType());
 	}
 }
 

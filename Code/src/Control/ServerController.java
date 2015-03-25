@@ -53,7 +53,9 @@ public class ServerController implements Runnable{
 				{
 					CheckConnection();
 					
-					if(!INPUT.hasNext()) { return;}
+					if(!INPUT.hasNext()) {
+						System.out.println(!INPUT.hasNext());
+						return;}
 					
 					MESSAGE = INPUT.nextLine();
 					
@@ -73,7 +75,9 @@ public class ServerController implements Runnable{
 			}
 			finally
 			{
+				System.out.println("Closing SOcket");
 				SOCK.close();
+				System.exit(-1);
 			}
 		}
 		catch(Exception X) { System.out.print(X);}
@@ -86,7 +90,16 @@ public class ServerController implements Runnable{
 		}
 		else if(message.contains("AddPlayer"))
 		{
-			CurrentPlayers.add(new Player(message.substring(message.indexOf(":"))));
+			String c = (message.substring(message.indexOf(":")+1));
+			for(int i=0; i < CurrentPlayers.size(); ++i)
+			{
+				if(CurrentPlayers.get(i).getProfile().getType().equals(c))
+				{
+					OUT.println("ChooseChar:");
+					OUT.flush();
+				}
+			}
+			CurrentPlayers.add(new Player(c));
 		}
 	}
 }
