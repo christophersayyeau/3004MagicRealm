@@ -26,9 +26,14 @@ import Model.MapChits.*;
 import Model.MapTiles;
 
 public class GUI implements MouseListener{
-	static String serverIP = "172.17.135.218";
+	
 	Game game;
-	Map map;
+	private Map map;
+	public Map getMap(){
+		return map;
+	}
+	
+	static String serverIP = "172.17.135.218";
 	static Client client;
 	static Player player;
 	
@@ -1269,7 +1274,7 @@ public class GUI implements MouseListener{
 	 * into position in arrays
 	 * ie: tile 8 clearing 5 becomes 7 2
 	 */
-	public int[] convertNameToPosition(String q []){
+	public static int[] convertNameToPosition(String q []){
 		int pos[] = new int[2];
 		pos[0] = Integer.parseInt(q[0]) - 1;//decrease the tile umber
 		

@@ -34,10 +34,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
 			
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(player, opponent, cheating);
+				finishCombat(player, opponent, cheating, view);
 				
 				if(opponent.alive){
-					finishCombat(opponent, player, cheating);
+					finishCombat(opponent, player, cheating, view);
 				}
 			
 			//if the opponent has longer reach
@@ -45,10 +45,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
 				
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(opponent, player, cheating);
+				finishCombat(opponent, player, cheating, view);
 			
 				if(player.alive){
-					finishCombat(player, opponent, cheating);
+					finishCombat(player, opponent, cheating, view);
 				}
 				
 			//both have same length	
@@ -59,28 +59,28 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
 					
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(player, opponent, cheating);
+					finishCombat(player, opponent, cheating, view);
 					
 					if(opponent.alive){
-						finishCombat(opponent, player, cheating);
+						finishCombat(opponent, player, cheating, view);
 					}
 					
 				}else{//oponnent goes first	
 					System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
 					
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(opponent, player, cheating);
+					finishCombat(opponent, player, cheating, view);
 					
 					if(player.alive){
-						finishCombat(player, opponent, cheating);
+						finishCombat(player, opponent, cheating, view);
 					}
 				}
 			}
 	
 		}else if(player.getAttack() == null){//only opponent is attacking
-			finishCombat(opponent, player, cheating);
+			finishCombat(opponent, player, cheating, view);
 		}else{//only player is attacking
-			finishCombat(player, opponent, cheating);
+			finishCombat(player, opponent, cheating, view);
 		}
 		//fastest fellow hits first in subsequent rounds(if equal it is weapon length)
 		//COPY IT FORMM WHEN WEPONLENGTH IS SAME
@@ -108,7 +108,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 	
 	//will determine if attack hits and remove the effort needed
-	private static void finishCombat(Player attacker, Player defender, boolean cheating) {
+	private static void finishCombat(Player attacker, Player defender, boolean cheating, GUI view) {
 		//max of 2 effort per round, if higher it is cancelled
 		if(attacker.effortThisRound+attacker.getAttack().getEffort() <= 2){
 			//does the defender try and evade and does he have the juice for it
@@ -118,7 +118,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				if(attacker.getAttack().getTime() < defender.getEvade().getTime()){//if it undercuts
 					
 					//if attack time lower then maneuver time it undercuts and autohits
-					attackHits(attacker, defender, cheating);				
+					attackHits(attacker, defender, cheating, view);				
 		
 				}else{
 					//attacktime equal or larger
@@ -129,7 +129,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 							attacker.getCombatAttackDirection().compareTo("Smash")==0 	&& defender.getEvadeDirection().compareTo("Duck")==0	){
 											
 						//manage to hit the defener while he tries to dodge
-						attackHits(attacker, defender, cheating);
+						attackHits(attacker, defender, cheating, view);
 		
 					}else{
 						//Dosn't intercept
@@ -146,7 +146,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		
 			}else{
 				//defender isn't menauvering or is too tired
-				attackHits(attacker, defender, cheating);	
+				attackHits(attacker, defender, cheating, view);	
 			}
 			//increase this value so you only use to this day
 			attacker.effortThisRound += attacker.getAttack().getEffort();
@@ -158,7 +158,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 	}
 
 	//attack has hit target, now resolve damage
-	private static void attackHits(Player attacker, Player defender, boolean cheating) {
+	private static void attackHits(Player attacker, Player defender, boolean cheating, GUI view) {
 		//simplify process by getting harm level now
 		Harm weaponHarm;
 		if(attacker.getProfile().getWeapon().alerted){
@@ -327,7 +327,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			//damages the defender, compare to defender's toughness
 			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
 				System.out.println("Player dead");
-				killPlayer(defender);
+				killPlayer(defender, view);
 								
 			}else{
 				//if harm less then vulnerability but more than negligable suffers a wound
@@ -355,7 +355,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					//if they are all less then 1
 					if(defender.getProfile().action1Num < 1 && defender.getProfile().action2Num < 1 && defender.getProfile().action3Num < 1 ){
 						System.out.println("Player dead");
-						killPlayer(defender);			
+						killPlayer(defender, view);			
 					}
 				}
 			}	
@@ -365,10 +365,24 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 	}
 
 
-	private static void killPlayer(Player defender) {
-		//TODO kill character, remove from all arrays he is a part of, then dispose of his window
-		//where is he stored? clearing, tile, map, game, server, client?
+	private static void killPlayer(Player defender, GUI view) {
+		//kill character, remove from all arrays he is a part of, then dispose of his window
+		GUI.combatMessage("YOU ARE DEAD XO /n Now Removing You From Game");
 		
+		//Removing from objects
+		String[] pos = new String[2];
+		int currentTile 	= defender.getCurrentLocation()/10;
+		int currentClearing = defender.getCurrentLocation()%10;
+		pos[0] = Integer.toString(currentTile);
+		pos[1] = Integer.toString(currentClearing);
+		int[] temp = new int[2];
+		temp = GUI.convertNameToPosition(pos);
+		
+		view.getMap().getClearing(temp[0], temp[1]).removePlayer(defender);	//clearing
+		view.getMap().getMapTile(temp[0]).removePlayer(defender);			//tile
+		
+		//removing from sockets
+		//TODO remove player from client, server and serverController, then close his window
 	}
 	
 }
