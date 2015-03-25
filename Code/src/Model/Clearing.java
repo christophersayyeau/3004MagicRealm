@@ -41,10 +41,10 @@ public class Clearing {
 	
 	public void removePlayer(Player player1) {
 		//playersInClearing = null;	
-//TODO check to see if removePlayer works now	
+//TODO removePlayer from clearing still doesn't work, 
 //System.out.println("Removing " + player1 + " from array " + playersInClearing + ", which is currently in position " + ArrayUtils.indexOf(player1, playersInClearing));
 		playersInClearing = (Player[]) ArrayUtils.remove(playersInClearing, ArrayUtils.indexOf(player1, playersInClearing));
-		this.numPLayersInClearing--;		
+		this.numPLayersInClearing--;
 	}
 
 	public void putDenizen(Denizen monster) {

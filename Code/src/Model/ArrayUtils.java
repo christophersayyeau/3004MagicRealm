@@ -1,7 +1,6 @@
 package Model;
 
 import java.lang.reflect.Array;
-
 import Control.Player;
 
 //taken from ArrayUtils library, one modification to code
@@ -20,6 +19,8 @@ public class ArrayUtils {
 		Object result = Array.newInstance(array.getClass().getComponentType(), length );//don't make array smaller		
 		System.arraycopy(array, 0, result, 0, index);	    
 		if (index < length - 1) {	    
+			//TODO revert back to System.arraycopy(array, index + 1, result, index, length - index - 1);	
+			//if it doesn't work
 			System.arraycopy(array, index + 1, result, index, length - index - 1);		    
 		}		       
 		return result;		
