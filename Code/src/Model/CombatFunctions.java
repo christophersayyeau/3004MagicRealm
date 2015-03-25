@@ -3,6 +3,7 @@ package Model;
 import javax.swing.JOptionPane;
 
 import Model.Armor.Protect;
+import Model.MapChits.PlayerDrop;
 import View.GUI;
 import Control.Player;
 
@@ -366,10 +367,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 
 	private static void killPlayer(Player defender, GUI view) {
-		//kill character, remove from all arrays he is a part of, then dispose of his window
-		GUI.combatMessage("YOU ARE DEAD XO /n Now Removing You From Game");
-		
-		//Removing from objects
+		//Current Location
 		String[] pos = new String[2];
 		int currentTile 	= defender.getCurrentLocation()/10;
 		int currentClearing = defender.getCurrentLocation()%10;
@@ -378,10 +376,22 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		int[] temp = new int[2];
 		temp = GUI.convertNameToPosition(pos);
 		
+		//kill character, remove from all arrays he is a part of, then dispose of his window
+		GUI.combatMessage("YOU ARE DEAD XO /n Now Removing You From Game");
+		
+		//Create treasure pile out of his stuff
+		MapChits temporary = new MapChits();
+		PlayerDrop drop = temporary.new PlayerDrop(temp[1], defender.getProfile());
+		view.getMap().getMapTile(temp[0]).putPlayerDrop(drop);
+		
+		//TODO give fame to attacker, possibly treasure, emailed Prof awaiting answer
+		
+		//now get rid of player
+		//Removing from model
 		view.getMap().getClearing(temp[0], temp[1]).removePlayer(defender);	//clearing
 		view.getMap().getMapTile(temp[0]).removePlayer(defender);			//tile
 		
-		//removing from sockets
+		//removing from Controller
 		//TODO remove player from client, server and serverController, then close his window
 	}
 	

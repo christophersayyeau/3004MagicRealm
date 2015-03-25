@@ -1,5 +1,7 @@
 package Model;
 
+import CharacterProfiles.Character;
+
 public class MapChits {
 
 	public int clearing = -1;//number value on chit tells location
@@ -55,4 +57,16 @@ public class MapChits {
 	 5"W" put on 5 woods tiles(Linden Woods, Maple Woods, Nut Woods, Oak Woods, Pine Woods)	 
 	 
 	 */
+	//This will represent character drop when he dies
+	public class PlayerDrop extends MapChits {
+		public PlayerDrop(int location, Character profile){
+			clearing = location;
+			found = true;		//visible
+			
+			/*drop armor
+			drop weapon
+			drop treasure*/
+			//TODO either stuff is dropped or it is given directly to attacker, emailed Prof awaiting answer
+		}
+	}
 }

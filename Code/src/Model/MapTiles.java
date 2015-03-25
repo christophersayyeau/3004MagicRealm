@@ -2,20 +2,17 @@ package Model;
 
 import Control.Player;
 import Model.Clearing;
-import Model.MapChits.GoldChit;
-import Model.MapChits.RedChit;
-import Model.Denizen.*;
 import Model.MapChits.*;
+import Model.Denizen.*;
 
 public class MapTiles {
 	
-	
-
 	public Clearing [] clearing;
 	
 	//overall class, will create subclasses based on tiles
 	Player[] playersInTile = new Player[0];//for know it is a single value, this will need to c\be changed
-
+	private PlayerDrop[] playerDrop = new PlayerDrop[0];
+	
 	public Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInTile = 0;
 	
@@ -61,6 +58,10 @@ public class MapTiles {
 		this.type = type;
 	}
 	
+	public void putPlayerDrop(PlayerDrop drop) {
+		//playersInTile = player1;
+		playerDrop = ArrayUtils.add(playerDrop, drop);
+	}
 	
 	public void putPlayer(Player player1) {
 		//playersInTile = player1;
