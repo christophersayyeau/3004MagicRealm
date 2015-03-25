@@ -33,11 +33,10 @@ public class GUI implements MouseListener{
 		return map;
 	}
 	
-	static String serverIP = "172.17.135.218";
+	static String serverIP = "172.17.133.128";
 	static Client client;
-	static Player player;
 	
-	static String[] possibilities = new String[6];
+	public static String[] possibilities = new String[6];
 	
 	Boolean move = false;
 	boolean pause = false;
@@ -85,13 +84,13 @@ public class GUI implements MouseListener{
 			System.out.println("You connected to: " + HOST);
 			avaiableChars(SOCK);
 			String s = createPlayer();
-			player = new Player(s);
+			Player player = new Player(s);
 			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
 			OUT.println("AddPlayer:" + player.getProfile().getType());
 			OUT.flush();
 			
-			client = new Client(SOCK);
+			client = new Client(SOCK, player);
 			
 			Thread X = new Thread(client);
 			X.start();			
@@ -1510,11 +1509,15 @@ public class GUI implements MouseListener{
 		}
 		System.out.println(s);
 		System.out.println(possibilities);
-		INPUT.close();
 	}
 
 	public static void combatMessage(String message) {
 		//DIsplay Message to user
 		JOptionPane.showMessageDialog(null, message);		
+	}
+	
+	public static String displayMessage(String message){
+		JOptionPane.showMessageDialog(null, message);
+		return "";
 	}
 }

@@ -67,7 +67,7 @@ public class Server {
 			
 			InetAddress.getLocalHost();
 			System.out.print(InetAddress.getLocalHost());
-			ServerGUI.showServerIP(""+InetAddress.getLocalHost());
+			//ServerGUI.showServerIP(""+InetAddress.getLocalHost());
 			
 			while(true)
 			{
@@ -78,7 +78,7 @@ public class Server {
 				OUT.println(characters);
 				OUT.flush();
 			
-				System.out.println("Client connected from: " + SOCK.getLocalAddress().getHostName());
+				//System.out.println("Client connected from: " + SOCK.getLocalAddress().getHostName());
 				
 				//AddPlayer(SOCK);
 				
@@ -94,7 +94,6 @@ public class Server {
 	public static String AddPlayer(Socket X) throws IOException
 	{
 		Scanner INPUT = new Scanner(X.getInputStream());
-		//while(!INPUT.hasNext()){}
 		String s = INPUT.nextLine();
 		Player player = new Player(s);
 		CurrentPlayers.add(player);
@@ -107,7 +106,6 @@ public class Server {
 			OUT.println("#?!"+ CurrentPlayers);
 			OUT.flush();
 		}
-		INPUT.close();
 		return player.getProfile().getType();
 	}
 	
