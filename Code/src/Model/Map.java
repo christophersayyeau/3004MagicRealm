@@ -260,15 +260,15 @@ public class Map {
 	private void buildTreasureChits() {
 		MapChits temp = new MapChits();
 		
-		//assign values to treasure					//tiles in normal mode
-		sites[0] = temp.new GoldChit("STATUE", 2);	//lost castle
-		sites[1] = temp.new GoldChit("HOARD", 6);	//lost castle
-		sites[2] = temp.new GoldChit("ALTAR", 1);	//lost city
-		sites[3] = temp.new GoldChit("LAIR", 3);	//lost city
-		sites[4] = temp.new GoldChit("VAULT", 3);	//cliff
-		sites[5] = temp.new GoldChit("CAIRNS", 5);	//deepWoods
-		sites[6] = temp.new GoldChit("POOL", 6);	//cavern
-		sites[7] = temp.new GoldChit("SHRINE", 4);	//mountain
+		//assign values to treasure							//tiles in normal mode
+		sites[0] = temp.new GoldChit("STATUE", 2, this);	//lost castle
+		sites[1] = temp.new GoldChit("HOARD", 6, this);		//lost castle
+		sites[2] = temp.new GoldChit("ALTAR", 1, this);		//lost city
+		sites[3] = temp.new GoldChit("LAIR", 3, this);		//lost city
+		sites[4] = temp.new GoldChit("VAULT", 3, this);		//cliff
+		sites[5] = temp.new GoldChit("CAIRNS", 5, this);	//deepWoods
+		sites[6] = temp.new GoldChit("POOL", 6, this);		//cavern
+		sites[7] = temp.new GoldChit("SHRINE", 4, this);	//mountain
 		
 	}
 
@@ -702,6 +702,16 @@ public class Map {
 						}else{
 							System.out.println("EROR in reseting the GHosts");
 						}*/
+	}
+
+	public Treasure randomSmallTreasure() {
+		// TODO go through all small treasures that haven't been picked yet then pick one
+		return null;//return a treasure
+	}
+
+	public Treasure randomLargeTreasure() {
+		// TODO go through all large treasures that haven't been picked yet then pick one
+		return null;	//return a treasure
 	}
 
 }

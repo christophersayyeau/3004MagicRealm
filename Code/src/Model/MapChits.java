@@ -16,7 +16,7 @@ public class MapChits {
 		int lgTreasures = 0;
 		
 		//constructor
-		public GoldChit(String word, int spot){
+		public GoldChit(String word, int spot, Map map){
 			clearing = spot;
 			type = word;
 
@@ -53,10 +53,10 @@ public class MapChits {
 			//better stuff will be at end of array
 			shinies = new Treasure[0];
 			for(int a = 0; a < smallTreasures; a++){
-				shinies = ArrayUtils.add(shinies, );TODO add treasure to array
+				shinies = ArrayUtils.add(shinies, map.randomSmallTreasure());
 			}
 			for(int a = 0; a < lgTreasures; a++){
-				shinies = ArrayUtils.add(shinies, );
+				shinies = ArrayUtils.add(shinies, map.randomLargeTreasure());
 			}
 
 		}
