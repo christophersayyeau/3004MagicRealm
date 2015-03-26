@@ -93,13 +93,25 @@ public class Character {
 	
 	//following used for final score
 	public int getGreatTreasure() {
-		return 0;	//returns the total number of great treasures not their value
+		//returns total number of greatTreasures
+		int num = 0;
+		for(int a=0; a< belongings.length; a++){
+			//if(belongins[a].greatTreasure)//TODO count total number of great treasures not their value
+				num++;
+		}
+		return num;	
 	}
 	public int getFame() {
 		return fame;
 	}
+	public void setFame(int newFame){
+		fame = newFame;
+	}
 	public int getNotoriety() {
 		return notoriety;
+	}
+	public void setNotoriety(int newNotoriety){
+		notoriety = newNotoriety;
 	}
 	public int getGold() {
 		return gold;
@@ -107,6 +119,7 @@ public class Character {
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	
 	public void resetFight() {
 		foughtToday = false;
 		

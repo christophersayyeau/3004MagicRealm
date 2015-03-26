@@ -11,7 +11,7 @@ public class MapChits {
 
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
-		public Items [] shinies;
+		public Treasure [] shinies;
 		
 		//constructor
 		public GoldChit(String word, int spot){
@@ -19,7 +19,8 @@ public class MapChits {
 			type = word;
 
 			//this will hold all treasures contained
-			shinies = new Items[0];//TODO secondStep, fill with treasure, see playerDrop below
+			shinies = new Treasure[0];
+			//TODO secondStep, fill with treasure, see playerDrop below
 		}
 	}
 

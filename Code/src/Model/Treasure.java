@@ -8,12 +8,13 @@ public class Treasure extends Items
 	boolean Gt_Treasure;
 	boolean Lg_Treasure;
 	
-	int fame_value;
-	int notoriety_value;
-	int gold_price;
-	int intact_price;
-	int damaged_price;
-	int destroyed_price;
+	//filled with garbage values standard
+	public int fame_value = -1;
+	public int notoriety_value = -1;
+	public int gold_price = -1;
+	int intact_price = -1;
+	int damaged_price = -1;
+	int destroyed_price = -1;
 	
 	//Armor
 	public class Suit_of_Armor extends Treasure

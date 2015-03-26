@@ -225,7 +225,7 @@ public class Player {
 						//if you roll over the number of treasures there you get nothing
 						int result = Die.dieRoll();
 						switch (result){															//TODO also could be a playerdrop here
-							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO second step, treasure stuff this function declariation nneeds work
+							case 1:  	map.giveWholeTreasure(this, map.getMapTile(currentTile).treasure);//TODO second step, treasure stuff this function declariation nneeds work
 							break;
 	//						case 2:  	2nd//since there is only going to be one treasure
 	//						break;
@@ -383,7 +383,7 @@ public class Player {
 								//if you roll over the number of treasures there you get nothing
 								int result = Die.dieRollCheat();
 								switch (result){
-									case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);
+									case 1:  	map.giveWholeTreasure(this, map.getMapTile(currentTile).treasure);
 									break;
 			//						case 2:  	2nd//TODO second step, need to differentiate between contents of treasure
 			//						break;

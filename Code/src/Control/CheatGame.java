@@ -43,7 +43,7 @@ public class CheatGame extends Game {
 		System.out.println("STARTING THE CHEAT GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){
-			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position, TODO test if characters appear in Inn			
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position, TODO testing, if characters appear in Inn			
 		}
 		
 		//update GUI for all players

@@ -314,7 +314,7 @@ public class Map {
 		pos[0] = Integer.toString(currentTile);
 		pos[1] = Integer.toString(currentClearing);
 		int[] temp = new int[2];
-		temp = view.convertNameToPosition(pos);
+		temp = GUI.convertNameToPosition(pos);
 		
 		//make sure they exist in tile
 		getMapTiles()[temp[0]].putPlayer(player1);
@@ -336,7 +336,7 @@ public class Map {
 		
 			pos[0] = Integer.toString(newTile);
 			pos[1] = Integer.toString(newClearing);
-			temp = view.convertNameToPosition(pos);
+			temp = GUI.convertNameToPosition(pos);
 		
 			//add player to new tile
 			getMapTiles()[temp[0]].putPlayer(player1);
@@ -422,11 +422,20 @@ public class Map {
 	}
 	
 	
-	public void giveTreasure(Player player, GoldChit treasure) {
+	public void giveWholeTreasure(Player player, GoldChit treasure) {
 		//give the treasure values to the player
-		// TODO second part fix this treasure stuff 
-		System.out.println("He got treasure");
-		player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
+		//put all the treasures in his belongings
+		for(int a = 0; a< treasure.shinies.length; a++){
+			player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, treasure.shinies[a]);
+			
+			//increase the other values based on value of treasure
+			player.getProfile().setFame(player.getProfile().getFame() +  treasure.shinies[a].fame_value);
+			player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  treasure.shinies[a].notoriety_value);
+			player.getProfile().setGold(player.getProfile().getGold()  +  treasure.shinies[a].gold_price);
+		}
+		
+		System.out.println("Player got treasure");
+		//player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
 	
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
@@ -442,7 +451,7 @@ public class Map {
 		pos[0] = Integer.toString(currentTile);
 		pos[1] = Integer.toString(currentClearing);
 		int[] temp = new int[2];
-		temp = view.convertNameToPosition(pos);
+		temp = GUI.convertNameToPosition(pos);
 		
 		view.updateMap(this);
 		
