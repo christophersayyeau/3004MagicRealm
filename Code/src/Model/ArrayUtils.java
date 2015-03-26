@@ -21,8 +21,8 @@ public class ArrayUtils {
 		if (index < length - 1) {	    
 			//TODO revert back to System.arraycopy(array, index + 1, result, index, length - index - 1);	
 			//if it doesn't work
-			System.arraycopy(array, index + 1, result, index, length - index - 1);		    
-		}		       
+			System.arraycopy(array, index + 1, result, 0, length - index - 1);		    
+		}
 		return result;		
 	}
 

@@ -313,15 +313,16 @@ public class Map {
 		int[] temp = new int[2];
 		temp = GUI.convertNameToPosition(pos);
 		
+		//TODO putPlayer being called twice in the function and only being removed once
 		//make sure they exist in tile
+		System.out.println("Put player being called");		
 		getMapTiles()[temp[0]].putPlayer(player1);
 		getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
 		
 		if(newLocation > 0){
 			//remove from old tile
-			getMapTiles()[temp[0]].removePlayer(player1);
 			getMapTiles()[temp[0]].clearing[temp[1]].removePlayer(player1);
-		
+			getMapTiles()[temp[0]].removePlayer(player1);
 	
 			//change the profile value
 		

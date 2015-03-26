@@ -40,6 +40,7 @@ public class Clearing {
 	
 	
 	public void removePlayer(Player player1) {
+		System.out.println("The remove players in clearing function has been called");
 		//playersInClearing = null;	
 //TODO removePlayer from clearing still doesn't work, 
 //System.out.println("Removing " + player1 + " from array " + playersInClearing + ", which is currently in position " + ArrayUtils.indexOf(player1, playersInClearing));
