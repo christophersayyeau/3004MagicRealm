@@ -7,7 +7,7 @@ public class MapChits {
 	public int clearing = -1;//number value on chit tells location
 	public String type;
 	
-	public boolean found = false;//treasures not found until serach table
+	public boolean found = false;//treasures not found until search table
 
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
@@ -63,10 +63,11 @@ public class MapChits {
 			clearing = location;
 			found = true;		//visible
 			
+			
 			/*drop armor
 			drop weapon
 			drop treasure*/
-			//TODO make one pile of treasure that can be searched for
+			//TODO secondStep, make one pile of treasure that can be searched for
 		}
 	}
 }

@@ -504,8 +504,146 @@ public class Player {
 	}
 	
 	public void choiceOfFatigueWoundChits(String response, boolean fatigue) {//if fatigue is true then only fatigue the chosen chit, if false wound it
-		//TODO second step, wound and fatigue change this to almost identical version with minor change player.choiceOfActiveChits((String)response);						
+		System.out.println("FATIGUE/WOUND this chit: " + response);
+		//wound and fatigue change						
+		if(profile.getType().compareTo("Amazon") == 0){
+			//interpret response	Fight:  Time 4,  Effort 1,	Strength 1
+			switch(response){
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Move:  Time 3, Effort 1, Strength 1":	//31M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue); 
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("BlackKnight") == 0){
+			switch(response){
+			case "Move:  Time 4, Effort 2, Strength 2":		//42H					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 4, Effort 2, Strength 2":	//42H					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Fight:  Time 3, Effort 2, Strength 1":	//32M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue); 
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Captain") == 0){
+			switch(response){
+			case "Move:  Time 4, Effort 1, Strength 1":	//41M					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 6, Effort 0, Strength 2":	//60H					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Fight:  Time 4, Effort 1, Strength 1":	//41M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue); 
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Dwarf") == 0){
+			switch(response){
+			case "Move:  Time 5, Effort 2, Strength 3":	//42T					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 5, Effort 2, Strength 3":	//52T					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Fight:  Time 5, Effort 1, Strength 3":	//51T
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue); 
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Elf") == 0){
+			switch(response){
+			case "Move:  Time 4, Effort 0, Strength 1":	//40M					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 3, Effort 1, Strength 1":	//31M					
+				//set the values for your attack
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Fight:  Time 4, Effort 0, Strength 1":	//40M
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue); 
+				break;
+			}
+			
+		}else if(profile.getType().compareTo("Swordsman") == 0){
+			switch(response){
+			case "Fight:  Time 4, Effort 0, Strength 0":	//40L					
+				//set the values for your attack
+				this.setAttack(profile.action1);
+				profile.action1Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action1, fatigue); 
+				break;
+			case "Fight:  Time 5, Effort 0, Strength 1":	//50M
+				this.setAttack(profile.action2);
+				profile.action2Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action2, fatigue); 
+				break;
+			case "Fight:  Time 2, Effort 2, Strength 0":	//22L
+				this.setAttack(profile.action3);
+				profile.action3Num--;	//lower the num of action# since you can only use it once a day
+				increaseFatigueWound(profile.action3, fatigue);
+				break;	
+			}
+			
+		}else{
+			System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
+		}
 		
+		System.out.println("There are " + (profile.action1Num+profile.action2Num+profile.action3Num) + " possible moves available");
+	}
+	
+	private void increaseFatigueWound(CombatChit action, boolean fatigue) {
+		if(fatigue){//fatigue the action
+			action.fatigued++;
+		}else{		//wound the action
+			action.wounded++;
+		}	
 	}
 	
 	//reset at end of round to not confuse next round

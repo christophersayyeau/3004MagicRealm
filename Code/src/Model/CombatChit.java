@@ -16,6 +16,10 @@ public class CombatChit {
 	//strength of action L,M,H
 	private int strength = -1;
 	
+	//whether they are hurt or tired
+	public int fatigued = 0;	//the number of this type of chit that is tired
+	public int wounded = 0;
+	
 	public void setType(String string) {
 		//compare the strings to determine what it is
 /*		if(string.compareTo("Move") == 0){
