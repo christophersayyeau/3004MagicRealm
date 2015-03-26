@@ -19,6 +19,7 @@ import Control.Game;
 import Control.Player;
 import Model.ArrayUtils;
 import Model.Clearing;
+import Model.CombatChit;
 import Model.MapChits;
 import Model.Denizen.*;
 import Model.Map;
@@ -1516,13 +1517,26 @@ public class GUI implements MouseListener{
 		JOptionPane.showMessageDialog(null, message);		
 	}
 
-	public static void selectFatigue(Player person) {
-		// TODO Since effort is 2 then need to fatigue 1 effort worth of action Chits
+	public static String selectFatigue(Player person) {
+		//Since effort is 2 then need to fatigue 1 effort worth of action Chits
+		//FIrst get the active ones
+		String[] options = null;
+		CombatChit.getActiveChits(person, options);
 		
+		//TODO remove the activeChits that have no effort
+		
+		//next ask which one to wound
+		//now ask defender to pick
+		Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Fatigue?",	"Fatiguing",
+				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
+		
+		return (String)response;
 	}
 	
 	public static String displayMessage(String message){
 		JOptionPane.showMessageDialog(null, message);
 		return "";
 	}
+
+	
 }

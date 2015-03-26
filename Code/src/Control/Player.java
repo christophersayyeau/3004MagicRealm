@@ -410,7 +410,7 @@ public class Player {
 	}
 	
 	
-	public void choiceOfActiveChits(String response) {	
+	public void choiceOfActiveChits(String response) {
 		//user picked an action chit based on current active ones
 		//interpret result and set the attack
 		
@@ -500,6 +500,11 @@ public class Player {
 		}else{
 			System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
 		}
+		
+	}
+	
+	public void choiceOfFatigueWoundChits(String response, boolean fatigue) {//if fatigue is true then only fatigue the chosen chit, if false wound it
+		//TODO second step, wound and fatigue change this to almost identical version with minor change player.choiceOfActiveChits((String)response);						
 		
 	}
 	

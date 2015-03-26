@@ -176,10 +176,12 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 	private static void endOfRound(Player player, Player opponent) {
 		//if effortThisRound > 1 he must fatigue one effort worth of action chits
 		if(player.effortThisRound > 1){
-			GUI.selectFatigue(player);
+			String tired = GUI.selectFatigue(player);
+			player.choiceOfFatigueWoundChits(tired, true);
 		}
 		if(opponent.effortThisRound > 1){
-			GUI.selectFatigue(opponent);
+			String tired = GUI.selectFatigue(opponent);
+			opponent.choiceOfFatigueWoundChits(tired, true);
 		}
 		
 		//reset at end of round			
@@ -430,9 +432,8 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 							JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
 
 					//going to seperate based on user type then apply result
-					//TODO second step, wound and fatigue change this to almost identical version with minor change player.choiceOfActiveChits((String)response);
-					
-					
+					//wound this to almost identical version with minor change player.choiceOfActiveChits((String)response);						
+					defender.choiceOfFatigueWoundChits((String)response, false);
 					
 					//Once all action CHits wounded he is killed
 					//if they are all less then 1
