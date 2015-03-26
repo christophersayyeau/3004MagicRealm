@@ -5,7 +5,7 @@ package Model;
  */
 public class Treasure extends Items
 {
-	boolean Gt_Treasure;
+	private boolean Gt_Treasure;
 	boolean Lg_Treasure;
 	
 	//filled with garbage values standard
@@ -15,6 +15,14 @@ public class Treasure extends Items
 	int intact_price = -1;
 	int damaged_price = -1;
 	int destroyed_price = -1;
+	
+	public boolean isGt_Treasure() {
+		return Gt_Treasure;
+	}
+	public void setGt_Treasure(boolean gt_Treasure) {
+		Gt_Treasure = gt_Treasure;
+	}
+	
 	
 	//Armor
 	public class Suit_of_Armor extends Treasure
@@ -97,7 +105,7 @@ public class Treasure extends Items
 	public class League_Boots extends Treasure
 	{
 		public League_Boots(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -108,7 +116,7 @@ public class Treasure extends Items
 	public class Alchemist_Mixture extends Treasure
 	{
 		public Alchemist_Mixture(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -118,7 +126,7 @@ public class Treasure extends Items
 	
 	public class Amulet extends Treasure{
 		public Amulet(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -128,7 +136,7 @@ public class Treasure extends Items
 	
 	public class Ancient_Telescope extends Treasure{
 		public Ancient_Telescope(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -138,7 +146,7 @@ public class Treasure extends Items
 	
 	public class Battle_Bracelets extends Treasure{
 		public Battle_Bracelets(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 2;
 			notoriety_value = 4;
@@ -148,7 +156,7 @@ public class Treasure extends Items
 	
 	public class Beast_Pipes extends Treasure{
 		public Beast_Pipes(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = -5;
 			notoriety_value = 5;
@@ -158,7 +166,7 @@ public class Treasure extends Items
 	
 	public class B_Dwarf_Vest extends Treasure{
 		public B_Dwarf_Vest(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 5;
@@ -168,7 +176,7 @@ public class Treasure extends Items
 	
 	public class Belt_of_Strength extends Treasure{
 		public Belt_of_Strength(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 3;
 			notoriety_value = 6;
@@ -178,7 +186,7 @@ public class Treasure extends Items
 	
 	public class Black_Book extends Treasure{
 		public Black_Book(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = -15;
 			notoriety_value = 15;
@@ -188,7 +196,7 @@ public class Treasure extends Items
 	
 	public class Blasted_Jewel extends Treasure{
 		public Blasted_Jewel(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = false;
 			fame_value = -15;
 			notoriety_value = 15;
@@ -198,7 +206,7 @@ public class Treasure extends Items
 	
 	public class Book_of_Lore extends Treasure{
 		public Book_of_Lore(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = -5;
 			notoriety_value = 10;
@@ -208,7 +216,7 @@ public class Treasure extends Items
 	
 	public class Chest extends Treasure{
 		public Chest(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -218,7 +226,7 @@ public class Treasure extends Items
 	
 	public class Cloak_of_Mist extends Treasure{//TODO
 		public Cloak_of_Mist(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -228,7 +236,7 @@ public class Treasure extends Items
 	
 	public class Cloven_Hoof extends Treasure{
 		public Cloven_Hoof(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = false;
 			fame_value = -20;
 			notoriety_value = 40;
@@ -238,7 +246,7 @@ public class Treasure extends Items
 	
 	public class Crypt_of_the_Knight extends Treasure{
 		public Crypt_of_the_Knight(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -248,7 +256,7 @@ public class Treasure extends Items
 	
 	public class Crystal_Ball extends Treasure{
 		public Crystal_Ball(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 5;
@@ -258,7 +266,7 @@ public class Treasure extends Items
 	
 	public class Deft_Gloves extends Treasure{
 		public Deft_Gloves(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 6;
@@ -268,7 +276,7 @@ public class Treasure extends Items
 	
 	public class Dragon_Essence extends Treasure{
 		public Dragon_Essence(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = -10;
 			notoriety_value = 20;
@@ -278,7 +286,7 @@ public class Treasure extends Items
 	
 	public class Dragonfang_Necklace extends Treasure{
 		public Dragonfang_Necklace(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 12;
@@ -288,7 +296,7 @@ public class Treasure extends Items
 	
 	public class Draught_of_Speed extends Treasure{
 		public Draught_of_Speed(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -298,7 +306,7 @@ public class Treasure extends Items
 	
 	public class Elusive_Cloak extends Treasure{
 		public Elusive_Cloak(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -308,7 +316,7 @@ public class Treasure extends Items
 	
 	public class Elven_Slippers extends Treasure{
 		public Elven_Slippers(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -318,7 +326,7 @@ public class Treasure extends Items
 	
 	public class Enchanted_Meadow extends Treasure{
 		public Enchanted_Meadow(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -328,7 +336,7 @@ public class Treasure extends Items
 	
 	public class Enchanter_Skull extends Treasure{
 		public Enchanter_Skull(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = -10;
 			notoriety_value = 10;
@@ -338,7 +346,7 @@ public class Treasure extends Items
 	
 	public class Eye_of_the_Idol extends Treasure{
 		public Eye_of_the_Idol(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = -5;
 			notoriety_value = 10;
@@ -348,7 +356,7 @@ public class Treasure extends Items
 	
 	public class Eye_of_the_Moon extends Treasure{
 		public Eye_of_the_Moon(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 13;
@@ -358,7 +366,7 @@ public class Treasure extends Items
 	
 	public class Flowers_of_Rest extends Treasure{
 		public Flowers_of_Rest(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -368,7 +376,7 @@ public class Treasure extends Items
 	
 	public class Flying_Carpet extends Treasure{
 		public Flying_Carpet(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 12;
@@ -378,7 +386,7 @@ public class Treasure extends Items
 	
 	public class Garb_of_Speed extends Treasure{
 		public Garb_of_Speed(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 2;
 			notoriety_value = 6;
@@ -388,7 +396,7 @@ public class Treasure extends Items
 	
 	public class Girtle_of_Energy extends Treasure{
 		public Girtle_of_Energy(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 2;
 			notoriety_value = 4;
@@ -398,7 +406,7 @@ public class Treasure extends Items
 	
 	public class Glimmering_Ring extends Treasure{
 		public Glimmering_Ring(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 10;
@@ -408,7 +416,7 @@ public class Treasure extends Items
 	
 	public class Gloves_of_Strength extends Treasure{
 		public Gloves_of_Strength(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 6;
@@ -418,7 +426,7 @@ public class Treasure extends Items
 	
 	public class Glowing_Gem extends Treasure{
 		public Glowing_Gem(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 5;
@@ -428,7 +436,7 @@ public class Treasure extends Items
 	
 	public class Golden_Arm_Band extends Treasure{
 		public Golden_Arm_Band(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -438,7 +446,7 @@ public class Treasure extends Items
 	
 	public class Golden_Crown extends Treasure{
 		public Golden_Crown(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = -15;
@@ -448,7 +456,7 @@ public class Treasure extends Items
 	
 	public class Golden_Icon extends Treasure{
 		public Golden_Icon(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = -10;
 			notoriety_value = 20;
@@ -458,7 +466,7 @@ public class Treasure extends Items
 	
 	public class Good_Book extends Treasure{
 		public Good_Book(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 5;
 			notoriety_value = 5;
@@ -468,7 +476,7 @@ public class Treasure extends Items
 	
 	public class Gripping_Dust extends Treasure{
 		public Gripping_Dust(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -478,7 +486,7 @@ public class Treasure extends Items
 	
 	public class Handy_Gloves extends Treasure{
 		public Handy_Gloves(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 1;
 			notoriety_value = 2;
@@ -488,7 +496,7 @@ public class Treasure extends Items
 	
 	public class Hidden_Ring extends Treasure{
 		public Hidden_Ring(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = -10;
 			notoriety_value = 10;
@@ -498,7 +506,7 @@ public class Treasure extends Items
 	
 	public class Imperial_Tabard extends Treasure{
 		public Imperial_Tabard(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = -10;
@@ -508,7 +516,7 @@ public class Treasure extends Items
 	
 	public class Lost_Keys extends Treasure{
 		public Lost_Keys(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -518,7 +526,7 @@ public class Treasure extends Items
 	
 	public class Lucky_Charm extends Treasure{
 		public Lucky_Charm(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -528,7 +536,7 @@ public class Treasure extends Items
 	
 	public class Magic_Spectacles extends Treasure{//TODO
 		public Magic_Spectacles(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -538,7 +546,7 @@ public class Treasure extends Items
 	
 	public class Magic_Wand extends Treasure{
 		public Magic_Wand(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = -10;
 			notoriety_value = 10;
@@ -548,7 +556,7 @@ public class Treasure extends Items
 	
 	public class Map_of_Lost_Castle extends Treasure{
 		public Map_of_Lost_Castle(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -558,7 +566,7 @@ public class Treasure extends Items
 	
 	public class Map_of_Lost_City extends Treasure{
 		public Map_of_Lost_City(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -568,7 +576,7 @@ public class Treasure extends Items
 	
 	public class Map_of_Ruins extends Treasure{
 		public Map_of_Ruins(){
-			Gt_Treasure = true;
+			setGt_Treasure(true);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -578,7 +586,7 @@ public class Treasure extends Items
 	
 	public class Mouldy_Skeleton extends Treasure{
 		public Mouldy_Skeleton(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -588,7 +596,7 @@ public class Treasure extends Items
 	
 	public class Oil_of_Poison extends Treasure{
 		public Oil_of_Poison(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = true;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -598,7 +606,7 @@ public class Treasure extends Items
 	
 	public class Ointment_of_Bite extends Treasure{
 		public Ointment_of_Bite(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -608,7 +616,7 @@ public class Treasure extends Items
 	
 	public class Ointment_of_Steel extends Treasure{
 		public Ointment_of_Steel(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -618,7 +626,7 @@ public class Treasure extends Items
 	
 	public class Penetrating_Grease extends Treasure{
 		public Penetrating_Grease(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -628,7 +636,7 @@ public class Treasure extends Items
 	
 	public class Phantom_Glass extends Treasure{
 		public Phantom_Glass(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -638,7 +646,7 @@ public class Treasure extends Items
 	
 	public class Potion_of_Energy extends Treasure{
 		public Potion_of_Energy(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -648,7 +656,7 @@ public class Treasure extends Items
 	
 	public class Poultice_of_Health extends Treasure{
 		public Poultice_of_Health(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -658,7 +666,7 @@ public class Treasure extends Items
 	
 	public class Power_Boots extends Treasure{
 		public Power_Boots(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 3;
@@ -668,7 +676,7 @@ public class Treasure extends Items
 	
 	public class Power_Gauntlets extends Treasure{
 		public Power_Gauntlets(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 3;
 			notoriety_value = 4;
@@ -678,7 +686,7 @@ public class Treasure extends Items
 	
 	public class Quick_Boots extends Treasure{
 		public Quick_Boots(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 1;
 			notoriety_value = 2;
@@ -688,7 +696,7 @@ public class Treasure extends Items
 	
 	public class Reflecting_Grease extends Treasure{
 		public Reflecting_Grease(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -698,7 +706,7 @@ public class Treasure extends Items
 	
 	public class Regent_of_Jewels extends Treasure{
 		public Regent_of_Jewels(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 10;
@@ -708,7 +716,7 @@ public class Treasure extends Items
 	
 	public class Remain_of_Thief extends Treasure{
 		public Remain_of_Thief(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -718,7 +726,7 @@ public class Treasure extends Items
 	
 	public class Royal_Sceptre extends Treasure{
 		public Royal_Sceptre(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = -15;
@@ -730,7 +738,7 @@ public class Treasure extends Items
 	
 	public class Sacred_Grail extends Treasure{
 		public Sacred_Grail(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = -25;
@@ -740,7 +748,7 @@ public class Treasure extends Items
 	
 	public class Sacred_Statue extends Treasure{
 		public Sacred_Statue(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = -5;
@@ -750,7 +758,7 @@ public class Treasure extends Items
 	
 	public class Scroll_of_Alchemy extends Treasure{
 		public Scroll_of_Alchemy(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = -10;
 			notoriety_value = 15;
@@ -760,7 +768,7 @@ public class Treasure extends Items
 	
 	public class Scroll_of_Nature extends Treasure{
 		public Scroll_of_Nature(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 5;
@@ -770,7 +778,7 @@ public class Treasure extends Items
 	
 	public class Shielded_Lantern extends Treasure{
 		public Shielded_Lantern(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -780,7 +788,7 @@ public class Treasure extends Items
 	
 	public class Shoes_of_Stealth extends Treasure{
 		public Shoes_of_Stealth(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 2;
@@ -790,7 +798,7 @@ public class Treasure extends Items
 	
 	public class Timeless_Jewel extends Treasure{
 		public Timeless_Jewel(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 7;
@@ -800,7 +808,7 @@ public class Treasure extends Items
 	
 	public class Toadstool_Circle extends Treasure{
 		public Toadstool_Circle(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -810,7 +818,7 @@ public class Treasure extends Items
 	
 	public class Toadstool_Ring extends Treasure{
 		public Toadstool_Ring(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 3;
@@ -820,7 +828,7 @@ public class Treasure extends Items
 	
 	public class Vial_of_Healing extends Treasure{
 		public Vial_of_Healing(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;
@@ -830,7 +838,7 @@ public class Treasure extends Items
 	
 	public class Withered_Claw extends Treasure{
 		public Withered_Claw(){
-			Gt_Treasure = false;
+			setGt_Treasure(false);
 			Lg_Treasure = false;
 			fame_value = 0;
 			notoriety_value = 0;

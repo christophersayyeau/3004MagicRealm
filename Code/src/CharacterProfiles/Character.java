@@ -93,13 +93,21 @@ public class Character {
 	
 	//following used for final score
 	public int getGreatTreasure() {
-		//returns total number of greatTreasures
+		//count total number of great treasures not their value
+		Treasure temp = new Treasure();
+			
 		int num = 0;
 		for(int a=0; a< belongings.length; a++){
-		//	if(belongings[a].isagreattreasure)//TODO count total number of great treasures not their value
-				num++;
+			System.out.println("The Class is " + belongings[a].getClass());
+			System.out.println("Compared to " + temp.getClass());
+			//is it a treasure
+			if(belongings[a].getClass().equals(temp)){
+				temp = (Treasure) belongings[a];
+				if(temp.isGt_Treasure())
+					num++;
+			}
 		}
-		return num;	
+		return num;	//returns total number of greatTreasures
 	}
 	public int getFame() {
 		return fame;
