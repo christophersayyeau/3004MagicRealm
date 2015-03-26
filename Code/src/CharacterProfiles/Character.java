@@ -96,6 +96,7 @@ public class Character {
 		//returns total number of greatTreasures
 		int num = 0;
 		for(int a=0; a< belongings.length; a++){
+		//	if(belongings[a].isagreattreasure)//TODO count total number of great treasures not their value
 				num++;
 		}
 		return num;	
