@@ -424,11 +424,11 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					//wound action chit 					//?roll 2 dice take higest and wound that many action chits, done in example, no mention in rules		
 					//FIrst get the active ones
 					String[] options = null;
-					CombatChit.getActiveChits(defender, options);
+					CombatChit.getActionChits(defender, options);
 					
 					//next ask which one to wound
 					//now ask defender to pick
-					Object response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Wound?",	"Wounding",
+					Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Wound?",	"Wounding",
 							JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
 
 					//going to seperate based on user type then apply result
@@ -467,7 +467,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		PlayerDrop drop = temporary.new PlayerDrop(temp[1], defender.getProfile());
 		view.getMap().getMapTile(temp[0]).putPlayerDrop(drop);
 		
-		//TODO give fame to attacker, possibly treasure, emailed Prof awaiting answer
+		//give nothing to attacker
 		
 		//now get rid of player
 		//Removing from model
@@ -475,7 +475,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		view.getMap().getMapTile(temp[0]).removePlayer(defender);			//tile
 		
 		//removing from Controller
-		//TODO remove player from client, server and serverController, then close his window
+		//TODO networking remove player from client, server and serverController, then close his window
 	}
 	
 }

@@ -224,7 +224,7 @@ public class Player {
 					if (map.getMapTile(currentTile).treasure.found){
 						//if you roll over the number of treasures there you get nothing
 						int result = Die.dieRoll();
-						switch (result){
+						switch (result){															//TODO also could be a playerdrop here
 							case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);//TODO second step, treasure stuff this function declariation nneeds work
 							break;
 	//						case 2:  	2nd//since there is only going to be one treasure

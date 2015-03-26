@@ -154,7 +154,7 @@ public class GUI implements MouseListener{
 				possibilities,
 				possibilities[0]);
 		
-		//TODO, only suppose to be 1 of each type max, but that isnt important, work on other stuff
+		//TODO, erase if fixed in Server, only suppose to be 1 of each type max, but that isnt important, work on other stuff
 		
 		
 		System.out.println("You have chosen to be a " + s);
@@ -1521,11 +1521,9 @@ public class GUI implements MouseListener{
 		//Since effort is 2 then need to fatigue 1 effort worth of action Chits
 		//FIrst get the active ones
 		String[] options = null;
-		CombatChit.getActiveChits(person, options);
-		
-		//TODO remove the activeChits that have no effort
-		
-		//next ask which one to wound
+		CombatChit.getActiveEffortChits(person, options);
+				
+		//next ask which one to fatigue
 		//now ask defender to pick
 		Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Fatigue?",	"Fatiguing",
 				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress

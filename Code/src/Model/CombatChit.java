@@ -104,5 +104,39 @@ public class CombatChit {
 		}
 		return options;
 	}
+	
+	public static String[] getActiveEffortChits(Player player, String[] options) {	//only used when fatiguing a chit
+		//only add actionchits that cost effort
+		
+		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
+			if(player.getProfile().action1.effort > 0)	//only those costing effort
+				options = ArrayUtils.add(options, player.getProfile().action1.toString());
+		}
+		for(int a=0; a< player.getProfile().action2Num; a++){	//add all of the second action available
+			if(player.getProfile().action2.effort > 0)
+				options = ArrayUtils.add(options, player.getProfile().action2.toString());
+		}
+		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
+			if(player.getProfile().action3.effort > 0)
+				options = ArrayUtils.add(options, player.getProfile().action3.toString());
+		}
+		return options;
+	}
 
+	public static String[] getActionChits(Player player, String[] options) {	//only used when wounding a chit
+		//add all that are avialbale		
+		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
+			
+				options = ArrayUtils.add(options, player.getProfile().action1.toString());
+		}
+		for(int a=0; a< player.getProfile().action2Num; a++){	//add all of the second action available
+			
+				options = ArrayUtils.add(options, player.getProfile().action2.toString());
+		}
+		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
+			
+				options = ArrayUtils.add(options, player.getProfile().action3.toString());
+		}
+		return options;
+	}
 }

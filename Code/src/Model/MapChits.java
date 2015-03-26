@@ -66,7 +66,7 @@ public class MapChits {
 			/*drop armor
 			drop weapon
 			drop treasure*/
-			//TODO either stuff is dropped or it is given directly to attacker, emailed Prof awaiting answer
+			//TODO make one pile of treasure that can be searched for
 		}
 	}
 }
