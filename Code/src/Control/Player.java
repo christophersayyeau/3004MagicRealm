@@ -248,7 +248,10 @@ public class Player {
 			System.out.println("Resting Now");
 			//resting (activity to get rid of wounds fatigue see page 21)
 			
-			//TODO second step, fatigue, change these to only reset if he rests(activity to get rid of wounds fatigue see page 21)
+			//TODO second step, fatigue and wound recovery
+			
+			//will just reset completly for now
+			this.getProfile().action1.fatigued = number of tired for this chit
 			this.getProfile().action1Num = 4;
 			this.getProfile().action2Num = 4;
 			this.getProfile().action3Num = 4;	

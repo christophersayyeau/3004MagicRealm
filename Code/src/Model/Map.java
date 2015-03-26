@@ -2,10 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.Denizen.*;
-import Model.MapChits.GoldChit;
-import Model.MapChits.RedChit;
-import Model.MapTiles.DarkValley;
-import Model.MapTiles.EvilValley;
+import Model.Treasure.*;
 import Model.MapChits.*;
 import Model.MapTiles.*;
 import View.GUI;
@@ -705,14 +702,20 @@ public class Map {
 	}
 
 	public Treasure randomSmallTreasure() {
-		// TODO treasure, go through all small treasures that haven't been picked yet then pick one
-		
-		return null;//return a treasure
+		//go through all small treasures that haven't been picked yet then pick one
+		// TODO third step, treasure, for lg and small need to have other choices
+		//for now just use this as a base
+		Treasure temp = new Treasure();
+		Map_of_Lost_Castle smal = temp.new Map_of_Lost_Castle();
+		return smal;//return a treasure
 	}
 	public Treasure randomLargeTreasure() {
-		// TODO treasure, go through all large treasures that haven't been picked yet then pick one
+		//go through all large treasures that haven't been picked yet then pick one
 		
-		return null;	//return a treasure
+		//for now we will just use this as a base
+		Treasure temp = new Treasure();
+		Beast_Pipes lg = temp.new Beast_Pipes();
+		return lg;	//return a treasure
 	}
 
 }
