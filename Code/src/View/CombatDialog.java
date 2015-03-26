@@ -178,7 +178,7 @@ public class CombatDialog {
 				null,	options, options[0]);
 
 		//going to seperate based on user type then apply result
-		player.choiceOfActiveChits((String)response);
+		player.choiceOfFightChits((String)response);
 
 	}
 }

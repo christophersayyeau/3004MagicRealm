@@ -2,10 +2,12 @@
 package Control;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
+import View.GUI;
 //import View.GUI;
 import CharacterProfiles.*;
 import CharacterProfiles.Character;
@@ -247,14 +249,74 @@ public class Player {
 		}else if(action.compareTo("Rest")==0){//if rest action
 			System.out.println("Resting Now");
 			//resting (activity to get rid of wounds fatigue see page 21)
+			//can either turn 1 wound into 1 fatigue chit
+				//or return 1 fatigue to play
+			Character person = this.getProfile();
 			
-			//TODO second step, fatigue and wound recovery
 			
-			//will just reset completly for now
-			this.getProfile().action1.fatigued = number of tired for this chit
-			this.getProfile().action1Num = 4;
-			this.getProfile().action2Num = 4;
-			this.getProfile().action3Num = 4;	
+			//first tell user their status so they don't waste a turn
+			int wounds = 0;
+			int fatigueness = 0;
+			fatigueness = person.action1.fatigued + person.action2.fatigued + person.action3.fatigued;
+			wounds = person.action1.wounded + person.action2.wounded + person.action3.wounded;
+			GUI.combatMessage("You have " + fatigueness + " fatigued chits and/n" + wounds + "wounded chits.");
+			
+			
+			//get all options for both possibilities
+			String[] options = null;
+			options = CombatChit.getFatigueWoundChits(person);
+			
+			//ask user what they want to do
+			Object response = JOptionPane.showInputDialog(null, "Which Chit do You Wish To Fix?",	"Resting",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+			
+			//now interpret result (String)response, increase actionNum and lower faitgue/wound
+			System.out.println("This is the substring" + ((String) response).substring(0, 4));
+			switch(((String) response).substring(0, 4)){
+			case "Fati":	//if user chose to unfatigue a chit
+				//if user chose action1
+				if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
+					person.action1Num++;
+					person.action1.fatigued--;
+				}
+				//if user chose action2
+				else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
+					person.action2Num++;
+					person.action2.fatigued--;
+				}
+				//if user chose action3
+				else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
+					person.action3Num++;
+					person.action3.fatigued--;
+				} else {
+					System.out.println("ERROR, didn't recog the action");
+				}
+				break;
+			case "Woun":	//if user chose to heal
+				//if user chose action1
+				if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
+					person.action1.wounded--;
+					person.action1.fatigued++;
+				}
+				//if user chose action2
+				else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
+					person.action2.wounded--;
+					person.action2.fatigued++;
+				}
+				//if user chose action3
+				else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
+					person.action3.wounded--;
+					person.action3.fatigued++;
+				} else {
+					System.out.println("ERROR, didn't recog the action");
+				}
+				break;
+			}
+											/*//will just reset completely for now				
+											person.action1Num = 4;
+											person.action2Num = 4;
+											person.action3Num = 4;	*/
 		}	
 	}
 
@@ -416,7 +478,7 @@ public class Player {
 	}
 	
 	
-	public void choiceOfActiveChits(String response) {
+	public void choiceOfFightChits(String response) {
 		//user picked an action chit based on current active ones
 		//interpret result and set the attack
 		

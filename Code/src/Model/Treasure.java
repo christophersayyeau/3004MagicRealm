@@ -224,7 +224,7 @@ public class Treasure extends Items
 		}
 	}
 	
-	public class Cloak_of_Mist extends Treasure{//TODO
+	public class Cloak_of_Mist extends Treasure{//TODO Cloak, maybee just give these standard to the amazon, so we can show that they work without having to fix treasure randomization
 		public Cloak_of_Mist(){
 			setGt_Treasure(true);
 			Lg_Treasure = false;
@@ -534,7 +534,7 @@ public class Treasure extends Items
 		}
 	}
 	
-	public class Magic_Spectacles extends Treasure{//TODO
+	public class Magic_Spectacles extends Treasure{//TODO Spectacles, see cloack comment
 		public Magic_Spectacles(){
 			setGt_Treasure(false);
 			Lg_Treasure = false;

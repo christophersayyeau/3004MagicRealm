@@ -1,5 +1,6 @@
 package Model;
 
+import CharacterProfiles.Character;
 import Control.Player;
 
 //this handles all of the actions available to characters
@@ -140,6 +141,33 @@ public class CombatChit {
 		for(int a=0; a< player.getProfile().action3Num; a++){	//add all of the third action available
 			
 				options = ArrayUtils.add(options, player.getProfile().action3.toString());
+		}
+		return options;
+	}
+
+	public static String[] getFatigueWoundChits(Character person) {
+		//Starts with: Fati Woun  ,Ends with: 1 2 3
+		String [] options = new String[0];
+		
+		for(int a=0; a< person.action1.fatigued; a++){	//add all of the first action available
+			options = ArrayUtils.add(options,"Fatigued: " + person.action1.toString() + ": Action1");
+		}
+		for(int a=0; a< person.action2.fatigued; a++){	//add all of the second action available
+			options = ArrayUtils.add(options,"Fatigued: " +  person.action2.toString() + ": Action2");
+		}
+		for(int a=0; a< person.action3.fatigued; a++){	//add all of the third action available
+			options = ArrayUtils.add(options,"Fatigued: " +  person.action3.toString() + ": Action3");
+		}
+		
+		//now add wounds
+		for(int a=0; a< person.action1.wounded; a++){	//add all of the first action available
+			options = ArrayUtils.add(options,"Wounded: " + person.action1.toString() + ": Action1");
+		}
+		for(int a=0; a< person.action2.wounded; a++){	//add all of the second action available
+			options = ArrayUtils.add(options,"Wounded: " +  person.action2.toString() + ": Action2");
+		}
+		for(int a=0; a< person.action3.wounded; a++){	//add all of the third action available
+			options = ArrayUtils.add(options,"Wounded: " +  person.action3.toString() + ": Action3");
 		}
 		return options;
 	}
