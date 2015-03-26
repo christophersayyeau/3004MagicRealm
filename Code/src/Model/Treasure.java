@@ -216,7 +216,7 @@ public class Treasure extends Items
 		}
 	}
 	
-	public class Cloak_of_Mist extends Treasure{
+	public class Cloak_of_Mist extends Treasure{//TODO
 		public Cloak_of_Mist(){
 			Gt_Treasure = true;
 			Lg_Treasure = false;
@@ -526,7 +526,7 @@ public class Treasure extends Items
 		}
 	}
 	
-	public class Magic_Spectacles extends Treasure{
+	public class Magic_Spectacles extends Treasure{//TODO
 		public Magic_Spectacles(){
 			Gt_Treasure = false;
 			Lg_Treasure = false;

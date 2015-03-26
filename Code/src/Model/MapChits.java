@@ -12,15 +12,53 @@ public class MapChits {
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
 		public Treasure [] shinies;
+		int smallTreasures = 0;
+		int lgTreasures = 0;
 		
 		//constructor
 		public GoldChit(String word, int spot){
 			clearing = spot;
 			type = word;
 
+			//how many treasures there are	
+		/*	loc		sm	lg			
+			HOARD	4	5*
+			LAIR	4	3*
+			ALTAR	—	4*
+			SHRINE	2	2*
+			POOL	6	3*
+			VAULT	—	5*
+			CAIRNS	6	1*
+			STATUE	2	1*				*/
+			switch(type){
+			case "HOARD":	smallTreasures = 4;	lgTreasures = 5;
+				break;
+			case "LAIR":	smallTreasures = 4;	lgTreasures = 3;
+				break;
+			case "ALTAR":	smallTreasures = 0;	lgTreasures = 4;
+				break;
+			case "SHRINE":	smallTreasures = 2;	lgTreasures = 2;
+				break;
+			case "POOL":	smallTreasures = 6;	lgTreasures = 3;
+				break;
+			case "VAULT":	smallTreasures = 0;	lgTreasures = 5;
+				break;
+			case "CAIRNS":	smallTreasures = 6;	lgTreasures = 1;
+				break;
+			case "STATUE":	smallTreasures = 2;	lgTreasures = 1;
+				break;
+			}
+			
 			//this will hold all treasures contained
+			//better stuff will be at end of array
 			shinies = new Treasure[0];
-			//TODO secondStep, fill with treasure, see playerDrop below
+			for(int a = 0; a < smallTreasures; a++){
+				//shinies = ArrayUtils.add(shinies, );TODO add treasure to array
+			}
+			for(int a = 0; a < lgTreasures; a++){
+				//shinies = ArrayUtils.add(shinies, );
+			}
+
 		}
 	}
 
