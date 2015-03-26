@@ -1,6 +1,6 @@
 # 3004MagicRealm
 WorkPlan
-Chris will finish combatDrops then ??.
+Chris will work on treasure stuff.
 Ryan will finish GUI.
 Stefan will finish networking.
 Once a group member is finished he will pick the next thing from this list that needs doing.
