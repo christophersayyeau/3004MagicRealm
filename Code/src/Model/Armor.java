@@ -1,6 +1,6 @@
 package Model;
 
-public class Armor 
+public class Armor extends Items
 {
 	public enum Protect {ALL_DIRECTIONS, THRUST_AND_SWING, SMASH, ANY_ONE_DIRECTION, NOTHING}//nothing used when destroyed
 

@@ -385,7 +385,7 @@ public class Player {
 								switch (result){
 									case 1:  	map.giveTreasure(this, map.getMapTile(currentTile).treasure);
 									break;
-			//						case 2:  	2nd//since there is only going to be one treasure
+			//						case 2:  	2nd//TODO second step, need to differentiate between contents of treasure
 			//						break;
 			//						case 3:  	3rd
 			//						break;

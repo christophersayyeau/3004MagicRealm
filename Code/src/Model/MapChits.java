@@ -11,12 +11,15 @@ public class MapChits {
 
 	//site(treaseure)	8 of these
 	public class GoldChit extends MapChits {
+		public Items [] shinies;
 		
 		//constructor
 		public GoldChit(String word, int spot){
 			clearing = spot;
 			type = word;
-			//TODO second part, link this with the treasure list
+
+			//this will hold all treasures contained
+			shinies = new Items[0];
 		}
 	}
 

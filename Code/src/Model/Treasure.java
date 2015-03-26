@@ -3,7 +3,7 @@ package Model;
 /*Treasures for iteration 1 should simply be random amounts of golds (10, 20, 30, 40 or 50). 
  *The two latter should be considered GREAT TREASURES IF (and only if) you have the time to tackle treasure looting. 
  */
-public class Treasure
+public class Treasure extends Items
 {
 	boolean Gt_Treasure;
 	boolean Lg_Treasure;

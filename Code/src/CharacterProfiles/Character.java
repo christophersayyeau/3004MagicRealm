@@ -25,6 +25,9 @@ public class Character {
 	int notoriety = 0;	//players notoriety, can be negative
 	private int gold = 10;	//players start out with 10 gold, can't be negative
 	
+	//this will hold all items character is holding but not using: treasure, deadCharacters weapons and armors
+	public Items [] belongings = new Items[0];
+	
 	//Trading Relationships
 	String [] allyTrading = new String[1];
 	String [] friendlyTrading = new String[4];

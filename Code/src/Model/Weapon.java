@@ -2,7 +2,7 @@ package Model;
 
 
 //this will be the generic class
-public class Weapon {
+public class Weapon extends Items{
 
 	//whether it is alert or not
 	boolean alerted = false;
