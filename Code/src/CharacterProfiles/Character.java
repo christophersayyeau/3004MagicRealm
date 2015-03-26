@@ -36,7 +36,7 @@ public class Character {
 	
 	//Development are the stages of the characters life, only used in the optional rules
 	protected Weapon weapon = new Weapon();		//weapon moved to individual profiles
-	protected Armor [] defense = new Armor[3];//armor
+	protected Armor [] defense = new Armor[0];//armor
 	public boolean shieldActive = false;//used in combat to determine if ask direction
 	
 	protected Special [] specials = new Special[2];

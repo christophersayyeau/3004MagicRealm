@@ -44,7 +44,8 @@ public class Dwarf extends Character{
 		Armor temp = new Armor();
 		
 		Helmet helmet = temp.new Helmet();	
-		getDefense()[0] = helmet;
+		//getDefense()[0] = helmet;
+		this.defense = ArrayUtils.add(this.defense, helmet);
 
 		
 		//Action types

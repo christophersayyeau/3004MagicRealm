@@ -37,10 +37,12 @@ public class BlackKnight extends Character{
 		Armor temp = new Armor();
 		
 		Suit_of_Armor armor = temp.new Suit_of_Armor();
-		getDefense()[0] = armor;
+		//getDefense()[0] = armor;
+		this.defense = ArrayUtils.add(this.defense, armor);
 		
 		Shield shield = temp.new Shield();
-		getDefense()[1] = shield;
+		//getDefense()[1] = shield;
+		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
 		
 		//Action types

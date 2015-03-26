@@ -19,7 +19,7 @@ public class MapChits {
 			type = word;
 
 			//this will hold all treasures contained
-			shinies = new Items[0];
+			shinies = new Items[0];//TODO secondStep, fill with treasure, see playerDrop below
 		}
 	}
 
@@ -62,15 +62,28 @@ public class MapChits {
 	 */
 	//This will represent character drop when he dies
 	public class PlayerDrop extends MapChits {
+		public Items [] belongings;
+		//constructor
 		public PlayerDrop(int location, Character profile){
 			clearing = location;
 			found = true;		//visible
 			
+			int numOfThings = 1 + profile.getDefense().length + profile.belongings.length;	//weapon + armor + belongings
+			System.out.println("Creating an array of size: " + numOfThings);
 			
-			/*drop armor
-			drop weapon
-			drop treasure*/
-			//TODO secondStep, make one pile of treasure that can be searched for
+			//create array
+			belongings = new Items[0];
+			
+			//weapon
+			belongings = ArrayUtils.add(belongings, profile.getWeapon());
+			//armor
+			for(int a = 0; a<profile.getDefense().length; a++){
+				belongings = ArrayUtils.add(belongings, profile.getDefense(a));
+			}
+			//treasurestuff
+			for(int b = 0; b<profile.belongings.length; b++){
+				belongings = ArrayUtils.add(belongings, profile.belongings[b]);
+			}
 		}
 	}
 }

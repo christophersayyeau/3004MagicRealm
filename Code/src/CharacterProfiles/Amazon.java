@@ -37,13 +37,16 @@ public class Amazon extends Character{
 		Armor temp = new Armor();
 		
 		Helmet helmet = temp.new Helmet();
-		getDefense()[0] = helmet;
+		//getDefense()[0] = helmet;
+		this.defense = ArrayUtils.add(this.defense, helmet);
 		
 		Breastplate breastplate = temp.new Breastplate();		
-		getDefense()[1] = breastplate;
+		//getDefense()[1] = breastplate;
+		this.defense = ArrayUtils.add(this.defense, breastplate);
 		
 		Shield shield = temp.new Shield();
-		getDefense()[2] = shield;
+		//getDefense()[2] = shield;
+		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
 		
 		
