@@ -233,7 +233,7 @@ ignore fatigued and wounded counters*/
 			pos[0] = Integer.toString(currentTile);
 			pos[1] = Integer.toString(currentClearing);
 			int[] temp = new int[2];
-			temp = view.convertNameToPosition(pos);
+			temp = GUI.convertNameToPosition(pos);
 
 			System.out.println("NumInClearing "+ map.getClearing(temp[0],temp[1]).numPLayersInClearing);		
 			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing

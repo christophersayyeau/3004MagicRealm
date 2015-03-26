@@ -705,12 +705,13 @@ public class Map {
 	}
 
 	public Treasure randomSmallTreasure() {
-		// TODO go through all small treasures that haven't been picked yet then pick one
+		// TODO treasure, go through all small treasures that haven't been picked yet then pick one
+		
 		return null;//return a treasure
 	}
-
 	public Treasure randomLargeTreasure() {
-		// TODO go through all large treasures that haven't been picked yet then pick one
+		// TODO treasure, go through all large treasures that haven't been picked yet then pick one
+		
 		return null;	//return a treasure
 	}
 

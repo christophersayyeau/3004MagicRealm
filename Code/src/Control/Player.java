@@ -246,9 +246,12 @@ public class Player {
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
 			System.out.println("Resting Now");
+			//resting (activity to get rid of wounds fatigue see page 21)
 			
-			//TODO second step, resting (activity to get rid of wounds fatigue see page 21)
-		
+			//TODO second step, fatigue, change these to only reset if he rests(activity to get rid of wounds fatigue see page 21)
+			this.getProfile().action1Num = 4;
+			this.getProfile().action2Num = 4;
+			this.getProfile().action3Num = 4;	
 		}	
 	}
 
