@@ -141,7 +141,7 @@ public class GUI implements MouseListener{
 	 */
 	public static String createPlayer(){
 		
-		//TODO possibilities is empty, find the other variable to use
+		//TODO STEFAN, possibilities is empty, find the other variable to use
 		//Use possibilities to test the game (for now)
 		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
 		
@@ -154,7 +154,7 @@ public class GUI implements MouseListener{
 				possibilities,
 				possibilities[0]);
 		
-		//TODO, erase if fixed in Server, only suppose to be 1 of each type max, but that isnt important, work on other stuff
+		//TODO STEFAN, erase if fixed in Server, only suppose to be 1 of each type max, but that isnt important, work on other stuff
 		
 		
 		System.out.println("You have chosen to be a " + s);
