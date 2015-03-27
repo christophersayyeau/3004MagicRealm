@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import CharacterProfiles.Character;
 import Control.Player;
+import Model.MapChits.GoldChit;
 import View.GUI;
 
 public class PlayerActions {
@@ -83,11 +84,35 @@ public class PlayerActions {
 
 	}
 
-	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile) {//TODO what if it is a drop
-		//need to have located it first before trying to loot
-		if (map.getMapTile(currentTile).treasure.found){
+	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile) {
+		
+		if(map.getMapTile(currentTile).clearing[currentClearing].isDrop){//if there is a player drop
+			if (map.getMapTile(currentTile).treasure.found){
+				//ask user which one to loot
+				if(GUI.lootChoices()){	
+					//loot treasure
+					loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+				}else{	
+					//loot belongings
+					loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
+				}
+			}else{
+				//only loot belongings
+				loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
+			}
+		}else{	//only treasure
+			if (map.getMapTile(currentTile).treasure.found){
+				loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+			}else{
+				System.out.println("Havent Found the treasure yet");
+			}
+		}
+	}
 
-			int result;
+	//handles both treasure and playerDrops
+	private static void loot(Player player, Map map, boolean cheating, MapChits treasure, Items[] shinyStuff) {
+		
+		int result;
 			//cheat mode or not
 			if(cheating)
 				result = Die.dieRollCheat();
@@ -95,14 +120,14 @@ public class PlayerActions {
 				result = Die.dieRoll();
 
 			//if you roll over the number of treasures there you get nothing
-			if(result > map.getMapTile(currentTile).treasure.shinies.length){
+			if(result > shinyStuff.length){
 				System.out.println("Too GReedy, you will be Punished by finding nothing");
 				return;
 			}
 			
 			//if you found all the treasure
-			if(result ==  map.getMapTile(currentTile).treasure.shinies.length){
-				map.giveWholeTreasure(player, map.getMapTile(currentTile).treasure);//this gives all the contents then removes the chit
+			if(result ==  shinyStuff.length){
+				map.giveWholeTreasure(player, shinyStuff);//this gives all the contents then removes the chit
 				return;
 			}
 
@@ -110,25 +135,27 @@ public class PlayerActions {
 			switch (result){
 			//the value of result is the number of treasure items you get
 			
-			case 1:  	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);//gives a treasure then removes it from goldChits array
+			case 1:  	map.giveOneTreasure(player, shinyStuff);//gives a treasure then removes it from goldChits array
 			break;		
 			//give 2 treasures
-			case 2:  	for(int a=0; a<2; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			case 2:  	for(int a=0; a<2; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
 			//etc
-			case 3:  	for(int a=0; a<3; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			case 3:  	for(int a=0; a<3; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 4:  	for(int a=0; a<4; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			case 4:  	for(int a=0; a<4; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 5:  	for(int a=0; a<5; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			case 5:  	for(int a=0; a<5; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
 			}
-		}
-
 	}
 
+	
+	
+	
+	
 	public static void locatingAction(Player player, boolean cheating, Map map, int currentTile) {
 		int result;
 		//cheat mode or not

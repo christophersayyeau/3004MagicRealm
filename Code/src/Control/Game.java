@@ -8,8 +8,8 @@ import View.*;
 
 public class Game {
 	
-	static //need these for hotseat play
-	GUI view;
+	//need these for hotseat play
+	static GUI view;
 	
 	//player related
 	Player players[];

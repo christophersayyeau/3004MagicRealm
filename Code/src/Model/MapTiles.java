@@ -11,8 +11,6 @@ public class MapTiles {
 	
 	//overall class, will create subclasses based on tiles
 	Player[] playersInTile = new Player[0];//for know it is a single value, this will need to c\be changed
-	private PlayerDrop[] playerDrop = new PlayerDrop[0];
-	public boolean isDrop = false;
 	
 	public Denizen [] monstersInTile = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInTile = 0;
@@ -58,13 +56,7 @@ public class MapTiles {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	public void putPlayerDrop(PlayerDrop drop) {
-		//playersInTile = player1;
-		playerDrop = ArrayUtils.add(playerDrop, drop);
-		this.isDrop = true;
-	}
-	
+		
 	public void putPlayer(Player player1) {
 		//playersInTile = player1;
 		playersInTile = ArrayUtils.add(playersInTile, player1);

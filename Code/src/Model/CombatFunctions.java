@@ -465,7 +465,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		//Create treasure pile out of his stuff
 		MapChits temporary = new MapChits();
 		PlayerDrop drop = temporary.new PlayerDrop(temp[1], defender.getProfile());
-		view.getMap().getMapTile(temp[0]).putPlayerDrop(drop);
+		view.getMap().getMapTile(temp[0]).clearing[temp[1]].putPlayerDrop(drop);
 		
 		//give nothing to attacker
 		

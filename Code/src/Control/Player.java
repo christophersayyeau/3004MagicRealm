@@ -158,17 +158,19 @@ public class Player {
 			int currentTile = profile.getCurrentLocation()/10-1;
 			
 			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).isDrop){//this to check oif there is actually a treasure there to find
+				System.out.println("Now Searching");
 				
 				//with which table
 				String choice = game.view.whichSearchTable();//locate+loot
-				
 				
 				if(choice.compareTo("Locate") == 0){//using locate table
 					PlayerActions.locatingAction(this, false, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-	
 					PlayerActions.lootingAction(this, false, map, currentTile);
+					
+				}else{
+					System.out.println("ERROR");
 				}
 			}else{
 				System.out.println("There is no treasure to find");

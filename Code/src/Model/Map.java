@@ -420,36 +420,36 @@ public class Map {
 	}
 	
 	
-	public void giveWholeTreasure(Player player, GoldChit treasure) {
+	public void giveWholeTreasure(Player player, Items[] shinyStuff) {
 		//give the treasure values to the player
 		//put all the treasures in his belongings
-		for(int a = 0; a< treasure.shinies.length; a++){
-			player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, treasure.shinies[a]);
+		for(int a = 0; a< shinyStuff.length; a++){
+			player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, shinyStuff[a]);
 			
 			//increase the other values based on value of treasure
-			player.getProfile().setFame(player.getProfile().getFame() +  treasure.shinies[a].fame_value);
-			player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  treasure.shinies[a].notoriety_value);
-			player.getProfile().setGold(player.getProfile().getGold()  +  treasure.shinies[a].gold_price);
+			player.getProfile().setFame(player.getProfile().getFame() +  shinyStuff[a].fame_value);
+			player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  shinyStuff[a].notoriety_value);
+			player.getProfile().setGold(player.getProfile().getGold()  +  shinyStuff[a].gold_price);
 		}
 		
 		System.out.println("Player got treasure");
 		
 		//remove the treasure from the tile
-		treasure = null;
+		shinyStuff = null;
 		
 		//player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
-	public void giveOneTreasure(Player player, GoldChit treasure) {
+	public void giveOneTreasure(Player player, Items[] shinies) {
 		//need to give first value then remove from the array
-		player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, treasure.shinies[0]);
+		player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, shinies[0]);
 		
 		//increase the other values based on value of treasure
-		player.getProfile().setFame(player.getProfile().getFame() +  treasure.shinies[0].fame_value);
-		player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  treasure.shinies[0].notoriety_value);
-		player.getProfile().setGold(player.getProfile().getGold()  +  treasure.shinies[0].gold_price);
+		player.getProfile().setFame(player.getProfile().getFame() +  shinies[0].fame_value);
+		player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  shinies[0].notoriety_value);
+		player.getProfile().setGold(player.getProfile().getGold()  +  shinies[0].gold_price);
 		
 		System.out.println("Player got 1 treasure");
-		treasure.shinies = (Treasure[]) ArrayUtils.remove(treasure.shinies, 0);//remove the first value
+		shinies = (Treasure[]) ArrayUtils.remove(shinies, 0);//remove the first value
 	}
 	
 	

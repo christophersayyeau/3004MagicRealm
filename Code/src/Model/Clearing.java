@@ -2,6 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.ArrayUtils;
+import Model.MapChits.PlayerDrop;
 
 public class Clearing {
 
@@ -10,6 +11,21 @@ public class Clearing {
 	
 	public Denizen [] monstersInClearing = new Denizen[5];//put 5 for now, we will have to change when if it crashes
 	int numMonstersInClearing = 0;
+	
+	private PlayerDrop[] playerDrops = new PlayerDrop[0];//multiple drops
+	public boolean isDrop = false;
+	public void putPlayerDrop(PlayerDrop drop) {
+		//playersInTile = player1;
+		playerDrops = ArrayUtils.add(playerDrops, drop);
+		this.isDrop = true;
+	}
+	public PlayerDrop getPlayerDrop(){
+		if(playerDrops[0] != null)
+			return playerDrops[0];
+		else
+			return null;
+	}
+	
 	
 	private int value = -1;
 	
