@@ -79,7 +79,7 @@ public class GUI implements MouseListener{
 	{
 		try
 		{
-			final int PORT = 9073;
+			final int PORT = 65001;
 			String HOST = serverIP;
 			Socket SOCK = new Socket(HOST, PORT);
 			System.out.println("You connected to: " + HOST);
