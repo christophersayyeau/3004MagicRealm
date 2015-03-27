@@ -156,8 +156,8 @@ public class Player {
 		}else if(action.compareTo("Search")==0){//if search action
 			//where are you searching//can only search his own clearing using locate
 			int currentTile = profile.getCurrentLocation()/10-1;
-			
-			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).isDrop){//this to check oif there is actually a treasure there to find
+			int currentClearing = profile.getCurrentLocation()%10-1;
+			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).clearing[currentClearing].isDrop){//this to check oif there is actually a treasure there to find
 				System.out.println("Now Searching");
 				
 				//with which table
@@ -167,7 +167,7 @@ public class Player {
 					PlayerActions.locatingAction(this, false, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, false, map, currentTile);
+					PlayerActions.lootingAction(this, false, map, currentTile, currentClearing);
 					
 				}else{
 					System.out.println("ERROR");
@@ -268,8 +268,8 @@ public class Player {
 		}else if(action.compareTo("Search")==0){//if search action
 			//where are you searching//can only search his own clearing using locate
 			int currentTile = profile.getCurrentLocation()/10-1;
-
-			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).isDrop){//this to check oif there is actually a treasure there to find
+			int currentClearing = profile.getCurrentLocation()%10-1;
+			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).clearing[currentClearing].isDrop){//this to check oif there is actually a treasure there to find
 
 				//with which table
 				String choice = cheatGame.view.whichSearchTable();//locate+loot
@@ -279,7 +279,7 @@ public class Player {
 					PlayerActions.locatingAction(this, true, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, true, map, currentTile);
+					PlayerActions.lootingAction(this, true, map, currentTile, currentClearing);
 					
 				}
 			}else{

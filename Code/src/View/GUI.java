@@ -1550,5 +1550,10 @@ public class GUI implements MouseListener{
 	public void ACTION_START(){
 		client.SEND("STARTGAME");
 	}
+
+	public static boolean lootChoices() {
+		// TODO Ask user if he wants to loot the treasure or the belongings
+		return false;//return true if want to loot treasure, false for belongings
+	}
 	
 }

@@ -84,7 +84,7 @@ public class PlayerActions {
 
 	}
 
-	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile) {
+	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile, int currentClearing) {
 		
 		if(map.getMapTile(currentTile).clearing[currentClearing].isDrop){//if there is a player drop
 			if (map.getMapTile(currentTile).treasure.found){
