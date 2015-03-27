@@ -61,7 +61,7 @@ public class Clearing {
 		//System.out.println("Match: "+monster+monstersInClearing[a]);
 			if(monstersInClearing[a].equals(monster)){
 				System.out.println("Match Found");
-				monstersInClearing =  ArrayUtils.remove(monstersInClearing, a);
+				monstersInClearing =  (Denizen[]) ArrayUtils.remove(monstersInClearing, a);
 				numMonstersInClearing--;
 				return;//no need to go through rest of array
 			}		

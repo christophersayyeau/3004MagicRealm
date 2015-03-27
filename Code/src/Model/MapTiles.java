@@ -89,7 +89,7 @@ public class MapTiles {
 				break;//no need to go through rest of array
 			}		
 		}
-		monstersInTile =  ArrayUtils.remove(monstersInTile, a);
+		monstersInTile =  (Denizen[]) ArrayUtils.remove(monstersInTile, a);
 		numMonstersInTile--;
 		
 	}

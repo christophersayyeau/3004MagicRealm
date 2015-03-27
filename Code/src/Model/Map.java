@@ -433,8 +433,25 @@ public class Map {
 		}
 		
 		System.out.println("Player got treasure");
+		
+		//remove the treasure from the tile
+		treasure = null;
+		
 		//player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
+	public void giveOneTreasure(Player player, GoldChit treasure) {
+		//need to give first value then remove from the array
+		player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, treasure.shinies[0]);
+		
+		//increase the other values based on value of treasure
+		player.getProfile().setFame(player.getProfile().getFame() +  treasure.shinies[0].fame_value);
+		player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  treasure.shinies[0].notoriety_value);
+		player.getProfile().setGold(player.getProfile().getGold()  +  treasure.shinies[0].gold_price);
+		
+		System.out.println("Player got 1 treasure");
+		treasure.shinies = (Treasure[]) ArrayUtils.remove(treasure.shinies, 0);//remove the first value
+	}
+	
 	
 	//checks if the player can go to the newLocation(TileClearing combined cordinate)
 	public boolean canHeMove(int oldLocation, int newLocation, Player player) {

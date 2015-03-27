@@ -632,7 +632,8 @@ public class GUI implements MouseListener{
 	}
 
 	public static void revealTreasure(int tile) {
-		// TODO second step, reveal the treasure chit's value in this tile
+		// TODO second step, reveal that the treasure in this tile has been found
+		//Dont need to display contents, just show that it is considered found and can now be looted
 		
 	}
 	

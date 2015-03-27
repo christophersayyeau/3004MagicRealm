@@ -3,13 +3,9 @@ package Model;
 import java.lang.reflect.Array;
 import Control.Player;
 
-//taken from ArrayUtils library, one modification to code
+//taken from ArrayUtils library, minor modifications to code
 public class ArrayUtils {
 
-
-	public static Denizen[] remove(Denizen[] array, int index) {			     
-		return (Denizen[]) remove((Object) array, index);
-	}
 
 	public static Object remove(Object array, int index) {		      
 		int length = getLength(array);		

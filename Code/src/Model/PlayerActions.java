@@ -83,7 +83,7 @@ public class PlayerActions {
 
 	}
 
-	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile) {
+	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile) {//TODO what if it is a drop
 		//need to have located it first before trying to loot
 		if (map.getMapTile(currentTile).treasure.found){
 
@@ -96,23 +96,34 @@ public class PlayerActions {
 
 			//if you roll over the number of treasures there you get nothing
 			if(result > map.getMapTile(currentTile).treasure.shinies.length){
-				System.out.println("Too GReedy");
+				System.out.println("Too GReedy, you will be Punished by finding nothing");
+				return;
+			}
+			
+			//if you found all the treasure
+			if(result ==  map.getMapTile(currentTile).treasure.shinies.length){
+				map.giveWholeTreasure(player, map.getMapTile(currentTile).treasure);//this gives all the contents then removes the chit
 				return;
 			}
 
+			//at this point result<number of treasures
 			switch (result){
-			case 1:  	map.giveWholeTreasure(player, map.getMapTile(currentTile).treasure);
+			//the value of result is the number of treasure items you get
+			
+			case 1:  	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);//gives a treasure then removes it from goldChits array
+			break;		
+			//give 2 treasures
+			case 2:  	for(int a=0; a<2; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
 			break;
-//			case 2:  	2nd//TODO second step, need to differentiate between contents of treasure
-//			break;
-//			case 3:  	3rd
-//			break;
-//			case 4:  	4th
-//			break;
-//			case 5:  	5th
-//			break;
-//			case 6:  	6th
-//			break;
+			//etc
+			case 3:  	for(int a=0; a<3; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			break;
+			case 4:  	for(int a=0; a<4; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			break;
+			case 5:  	for(int a=0; a<5; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			break;
+			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, map.getMapTile(currentTile).treasure);
+			break;
 			}
 		}
 
@@ -131,7 +142,7 @@ public class PlayerActions {
 		case 1:  	GUI.revealTreasure(currentTile);//technically you can choose but that is dumb
 					map.getMapTile(currentTile).treasure.found = true;
 		break;
-		case 2:  	//TODO display all passages and mentally note that treasure
+		case 2:  	//TODO display all passages
 			break;
 		case 3:  	//display all passages
 			break;
