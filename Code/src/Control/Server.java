@@ -22,7 +22,7 @@ public class Server {
 	
 	//TODO re-enable this main to test any code (need to also uncomment "possibilities" in GUI as well though
 	
-	public static void main(String args[]){
+	/*public static void main(String args[]){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
 
 		if(GUI.cheatMode()){//using cheatMode
@@ -46,11 +46,11 @@ public class Server {
 			//now start the game
 			game.startGame();
 		}
-	}
+	}*/
 	
 	
 	
-	/*
+	
 	//networking code
 	public static void main(String args[]) throws IOException {
 		characters = new ArrayList<String>();
@@ -91,7 +91,7 @@ public class Server {
 		catch(Exception X) { System.out.print(X);}
 	}
 	
-	public static String AddPlayer(Socket X) throws IOException
+	/*public static String AddPlayer(Socket X) throws IOException
 	{
 		Scanner INPUT = new Scanner(X.getInputStream());
 		String s = INPUT.nextLine();
@@ -107,6 +107,5 @@ public class Server {
 			OUT.flush();
 		}
 		return player.getProfile().getType();
-	}
-	*/
+	}*/
 }

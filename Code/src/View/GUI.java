@@ -34,7 +34,7 @@ public class GUI implements MouseListener{
 		return map;
 	}
 	
-	static String serverIP = "172.17.133.128";
+	static String serverIP = "172.17.129.239";
 	static Client client;
 	
 	public static String[] possibilities = new String[6];
@@ -88,7 +88,7 @@ public class GUI implements MouseListener{
 			Player player = new Player(s);
 			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
-			OUT.println("AddPlayer:" + player.getProfile().getType());
+			OUT.println("ADDPLAYER:" + player.getProfile().getType());
 			OUT.flush();
 			
 			client = new Client(SOCK, player);
@@ -1366,7 +1366,7 @@ public class GUI implements MouseListener{
 	public void setPlayerX(int x){ playerX = x; }
 	public void setPlayerY(int y){ playerY = y; }
 	
-	private void buildMap(){
+	public void buildMap(){
 		Map.setLayout(null);
 		Map.setBackground(Color.white);
 				
@@ -1404,7 +1404,7 @@ public class GUI implements MouseListener{
 		generateClearings();
 	}
 	
-	private void initilizeWindow(){
+	public void initilizeWindow(){
 		//allows to position tiles
 		//map = m;
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -1459,6 +1459,13 @@ public class GUI implements MouseListener{
 		startButton.setLocation(0,(int)screenSize.getHeight()/5);
 		startButton.setSize(new Dimension(200,100));
 		startButton.setEnabled(true);
+		startButton.addActionListener
+			(new java.awt.event.ActionListener()
+				{
+					public void actionPerformed(java.awt.event.ActionEvent evt)
+						{ ACTION_START(); }
+				}
+		);
 				
 		Players.setLayout(new BorderLayout()); 
 		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
@@ -1540,5 +1547,8 @@ public class GUI implements MouseListener{
 		return "";
 	}
 
+	public void ACTION_START(){
+		client.SEND("STARTGAME");
+	}
 	
 }

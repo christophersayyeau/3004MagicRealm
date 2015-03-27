@@ -12,6 +12,7 @@ public class ServerController implements Runnable{
 	private Scanner INPUT;
 	private PrintWriter OUT;
 	String MESSAGE = "";
+	Game g;
 	
 	ServerController(Socket X){
 		this.SOCK = X;
@@ -84,13 +85,18 @@ public class ServerController implements Runnable{
 	}
 	
 	void handleMessage(String message){
-		if(message.contains("StartGame"))
+		if(message.contains("STARTGAME"))
 		{
+			startGame();
 			
 		}
-		else if(message.contains("AddPlayer"))
+		else if(message.contains("ADDPLAYER"))
 		{
 			String c = (message.substring(message.indexOf(":")+1));
+			if(CurrentPlayers.size() == 0){
+				CurrentPlayers.add(new Player(c));
+				return;
+			}
 			for(int i=0; i < CurrentPlayers.size(); ++i)
 			{
 				if(CurrentPlayers.get(i).getProfile().getType().equals(c))
@@ -98,8 +104,29 @@ public class ServerController implements Runnable{
 					OUT.println("ChooseChar:");
 					OUT.flush();
 				}
+				if(CurrentPlayers.size() == i)
+				{
+					CurrentPlayers.add(new Player(c));
+					++i;
+				}
 			}
-			CurrentPlayers.add(new Player(c));
 		}
+	}
+	
+	void startGame(){
+		g = new Game();
+		String s = "";
+		for(int i=0; i <=CurrentPlayers.size(); ++i)
+		{
+			s += CurrentPlayers.get(i).getProfile().getType() + ",";
+		}
+		s = s.substring(0, s.length()-1);
+		
+		for(int i=1; i <=Server.ConnectionArray.size(); ++i)
+		{
+			OUT.println("PLAYERS:"+s);
+			OUT.flush();
+		}
+		
 	}
 }

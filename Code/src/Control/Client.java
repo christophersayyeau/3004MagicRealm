@@ -14,6 +14,7 @@ import View.GUI;
 public class Client implements Runnable{
 	Socket SOCK;
 	Scanner INPUT;
+	GUI gui;
 	Scanner SEND = new Scanner(System.in);
 	PrintWriter OUT;
 	Player player;
@@ -21,6 +22,9 @@ public class Client implements Runnable{
 	public Client(Socket X, Player p){
 		this.SOCK = X;
 		this.player = p;
+		gui = new GUI(null);
+		//gui.initilizeWindow();
+		//gui.buildMap();
 	}
 	
 	@Override
@@ -70,13 +74,16 @@ public class Client implements Runnable{
 				//TODO add player to players array
 				
 			}
-			else if(MESSAGE.contains("Start Game"))
-			{
-				//StartGame();
-			}
 			else if(MESSAGE.contains("ChooseChar"))
 			{
 				createPlayer(MESSAGE);
+			}
+			else if(MESSAGE.contains("PLAYERS"))
+			{
+				gui.initilizeWindow();
+				System.out.println(MESSAGE);
+				System.out.println(MESSAGE);
+				//createPlayer(MESSAGE);
 			}
 		}
 	}
@@ -106,7 +113,7 @@ public class Client implements Runnable{
 		player = null;
 		player = new Player(GUI.createPlayer());
 		
-		SEND("AddPlayer:"+ player.getProfile().getType());
+		SEND("ADDPLAYER:"+ player.getProfile().getType());
 	}
 }
 
