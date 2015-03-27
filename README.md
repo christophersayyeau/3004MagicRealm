@@ -1,15 +1,15 @@
 # 3004MagicRealm
 WorkPlan
-Chris will work on treasure stuff.
+Chris will work on search table.
 Ryan will finish GUI.
 Stefan will finish networking.
 Once a group member is finished he will pick the next thing from this list that needs doing.
 
-Step 0 and 1 should have been done by now.
+Step 0 and 1
 Networking needs to be added. Lots of TODOs.
 
 Step 2
-Searching and Treasure stuff needs to be fixed.
+Searching stuff needs to be finished.
 Text on left side of GUI showing what is going on.
 
 CLOAK OF MIST:  This card allows its owner to record an extra phase to do the Hide activity.
