@@ -1313,7 +1313,7 @@ public class GUI implements MouseListener{
 		//create the array to ask
 		String[] choices = null;
 		Player[] values = null;
-		/*
+		/*TODO uncomment so that they can fight
 		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
 				if(!clearing.playersInClearing[a].getProfile().getFoughtToday()){	//if not already fought
 					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
@@ -1552,8 +1552,20 @@ public class GUI implements MouseListener{
 	}
 
 	public static boolean lootChoices() {
-		// TODO Ask user if he wants to loot the treasure or the belongings
-		return false;//return true if want to loot treasure, false for belongings
+		//Ask user if he wants to loot the treasure or the belongings
+		
+		String[] options = {"Treasure","Corpse"};
+		//return true if user wants cheat mode
+		int n = JOptionPane.showOptionDialog(null,  "Do You Wish To Loot the Treasure or the Corpse?", "Loot", 
+				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		
+		//System.out.println(n);
+		//return true if want to loot treasure, false for belongings
+		if(n == 0){//yes
+			return true;
+		}else{//no
+			return false;
+		}
 	}
 	
 }

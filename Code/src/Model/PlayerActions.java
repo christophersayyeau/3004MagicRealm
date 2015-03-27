@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import CharacterProfiles.Character;
 import Control.Player;
-import Model.MapChits.GoldChit;
 import View.GUI;
 
 public class PlayerActions {
