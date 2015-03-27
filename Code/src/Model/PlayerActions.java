@@ -173,14 +173,14 @@ public class PlayerActions {
 				
 			}else{//wants hidden paths
 				//display all passages
-				map.getMapTile(currentTile).secretRoads();
+				map.getMapTile(currentTile).secretRoads(currentTile);
 			}	
 		break;
 		case 2:  	//display all passages
-			map.getMapTile(currentTile).secretRoads();
+			map.getMapTile(currentTile).secretRoads(currentTile);
 			break;
 		case 3:  	//display all passages
-			map.getMapTile(currentTile).secretRoads();
+			map.getMapTile(currentTile).secretRoads(currentTile);
 			break;
 		case 4:  	GUI.revealTreasure(currentTile);
 					map.getMapTile(currentTile).treasure.found = true;

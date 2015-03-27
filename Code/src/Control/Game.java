@@ -50,6 +50,7 @@ public class Game {
 		//putting the counters will be handled in the mapTiles
 	}
 	
+	//constructor
 	public Game(int x){
 		
 	}
