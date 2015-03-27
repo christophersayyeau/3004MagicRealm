@@ -59,7 +59,7 @@ public class GUI implements MouseListener{
 	private static JButton startButton = new JButton();
 	
 	JLabel dLabel = new JLabel("Label for date");
-	public JLabel moveLabel = new JLabel("Click on a clearing to move the character");
+	public static JLabel moveLabel = new JLabel("Click on a clearing to move the character");
 	//set tile values
 	final int x = 125;
 	final int y = 215;

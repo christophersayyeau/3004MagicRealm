@@ -101,23 +101,6 @@ public class Player {
 		numPhases++;
 		this.phaseActions[a] = phaseActions1;
 	}
-	//constructor
-	/*public Player(){
-		
-		//for simplicity we will set the first character to 
-		Dwarf profile1 = new Dwarf();
-		profile = profile1;
-		
-		System.out.println("Built a " + profile1.getType() + " Player");
-		System.out.println("Stats: " + profile1.getWeapon() + "  "+ profile1.getDefense(0));
-		
-		//pick you character
-		//Character.pickCharacter();
-		//build later when game works better
-		
-		//create window for user, then display it
-		//view = new GUI();	
-	}*/
 	
 	//constructor for choosing type
 	public Player(String s){
@@ -158,31 +141,9 @@ public class Player {
 		//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
 		
 		if(action.compareTo("Move") == 0){//if move action
-			//THere are rules to handle moving through mountains+caves
-			game.view.moveLabel.setText("Click on a clearing to move the character");
-			//game.view.Instruction.setVisible(true);
-			//int newLocation = Integer.parseInt(action.substring(5));
-			game.view.setMove(true);
-			int newLocation = game.view.getNewLocation();
 			
-			
-			System.out.println("New location = "+newLocation);
-			System.out.println("Current Location = "+profile.getCurrentLocation());
-			
-			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
-				//there are rules about how much weight
-				map.moveCharacters(this, newLocation);//if yes then move
-				
-				//TODO add in code to move icon around
-				//Make the code more generalized, figure out how/where to store icons
-				game.view.amazon.setLocation(game.view.getPlayerX(),game.view.getPlayerY());
-				
-				System.out.println("You can move here, moving character now");
-			}else{
-				System.out.println("Can't Move There, phase wasted");
-			}
-			//game.view.Instruction.setVisible(false);
-			
+			PlayerActions.moveAction(this, false, map, game.view);
+	
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing
 			if(Die.dieRoll() != 6)	this.hidden = true;
@@ -291,19 +252,8 @@ public class Player {
 		//determine what the action is
 				//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
 		if(action.compareTo("Move") == 0){//if move action
-			//THere are rules to handle moving through mountains+caves
-
-			//int newLocation = Integer.parseInt(action.substring(5));
-			int newLocation = cheatGame.view.getNewLocation();
-
-			//check to see if they can
-			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
-				//there are rules about how much weight
-				map.moveCharacters(this, newLocation);//if yes then move
-			}else{
-				System.out.println("Can't Move There, phase wasted");
-			}
-
+			PlayerActions.moveAction(this, false, map, cheatGame.view);
+			
 		}else if(action.compareTo("Hide")==0){//if hide action
 			//roll on hide table, only a 6 does nothing
 			if(Die.dieRollCheat() != 6)	this.hidden = true;

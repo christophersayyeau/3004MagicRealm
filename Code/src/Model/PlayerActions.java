@@ -158,4 +158,47 @@ public class PlayerActions {
 
 	}
 
+	public static void moveAction(Player player, boolean cheating, Map map, GUI view) {
+
+		//THere are rules to handle moving through mountains+caves
+		view.moveLabel.setText("Click on a clearing to move the character");
+		//game.view.Instruction.setVisible(true);
+		//int newLocation = Integer.parseInt(action.substring(5));
+		view.setMove(true);
+		
+		int newLocation;
+		if(cheating)
+			newLocation = view.getNewLocation();
+		else	
+			newLocation = view.getNewLocation();
+
+
+		System.out.println("New location = "+newLocation);
+		System.out.println("Current Location = "+ player.getProfile().getCurrentLocation());
+
+		if( map.canHeMove(player.getProfile().getCurrentLocation(), newLocation, player) ){
+			//there are rules about how much weight
+			map.moveCharacters(player, newLocation);//if yes then move
+
+			//TODO add in code to move icon around
+			//Make the code more generalized, figure out how/where to store icons
+			view.amazon.setLocation(view.getPlayerX(),view.getPlayerY());
+
+			System.out.println("You can move here, moving character now");
+		}else{
+			System.out.println("Can't Move There, phase wasted");
+		}
+		/*	//check to see if they can
+			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
+				//there are rules about how much weight
+				map.moveCharacters(this, newLocation);//if yes then move
+			}else{
+				System.out.println("Can't Move There, phase wasted");
+			}
+		 */
+		
+		//game.view.Instruction.setVisible(false);
+		
+	}
+
 }
