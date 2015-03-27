@@ -1567,5 +1567,21 @@ public class GUI implements MouseListener{
 			return false;
 		}
 	}
+
+	public static boolean whatFound(int currentTile) {
+		//Ask user if he wants to locate the treasure or the secreat pahths
+		String[] options = {"Treasure","Passages"};
+		//return true if user wants cheat mode
+		int n = JOptionPane.showOptionDialog(null,  "Do You Wish To Locate the Treasure or the Passages?", "Locate", 
+				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		
+		//System.out.println(n);
+		//return true if want to locate treasure, false for passages
+		if(n == 0){//yes
+			return true;
+		}else{//no
+			return false;
+		}
+	}
 	
 }

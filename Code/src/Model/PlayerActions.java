@@ -165,17 +165,28 @@ public class PlayerActions {
 
 
 		switch (result){
-		case 1:  	GUI.revealTreasure(currentTile);//technically you can choose but that is dumb
-					map.getMapTile(currentTile).treasure.found = true;
+		case 1:  	
+			//now choose whether you found passages or the treasure
+			if(GUI.whatFound(currentTile)){//wants treasure
+				GUI.revealTreasure(currentTile);
+				map.getMapTile(currentTile).treasure.found = true;
+				
+			}else{//wants hidden paths
+				//display all passages
+				map.getMapTile(currentTile).secretRoads();
+			}	
 		break;
-		case 2:  	//TODO display all passages
+		case 2:  	//display all passages
+			map.getMapTile(currentTile).secretRoads();
 			break;
 		case 3:  	//display all passages
+			map.getMapTile(currentTile).secretRoads();
 			break;
 		case 4:  	GUI.revealTreasure(currentTile);
 					map.getMapTile(currentTile).treasure.found = true;
 		break;
-		//5 and 6 do nothing
+		case 5:break;
+		case 6:break;
 		}
 		//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
 		//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.

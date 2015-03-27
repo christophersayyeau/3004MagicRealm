@@ -1083,4 +1083,9 @@ public class MapTiles {
 			System.out.println("CANT IDENTIFY CLASS TYPE IN MAPTILES");
 		}
 	}
+	
+	public void secretRoads() {
+		// TODO can now use all secret paths and passages
+		
+	}
 }
