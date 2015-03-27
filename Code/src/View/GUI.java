@@ -631,8 +631,9 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public void revealTreasure(int tile) {
+	public static void revealTreasure(int tile) {
 		// TODO second step, reveal the treasure chit's value in this tile
+		
 	}
 	
 	public void displayScore(Player[] gamers) {		

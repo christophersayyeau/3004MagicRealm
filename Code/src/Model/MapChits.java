@@ -119,7 +119,7 @@ public class MapChits {
 			for(int a = 0; a<profile.getDefense().length; a++){
 				belongings = ArrayUtils.add(belongings, profile.getDefense(a));
 			}
-			//treasurestuff
+			//treasure stuff
 			for(int b = 0; b<profile.belongings.length; b++){
 				belongings = ArrayUtils.add(belongings, profile.belongings[b]);
 			}

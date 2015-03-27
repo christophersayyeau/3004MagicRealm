@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
+import Model.PlayerActions;
 import View.GUI;
 //import View.GUI;
 import CharacterProfiles.*;
@@ -191,132 +192,29 @@ public class Player {
 			//call of trade function
 			game.view.trading(map, this);
 			
-		}else if(action.compareTo("Search")==0){//if search action//TODO second part, all of related treasure stuff should be fixed
+		}else if(action.compareTo("Search")==0){//if search action
 			//where are you searching//can only search his own clearing using locate
 			int currentTile = profile.getCurrentLocation()/10-1;
 			
-			if(map.getMapTile(currentTile).treasure != null){//this to check oif there is actually a treasure there to find
+			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).isDrop){//this to check oif there is actually a treasure there to find
 				
 				//with which table
 				String choice = game.view.whichSearchTable();//locate+loot
 				
 				
 				if(choice.compareTo("Locate") == 0){//using locate table
-					int result = Die.dieRoll();
-					switch (result){
-						case 1:  	game.view.revealTreasure(currentTile);//technically you can choose but that is dumb
-									map.getMapTile(currentTile).treasure.found = true;
-						break;
-						case 2:  	//display all passages and mentally note that treasure
-						break;
-						case 3:  	//display all passages
-						break;
-						case 4:  	game.view.revealTreasure(currentTile);
-									map.getMapTile(currentTile).treasure.found = true;
-						break;
-						//5 and 6 do nothing
-					}
-					//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
-					//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
-					//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
+					PlayerActions.locatingAction(this, false, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
 	
-					//need to have located it first before trying to loot
-					if (map.getMapTile(currentTile).treasure.found){
-						//if you roll over the number of treasures there you get nothing
-						int result = Die.dieRoll();
-						switch (result){															//TODO also could be a playerdrop here
-							case 1:  	map.giveWholeTreasure(this, map.getMapTile(currentTile).treasure);//TODO second step, treasure stuff this function declariation nneeds work
-							break;
-	//						case 2:  	2nd//since there is only going to be one treasure
-	//						break;
-	//						case 3:  	3rd
-	//						break;
-	//						case 4:  	4th
-	//						break;
-	//						case 5:  	5th
-	//						break;
-	//						case 6:  	6th
-	//						break;
-						}
-					}
+					PlayerActions.lootingAction(this, false, map, currentTile);
 				}
 			}else{
 				System.out.println("There is no treasure to find");
 			}
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
-			System.out.println("Resting Now");
-			//resting (activity to get rid of wounds fatigue see page 21)
-			//can either turn 1 wound into 1 fatigue chit
-				//or return 1 fatigue to play
-			Character person = this.getProfile();
-			
-			
-			//first tell user their status so they don't waste a turn
-			int wounds = 0;
-			int fatigueness = 0;
-			fatigueness = person.action1.fatigued + person.action2.fatigued + person.action3.fatigued;
-			wounds = person.action1.wounded + person.action2.wounded + person.action3.wounded;
-			GUI.combatMessage("You have " + fatigueness + " fatigued chits and/n" + wounds + "wounded chits.");
-			
-			
-			//get all options for both possibilities
-			String[] options = null;
-			options = CombatChit.getFatigueWoundChits(person);
-			
-			//ask user what they want to do
-			Object response = JOptionPane.showInputDialog(null, "Which Chit do You Wish To Fix?",	"Resting",
-					JOptionPane.PLAIN_MESSAGE,
-					null,	options, options[0]);
-			
-			//now interpret result (String)response, increase actionNum and lower faitgue/wound
-			System.out.println("This is the substring" + ((String) response).substring(0, 4));
-			switch(((String) response).substring(0, 4)){
-			case "Fati":	//if user chose to unfatigue a chit
-				//if user chose action1
-				if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
-					person.action1Num++;
-					person.action1.fatigued--;
-				}
-				//if user chose action2
-				else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
-					person.action2Num++;
-					person.action2.fatigued--;
-				}
-				//if user chose action3
-				else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
-					person.action3Num++;
-					person.action3.fatigued--;
-				} else {
-					System.out.println("ERROR, didn't recog the action");
-				}
-				break;
-			case "Woun":	//if user chose to heal
-				//if user chose action1
-				if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
-					person.action1.wounded--;
-					person.action1.fatigued++;
-				}
-				//if user chose action2
-				else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
-					person.action2.wounded--;
-					person.action2.fatigued++;
-				}
-				//if user chose action3
-				else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
-					person.action3.wounded--;
-					person.action3.fatigued++;
-				} else {
-					System.out.println("ERROR, didn't recog the action");
-				}
-				break;
-			}
-											/*//will just reset completely for now				
-											person.action1Num = 4;
-											person.action2Num = 4;
-											person.action3Num = 4;	*/
+			PlayerActions.restingAction(this);
 		}	
 	}
 
@@ -393,95 +291,61 @@ public class Player {
 		//determine what the action is
 				//if((action.substring(0, 4)).compareTo("Move")==0){//if move action
 		if(action.compareTo("Move") == 0){//if move action
-				//THere are rules to handle moving through mountains+caves
-					
-				//int newLocation = Integer.parseInt(action.substring(5));
-				int newLocation = cheatGame.view.getNewLocation();
-				
-				//check to see if they can
-				if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
-					//there are rules about how much weight
-					map.moveCharacters(this, newLocation);//if yes then move
-				}else{
-					System.out.println("Can't Move There, phase wasted");
-				}
-					
+			//THere are rules to handle moving through mountains+caves
+
+			//int newLocation = Integer.parseInt(action.substring(5));
+			int newLocation = cheatGame.view.getNewLocation();
+
+			//check to see if they can
+			if( map.canHeMove(profile.getCurrentLocation(), newLocation, this) ){
+				//there are rules about how much weight
+				map.moveCharacters(this, newLocation);//if yes then move
+			}else{
+				System.out.println("Can't Move There, phase wasted");
+			}
+
 		}else if(action.compareTo("Hide")==0){//if hide action
-					//roll on hide table, only a 6 does nothing
+			//roll on hide table, only a 6 does nothing
 			if(Die.dieRollCheat() != 6)	this.hidden = true;
+
+
+		}else if(action.compareTo("Trade")==0){//if Trade action
+			//call of trade function
+			cheatGame.view.trading(map, this);
+
+		}else if(action.compareTo("Search")==0){//if search action
+			//where are you searching//can only search his own clearing using locate
+			int currentTile = profile.getCurrentLocation()/10-1;
+
+			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).isDrop){//this to check oif there is actually a treasure there to find
+
+				//with which table
+				String choice = cheatGame.view.whichSearchTable();//locate+loot
+
+
+				if(choice.compareTo("Locate") == 0){//using locate table
+					PlayerActions.locatingAction(this, true, map, currentTile);
 					
+				}else if(choice.compareTo("Looting") == 0){//using loot table
+					PlayerActions.lootingAction(this, true, map, currentTile);
 					
-			}else if(action.compareTo("Trade")==0){//if Trade action
-					//call of trade function
-				cheatGame.view.trading(map, this);
-					
-				}else if(action.compareTo("Search")==0){//if search action//TODO second part, all of related treasure stuff should be fixed as above with added cheating stuff as well
-					//where are you searching//can only search his own clearing using locate
-					int currentTile = profile.getCurrentLocation()/10-1;
-					
-					if(map.getMapTile(currentTile).treasure != null){//this to check oif there is actually a treasure there to find
-						
-						//with which table
-						String choice = cheatGame.view.whichSearchTable();//locate+loot
-						
-						
-						if(choice.compareTo("Locate") == 0){//using locate table
-							int result = Die.dieRollCheat();
-							switch (result){
-								case 1:  	cheatGame.view.revealTreasure(currentTile);//technically you can choose but that is dumb
-											map.getMapTile(currentTile).treasure.found = true;
-								break;
-								case 2:  	//display all passages and mentally note that treasure
-								break;
-								case 3:  	//display all passages
-								break;
-								case 4:  	cheatGame.view.revealTreasure(currentTile);
-											map.getMapTile(currentTile).treasure.found = true;
-								break;
-								//5 and 6 do nothing
-							}
-							//When he discovers a roadway or treasure site, he is the only one who discovers it; it remains concealed from others, who must discover it on their own if they wish to use it.  He does not have to admit whether he actually discovers a treasure site. He must reveal what he rolled, but he does not have to reveal whether there is a treasure site chit in his clearing.
-							//Once an individual discovers a hidden path, secret passage or treasure site, he never has to discover it again. He keeps a record of each discovery by crossing it off the Discoveries list on his Personal History sheet.
-							//Once he has discovered a treasure site, he can search it for treasure whenever he is in its clearing.
-							
-						}else if(choice.compareTo("Looting") == 0){//using loot table
-			
-							//need to have located it first before trying to loot
-							if (map.getMapTile(currentTile).treasure.found){
-								//if you roll over the number of treasures there you get nothing
-								int result = Die.dieRollCheat();
-								switch (result){
-									case 1:  	map.giveWholeTreasure(this, map.getMapTile(currentTile).treasure);
-									break;
-			//						case 2:  	2nd//TODO second step, need to differentiate between contents of treasure
-			//						break;
-			//						case 3:  	3rd
-			//						break;
-			//						case 4:  	4th
-			//						break;
-			//						case 5:  	5th
-			//						break;
-			//						case 6:  	6th
-			//						break;
-								}
-							}
-						}
-					}else{
-						System.out.println("There is no treasure to find");
-					}
-					
-				}else if(action.compareTo("Rest")==0){//if rest action
-					System.out.println("Nothing is Done here in this iteration");
-					
-				}	
-		
+				}
+			}else{
+				System.out.println("There is no treasure to find");
+			}
+
+		}else if(action.compareTo("Rest")==0){// if rest action
+			PlayerActions.restingAction(this);
+
+		}	
+
 	}
-	
-	
+
+
 	public void choiceOfFightChits(String response) {
 		//user picked an action chit based on current active ones
 		//interpret result and set the attack
-		
+
 		if(profile.getType().compareTo("Amazon") == 0){
 			//interpret response	Fight:  Time 4,  Effort 1,	Strength 1
 			switch(response){
@@ -495,7 +359,7 @@ public class Player {
 				profile.action2Num--;	//lower the num of action# since you can only use it once a day
 				break;
 			}
-			
+
 		}else if(profile.getType().compareTo("BlackKnight") == 0){
 			switch(response){
 			case "Fight:  Time 4, Effort 2, Strength 2":	//42H					
@@ -508,7 +372,7 @@ public class Player {
 				profile.action3Num--;	//lower the num of action# since you can only use it once a day
 				break;
 			}
-			
+
 		}else if(profile.getType().compareTo("Captain") == 0){
 			switch(response){
 			case "Fight:  Time 6, Effort 0, Strength 2":	//60H					
@@ -521,7 +385,7 @@ public class Player {
 				profile.action3Num--;	//lower the num of action# since you can only use it once a day
 				break;
 			}
-			
+
 		}else if(profile.getType().compareTo("Dwarf") == 0){
 			switch(response){
 			case "Fight:  Time 5, Effort 2, Strength 3":	//52T					
@@ -534,7 +398,7 @@ public class Player {
 				profile.action3Num--;	//lower the num of action# since you can only use it once a day
 				break;
 			}
-			
+
 		}else if(profile.getType().compareTo("Elf") == 0){
 			switch(response){
 			case "Fight:  Time 3, Effort 1, Strength 1":	//31M					
