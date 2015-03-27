@@ -17,12 +17,12 @@ public class Server {
 	public static ArrayList<String> characters;
 	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>();
 	public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
-	static int PORT = 9073;
+	static int PORT = 65001;
 	
 	
 	//TODO re-enable this main to test any code (need to also uncomment "possibilities" in GUI as well though
 	
-	public static void main(String args[]){
+	/*public static void main(String args[]){
 		//We 'll eventually be networking so the client's will have to connect with server which will call the game
 
 		if(GUI.cheatMode()){//using cheatMode
@@ -46,13 +46,13 @@ public class Server {
 			//now start the game
 			game.startGame();
 		}
-	}
+	}*/
 	
 	
 	
 	
 	//networking code
-	/*public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException {
 		characters = new ArrayList<String>();
 		characters.add("Amazon");
 		characters.add("Black Knight");
@@ -89,7 +89,7 @@ public class Server {
 			}
 		}
 		catch(Exception X) { System.out.print(X);}
-	}*/
+	}
 	
 	/*public static String AddPlayer(Socket X) throws IOException
 	{
