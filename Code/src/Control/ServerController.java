@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ServerController implements Runnable{
-	//public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
+	public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
 	Socket SOCK;
 	private Scanner INPUT;
 	private PrintWriter OUT;
@@ -93,20 +93,20 @@ public class ServerController implements Runnable{
 		else if(message.contains("ADDPLAYER"))
 		{
 			String c = (message.substring(message.indexOf(":")+1));
-			if(Server.CurrentPlayers.size() == 0){
-				Server.CurrentPlayers.add(new Player(c));
+			if(CurrentPlayers.size() == 0){
+				CurrentPlayers.add(new Player(c));
 				return;
 			}
-			for(int i=0; i < Server.CurrentPlayers.size(); ++i)
+			for(int i=0; i < CurrentPlayers.size(); ++i)
 			{
-				if(Server.CurrentPlayers.get(i).getProfile().getType().equals(c))
+				if(CurrentPlayers.get(i).getProfile().getType().equals(c))
 				{
 					OUT.println("ChooseChar:");
 					OUT.flush();
 				}
-				if(Server.CurrentPlayers.size() == i+1)
+				if(CurrentPlayers.size() == i)
 				{
-					Server.CurrentPlayers.add(new Player(c));
+					CurrentPlayers.add(new Player(c));
 					++i;
 				}
 			}
@@ -114,11 +114,11 @@ public class ServerController implements Runnable{
 	}
 	
 	void startGame(){
-		g = new Game(Server.CurrentPlayers.size());
+		g = new Game(CurrentPlayers.size());
 		String s = "";
-		for(int i=0; i < Server.CurrentPlayers.size(); ++i)
+		for(int i=0; i < CurrentPlayers.size(); ++i)
 		{
-			s += Server.CurrentPlayers.get(i).getProfile().getType() + ",";
+			s += CurrentPlayers.get(i).getProfile().getType() + ",";
 		}
 		s = s.substring(0, s.length()-1);
 		
