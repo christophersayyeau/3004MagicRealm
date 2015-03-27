@@ -49,6 +49,10 @@ public class Game {
 		
 		//putting the counters will be handled in the mapTiles
 	}
+	
+	public Game(int x){
+		
+	}
 
 	
 	public void startGame() {

@@ -80,7 +80,7 @@ public class Client implements Runnable{
 			}
 			else if(MESSAGE.contains("PLAYERS"))
 			{
-				gui.initilizeWindow();
+				//gui.initilizeWindow();
 				System.out.println(MESSAGE);
 				System.out.println(MESSAGE);
 				//createPlayer(MESSAGE);
@@ -96,19 +96,6 @@ public class Client implements Runnable{
 	}
 	
 	public void createPlayer(String message){
-		/*List<String> n = new ArrayList<String>();
-		
-		String s = (message.substring(message.indexOf(";")+ 1));
-		s = s.replace("[", "");
-		s = s.replace("]", "");
-		s = s.replace(" ", "");
-
-		n = Arrays.asList(s.split(","));
-		
-		/*for(int x=0; x < n.size(); ++x){
-			GUI.possibilities[x] = n.get(x);
-		}
-		*/
 		String s = GUI.displayMessage("Please select a different character.");
 		player = null;
 		player = new Player(GUI.createPlayer());

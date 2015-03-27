@@ -114,9 +114,9 @@ public class ServerController implements Runnable{
 	}
 	
 	void startGame(){
-		g = new Game();
+		g = new Game(CurrentPlayers.size());
 		String s = "";
-		for(int i=0; i <=CurrentPlayers.size(); ++i)
+		for(int i=0; i < CurrentPlayers.size(); ++i)
 		{
 			s += CurrentPlayers.get(i).getProfile().getType() + ",";
 		}
