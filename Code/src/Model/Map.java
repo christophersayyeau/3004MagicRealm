@@ -9,7 +9,7 @@ import View.GUI;
 
 public class Map {
 	GUI view;
-	boolean placement = true;
+	boolean startplacement = true;
 	//an array of tiles, the values will be hardcoded in
 	private MapTiles [] mapTiles = new MapTiles[20];
 	public YellowChit [] warningsV = new YellowChit[5];
@@ -313,14 +313,12 @@ public class Map {
 		int[] temp = new int[2];
 		temp = GUI.convertNameToPosition(pos);
 		
-		//TODO putPlayer being called twice in the function and only being removed once
-		//make sure they exist in tile
-		System.out.println("Put player being called");		
-		if(placement == true){
+		//Initial placement of the player, should not be done more than once
+		if(startplacement == true){
 			getMapTiles()[temp[0]].putPlayer(player1);
 			getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
-		}
-		placement = false;
+			startplacement = false;
+		}		
 		
 		if(newLocation > 0){
 			//remove from old tile

@@ -67,6 +67,7 @@ public class GUI implements MouseListener{
 	final int tileY = 305;
 	
 	public JLabel amazon = new JLabel();
+	public JLabel player[] = new JLabel[6];
 	
 	int playerX;
 	int playerY;
@@ -1472,6 +1473,7 @@ public class GUI implements MouseListener{
 		Players.setSize((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3);	
 	}
 	
+	//private void initPlayers(String name){
 	private void initPlayers(){
 		//TODO edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
@@ -1483,6 +1485,22 @@ public class GUI implements MouseListener{
 				
 		//TODO maybe change "amazon" to "player" and store the imageicon into player class?
 		//hardcoding only 1 type for the time being (and only really handles 1 player)
+		/*
+		if(name.equals("amazon"))
+			player.setIcon(amazonIcon);
+		else if(name.equals("bknight"))
+			player.setIcon(bknightIcon);
+		else if(name.equals("captain"))
+			player.setIcon(captainIcon);
+		else if(name.equals("dwarf"))
+			player.setIcon(dwarfIcon);
+		else if(name.equals("elf"))
+			player.setIcon(elfIcon);
+		else if(name.equals("swordsman"))
+			player.setIcon(swordsmanIcon);
+		else
+			System.out.println("Not a valid player");
+			*/
 		amazon.setIcon(amazonIcon);
 		amazon.setVisible(true);
 		//amazon.setLocation(560,1175);
