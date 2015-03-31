@@ -11,4 +11,5 @@ public class Items {
 	public int notoriety_value = 0;
 	public int gold_price = 0;
 	public int fame_value = 0;
+	public String name = null;//used by cloak and spect
 }

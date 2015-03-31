@@ -16,6 +16,8 @@ public class Treasure extends Items
 	int damaged_price = -1;
 	int destroyed_price = -1;
 	
+	String name = null;//only given to those with special powers at the moment
+	
 	public boolean isGt_Treasure() {
 		return Gt_Treasure;
 	}
@@ -231,6 +233,8 @@ public class Treasure extends Items
 			fame_value = 0;
 			notoriety_value = 2;
 			gold_price = 4;
+			
+			name = "Cloak_of_Mist";
 		}
 	}
 	
@@ -541,6 +545,8 @@ public class Treasure extends Items
 			fame_value = 0;
 			notoriety_value = 2;
 			gold_price = 6;
+			
+			name = "Magic_Spectacles";
 		}
 	}
 	

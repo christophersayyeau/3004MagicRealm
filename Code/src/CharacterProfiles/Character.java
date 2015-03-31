@@ -145,13 +145,24 @@ public class Character {
 		cloakUsed = false;
 		glassesUsed = false;
 	}
+	
 	public boolean haveCloak() {
-		// TODO check belongings for magic cloak
-		return false;
+		//loop through his stuff
+		for(int a=0; a<belongings.length; a++){
+			if(belongings[a].name.compareTo("Cloak_of_Mist") == 0){
+				return true;//found it
+			}
+		}
+		return false;//could not find them
 	}
 	public boolean haveGlasses() {
-		// TODO above
-		return false;
+		//loop through his stuff
+		for(int a=0; a<belongings.length; a++){
+			if(belongings[a].name.compareTo("Magic_Spectacles") == 0){
+				return true;//found it
+			}
+		}
+		return false;//could not find them
 	}
-	
+
 }
