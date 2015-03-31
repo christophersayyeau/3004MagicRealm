@@ -679,7 +679,8 @@ public class GUI implements MouseListener{
 		else if(c.playersInClearing != null){//check for players in clearing
 			System.out.println("Display num players in clearing " + c.numPLayersInClearing);
 			for(int n=0; n<c.numPLayersInClearing; n++){
-				//if(c.playersInClearing[n]!=null)
+				//TODO does not start the list at location [0], will continue to grow, but no duplication anymore
+				if(c.playersInClearing[n]!=null)
 				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
 			}
 		}
@@ -695,6 +696,13 @@ public class GUI implements MouseListener{
 		
 		if(list.size() == 0)
 			list.add("Empty");
+
+		if(map.getMapTile(x).getTreasure().found == true){
+			list.add("Treasure has been found already");
+		}
+		//TODO remove when done testing used to check if treasure exists
+		else
+			list.add("Unknown Treasure");
 		
 		String [] list2 = new String[list.size()];
 		list2 = list.toArray(list2);

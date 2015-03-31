@@ -54,6 +54,7 @@ public class MapChits {
 			shinies = new Treasure[0];
 			for(int a = 0; a < smallTreasures; a++){
 				shinies = ArrayUtils.add(shinies, map.randomSmallTreasure());
+				
 			}
 			for(int a = 0; a < lgTreasures; a++){
 				shinies = ArrayUtils.add(shinies, map.randomLargeTreasure());

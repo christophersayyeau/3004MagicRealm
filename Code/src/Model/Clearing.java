@@ -2,7 +2,7 @@ package Model;
 
 import Control.Player;
 import Model.ArrayUtils;
-import Model.MapChits.PlayerDrop;
+import Model.MapChits.*;
 
 public class Clearing {
 

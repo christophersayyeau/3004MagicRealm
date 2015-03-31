@@ -90,6 +90,11 @@ public class MapTiles {
 	public YellowChit getWarning() {
 		return warning;
 	}
+	
+	public GoldChit getTreasure() {
+		return treasure;
+	}
+	
 	public void setWarning(YellowChit warning) {
 		this.warning = warning;
 	}
