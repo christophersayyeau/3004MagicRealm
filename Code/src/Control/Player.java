@@ -190,7 +190,12 @@ public class Player {
 			}
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
-			PlayerActions.restingAction(this);
+			//if Dwarf do twice
+			if(this.getProfile().getType().compareTo("Dwarf") == 0){
+				PlayerActions.restingAction(this);
+				PlayerActions.restingAction(this);
+			}else	//not a Dwarf
+				PlayerActions.restingAction(this);
 		}	
 	}
 
@@ -300,8 +305,12 @@ public class Player {
 			}
 
 		}else if(action.compareTo("Rest")==0){// if rest action
-			PlayerActions.restingAction(this);
-
+			//if Dwarf do twice
+			if(this.getProfile().getType().compareTo("Dwarf") == 0){
+				PlayerActions.restingAction(this);
+				PlayerActions.restingAction(this);
+			}else	//not a Dwarf
+				PlayerActions.restingAction(this);
 		}	
 
 	}

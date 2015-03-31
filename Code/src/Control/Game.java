@@ -114,7 +114,16 @@ public class Game {
 						phasesToday = 4;
 					}
 				}
-	
+				//handle the captain's special
+				int tile = players[a].getCurrentLocation()/10-1;
+				int clearing = players[a].getCurrentLocation()%10-1;
+				if(map.getClearing(tile, clearing).chapel || map.getClearing(tile, clearing).guardHouse || map.getClearing(tile, clearing).house || map.getClearing(tile, clearing).inn){
+					//if in a dwelling and a captain
+					if(players[a].getProfile().getType().compareTo("Captain") != 0){
+						phasesToday++;
+					}
+				}
+
 				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
 				//reset fought today

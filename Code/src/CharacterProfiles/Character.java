@@ -58,6 +58,11 @@ public class Character {
 		foughtToday = s;
 	}
 	
+	public boolean amazonUsed = false;//only affects amazons
+	public boolean elfUsed = false;
+	public boolean cloakUsed = false;
+	public boolean glassesUsed = false;
+	
 	public String getType() {
 		return type;
 	}
@@ -133,6 +138,20 @@ public class Character {
 		foughtToday = false;
 		
 		//actionChits are reset during rest in Player.java
+		
+		//reset the used values here for new day
+		amazonUsed = false;
+		elfUsed = false;
+		cloakUsed = false;
+		glassesUsed = false;
+	}
+	public boolean haveCloak() {
+		// TODO check belongings for magic cloak
+		return false;
+	}
+	public boolean haveGlasses() {
+		// TODO above
+		return false;
 	}
 	
 }

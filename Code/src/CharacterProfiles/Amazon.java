@@ -7,9 +7,8 @@ package CharacterProfiles;
 
 import Model.*;
 import Model.Weapon.ShortSword;
-import Model.Armor.Helmet;
-import Model.Armor.Breastplate;
-import Model.Armor.Shield;
+import Model.Armor.*;
+import Model.Treasure.*;
 
 public class Amazon extends Character{
 	
@@ -48,7 +47,13 @@ public class Amazon extends Character{
 		//getDefense()[2] = shield;
 		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
-		
+
+//TODO Amazon got the cloak and spectacles to test their function
+		Treasure tem = new Treasure();
+		Cloak_of_Mist cloak = tem.new Cloak_of_Mist();
+		Magic_Spectacles glasses = tem.new Magic_Spectacles();
+		this.belongings = ArrayUtils.add(this.belongings, cloak);
+		this.belongings = ArrayUtils.add(this.belongings, glasses);
 		
 		//Action types
 		action1.setType("Fight");	//set the type

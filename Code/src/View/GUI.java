@@ -516,14 +516,41 @@ public class GUI implements MouseListener{
 			case 0:			//Move
 				System.out.println("Call the move function");
 				player.setPhaseActions("Move");	//choose location during your turn
+				
+				if(player.getProfile().getType().compareTo("Amazon") == 0 && !player.getProfile().amazonUsed){
+					a--;
+					phasesAvailable++;
+					player.getProfile().amazonUsed = true;	//so we can't use them again this time
+					System.out.println("Amazon gets extra move phase");
+				}
 				break;
 			case 1:			//Hide
 				System.out.println("Call the hide function");
 				player.setPhaseActions("Hide");	
+				
+				if(player.getProfile().haveCloak() && !player.getProfile().cloakUsed){
+					a--;				//make loop again
+					phasesAvailable++;	//increase the value
+					player.getProfile().cloakUsed = true;	//so we can't use them again this time
+					System.out.println("Cloak gets extra hide phase");
+				}
+				if(player.getProfile().getType().compareTo("Elf") == 0 && !player.getProfile().elfUsed){
+					a--;
+					phasesAvailable++;
+					player.getProfile().elfUsed = true;	//so we can't use them again this time
+					System.out.println("Elf gets extra hide phase");
+				}
 				break;
 			case 2:			//Search
 				System.out.println("Call the search function");
 				player.setPhaseActions("Search");	
+				
+				if(player.getProfile().haveGlasses() && !player.getProfile().glassesUsed){
+					a--;
+					phasesAvailable++;
+					player.getProfile().glassesUsed = true;	//so we can't use them again this time
+					System.out.println("Glasses gets extra search phase");
+				}
 				break;
 			case 3:			//Rest
 				System.out.println("Call the rest function");
@@ -633,7 +660,7 @@ public class GUI implements MouseListener{
 	}
 
 	public static void revealTreasure(int tile) {
-		// TODO second step, reveal that the treasure in this tile has been found
+		// TODO second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
 		//Dont need to display contents, just show that it is considered found and can now be looted
 		
 	}
