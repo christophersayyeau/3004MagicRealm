@@ -42,7 +42,15 @@ public class ArrayUtils {
 		@SuppressWarnings("unchecked") // type must be T
 		final		
 		T[] newArray = (T[]) copyArrayGrow1(array, type);	    
-		newArray[newArray.length - 1] = element;	
+		//TODO should it be adding to length - 1? I think this is causing the skipping of location [0]
+		//Remove the for loop if it still doesn't work
+		for(int a=0; a<newArray.length; a++){
+			if(newArray[a] == null){
+				newArray[a] = element;
+				break;
+			}
+		}
+		//newArray[newArray.length - 1] = element;	
 
 		return newArray;		
 	}
