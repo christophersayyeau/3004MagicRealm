@@ -21,6 +21,8 @@ public class BlackKnight extends Character{
 		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3
 		
 		weight = 2;				//BlKn is Medium
+		setGold(40);
+		this.setStartGold(40);
 		
 		//trading groups
 		allyTrading[0] = "Company";

@@ -638,7 +638,7 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public String whichSearchTable() {
+	public static String whichSearchTable() {
 		//ask user if they want to "Locate" or "Looting" 
 		Object[] choices = {"Locate", "Loot"};
 		
@@ -1587,8 +1587,9 @@ public class GUI implements MouseListener{
 				
 		//next ask which one to fatigue
 		//now ask defender to pick
+		@SuppressWarnings("null")
 		Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Fatigue?",	"Fatiguing",
-				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
+				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);
 		
 		return (String)response;
 	}
@@ -1620,7 +1621,7 @@ public class GUI implements MouseListener{
 	}
 
 	public static boolean whatFound(int currentTile) {
-		//Ask user if he wants to locate the treasure or the secreat pahths
+		//Ask user if he wants to locate the treasure or the secret paths
 		String[] options = {"Treasure","Passages"};
 		//return true if user wants cheat mode
 		int n = JOptionPane.showOptionDialog(null,  "Do You Wish To Locate the Treasure or the Passages?", "Locate", 
@@ -1633,6 +1634,19 @@ public class GUI implements MouseListener{
 		}else{//no
 			return false;
 		}
+	}
+
+	public static int victoryPoints(String string, int[] values) {
+		
+		//convert to String
+		String[] options = new String[values.length];
+		for(int a=0; a<values.length; a++)	options[a] = "" + values[a];//create array
+		
+		// Ask user what value it will be	
+		Object response = JOptionPane.showInputDialog(null, string,	"Victory",
+				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
+		
+		return (int)response;
 	}
 	
 }

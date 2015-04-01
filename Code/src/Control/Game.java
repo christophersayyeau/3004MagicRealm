@@ -59,9 +59,9 @@ public class Game {
 	public void startGame() {
 		System.out.println("STARTING THE GAME");
 		
-		for(int a =0 ; a<numOfPlayers; a++){			
-			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position
-			
+		for(int a =0 ; a<numOfPlayers; a++){	
+			players[a].recordVictoryRequirments();//used for victory points
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position		
 		}
 
 		//update GUI for all players
@@ -210,18 +210,23 @@ public class Game {
 			day++;	
 		}
 		
+		gameOver();
+		
+	}
+	
+
+	protected void gameOver() {
 		//end game and calculate score
 		System.out.println("Game is now over");
-		
+
 		for(int a =0 ; a<numOfPlayers; a++){
 			int finalScore = players[a].calculateScore();
 			System.out.println("Player " + a + " got " + finalScore);
-			
+
 		}
 		//display on main screen
 		view.displayScore(players);
 	}
-	
 
 	protected void combat(boolean cheating) {
 		//randomize which clearings with characters go first

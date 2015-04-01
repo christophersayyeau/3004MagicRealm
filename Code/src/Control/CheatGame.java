@@ -43,6 +43,7 @@ public class CheatGame extends Game {
 		System.out.println("STARTING THE CHEAT GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){
+			players[a].recordVictoryRequirments();//used for victory points
 			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position	
 		}
 		
@@ -134,16 +135,8 @@ public class CheatGame extends Game {
 			System.out.println("Day " + day + "is now over.");
 			day++;				
 		}
-		//end game and calculate score
-		System.out.println("Game is now over");
 		
-		for(int a =0 ; a<numOfPlayers; a++){
-			int finalScore = players[a].calculateScore();
-			System.out.println("Player " + a + " got " + finalScore);
-			
-		}
-		//display on main screen
-		view.displayScore(players);
+		gameOver();
 	}
 
 

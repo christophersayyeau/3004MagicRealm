@@ -20,6 +20,8 @@ public class Amazon extends Character{
 		currentLocation = 25;		//currently in tile 2 clearing 5, Bad Valley 5
 			
 		weight = 2;				//Amazon is Medium
+		setGold(35);	//start amount
+		this.setStartGold(35);
 		
 		//trading groups
 		friendlyTrading[0] = "Lancer";
@@ -48,7 +50,7 @@ public class Amazon extends Character{
 		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
 
-//TODO Amazon got the cloak and spectacles to test their function
+//TODO Remember, the Amazon got the cloak and spectacles to test their function
 		Treasure tem = new Treasure();
 		Cloak_of_Mist cloak = tem.new Cloak_of_Mist();
 		Magic_Spectacles glasses = tem.new Magic_Spectacles();

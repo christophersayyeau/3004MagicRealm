@@ -18,6 +18,8 @@ public class Elf extends Character{
 		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3
 		
 		weight = 1;				//Elf is Light
+		setGold(16);
+		this.setStartGold(16);
 		
 		//trading groups
 		allyTrading[0] = "Woodfolk";

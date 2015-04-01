@@ -26,8 +26,9 @@ public class Dwarf extends Character{
 		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3, the Inn
 
 		
-		
 		weight = 3;				//Dwarf is Heavy
+		setGold(23);
+		this.setStartGold(23);
 		
 		//trading groups
 		friendlyTrading[0] = "Company";

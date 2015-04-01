@@ -4,6 +4,7 @@ package Control;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import Model.ArrayUtils;
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
@@ -15,6 +16,17 @@ import CharacterProfiles.Character;
 
 public class Player {
 
+	//victory point values
+	int greatTreasureVicPoint;
+	int fameVicPoint;
+	int notorietyVicPoint;
+	int goldVicPoint;
+	//vicPoint Needed(above*#)
+	int greatTreasureVicPointNeeded;
+	int fameVicPointNeeded;
+	int notorietyVicPointNeeded;
+	int goldVicPointNeeded;
+	
 	//commented out view for hotseat game
 	//GUI view;
 	
@@ -170,7 +182,7 @@ public class Player {
 				System.out.println("Now Searching");
 				
 				//with which table
-				String choice = game.view.whichSearchTable();//locate+loot
+				String choice = GUI.whichSearchTable();//locate+loot
 				
 				if(choice.compareTo("Locate") == 0){//using locate table
 					PlayerActions.locatingAction(this, false, map, currentTile);
@@ -227,6 +239,41 @@ public class Player {
 		return false;
 	}
 
+	
+	public void recordVictoryRequirments(){
+		//set at beginning of game, used at end
+		/*
+		 *First assign value of 0 to 5 vic points to each category(no spell category)
+		 *then multiply points by factor in each category = needed for that category
+		 *					GreatTreasures is 1, fame is 10, notoriety is 20, gold is 30(in addition to start amount)
+		 */
+		int[] values = {0,1,2,3,4,5};
+		
+		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
+		//remove the amount of options
+		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
+			values = (int[]) ArrayUtils.remove(values, values.length);
+		
+		fameVicPoint = GUI.victoryPoints("Fame Amount", values);
+		//remove the amount of options
+		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
+			values = (int[]) ArrayUtils.remove(values, values.length);
+		
+		notorietyVicPoint = GUI.victoryPoints("Amount of Notoriety", values);
+		//remove the amount of options
+		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
+			values = (int[]) ArrayUtils.remove(values, values.length);
+		
+		goldVicPoint =  values[values.length];//gets the last value
+		GUI.displayMessage("Gold Amount Will be "+ goldVicPoint);
+		
+		//now multiply to find out how much is needed
+		greatTreasureVicPointNeeded = greatTreasureVicPoint;//same value
+		fameVicPointNeeded = fameVicPoint*10;//need 10 times amount of fame
+		notorietyVicPointNeeded = notorietyVicPoint*20;
+		goldVicPointNeeded = goldVicPoint*30;
+	}
+	
 	public int calculateScore() {
 		/*
 	For the sake of specifying how the game ends in this first Iteration, 
@@ -237,15 +284,26 @@ public class Player {
     1 point per great treasure, 1 point per 2 learnt spells (but I repeat I think you should forget about learning spells)
 
     1 point for each 10 points of fame, 1 point for each 20 points of notoriety, and 1 point for each 30 gold
-		*/
-		System.out.println("Now Calculating Score");
-		int score = 0;
+		
+		//System.out.println("Now Calculating Score");
 		
 		score += this.getProfile().getGreatTreasure();//1 point for each	
 		score += this.getProfile().getFame()/10;//1 point for every 10 points of fame
 		score += this.getProfile().getNotoriety()/20;//1 point for every 20 points of notoriety
 		score += this.getProfile().getGold()/30;//1 point for every 30 points of gold
-		return score;
+		*/
+		
+		//iteration 2
+				
+		int greatTreasureScore = profile.getGreatTreasure() - greatTreasureVicPointNeeded;
+		int fameScore = profile.getFame() - fameVicPointNeeded;
+		int notorietyScore = profile.getNotoriety() - notorietyVicPointNeeded;
+		int goldScore = profile.getGold() - goldVicPointNeeded - profile.getStartGold();
+		
+		int basicScore = greatTreasureScore + (fameScore/10) + (notorietyScore/20) + (goldScore/30);
+		int bonusScore = (greatTreasureScore)*greatTreasureVicPoint + (fameScore/10)*fameVicPoint + (notorietyScore/20)*notorietyVicPoint + (goldScore/30)*goldVicPoint;
+		
+		return basicScore + bonusScore;//if positive than it is a win //most points is victor
 	}
 
 	public Character getProfile() {
@@ -290,7 +348,7 @@ public class Player {
 			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).clearing[currentClearing].isDrop){//this to check oif there is actually a treasure there to find
 
 				//with which table
-				String choice = cheatGame.view.whichSearchTable();//locate+loot
+				String choice = GUI.whichSearchTable();//locate+loot
 
 
 				if(choice.compareTo("Locate") == 0){//using locate table

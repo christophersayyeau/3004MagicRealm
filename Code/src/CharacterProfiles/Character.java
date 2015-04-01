@@ -24,7 +24,15 @@ public class Character {
 	
 	int fame = 0;		//players fame value, can be negative
 	int notoriety = 0;	//players notoriety, can be negative
-	private int gold = 10;	//players start out with 10 gold, can't be negative
+	private int gold;	//characters have set start amounts
+	
+	int startGold;//used only in victory Points
+	public int getStartGold(){
+		return startGold;
+	}
+	public void setStartGold(int g){
+		startGold = g;
+	}
 	
 	//this will hold all items character is holding but not using: treasure, deadCharacters weapons and armors
 	public Items [] belongings = new Items[0];

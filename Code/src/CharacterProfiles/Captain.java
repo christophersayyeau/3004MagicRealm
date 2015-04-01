@@ -28,6 +28,8 @@ public class Captain extends Character{
 		currentLocation = 25;		//currently in tile 2 clearing 3, Bad Valley 3, the Inn
 		
 		weight = 2;				//Captain is Medium
+		setGold(35);
+		this.setStartGold(35);
 		
 		//trading groups
 		friendlyTrading[0] = "Soldier";
