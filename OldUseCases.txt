@@ -1,3 +1,10 @@
+THESE WERE GRADED POORLY ON FIRST ITERATION, INCOMPLETE AND INCORRECT
+
+
+
+
+
+
 Scenario	Player starts a Game
 Description	Scenario of player starting a game
 Actors	Player, System
