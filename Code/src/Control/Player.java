@@ -140,6 +140,7 @@ public class Player {
 	}
 
 		
+	@SuppressWarnings("static-access")
 	void doAction(String action, Map map, Game game) {
 		
 		//handles the action recorded during birdsong and activated during daylight

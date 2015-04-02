@@ -333,13 +333,14 @@ ignore fatigued and wounded counters*/
 		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
 			//ask user for which player type
+			@SuppressWarnings("static-access")
 			String s = view.createPlayer();		
 			
 			//create player
 			players[i] = new Player(s);
 			
 			//handle start location
-			int locale = view.chooseStart(players[i]);
+			int locale = GUI.chooseStart(players[i]);
 			players[i].setCurrentLocation(locale);
 		}
 	}

@@ -195,6 +195,7 @@ public class PlayerActions {
 
 	}
 
+	@SuppressWarnings("static-access")
 	public static void moveAction(Player player, boolean cheating, Map map, GUI view) {
 
 		//THere are rules to handle moving through mountains+caves
@@ -217,7 +218,7 @@ public class PlayerActions {
 			//there are rules about how much weight
 			map.moveCharacters(player, newLocation);//if yes then move
 
-			//TODO add in code to move icon around
+			//TODO HAS THIS BEEN HANDLED ALREADY?add in code to move icon around
 			//Make the code more generalized, figure out how/where to store icons
 			view.amazon.setLocation(view.getPlayerX(),view.getPlayerY());
 

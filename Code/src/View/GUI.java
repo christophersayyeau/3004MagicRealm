@@ -12,8 +12,7 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-import com.sun.xml.internal.ws.util.StringUtils;//TODO is this needed?
-
+//import com.sun.xml.internal.ws.util.StringUtils;
 import Control.Client;
 import Control.Game;
 import Control.Player;
@@ -54,6 +53,7 @@ public class GUI implements MouseListener{
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
 	
+	@SuppressWarnings("rawtypes")
 	public static JList jlPlayers = new JList();
 	private static JScrollPane spPlayers = new JScrollPane();
 	private static JButton startButton = new JButton();
@@ -107,6 +107,7 @@ public class GUI implements MouseListener{
 	
 	public static void main(String args[])
 	{
+		@SuppressWarnings("unused")
 		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
@@ -660,7 +661,7 @@ public class GUI implements MouseListener{
 	}
 
 	public static void revealTreasure(int tile) {
-		// TODO second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
+		// TODO HAS THIS BEEN HANDLED BELOW?second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
 		//Dont need to display contents, just show that it is considered found and can now be looted
 		
 	}
@@ -668,7 +669,8 @@ public class GUI implements MouseListener{
 	public void displayScore(Player[] gamers) {		
 		//display the final scores of all users
 		for(int a =0; a< gamers.length; a++){	//go to all users
-			// TODO display in label everbodies scores
+			//TODO display in label everbodies scores
+			//gamers[a].calculateScore();this gives you the player total score
 		}
 	}
 	
@@ -727,7 +729,7 @@ public class GUI implements MouseListener{
 		if(map.getMapTile(x).getTreasure() != null){
 			if(map.getMapTile(x).getTreasure().found == true)
 				list.add("Treasure has been found already");
-			//TODO remove else when done testing, used to check if treasure exists
+			//TODO HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
 			else
 				list.add("Unknown Treasure");
 		}
@@ -735,6 +737,7 @@ public class GUI implements MouseListener{
 		String [] list2 = new String[list.size()];
 		list2 = list.toArray(list2);
 		
+		@SuppressWarnings("unused")
 		Object z = JOptionPane.showInputDialog(
 				Players,
 				"Inside of clearing:\n",
@@ -1347,7 +1350,7 @@ public class GUI implements MouseListener{
 		//create the array to ask
 		String[] choices = null;
 		Player[] values = null;
-		/*TODO uncomment so that they can fight
+		
 		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
 				if(!clearing.playersInClearing[a].getProfile().getFoughtToday()){	//if not already fought
 					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
@@ -1367,8 +1370,7 @@ public class GUI implements MouseListener{
 			//return the player value
 			return values[response];
 		}
-		*/
-		return null;
+		//Unreachable
 	}
 
 	public void selectFightGear(Player player) {
@@ -1438,6 +1440,7 @@ public class GUI implements MouseListener{
 		generateClearings();
 	}
 	
+	@SuppressWarnings("static-access")
 	public void initilizeWindow(){
 		//allows to position tiles
 		//map = m;
@@ -1510,6 +1513,7 @@ public class GUI implements MouseListener{
 	}
 	
 	//private void initPlayers(String name){
+	@SuppressWarnings("unused")
 	private void initPlayers(){
 		//TODO edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
@@ -1556,6 +1560,7 @@ public class GUI implements MouseListener{
 		*/
 	}
 	
+	@SuppressWarnings("resource")
 	private static void avaiableChars(Socket X) throws IOException{
 		Scanner INPUT = new Scanner(X.getInputStream());
 		List<String> n = new ArrayList<String>();

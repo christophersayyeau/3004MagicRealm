@@ -2,9 +2,9 @@ package Control;
 
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
 import java.util.Scanner;
 
 import View.GUI;
@@ -55,6 +55,7 @@ public class Client implements Runnable{
 	}
 	
 	//function to receive messages from server
+	@SuppressWarnings("unchecked")
 	public void RECEIVE()
 	{
 		//evaluate message from the client then do stuff
@@ -95,6 +96,7 @@ public class Client implements Runnable{
 		OUT.flush();
 	}
 	
+	@SuppressWarnings("unused")
 	public void createPlayer(String message){
 		String s = GUI.displayMessage("Please select a different character.");
 		player = null;

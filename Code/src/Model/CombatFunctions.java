@@ -428,6 +428,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					
 					//next ask which one to wound
 					//now ask defender to pick
+					@SuppressWarnings("null")
 					Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Wound?",	"Wounding",
 							JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
 
@@ -475,7 +476,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		view.getMap().getMapTile(temp[0]).removePlayer(defender);			//tile
 		
 		//removing from Controller
-		//TODO networking remove player from client, server and serverController, then close his window
+		//TODO STEFAN, networking, remove player from client, server and serverController, then close his window
 	}
 	
 }

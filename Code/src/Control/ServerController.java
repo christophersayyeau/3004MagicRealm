@@ -41,6 +41,7 @@ public class ServerController implements Runnable{
 		}
 	}
 	
+	@SuppressWarnings("static-access")
 	public void run()
 	{
 		try
