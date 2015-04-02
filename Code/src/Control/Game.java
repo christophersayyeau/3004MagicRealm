@@ -115,9 +115,16 @@ public class Game {
 					}
 				}
 				//handle the captain's special
-				int tile = players[a].getCurrentLocation()/10-1;
-				int clearing = players[a].getCurrentLocation()%10-1;
-				if(map.getClearing(tile, clearing).chapel || map.getClearing(tile, clearing).guardHouse || map.getClearing(tile, clearing).house || map.getClearing(tile, clearing).inn){
+				int tile = players[a].getCurrentLocation()/10;
+				int clearing = players[a].getCurrentLocation()%10;
+				
+				String[] pos = new String[2];
+				pos[0] = Integer.toString(tile);
+				pos[1] = Integer.toString(clearing);
+				int[] temp = new int[2];
+				temp = GUI.convertNameToPosition(pos);
+				
+				if(map.getClearing(temp[0], temp[1]).chapel || map.getClearing(temp[0], temp[1]).guardHouse || map.getClearing(temp[0], temp[1]).house || map.getClearing(temp[0], temp[1]).inn){
 					//if in a dwelling and a captain
 					if(players[a].getProfile().getType().compareTo("Captain") != 0){
 						phasesToday++;
@@ -360,14 +367,14 @@ ignore fatigued and wounded counters*/
 	}
 
 
-	public static int determineStart(String s) {
+	public static int determineStart(String s, Player player) {
 
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
 			view.setPlayerX(455);
 			view.setPlayerY(705);
-			view.amazon.setLocation(455,705);
+			view.player[player.getPlayerNum()].setLocation(455,705);
 			/*
 			Inn = 455, 705
 			House = 1165, 495
@@ -379,14 +386,14 @@ ignore fatigued and wounded counters*/
 			System.out.println("Starting at House: " + 35);
 			view.setPlayerX(1165);
 			view.setPlayerY(495);
-			view.amazon.setLocation(1165,495);
+			view.player[player.getPlayerNum()].setLocation(1165,495);
 			return 35;
 		}
 		else if(s == "GuardHouse"){
 			System.out.println("Starting at GuardHouse: " + 45);
 			view.setPlayerX(965);
 			view.setPlayerY(410);
-			view.amazon.setLocation(965,410);
+			view.player[player.getPlayerNum()].setLocation(965,410);
 			return 45;
 		}else{
 			System.out.println("ERROR: Can't determine location");

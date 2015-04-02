@@ -67,8 +67,13 @@ public class GUI implements MouseListener{
 	final int tileY = 305;
 	
 	public JLabel amazon = new JLabel();
-	public JLabel player[] = new JLabel[6];
+	public static JLabel[] player = new JLabel[6];
 	
+	public void initLabels(){
+		for(int i = 0; i<6; i++){
+			player[i] = new JLabel();
+		}
+	}
 	int playerX;
 	int playerY;
 	
@@ -117,6 +122,7 @@ public class GUI implements MouseListener{
 	//constructor, called in player.java
 	public GUI(Game g)
 	{
+		initLabels();
 		buildMap();
 		initilizeWindow();		
 		initPlayers();
@@ -181,7 +187,7 @@ public class GUI implements MouseListener{
 		
 		//System.out.println("You have chosen to start at " + s);
 		
-		int startHere = Game.determineStart((String) s);
+		int startHere = Game.determineStart((String) s, currPlayer);
 		return startHere;
 	}
 	
@@ -1525,31 +1531,20 @@ public class GUI implements MouseListener{
 		ImageIcon elfIcon = new ImageIcon("res/characters/elf.png");
 		ImageIcon swordsmanIcon = new ImageIcon("res/characters/swordsman.png");
 				
-		//TODO maybe change "amazon" to "player" and store the imageicon into player class?
-		//hardcoding only 1 type for the time being (and only really handles 1 player)
 		/*
-		if(name.equals("amazon"))
-			player.setIcon(amazonIcon);
-		else if(name.equals("bknight"))
-			player.setIcon(bknightIcon);
-		else if(name.equals("captain"))
-			player.setIcon(captainIcon);
-		else if(name.equals("dwarf"))
-			player.setIcon(dwarfIcon);
-		else if(name.equals("elf"))
-			player.setIcon(elfIcon);
-		else if(name.equals("swordsman"))
-			player.setIcon(swordsmanIcon);
-		else
-			System.out.println("Not a valid player");
-			*/
 		amazon.setIcon(amazonIcon);
 		amazon.setVisible(true);
 		//amazon.setLocation(560,1175);
 		amazon.setSize(50,50);
 		Map.add(amazon);
 		Map.setComponentZOrder(amazon, 0);
-				
+		*/
+		for(int i=0; i<6; i++){
+			//player[i].setVisible(true);
+			player[i].setSize(50,50);
+			Map.add(player[i]);
+			Map.setComponentZOrder(player[i],0);
+		}
 		/*
 		ImageIcon p1 = new ImageIcon("res/characters/amazon.png");
 		JLabel qwe = new JLabel();
@@ -1653,7 +1648,8 @@ public class GUI implements MouseListener{
 		Object response = JOptionPane.showInputDialog(null, string,	"Victory",
 				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);//test before adding suppress
 		
-		return (int)response;
+		
+		return Integer.parseInt(response.toString());
 	}
 	
 }

@@ -220,8 +220,9 @@ public class PlayerActions {
 
 			//TODO HAS THIS BEEN HANDLED ALREADY?add in code to move icon around
 			//Make the code more generalized, figure out how/where to store icons
-			view.amazon.setLocation(view.getPlayerX(),view.getPlayerY());
-
+			//view.amazon.setLocation(view.getPlayerX(),view.getPlayerY());
+			view.player[player.getPlayerNum()].setLocation(view.getPlayerX(),view.getPlayerY());
+			
 			System.out.println("You can move here, moving character now");
 		}else{
 			System.out.println("Can't Move There, phase wasted");

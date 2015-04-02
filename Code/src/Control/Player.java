@@ -27,10 +27,18 @@ public class Player {
 	int notorietyVicPointNeeded;
 	int goldVicPointNeeded;
 	
+	static int instanceCounter = 0;
+	int playernum = 0;
+
+	Player(){
+		instanceCounter++;
+		playernum = instanceCounter;
+	}
+	
 	//commented out view for hotseat game
 	//GUI view;
 	
-	//May have players have their own icons
+	//Players select their character icon
 	ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
 	ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
 	ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
@@ -83,7 +91,9 @@ public class Player {
 	public void setEvade(CombatChit ev) {
 		this.evade = ev;
 	}
-	
+	public int getPlayerNum(){
+		return playernum;
+	}
 	
 	
 	//use the following for determining actions recordTUrn
@@ -97,7 +107,7 @@ public class Player {
 	}
 
 	//these will store the actions the user wants to do in order
-	private String [] phaseActions = new String[5];//we can increase it later
+	private String [] phaseActions = new String[8];//we can increase it later
 	
 	public String [] getPhaseActions() {
 		return phaseActions;
@@ -118,23 +128,29 @@ public class Player {
 	public Player(String s){
 		if(s.equals("Amazon")){
 			profile = new Amazon();
+			GUI.player[playernum].setIcon(amazonIcon);
 		}
 		else if(s.equals("Black Knight")){
 			profile = new BlackKnight();
+			GUI.player[playernum].setIcon(bknightIcon);
 		}
 		else if(s.equals("Captain")){
 			profile = new Captain();
+			GUI.player[playernum].setIcon(captainIcon);
 		}
 		else if(s.equals("Dwarf")){
 			profile = new Dwarf();
+			GUI.player[playernum].setIcon(dwarfIcon);
 		}
 		else if(s.equals("Elf")){
 			profile = new Elf();
+			GUI.player[playernum].setIcon(elfIcon);
 		}
 		else if(s.equals("Swordsman")){
 			profile = new Swordsman();
+			GUI.player[playernum].setIcon(swordsmanIcon);
 		}
-		
+		GUI.player[playernum].setVisible(true);
 		System.out.println("Built a " + profile.getType() + " Player");
 		//System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
 	}
@@ -254,19 +270,19 @@ public class Player {
 		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
 		//remove the amount of options
 		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length);
+			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
 		fameVicPoint = GUI.victoryPoints("Fame Amount", values);
 		//remove the amount of options
 		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length);
+			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
 		notorietyVicPoint = GUI.victoryPoints("Amount of Notoriety", values);
 		//remove the amount of options
 		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length);
+			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
-		goldVicPoint =  values[values.length];//gets the last value
+		goldVicPoint =  values[values.length-1];//gets the last value
 		GUI.displayMessage("Gold Amount Will be "+ goldVicPoint);
 		
 		//now multiply to find out how much is needed
