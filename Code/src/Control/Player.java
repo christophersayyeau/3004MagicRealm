@@ -205,6 +205,7 @@ public class Player {
 		}else if(action.compareTo("Rest")==0){//if rest action
 			//if Dwarf do twice
 			if(this.getProfile().getType().compareTo("Dwarf") == 0){
+				System.out.println("Dwarves Rest Twice");
 				PlayerActions.restingAction(this);
 				PlayerActions.restingAction(this);
 			}else	//not a Dwarf

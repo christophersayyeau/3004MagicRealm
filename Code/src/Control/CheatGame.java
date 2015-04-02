@@ -57,7 +57,7 @@ public class CheatGame extends Game {
 		//game lasts for 28 days(month)
 		while(day<=28){
 		
-			System.out.println("BIRDSONG");
+			System.out.println("Day " + day + " BIRDSONG");
 			
 			for(int a =0 ; a<numOfPlayers; a++){
 				int phasesToday = 2;//get 2 phases standard

@@ -668,10 +668,12 @@ public class GUI implements MouseListener{
 	
 	public void displayScore(Player[] gamers) {		
 		//display the final scores of all users
-		for(int a =0; a< gamers.length; a++){	//go to all users
-			//TODO display in label everbodies scores
-			//gamers[a].calculateScore();this gives you the player total score
+		String[] scores = new String[gamers.length];
+		for(int a =0; a< gamers.length; a++){	//go to all users		
+			scores[a] = "Player " + a + " Total Score: " + gamers[a].calculateScore();
+			combatMessage(scores[a]);//send message to user
 		}
+		//TODO change label to display array of everybodys scores
 	}
 	
 
