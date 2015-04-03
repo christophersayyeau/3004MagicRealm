@@ -246,9 +246,7 @@ no running away
 1)select fight counter and attack direction
 2)select armors
 3)select move counter and defense direction
-
-combat resolved into 1 death, 2 death or combat stop
-ignore fatigued and wounded counters*/
+		 */
 		for(int a=0; a<numOfPlayers; a++){	//go through all players
 
 			//create an array for the positions

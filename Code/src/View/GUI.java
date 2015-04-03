@@ -1399,10 +1399,6 @@ public class GUI implements MouseListener{
 		//3)select move counter and defense direction
 		if(player.getProfile().getType().compareTo("Swordsman") != 0)	//swordsman can't do anything anyway
 			EvadeDialog.getEvasion(player);//action chits can only be used once per round
-		
-		
-					//can Fight chit only if its strength >=weight of weapon
-					//can Move chit only if its strength >= weight of his stuff
 	}
 	
 	public int getPlayerX(){ return playerX;}
