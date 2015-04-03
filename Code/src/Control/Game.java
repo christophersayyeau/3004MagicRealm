@@ -52,7 +52,6 @@ public class Game {
 	
 	//constructor
 	public Game(int x){
-		
 	}
 
 	
