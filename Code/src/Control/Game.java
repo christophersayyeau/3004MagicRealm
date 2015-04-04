@@ -130,7 +130,8 @@ public class Game {
 					}
 				}
 
-				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
+				//TODO remove/revert depending if fixed
+				//players[a].setPhasesForToday( phasesToday );//figured out the number of phases
 				
 				//reset fought today
 				players[a].getProfile().resetFight();

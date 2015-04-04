@@ -525,7 +525,7 @@ public class GUI implements MouseListener{
 				player.setPhaseActions("Move");	//choose location during your turn
 				
 				if(player.getProfile().getType().compareTo("Amazon") == 0 && !player.getProfile().amazonUsed){
-					a--;
+					//a--;
 					phasesAvailable++;
 					player.getProfile().amazonUsed = true;	//so we can't use them again this time
 					System.out.println("Amazon gets extra move phase");
@@ -536,13 +536,13 @@ public class GUI implements MouseListener{
 				player.setPhaseActions("Hide");	
 				
 				if(player.getProfile().haveCloak() && !player.getProfile().cloakUsed){
-					a--;				//make loop again
+					//a--;				//make loop again
 					phasesAvailable++;	//increase the value
 					player.getProfile().cloakUsed = true;	//so we can't use them again this time
 					System.out.println("Cloak gets extra hide phase");
 				}
 				if(player.getProfile().getType().compareTo("Elf") == 0 && !player.getProfile().elfUsed){
-					a--;
+					//a--;
 					phasesAvailable++;
 					player.getProfile().elfUsed = true;	//so we can't use them again this time
 					System.out.println("Elf gets extra hide phase");
@@ -591,6 +591,7 @@ public class GUI implements MouseListener{
 				break;
 			}
 		}	
+		player.setPhasesForToday(phasesAvailable);
 		
 		System.out.println("User has now built his turn");	
 		 
