@@ -88,7 +88,7 @@ public class Denizen {
 
 
 	
-	//TODO third step, add more when we have time, for now we can just use this as a base for everything
+	//TODO Ignore, third step, add more when we have time, for now we can just use this as a base for everything
 	//none of natives have any differences in first iteration in terms of function so just use the Guard
 	
 	//garrison for the guardhouse

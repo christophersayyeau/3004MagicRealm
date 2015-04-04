@@ -722,7 +722,7 @@ public class Map {
 
 	public Treasure randomSmallTreasure() {
 		//go through all small treasures that haven't been picked yet then pick one
-		// TODO third step, treasure, for lg and small need to have other choices
+		// TODO Ignore, third step, treasure, for lg and small need to have other choices
 		//for now just use this as a base
 		Treasure temp = new Treasure();
 		Map_of_Lost_Castle smal = temp.new Map_of_Lost_Castle();

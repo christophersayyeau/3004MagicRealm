@@ -50,7 +50,7 @@ public class Amazon extends Character{
 		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
 
-//TODO Remember, the Amazon got the cloak and spectacles to test their function
+//TODO Ignore, Remember, the Amazon got the cloak and spectacles to test their function
 		Treasure tem = new Treasure();
 		Cloak_of_Mist cloak = tem.new Cloak_of_Mist();
 		Magic_Spectacles glasses = tem.new Magic_Spectacles();

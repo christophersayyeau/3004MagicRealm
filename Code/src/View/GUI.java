@@ -598,13 +598,13 @@ public class GUI implements MouseListener{
 
 	public void hideMapChits() {
 		
-		// TODO third step, end of day, all map chits that can be seen are unseen
+		// TODO Ignore, third step, end of day, all map chits that can be seen are unseen
 		
 	}
 
 	public void revealMapChits(int i) {
 		//caled at end of player turn
-		// TODO third step, end of player turn, reveal monster, warning chits
+		// TODO Ignore, third step, end of player turn, reveal monster, warning chits
 		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
 
@@ -667,7 +667,7 @@ public class GUI implements MouseListener{
 	}
 
 	public static void revealTreasure(int tile) {
-		// TODO HAS THIS BEEN HANDLED BELOW?second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
+		// TODO RYAN HAS THIS BEEN HANDLED BELOW?second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
 		//Dont need to display contents, just show that it is considered found and can now be looted
 		
 	}
@@ -737,7 +737,7 @@ public class GUI implements MouseListener{
 		if(map.getMapTile(x).getTreasure() != null){
 			if(map.getMapTile(x).getTreasure().found == true)
 				list.add("Treasure has been found already");
-			//TODO HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
+			//TODO RYAN HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
 			else
 				list.add("Unknown Treasure");
 		}
@@ -1519,7 +1519,7 @@ public class GUI implements MouseListener{
 	//private void initPlayers(String name){
 	@SuppressWarnings("unused")
 	private void initPlayers(){
-		//TODO edit code to be able to use icons
+		//TODO RYAN HAS THIS BEEN HANDLED edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
 		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
 		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
