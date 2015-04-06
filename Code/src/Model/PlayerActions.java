@@ -218,8 +218,6 @@ public class PlayerActions {
 			//there are rules about how much weight
 			map.moveCharacters(player, newLocation);//if yes then move
 
-			//TODO RYAN HAS THIS BEEN HANDLED ALREADY?add in code to move icon around
-			//Make the code more generalized, figure out how/where to store icons
 			//view.amazon.setLocation(view.getPlayerX(),view.getPlayerY());
 			view.player[player.getPlayerNum()].setLocation(view.getPlayerX(),view.getPlayerY());
 			

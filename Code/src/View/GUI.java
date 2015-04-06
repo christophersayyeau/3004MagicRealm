@@ -671,6 +671,7 @@ public class GUI implements MouseListener{
 		// TODO RYAN HAS THIS BEEN HANDLED BELOW?second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
 		//Dont need to display contents, just show that it is considered found and can now be looted
 		
+		
 	}
 	
 	public void displayScore(Player[] gamers) {		
@@ -717,7 +718,6 @@ public class GUI implements MouseListener{
 		else if(c.playersInClearing != null){//check for players in clearing
 			System.out.println("Display num players in clearing " + c.numPLayersInClearing);
 			for(int n=0; n<c.numPLayersInClearing; n++){
-				//TODO does not start the list at location [0], will continue to grow, but no duplication anymore
 				//if(c.playersInClearing[n]!=null)
 				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
 			}
@@ -739,6 +739,7 @@ public class GUI implements MouseListener{
 			if(map.getMapTile(x).getTreasure().found == true)
 				list.add("Treasure has been found already");
 			//TODO RYAN HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
+			//Note - hasn't been thoroughly tested, but seems to work
 			else
 				list.add("Unknown Treasure");
 		}
@@ -1520,7 +1521,6 @@ public class GUI implements MouseListener{
 	//private void initPlayers(String name){
 	@SuppressWarnings("unused")
 	private void initPlayers(){
-		//TODO RYAN HAS THIS BEEN HANDLED edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
 		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
 		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
