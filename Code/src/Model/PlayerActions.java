@@ -168,7 +168,7 @@ public class PlayerActions {
 		case 1:  	
 			//now choose whether you found passages or the treasure
 			if(GUI.whatFound(currentTile)){//wants treasure
-				GUI.revealTreasure(currentTile);
+				GUI.revealTreasure();
 				map.getMapTile(currentTile).treasure.found = true;
 				
 			}else{//wants hidden paths
@@ -182,7 +182,7 @@ public class PlayerActions {
 		case 3:  	//display all passages
 			map.getMapTile(currentTile).secretRoads(currentTile);
 			break;
-		case 4:  	GUI.revealTreasure(currentTile);
+		case 4:  	GUI.revealTreasure();
 					map.getMapTile(currentTile).treasure.found = true;
 		break;
 		case 5:break;

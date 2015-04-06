@@ -667,15 +667,15 @@ public class GUI implements MouseListener{
 		}
 	}
 
-	public static void revealTreasure(int tile, MapTiles map) {
-		if(map.getTreasure().found == true){
+	public static void revealTreasure() {
+		//if(map.getTreasure().found == true){
 			//Don't need to display contents, just show that it is considered found and can now be looted
 			//when you click view and and select a clearing the popoup should have changed now
 			
 			//But I just made it so it the pop-up would change if found
 			//This code should actually display the contents? No
 			System.out.println("The treasure has been found");
-		}
+		//}
 		
 	}
 	
