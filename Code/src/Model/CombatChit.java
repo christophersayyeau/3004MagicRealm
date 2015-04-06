@@ -147,7 +147,7 @@ public class CombatChit {
 
 	public static String[] getFatigueWoundChits(Character person) {
 		//Starts with: Fati Woun  ,Ends with: 1 2 3
-		String [] options = new String[0];
+		String [] options = null;
 		
 		for(int a=0; a< person.action1.fatigued; a++){	//add all of the first action available
 			options = ArrayUtils.add(options,"Fatigued: " + person.action1.toString() + ": Action1");
@@ -169,6 +169,7 @@ public class CombatChit {
 		for(int a=0; a< person.action3.wounded; a++){	//add all of the third action available
 			options = ArrayUtils.add(options,"Wounded: " +  person.action3.toString() + ": Action3");
 		}
+		
 		return options;
 	}
 }

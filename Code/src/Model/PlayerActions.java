@@ -22,13 +22,16 @@ public class PlayerActions {
 		int fatigueness = 0;
 		fatigueness = person.action1.fatigued + person.action2.fatigued + person.action3.fatigued;
 		wounds = person.action1.wounded + person.action2.wounded + person.action3.wounded;
-		GUI.combatMessage("You have " + fatigueness + " fatigued chits and/n" + wounds + "wounded chits.");
+		GUI.combatMessage("You have " + fatigueness + " fatigued chits and " + wounds + " wounded chits.");
 
 
 		//get all options for both possibilities
 		String[] options = null;
 		options = CombatChit.getFatigueWoundChits(person);
 
+		if(options == null)//no null errors
+			return;
+		
 		//ask user what they want to do
 		Object response = JOptionPane.showInputDialog(null, "Which Chit do You Wish To Fix?",	"Resting",
 				JOptionPane.PLAIN_MESSAGE,
