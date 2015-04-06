@@ -347,6 +347,8 @@ no running away
 			//handle start location
 			int locale = GUI.chooseStart(players[i]);
 			players[i].setCurrentLocation(locale);
+			
+			players[i].setPlayerNum(i);
 		}
 	}
 	

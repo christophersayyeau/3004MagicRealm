@@ -29,11 +29,6 @@ public class Player {
 	
 	static int instanceCounter = 0;
 	int playernum = 0;
-
-	Player(){
-		instanceCounter++;
-		playernum = instanceCounter;
-	}
 	
 	//commented out view for hotseat game
 	//GUI view;
@@ -90,6 +85,9 @@ public class Player {
 	}
 	public void setEvade(CombatChit ev) {
 		this.evade = ev;
+	}
+	public void setPlayerNum(int n){
+		playernum = n;
 	}
 	public int getPlayerNum(){
 		return playernum;
@@ -150,7 +148,11 @@ public class Player {
 			profile = new Swordsman();
 			GUI.player[playernum].setIcon(swordsmanIcon);
 		}
+		
 		GUI.player[playernum].setVisible(true);
+
+		//instanceCounter++;
+		//playernum = instanceCounter;
 		System.out.println("Built a " + profile.getType() + " Player");
 		//System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
 	}
