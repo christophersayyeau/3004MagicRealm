@@ -669,10 +669,11 @@ public class GUI implements MouseListener{
 
 	public static void revealTreasure(int tile, MapTiles map) {
 		if(map.getTreasure().found == true){
-			//Dont need to display contents, just show that it is considered found and can now be looted
-			//TODO CHRIS - you put in "reveal that the treasure in this tile has been found, change the descriptive word in clearing view"
+			//Don't need to display contents, just show that it is considered found and can now be looted
+			//when you click view and and select a clearing the popoup should have changed now
+			
 			//But I just made it so it the pop-up would change if found
-			//This code should actually display the contents?
+			//This code should actually display the contents? No
 			System.out.println("The treasure has been found");
 		}
 		
@@ -743,7 +744,6 @@ public class GUI implements MouseListener{
 			if(map.getMapTile(x).getTreasure().found == true){
 				list.add("Treasure has been found already");
 			}
-			//TODO RYAN HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
 			//Note - hasn't been thoroughly tested, but seems to work
 			else
 				list.add("Unknown Treasure");
