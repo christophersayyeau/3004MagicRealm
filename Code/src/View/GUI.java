@@ -448,7 +448,7 @@ public class GUI implements MouseListener{
 			case 1:			//Hide
 				System.out.println("Call the hide function");
 				player.setPhaseActions("Hide");	
-				
+				System.out.println("Has cloak = "+player.getProfile().haveCloak());
 				if(player.getProfile().haveCloak() && !player.getProfile().cloakUsed){
 					phasesAvailable++;	//increase the value
 					player.getProfile().cloakUsed = true;	//so we can't use them again this time
@@ -1403,7 +1403,7 @@ public class GUI implements MouseListener{
 		Scores.setBackground(Color.white);
 		MainWindow.getContentPane().add(Scores);
 		Scores.setLocation(0,(int)screenSize.getHeight()/3+50);
-		Scores.setSize((int)screenSize.getWidth()/2,300);
+		Scores.setSize((int)screenSize.getWidth()/2,180);
 		
 		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
 		//jlPlayers.setListData(test);
