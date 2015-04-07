@@ -30,6 +30,7 @@ public class Swordsman extends Character{
 		//Combat chits
 		ThrustingSword weapon1 = weapon.new ThrustingSword();
 		setWeapon(weapon1);
+		setDefense(this.defense);
 		
 		//Action types
 		action1.setType("Fight");	//set the type

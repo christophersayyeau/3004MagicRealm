@@ -114,12 +114,14 @@ public class MapChits {
 			//create array
 			belongings = new Items[0];
 			
+			/*
 			//weapon
-			belongings = ArrayUtils.add(belongings, profile.getWeapon());
+			//belongings = ArrayUtils.add(belongings, profile.getWeapon());
 			//armor
-			for(int a = 0; a<profile.getDefense().length; a++){
-				belongings = ArrayUtils.add(belongings, profile.getDefense(a));
-			}
+			//for(int a = 0; a<profile.getDefense().length; a++){
+			//	belongings = ArrayUtils.add(belongings, profile.getDefense(a));
+			//}
+			*/
 			//treasure stuff
 			for(int b = 0; b<profile.belongings.length; b++){
 				belongings = ArrayUtils.add(belongings, profile.belongings[b]);
