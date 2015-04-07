@@ -47,6 +47,8 @@ public class BlackKnight extends Character{
 		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
 		
+		setDefense(this.defense);
+		
 		//Action types
 		action1.setType("Move");	//set the type
 		action1.setTime(4);			//the time needed to use
