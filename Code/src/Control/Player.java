@@ -271,6 +271,8 @@ public class Player {
 		 *then multiply points by factor in each category = needed for that category
 		 *					GreatTreasures is 1, fame is 10, notoriety is 20, gold is 30(in addition to start amount)
 		 */
+		
+		//TODO only ever removes the last value, so it will always list 0,1,2,3,4 if anything is chosen no matter the amount
 		int[] values = {0,1,2,3,4,5};
 		
 		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);

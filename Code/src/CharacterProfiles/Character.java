@@ -186,12 +186,13 @@ public class Character {
 
 	public boolean haveCloak() {
 		// loop through his stuff
-		System.out.println("Length of belongings = " +belongings.length);
 		for (int a = 0; a < belongings.length; a++) {
-			if(belongings[a].name != null)
+			if(belongings[a].name != null){
 				if (belongings[a].name.compareTo("Cloak_of_Mist") == 0) {
+					
 					return true;// found it
 				}
+			}
 		}
 		return false;// could not find them
 	}
