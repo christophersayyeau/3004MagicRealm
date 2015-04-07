@@ -53,6 +53,9 @@ public class GUI implements MouseListener{
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
 	
+	public static JPanel Scores = new JPanel();
+	public static JList scoreList;
+	
 	@SuppressWarnings("rawtypes")
 	public static JList jlPlayers = new JList();
 	private static JScrollPane spPlayers = new JScrollPane();
@@ -66,7 +69,6 @@ public class GUI implements MouseListener{
 	final int tileX = 300;
 	final int tileY = 305;
 	
-	public JLabel amazon = new JLabel();
 	public static JLabel[] player = new JLabel[6];
 	
 	public void initLabels(){
@@ -91,7 +93,7 @@ public class GUI implements MouseListener{
 			System.out.println("You connected to: " + HOST);
 			avaiableChars(SOCK);
 			String s = createPlayer();
-			Player player = new Player(s);
+			Player player = new Player(s, -1);
 			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
 			OUT.println("ADDPLAYER:" + player.getProfile().getType());
@@ -343,15 +345,7 @@ public class GUI implements MouseListener{
 		l4.setLocation(x4, y4);
 		l5.setLocation(x5, y5);
 		l6.setLocation(x6, y6);
-		
-		/*ImageIcon i = new ImageIcon("res/characters/test.png");
-		l1.setIcon(i);
-		l2.setIcon(i);
-		l3.setIcon(i);
-		l4.setIcon(i);
-		l5.setIcon(i);
-		l6.setIcon(i);*/
-		
+
 		Map.setComponentZOrder(l1, 0);
 		Map.setComponentZOrder(l2, 0);
 		Map.setComponentZOrder(l3, 0);
@@ -398,11 +392,7 @@ public class GUI implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		JLabel j = (JLabel)e.getSource();
-		/*
-		System.out.println(j.getName());
-		System.out.println("x = " + j.getX());
-		System.out.println("y = " + j.getY());
-		*/
+		
 		playerX = j.getX();
 		playerY = j.getY();
 		displayClearing(j.getName());
@@ -437,78 +427,7 @@ public class GUI implements MouseListener{
 		He can leave phases blank.
 		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
 		 */
-									
-														/*//commented this out to be replaced with other stuff
-														JPanel Buttons = new JPanel();
-														Buttons.setLayout(new FlowLayout());
-														
-														JButton move = new JButton("Move");
-														move.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the move function");
-																player.setPhaseActions("Move23");	//TO DO need to include coordinate of location clearing, here is temp value
-															}
-														});
-														
-														JButton hide = new JButton("Hide");
-														hide.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the hide function");
-																player.setPhaseActions("Hide");	
-															}
-														});
-														
-														JButton search = new JButton("Search");
-														search.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the search function");
-																player.setPhaseActions("Search");	
-															}
-														});
-														
-														JButton rest = new JButton("Rest");
-														rest.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the rest function");
-																player.setPhaseActions("Rest");	
-															}
-														});
-														
-														JButton trade = new JButton("Trade");
-														trade.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the trade function");
-																//doYouWantToTrade();
-																//trading(map, player);
-																player.setPhaseActions("Trade");
-															}
-														});
-														
-														JButton quit = new JButton("Quit");
-														trade.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("You have chosen to close the program");
-																System.exit(0);
-															}
-														});
-														
-														Buttons.add(move);
-														Buttons.add(hide);
-														Buttons.add(search);
-														Buttons.add(rest);
-														Buttons.add(trade);
-														Buttons.add(quit);
-														JDialog frame = new JDialog();
-														
-														Buttons.setBackground(Color.gray);
-														frame.add(Buttons);
-														
-														//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-														frame.getContentPane().add(Buttons);
-														frame.pack();
-														frame.setVisible(true);
-														frame.setModal(true);
-														*/
+
 		Instruction.setVisible(true);
 		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
@@ -573,9 +492,7 @@ public class GUI implements MouseListener{
 				break;
 			
 			case 6:			//View clearing/map
-				//System.out.println("Click on a clearing to continue game");
 				moveLabel.setText("Click on a clearing to continue game");
-				//Instruction.setVisible(true);
 				pause = true;
 				
 				//Pause the game until mouse is clicked
@@ -585,8 +502,7 @@ public class GUI implements MouseListener{
 					    } catch(InterruptedException e) {
 					    }
 				}
-				//Instruction.setVisible(false);
-				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
+				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions");
 				a--;
 				break;
 			}
@@ -654,7 +570,6 @@ public class GUI implements MouseListener{
 				"Which Search Table Would You Like TO Use?" + "\n" + "Can only loot after you have located a treasure",
 				"Search",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, choices, choices[0]);
-				//JOptionPane.YES_NO_OPTION);old version
 		
 		//their answer is..
 		if(n == 0){//clicked locate
@@ -686,7 +601,9 @@ public class GUI implements MouseListener{
 			scores[a] = "Player " + a + " Total Score: " + gamers[a].calculateScore();
 			combatMessage(scores[a]);//send message to user
 		}
-		//TODO change label to display array of everybodys scores
+		scoreList = new JList(scores);
+		Scores.add(scoreList);
+		//Not sure if working correctly, can't test easily
 	}
 	
 
@@ -1489,7 +1406,13 @@ public class GUI implements MouseListener{
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
 				
-				
+		
+		Scores.setVisible(true);
+		Scores.setBackground(Color.white);
+		MainWindow.getContentPane().add(Scores);
+		Scores.setLocation(0,(int)screenSize.getHeight()/3+50);
+		Scores.setSize((int)screenSize.getWidth()/2,300);
+		
 		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
 		//jlPlayers.setListData(test);
 		jlPlayers.setForeground(Color.black);
@@ -1542,7 +1465,7 @@ public class GUI implements MouseListener{
 		Map.setComponentZOrder(amazon, 0);
 		*/
 		for(int i=0; i<6; i++){
-			//player[i].setVisible(true);
+			player[i].setVisible(false);
 			player[i].setSize(50,50);
 			Map.add(player[i]);
 			Map.setComponentZOrder(player[i],0);
