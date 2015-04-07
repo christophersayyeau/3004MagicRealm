@@ -53,6 +53,9 @@ public class GUI implements MouseListener{
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
 	
+	public static JPanel Scores = new JPanel();
+	public static JList scoreList;
+	
 	@SuppressWarnings("rawtypes")
 	public static JList jlPlayers = new JList();
 	private static JScrollPane spPlayers = new JScrollPane();
@@ -66,7 +69,6 @@ public class GUI implements MouseListener{
 	final int tileX = 300;
 	final int tileY = 305;
 	
-	public JLabel amazon = new JLabel();
 	public static JLabel[] player = new JLabel[6];
 	
 	public void initLabels(){
@@ -490,9 +492,7 @@ public class GUI implements MouseListener{
 				break;
 			
 			case 6:			//View clearing/map
-				//System.out.println("Click on a clearing to continue game");
 				moveLabel.setText("Click on a clearing to continue game");
-				//Instruction.setVisible(true);
 				pause = true;
 				
 				//Pause the game until mouse is clicked
@@ -502,7 +502,6 @@ public class GUI implements MouseListener{
 					    } catch(InterruptedException e) {
 					    }
 				}
-				//Instruction.setVisible(false);
 				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions");
 				a--;
 				break;
@@ -571,7 +570,6 @@ public class GUI implements MouseListener{
 				"Which Search Table Would You Like TO Use?" + "\n" + "Can only loot after you have located a treasure",
 				"Search",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, choices, choices[0]);
-				//JOptionPane.YES_NO_OPTION);old version
 		
 		//their answer is..
 		if(n == 0){//clicked locate
@@ -603,8 +601,9 @@ public class GUI implements MouseListener{
 			scores[a] = "Player " + a + " Total Score: " + gamers[a].calculateScore();
 			combatMessage(scores[a]);//send message to user
 		}
-		//TODO change label to display array of everybodys scores
-		
+		scoreList = new JList(scores);
+		Scores.add(scoreList);
+		//Not sure if working correctly, can't test easily
 	}
 	
 
@@ -1407,7 +1406,13 @@ public class GUI implements MouseListener{
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
 				
-				
+		
+		Scores.setVisible(true);
+		Scores.setBackground(Color.white);
+		MainWindow.getContentPane().add(Scores);
+		Scores.setLocation(0,(int)screenSize.getHeight()/3+50);
+		Scores.setSize((int)screenSize.getWidth()/2,300);
+		
 		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
 		//jlPlayers.setListData(test);
 		jlPlayers.setForeground(Color.black);
