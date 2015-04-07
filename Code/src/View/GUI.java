@@ -409,10 +409,6 @@ public class GUI implements MouseListener{
 	
 	
 	public void Refresh(String labelText) {
-		//Called thourhgout the day to refresh the screen
-		// TODO update all pictures and related visuals to new locations
-		//not sure if already taken care of elsewhere in code
-		//maybee just link to those
 		changeDate(labelText);
 	}
 	
