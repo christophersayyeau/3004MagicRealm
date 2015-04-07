@@ -204,7 +204,7 @@ public class CheatGame extends Game {
 			String s = view.createPlayer();		
 			
 			//create player
-			players[i] = new Player(s);
+			players[i] = new Player(s, i);
 			
 			//handle start location
 			int locale = GUI.chooseStart(players[i]);

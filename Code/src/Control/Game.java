@@ -130,9 +130,6 @@ public class Game {
 					}
 				}
 
-				//TODO remove/revert depending if fixed
-				//players[a].setPhasesForToday( phasesToday );//figured out the number of phases
-				
 				//reset fought today
 				players[a].getProfile().resetFight();
 				//players[a].getProfile().foughtToday = false;
@@ -164,8 +161,9 @@ public class Game {
 			
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
+				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");
 				doTurn(players[a]);
-				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");	
+					
 				
 				players[a].numPhases = 0;//reset the phases
 			}
@@ -342,7 +340,7 @@ no running away
 			String s = view.createPlayer();		
 			
 			//create player
-			players[i] = new Player(s);
+			players[i] = new Player(s, i);
 			
 			//handle start location
 			int locale = GUI.chooseStart(players[i]);
@@ -367,6 +365,7 @@ no running away
 	}
 
 
+	@SuppressWarnings("static-access")
 	public static int determineStart(String s, Player player) {
 
 		//Determine based on string where you start

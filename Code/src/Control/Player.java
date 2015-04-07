@@ -16,6 +16,7 @@ import CharacterProfiles.Character;
 
 public class Player {
 
+	public boolean startplacement = true;
 	//victory point values
 	int greatTreasureVicPoint;
 	int fameVicPoint;
@@ -28,7 +29,7 @@ public class Player {
 	int goldVicPointNeeded;
 	
 	static int instanceCounter = 0;
-	int playernum = 0;
+	int playernum;
 	
 	//commented out view for hotseat game
 	//GUI view;
@@ -123,7 +124,10 @@ public class Player {
 	}
 	
 	//constructor for choosing type
-	public Player(String s){
+	public Player(String s, int i){
+		if(i >= 0){
+			playernum = i;
+		}
 		if(s.equals("Amazon")){
 			profile = new Amazon();
 			GUI.player[playernum].setIcon(amazonIcon);

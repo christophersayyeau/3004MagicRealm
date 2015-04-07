@@ -314,10 +314,10 @@ public class Map {
 		temp = GUI.convertNameToPosition(pos);
 		
 		//Initial placement of the player, should not be done more than once
-		if(startplacement == true){
+		if(player1.startplacement == true){
 			getMapTiles()[temp[0]].putPlayer(player1);
 			getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
-			startplacement = false;
+			player1.startplacement = false;
 		}		
 		
 		if(newLocation > 0){

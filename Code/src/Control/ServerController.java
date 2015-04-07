@@ -95,7 +95,7 @@ public class ServerController implements Runnable{
 		{
 			String c = (message.substring(message.indexOf(":")+1));
 			if(CurrentPlayers.size() == 0){
-				CurrentPlayers.add(new Player(c));
+				CurrentPlayers.add(new Player(c, -1));
 				return;
 			}
 			for(int i=0; i < CurrentPlayers.size(); ++i)
@@ -107,7 +107,7 @@ public class ServerController implements Runnable{
 				}
 				if(CurrentPlayers.size() == i)
 				{
-					CurrentPlayers.add(new Player(c));
+					CurrentPlayers.add(new Player(c, -1));
 					++i;
 				}
 			}

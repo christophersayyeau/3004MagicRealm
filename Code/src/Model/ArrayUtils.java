@@ -14,9 +14,7 @@ public class ArrayUtils {
 		}	      		
 		Object result = Array.newInstance(array.getClass().getComponentType(), length );//don't make array smaller		
 		System.arraycopy(array, 0, result, 0, index);	    
-		if (index < length - 1) {	    
-			//TODO revert back to System.arraycopy(array, index + 1, result, index, length - index - 1);	
-			//if it doesn't work
+		if (index < length - 1) {
 			System.arraycopy(array, index + 1, result, 0, length - index - 1);		    
 		}
 		return result;		
@@ -42,8 +40,6 @@ public class ArrayUtils {
 		@SuppressWarnings("unchecked") // type must be T
 		final		
 		T[] newArray = (T[]) copyArrayGrow1(array, type);	    
-		//TODO should it be adding to length - 1? I think this is causing the skipping of location [0]
-		//Remove the for loop if it still doesn't work
 		for(int a=0; a<newArray.length; a++){
 			if(newArray[a] == null){
 				newArray[a] = element;
