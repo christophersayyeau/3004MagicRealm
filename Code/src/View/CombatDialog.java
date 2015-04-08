@@ -173,12 +173,18 @@ public class CombatDialog {
 		options = CombatChit.getActiveChits(player, options);
 
 		//now ask user to pick
-		response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Use?",	"Attack",
-				JOptionPane.PLAIN_MESSAGE,
-				null,	options, options[0]);
-
-		//going to seperate based on user type then apply result
-		player.choiceOfFightChits((String)response);
+		if(options != null){
+			response = JOptionPane.showInputDialog(null, "Which Fight Chit do You Wish To Use?",	"Attack",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+			//going to seperate based on user type then apply result
+			player.choiceOfFightChits((String)response);
+		}else{
+			//there are no possible attacks to make
+			System.out.println("All out of chits");
+			return;
+		}
+		
 
 	}
 }

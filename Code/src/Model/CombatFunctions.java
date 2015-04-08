@@ -89,7 +89,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 		//Start next round of combat
 		//Multiple rounds, ends when 1 dead or both choose do nothing
-		while(player != null && opponent != null) {
+		int playerNum = player.getProfile().action1Num +player.getProfile().action2Num + player.getProfile().action3Num;
+		int opponentNum = opponent.getProfile().action1Num +opponent.getProfile().action2Num+opponent.getProfile().action3Num;
+				
+		while(player != null && opponent != null && playerNum > 0 && opponentNum > 0) {
 			//choose gear
 			view.selectFightGear(player);
 			view.selectFightGear(opponent);
@@ -163,6 +166,9 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				} 
 			}
 			endOfRound(player, opponent);
+			
+			playerNum = player.getProfile().action1Num +player.getProfile().action2Num + player.getProfile().action3Num;
+			opponentNum = opponent.getProfile().action1Num +opponent.getProfile().action2Num+opponent.getProfile().action3Num;
 		}
 
 		//set true so they don't fight again today, will be reset in CHaracter.resetFIght() at the beginning of each day
