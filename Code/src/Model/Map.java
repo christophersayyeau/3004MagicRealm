@@ -533,7 +533,7 @@ public class Map {
 				//view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
 				String[] options = new String[] {"Chapel", "House", "Inn", "GuardHouse", "Ghosts"};
 				for(int a=0; a<5; a++){
-					view.pickLocationsDwellingsCheat(getMapTiles()[a], a, options);
+					options = view.pickLocationsDwellingsCheat(getMapTiles()[a], a, options);
 				}
 				
 				LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);

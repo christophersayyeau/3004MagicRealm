@@ -19,6 +19,21 @@ public class ArrayUtils {
 		}
 		return result;		
 	}
+	public static Object remove(Object[] array, int index) {		      
+		int length = getLength(array);		
+		if (index < 0 || index >= length) {		
+			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
+		}	      		
+		Object [] result = null;
+		for(int b=0; b<index; b++){
+			result = add(result, array[b]);
+		}
+		for(int c= index+1; c<array.length; c++){
+			result = add(result, array[c]);
+		}
+		return result;		
+	}
+	
 	
 	public static int getLength(Object array) {				      
 		if (array == null) {		     
