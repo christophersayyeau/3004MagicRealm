@@ -1002,7 +1002,7 @@ public class GUI implements MouseListener{
 		}else{
 			System.out.println("ERORO CANT IDENTIFY TYPE IN getWarningCheat");
 		}
-System.out.println(tileType);//TODO figure out why woods are busted
+
 		//create the array to ask
 		for(int a=0; a<5; a++){		//go through all warning values
 				if(!temp[a].found)	//if not already used

@@ -601,7 +601,7 @@ public class MapTiles {
 		//constructor
 		public DeepWoods(int l, int tl, int tr, int r, int br, int bl){
 			System.out.println("Building Deepwoods");
-			setType("W");
+			setType("M");
 			
 			left = l;
 			topLeft = tl;
