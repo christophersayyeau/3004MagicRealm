@@ -350,17 +350,20 @@ no running away
 	}
 	
 	protected void shufflePlayers(Player[] players2) {
-		//to mix up the players
-	    Random rnd = new Random();
-	    for (int i = players2.length - 1; i > 0; i--)
-	    {
-	      int index = rnd.nextInt(i + 1);
-	      
-	      // Simple swap
-	      Player a = players2[index];
-	      players2[index] = players2[i];
-	      players2[i] = a;
-	    }
+		if(players2.length  > 1){
+			//to mix up the players
+			Random rnd = new Random();
+			for (int i = players2.length - 1; i > 0; i--)
+			{
+				int index = rnd.nextInt(i + 1);
+
+				// Simple swap
+				Player a = players2[index];
+				players2[index] = players2[i];
+				players2[i] = a;
+			}
+		}
+
 	}
 
 
