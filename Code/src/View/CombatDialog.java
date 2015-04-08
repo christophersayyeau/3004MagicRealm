@@ -142,7 +142,7 @@ public class CombatDialog {
 			choices = ArrayUtils.add(choices, "Make Weapon Alert");
 
 		//now ask user to pick
-		Object response = JOptionPane.showInputDialog(null, "Which Attack Direction Do You Want To Use?",	"Attack Direction",
+		Object response = JOptionPane.showInputDialog(null, "Which Attack Direction Do You Want To Use?",	player.getProfile().getType() + "'s Attack Direction",
 				JOptionPane.PLAIN_MESSAGE,
 				null,	choices, choices[0]);
 

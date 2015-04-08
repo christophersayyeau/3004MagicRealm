@@ -14,7 +14,7 @@ public class EvadeDialog {
 			String[] choices = {"Straight", "Dodge", "Duck", "Do Nothing"};		//can choose not to evade
 
 			//now ask user to pick
-			Object response = JOptionPane.showInputDialog(null, "Which Evade Direction Do You Want To Use?",	"Evading Direction",
+			Object response = JOptionPane.showInputDialog(null, "Which Evade Direction Do You Want To Use?",	player.getProfile().getType() + "'s Evading Direction",
 					JOptionPane.PLAIN_MESSAGE,
 					null,	choices, choices[0]);
 

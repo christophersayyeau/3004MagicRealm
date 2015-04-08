@@ -1264,13 +1264,14 @@ public class GUI implements MouseListener{
 						houseY = 495;
 						housePos=35;
 			break;
-		case "Inn":			curstValley.rogues = new GreatSwordsman[2];
+		case "Inn":		curstValley.rogues = new GreatSwordsman[2];
 						curstValley.setInn(4, curstValley);
 						buildBuildings("Inn", 3, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 						innX = 1165;
 						innY = 495;
 						innPos = 35;
+						System.out.println("Test inn pos");
 			break;
 		case "GuardHouse":		curstValley.guard = new GreatSwordsman[3];
 						curstValley.setGuardHouse(4, curstValley);

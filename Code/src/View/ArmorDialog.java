@@ -21,7 +21,7 @@ public class ArmorDialog {
 		String[] choices = {"Thrust", "Swing", "Smash"};
 		
 		//now offer the question to user and get his result	
-		Object response = JOptionPane.showInputDialog(null, question,	"Shield Direction",
+		Object response = JOptionPane.showInputDialog(null, question,	player.getProfile().getType() + "'s Shield Direction",
 						JOptionPane.PLAIN_MESSAGE,
 						null,	choices, choices[0]);
 		//interpret response		
