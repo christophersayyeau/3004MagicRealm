@@ -38,21 +38,21 @@ public class PlayerActions {
 				null,	options, options[0]);
 
 		//now interpret result (String)response, increase actionNum and lower faitgue/wound
-	System.out.println("This is the substring" + ((String) response).substring(0, 4)+((String) response).substring(((String) response).length()));
+System.out.println("This is the substring" + (String) response+ ((String) response).substring(((String) response).length()-1));
 		switch(((String) response).substring(0, 4)){
 		case "Fati":	//if user chose to unfatigue a chit
 			//if user chose action1
-			if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
+			if(((String) response).substring(((String) response).length()-1).compareTo("1") == 0){
 				person.action1Num++;
 				person.action1.fatigued--;
 			}
 			//if user chose action2
-			else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
+			else if(((String) response).substring(((String) response).length()-1).compareTo("2") == 0){
 				person.action2Num++;
 				person.action2.fatigued--;
 			}
 			//if user chose action3
-			else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
+			else if(((String) response).substring(((String) response).length()-1).compareTo("3") == 0){
 				person.action3Num++;
 				person.action3.fatigued--;
 			} else {
@@ -61,17 +61,17 @@ public class PlayerActions {
 			break;
 		case "Woun":	//if user chose to heal
 			//if user chose action1
-			if(((String) response).substring(((String) response).length()).compareTo("1") == 0){
+			if(((String) response).substring(((String) response).length()-1).compareTo("1") == 0){
 				person.action1.wounded--;
 				person.action1.fatigued++;
 			}
 			//if user chose action2
-			else if(((String) response).substring(((String) response).length()).compareTo("2") == 0){
+			else if(((String) response).substring(((String) response).length()-1).compareTo("2") == 0){
 				person.action2.wounded--;
 				person.action2.fatigued++;
 			}
 			//if user chose action3
-			else if(((String) response).substring(((String) response).length()).compareTo("3") == 0){
+			else if(((String) response).substring(((String) response).length()-1).compareTo("3") == 0){
 				person.action3.wounded--;
 				person.action3.fatigued++;
 			} else {

@@ -124,20 +124,20 @@ public class MapTiles {
 		Denizen temp = new Denizen();
 		tile.guard[0] = temp.new GreatSwordsman("Guard");
 		tile.guard[1] = temp.new GreatSwordsman("Guard");
-		tile.guard[2] = temp.new GreatSwordsman("Guard");
+		//tile.guard[2] = temp.new GreatSwordsman("Guard");
 		
 		//set to their start clearing
 		tile.guard[0].setStartClearing(3);
 		tile.guard[1].setStartClearing(3);	
-		tile.guard[2].setStartClearing(3);
+		//tile.guard[2].setStartClearing(3);
 		
 		tile.guard[0].setCurrentClearing(3);
 		tile.guard[1].setCurrentClearing(3);
-		tile.guard[2].setCurrentClearing(3);	
+		//tile.guard[2].setCurrentClearing(3);	
 		
 		clearing[3].putDenizen(tile.guard[0]);
 		clearing[3].putDenizen(tile.guard[1]);
-		clearing[3].putDenizen(tile.guard[2]);	
+		//clearing[3].putDenizen(tile.guard[2]);	
 	}
 
 	public void setHouse(int i, MapTiles valley) {
