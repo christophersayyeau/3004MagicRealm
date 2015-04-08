@@ -133,10 +133,10 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			}
 			
 			//if you found all the treasure
-			if(result ==  shinyStuff.length){
+		/*	if(result ==  shinyStuff.length){
 				map.giveWholeTreasure(player, shinyStuff);//this gives all the contents then removes the chit
 				return;
-			}
+			}*/
 
 			//at this point result<number of treasures
 			switch (result){
@@ -157,7 +157,7 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
 			}
-			String s = "";
+			String s = "You are currently carrying: ";
 			for(int i=0;i<player.getProfile().belongings.length; i++){
 				s += player.getProfile().belongings[i].gold_price + " ,";
 			}
