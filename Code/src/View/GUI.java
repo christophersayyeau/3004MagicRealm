@@ -1059,7 +1059,7 @@ public class GUI implements MouseListener{
 	}
 	
 	
-	public String[] pickLocationsDwellingsCheat(MapTiles valley, int tileNum, String[] options){
+	public void pickLocationsDwellingsCheat(MapTiles valley, int tileNum, String[] options){
 		tileNum = tileNum+1;
 		Object response = JOptionPane.showInputDialog(null, "What Dwelling to You Want in the "+ tileNum +" Valley",	"Dwellings",
 				JOptionPane.PLAIN_MESSAGE,
@@ -1098,7 +1098,8 @@ public class GUI implements MouseListener{
 						valley.setGhostTile(true);
 			break;
 		}
-		return options;
+		
+		//return options;
 	}
 	
 	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
