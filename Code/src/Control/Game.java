@@ -268,7 +268,7 @@ no running away
 						//there is fighting
 						//view.selectFightGear(players[a]);moved to CombatFunctions
 						//view.selectFightGear(opponent);
-
+						view.updateCombatChits(players[a]);
 						//combat is resolved
 						CombatFunctions.resolveCombat(view, players[a], opponent, cheating);						
 					}
