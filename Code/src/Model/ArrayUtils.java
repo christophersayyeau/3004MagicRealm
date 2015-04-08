@@ -12,14 +12,14 @@ public class ArrayUtils {
 		if (index < 0 || index >= length) {		
 			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
 		}	      		
-		Object result = Array.newInstance(array.getClass().getComponentType(), length );//don't make array smaller		
+		Object result = Array.newInstance(array.getClass().getComponentType(), length -1);		
 		System.arraycopy(array, 0, result, 0, index);	    
 		if (index < length - 1) {
 			System.arraycopy(array, index + 1, result, 0, length - index - 1);		    
 		}
 		return result;		
 	}
-
+	
 	public static int getLength(Object array) {				      
 		if (array == null) {		     
 			return 0;		     

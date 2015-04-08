@@ -72,7 +72,7 @@ public class Client implements Runnable{
 				String[] CurrentUsers = TEMP1.split(", ");
 				
 				GUI.jlPlayers.setListData(CurrentUsers);
-				//TODO add player to players array
+				//TODO STEFAN, add player to players array
 				
 			}
 			else if(MESSAGE.contains("ChooseChar"))

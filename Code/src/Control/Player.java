@@ -277,17 +277,17 @@ public class Player {
 		
 		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
 		//remove the amount of options
-		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length-1);
-		
+		for(int a=0; a<greatTreasureVicPoint; a++){	//will remove the last item of list
+			values = (int[]) ArrayUtils.remove(values, values.length-1);//need -1
+		}
 		fameVicPoint = GUI.victoryPoints("Fame Amount", values);
 		//remove the amount of options
-		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
+		for(int a=0; a<fameVicPoint; a++)	//will remove the last item of list
 			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
 		notorietyVicPoint = GUI.victoryPoints("Amount of Notoriety", values);
 		//remove the amount of options
-		for(int a=0; a<greatTreasureVicPoint; a++)	//will remove the last item of list
+		for(int a=0; a<notorietyVicPoint; a++)	//will remove the last item of list
 			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
 		goldVicPoint =  values[values.length-1];//gets the last value
