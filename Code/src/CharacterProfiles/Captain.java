@@ -53,6 +53,7 @@ public class Captain extends Character{
 		//getDefense()[1] = breastplate;
 		this.defense = ArrayUtils.add(this.defense, breastplate);
 		
+		setDefense(this.defense);
 		Shield shield = temp.new Shield();			
 		//getDefense()[2] = shield;
 		this.defense = ArrayUtils.add(this.defense, shield);

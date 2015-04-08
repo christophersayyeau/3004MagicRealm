@@ -31,6 +31,7 @@ public class Elf extends Character{
 		//Combat chits
 		LightBow weapon1 = weapon.new LightBow();				
 		setWeapon(weapon1);
+		setDefense(this.defense);
 		
 		//Magic magic = new Magic();//2 Spells (III or VII)//removed since we don't support magic in first iteration
 		

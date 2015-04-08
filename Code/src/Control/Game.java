@@ -1,7 +1,5 @@
 package Control;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Random;
 
 import Model.CombatFunctions;
@@ -15,14 +13,11 @@ public class Game {
 	
 	//player related
 	Player players[];
-	public ArrayList<Player> players1 = new ArrayList<Player>();
 	public int numOfPlayers;
-	ServerController gameServer;
 	
 	Map map;
 		
 	Game(boolean a){}//useless constructor needed for cheat mode
-	int day;
 	
 	//constructor
 	public Game(){
@@ -56,37 +51,25 @@ public class Game {
 	}
 	
 	//constructor
-	public Game(ArrayList<Player> p, ServerController gs){
-		gameServer = gs;
-		players1 = p;
-		numOfPlayers = p.size();
-		map = new Map();
-		map.build();
-		day = 0;
+	public Game(int x){
 	}
 
-	public void startGame() throws IOException{
-		gameServer.SEND("REFRESH:" + "Day 1: BirdSong");
-	}
 	
-	/*public void startGame() throws IOException {
+	public void startGame() {
 		System.out.println("STARTING THE GAME");
 		
 		for(int a =0 ; a<numOfPlayers; a++){	
-			//players[a].recordVictoryRequirments();//used for victory points
-			//players1.get(a).recordVictoryRequirments();
-			//map.moveCharacters(players[a], players[a].getCurrentLocation());//start position		
-			map.moveCharacters(players1.get(a), (players1.get(a).getCurrentLocation()));
+			players[a].recordVictoryRequirments();//used for victory points
+			map.moveCharacters(players[a], players[a].getCurrentLocation());//start position		
 		}
 
 		//update GUI for all players
-		//view.Refresh("Day 1: BirdSong");
-		gameServer.SEND("REFRESH:" + "Day 1: BirdSong");
+		view.Refresh("Day 1: BirdSong");		
 		
 		System.out.println("Starting FIRST ENCOUNTER: TREASURE HUNT");
 		/*The FIRST ENCOUNTER introduces moving, hiding, searching and
 		trading. Monsters and natives can appear on the map, but there is no
-		combat. see page 10 of 2nd edition
+		combat. see page 10 of 2nd edition*/
 		
 		
 				//For the sake of specifying how the game ends in this first Iteration, we will NOT have players specify victory points but instead I am making up the following rule: the game ends after one month (28 days) and the winner is the player with the highest number of victory points (where we score victory points as per the rules):
@@ -98,7 +81,7 @@ public class Game {
 							the start of play, each character records the number of points he needs in
 							each category to win the game. He gains these points by owning or selling
 							weapons, armor, horses and Treasure cards. NOTE: Other ways of earning
-							points are introduced in later ENCOUNTERS.
+							points are introduced in later ENCOUNTERS.*/
 		
 		//map already built so don't need to build it here, see constructor	
 		//map already populated, see constructor
@@ -119,7 +102,7 @@ public class Game {
 			turn, he must do it exactly as he recorded it.
 			He can use his turn to	move, hide, search, trade and rest.
 			When each character does his turn, he must do it exactly as he recorded it.
-			 
+			 */
 		for(int a =0 ; a<numOfPlayers; a++){
 				int phasesToday = 2;//get 2 phases standard
 				//if not in caves get an extra 2, unless your a dwarf
@@ -147,8 +130,6 @@ public class Game {
 					}
 				}
 
-				players[a].setPhasesForToday( phasesToday );//figured out the number of phases
-				
 				//reset fought today
 				players[a].getProfile().resetFight();
 				//players[a].getProfile().foughtToday = false;
@@ -180,8 +161,9 @@ public class Game {
 			
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
+				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");
 				doTurn(players[a]);
-				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");	
+					
 				
 				players[a].numPhases = 0;//reset the phases
 			}
@@ -211,7 +193,7 @@ public class Game {
 			 All face up map chits (except the “LOST CITY” and “LOST
 			CASTLE” chits) turn face down. Face up Site chits are put in their clearings
 			before they turn face down.
-			
+			*/
 			//System.out.println("Hide Map chits");
 			view.hideMapChits();		
 			
@@ -235,7 +217,7 @@ public class Game {
 		
 		gameOver();
 		
-	}*/
+	}
 	
 
 	protected void gameOver() {
@@ -263,9 +245,7 @@ no running away
 1)select fight counter and attack direction
 2)select armors
 3)select move counter and defense direction
-
-combat resolved into 1 death, 2 death or combat stop
-ignore fatigued and wounded counters*/
+		 */
 		for(int a=0; a<numOfPlayers; a++){	//go through all players
 
 			//create an array for the positions
@@ -352,7 +332,7 @@ ignore fatigued and wounded counters*/
 
 	/*Create players for hotseat
 	 */
-	/*public void createPlayers(){
+	public void createPlayers(){
 		players = new Player[numOfPlayers];
 		for(int i = 0; i < numOfPlayers; ++i){
 			//ask user for which player type
@@ -360,13 +340,15 @@ ignore fatigued and wounded counters*/
 			String s = view.createPlayer();		
 			
 			//create player
-			players[i] = new Player(s);
+			players[i] = new Player(s, i);
 			
 			//handle start location
 			int locale = GUI.chooseStart(players[i]);
 			players[i].setCurrentLocation(locale);
+			
+			players[i].setPlayerNum(i);
 		}
-	}*/
+	}
 	
 	protected void shufflePlayers(Player[] players2) {
 		//to mix up the players
@@ -383,15 +365,15 @@ ignore fatigued and wounded counters*/
 	}
 
 
+	@SuppressWarnings("static-access")
 	public static int determineStart(String s, Player player) {
 
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
-			
-			//view.setPlayerX(455);
-			//view.setPlayerY(705);
-			//view.player[player.getPlayerNum()].setLocation(455,705);
+			view.setPlayerX(455);
+			view.setPlayerY(705);
+			view.player[player.getPlayerNum()].setLocation(455,705);
 			/*
 			Inn = 455, 705
 			House = 1165, 495
@@ -401,16 +383,16 @@ ignore fatigued and wounded counters*/
 		}
 		else if(s == "House"){
 			System.out.println("Starting at House: " + 35);
-			//view.setPlayerX(1165);
-			//view.setPlayerY(495);
-			//view.player[player.getPlayerNum()].setLocation(1165,495);
+			view.setPlayerX(1165);
+			view.setPlayerY(495);
+			view.player[player.getPlayerNum()].setLocation(1165,495);
 			return 35;
 		}
 		else if(s == "GuardHouse"){
 			System.out.println("Starting at GuardHouse: " + 45);
-			//view.setPlayerX(965);
-			//view.setPlayerY(410);
-			//view.player[player.getPlayerNum()].setLocation(965,410);
+			view.setPlayerX(965);
+			view.setPlayerY(410);
+			view.player[player.getPlayerNum()].setLocation(965,410);
 			return 45;
 		}else{
 			System.out.println("ERROR: Can't determine location");
