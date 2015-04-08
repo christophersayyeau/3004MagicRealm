@@ -367,6 +367,9 @@ no running away
 	@SuppressWarnings("static-access")
 	public static int determineStart(String s, Player player) {
 
+		//TODO make it so positions aren't hard coded in like this
+		//for cheat mode
+		
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
