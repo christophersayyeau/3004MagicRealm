@@ -530,11 +530,11 @@ public class Map {
 							//		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
 				
 				//now handle adding the dwellings and ghosts
-				//view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
-				String[] options = new String[] {"Chapel", "House", "Inn", "GuardHouse", "Ghosts"};
-				for(int a=0; a<5; a++){
-					options = view.pickLocationsDwellingsCheat(getMapTiles()[a], a, options);
-				}
+				view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
+				//String[] options = new String[] {"Chapel", "House", "Inn", "GuardHouse", "Ghosts"};
+				//for(int a=0; a<5; a++){
+					//options = view.pickLocationsDwellingsCheat(getMapTiles()[a], a, options);
+				//}
 				
 				LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
 				getMapTiles()[5] = lindenWoods;

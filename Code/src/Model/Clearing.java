@@ -56,7 +56,7 @@ public class Clearing {
 	
 	
 	public void removePlayer(Player player1) {
-		System.out.println("The remove players in clearing function has been called");
+		System.out.println("The remove players in clearing function has been called on "+ player1);
 		//playersInClearing = null;	
 //System.out.println("Removing " + player1 + " from array " + playersInClearing + ", which is currently in position " + ArrayUtils.indexOf(player1, playersInClearing));
 		playersInClearing = (Player[]) ArrayUtils.remove(playersInClearing, ArrayUtils.indexOf(player1, playersInClearing));

@@ -1143,9 +1143,9 @@ public class GUI implements MouseListener{
 		        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 		        null, options, options[0]);
 
-		/*Awful Valel x = 1085
-			y = 920
-			*/
+		//Awful Valel x = 1085
+			//y = 920
+			
 		switch((int)response){
 		case 0:			awfulValley.order = new GreatSwordsman[2];			//create the array of natives
 						awfulValley.setChapel(4, awfulValley);				//put the dwelling and then the natives
@@ -1450,7 +1450,7 @@ public class GUI implements MouseListener{
 					null,	choices, choices[0]);
 		
 			//return the player value
-			return values[response];
+			return values[response];//this is your opponent
 		}
 		//Unreachable
 	}

@@ -97,7 +97,7 @@ public class ArrayUtils {
 	public static int indexOf(Player needle, Player[] haystack) {
 		for (int i=0; i<haystack.length; i++)
 		{
-			//System.out.println("Comparing "+haystack[i].getProfile().getType()+needle.getProfile().getType() + haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()));
+			System.out.println("Comparing "+haystack[i].getProfile().getType()+needle.getProfile().getType() + haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()) + " !!");
 			if (haystack[i] != null && haystack[i].getProfile().getType().compareTo(needle.getProfile().getType()) == 0 || needle == null && haystack[i] == null)	{ 
 				//System.out.println("Index is "+ i);
 				return i;
