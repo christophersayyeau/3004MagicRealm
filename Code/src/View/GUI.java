@@ -52,6 +52,7 @@ public class GUI implements MouseListener{
 	public static JPanel Players = new JPanel();
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
+	public static JPanel CombatChits = new JPanel();
 	
 	public static JPanel Scores = new JPanel();
 	public static JList scoreList;
@@ -63,6 +64,10 @@ public class GUI implements MouseListener{
 	
 	JLabel dLabel = new JLabel("Label for date");
 	public static JLabel moveLabel = new JLabel("Click on a clearing to move the character");
+	public JLabel combatChitLabel = new JLabel();
+	public JLabel combatChitLabel1 = new JLabel();
+	public JLabel combatChitLabel2 = new JLabel();
+	public JLabel combatChitLabel3 = new JLabel();
 	//set tile values
 	final int x = 125;
 	final int y = 215;
@@ -446,6 +451,13 @@ public class GUI implements MouseListener{
 		//moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions (" + phasesAvailable + " left)");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
 			moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions (" + (phasesAvailable - a) + " left)");
+			combatChitLabel.setText("("+(player.getProfile().getType() + ")"));
+			combatChitLabel1.setText("--" + player.getProfile().action1.toString() + 
+					" (have " + player.getProfile().action1Num + ")");
+			combatChitLabel2.setText("--" + player.getProfile().action2.toString() + 
+					" (have " + player.getProfile().action2Num + ")");
+			combatChitLabel3.setText("--" + player.getProfile().action3.toString() + 
+					" (have " + player.getProfile().action3Num + ")");
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
 			int response = JOptionPane.showOptionDialog(null, "Build Your Turn, Here are your options: ", "Record Turn",
@@ -519,7 +531,7 @@ public class GUI implements MouseListener{
 			}
 		}	
 		player.setPhasesForToday(phasesAvailable);
-		
+		moveLabel.setText("");
 		System.out.println("User has now built his turn");	
 		 
 	}
@@ -1492,6 +1504,33 @@ public class GUI implements MouseListener{
 						{ ACTION_START(); }
 				}
 		);
+		
+		MainWindow.getContentPane().add(CombatChits);
+		CombatChits.setLocation(0,(int)screenSize.getHeight()- ((int)screenSize.getHeight()/4));
+		CombatChits.setSize((int)screenSize.getWidth()/2,100);
+		CombatChits.setBackground(Color.WHITE);
+		CombatChits.setVisible(true);
+		//CombatChits.setLayout(new BorderLayout());
+		
+		
+		combatChitLabel.setForeground(Color.BLACK);
+		combatChitLabel.setText("(Player)");
+		CombatChits.add(combatChitLabel);
+		//combatChitLabel.setLocation(0,0);
+		
+		combatChitLabel1.setForeground(Color.BLACK);
+		combatChitLabel1.setText("ActionChit1");
+		CombatChits.add(combatChitLabel1);
+		//combatChitLabel1.setLocation(0,25);
+		combatChitLabel2.setForeground(Color.BLACK);
+		combatChitLabel2.setText("ActionChit2");
+		CombatChits.add(combatChitLabel2);
+		//combatChitLabel2.setLocation(0,50);
+		combatChitLabel3.setForeground(Color.BLACK);
+		combatChitLabel3.setText("ActionChit3");
+		
+		//combatChitLabel3.setLocation(0,75);
+		CombatChits.add(combatChitLabel3);
 				
 		Players.setLayout(new BorderLayout()); 
 		Players.setPreferredSize(new Dimension((int)screenSize.getWidth()/2,(int)screenSize.getHeight()/3));
@@ -1629,6 +1668,17 @@ public class GUI implements MouseListener{
 		
 		
 		return Integer.parseInt(response.toString());
+	}
+
+	public void updateCombatChits(Player p) {
+		combatChitLabel.setText("("+(p.getProfile().getType() + ")"));
+		combatChitLabel1.setText("--" + p.getProfile().action1.toString() + 
+				" (have " + p.getProfile().action1Num + ")");
+		combatChitLabel2.setText("--" + p.getProfile().action2.toString() + 
+				" (have " + p.getProfile().action2Num + ")");
+		combatChitLabel3.setText("--" + p.getProfile().action3.toString() + 
+				" (have " + p.getProfile().action3Num + ")");
+		
 	}
 	
 }
