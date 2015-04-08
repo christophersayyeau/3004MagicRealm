@@ -1502,11 +1502,10 @@ public class GUI implements MouseListener{
 		//Since effort is 2 then need to fatigue 1 effort worth of action Chits
 		//FIrst get the active ones
 		String[] options = null;
-		CombatChit.getActiveEffortChits(person, options);
+		options = CombatChit.getActiveEffortChits(person, options);
 				
 		//next ask which one to fatigue
 		//now ask defender to pick
-		@SuppressWarnings("null")
 		Object response = JOptionPane.showInputDialog(null, "Which Action Chit do You Wish To Fatigue?",	"Fatiguing",
 				JOptionPane.PLAIN_MESSAGE,	null,	options, options[0]);
 		

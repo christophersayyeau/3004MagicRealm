@@ -112,7 +112,7 @@ public class CombatChit {
 	
 	public static String[] getActiveEffortChits(Player player, String[] options) {	//only used when fatiguing a chit
 		//only add actionchits that cost effort
-		
+System.out.println("PLayer stuff"+player.getProfile().action1Num +player.getProfile().action1.effort+ player.getProfile().action2Num+player.getProfile().action2.effort + player.getProfile().action3Num+player.getProfile().action3.effort);
 		for(int a=0; a< player.getProfile().action1Num; a++){	//add all of the first action available
 			if(player.getProfile().action1.effort > 0)	//only those costing effort
 				options = ArrayUtils.add(options, player.getProfile().action1.toString());
