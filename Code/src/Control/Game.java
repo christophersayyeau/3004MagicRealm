@@ -370,51 +370,60 @@ no running away
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
-			if(GUI.cheatMode()){
+			if(GUI.cheat){
 				GUI.setPlayerX(GUI.innX);
 				GUI.setPlayerX(GUI.innY);
 				GUI.player[player.getPlayerNum()].setLocation(GUI.innX,GUI.innY);
+				return GUI.innPos;
 			}
 			else{
 				GUI.setPlayerX(455);
 				GUI.setPlayerY(705);
 				GUI.player[player.getPlayerNum()].setLocation(455,705);
+				return 25;
 			}
 			/*
 			Inn = 455, 705
 			House = 1165, 495
 			GuardHouse = 965, 410
 			*/
-			return 25;
+			
 		}
 		else if(s == "House"){
 			System.out.println("Starting at House: " + 35);
-			if(GUI.cheatMode()){
+			if(GUI.cheat){
 				GUI.setPlayerX(GUI.houseX);
 				GUI.setPlayerX(GUI.houseY);
 				GUI.player[player.getPlayerNum()].setLocation(GUI.houseX,GUI.houseY);
+				
+				return GUI.housePos;
 			}
 			else{
 				GUI.setPlayerX(1165);
 				GUI.setPlayerY(495);
 				GUI.player[player.getPlayerNum()].setLocation(1165,495);
+				return 35;
 			}
 			
-			return 35;
+			
 		}
 		else if(s == "GuardHouse"){
 			System.out.println("Starting at GuardHouse: " + 45);
-			if(GUI.cheatMode()){
+			if(GUI.cheat){
 				GUI.setPlayerX(GUI.guardX);
 				GUI.setPlayerX(GUI.guardY);
 				GUI.player[player.getPlayerNum()].setLocation(GUI.guardX,GUI.guardY);
+
+				return GUI.guardPos;
 			}
 			else{
 				GUI.setPlayerX(965);
 				GUI.setPlayerY(410);
 				GUI.player[player.getPlayerNum()].setLocation(965,410);
+				
+				return 45;
 			}
-			return 45;
+			
 		}else{
 			System.out.println("ERROR: Can't determine location");
 			return -1;

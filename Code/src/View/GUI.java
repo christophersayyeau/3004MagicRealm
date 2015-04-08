@@ -84,12 +84,16 @@ public class GUI implements MouseListener{
 	static int playerX=0;
 	static int playerY=0;
 	
+	public static boolean cheat = false;
 	public static int innX=0;
 	public static int innY=0;
 	public static int houseX=0;
 	public static int houseY=0;
 	public static int guardX=0;
 	public static int guardY=0;
+	public static int innPos;
+	public static int housePos;
+	public static int guardPos;
 	
 	public void setMap(Map m){
 		map = m;
@@ -734,6 +738,7 @@ public class GUI implements MouseListener{
 	//CHEAT MODE----------------------------------------------------------------------------------
 	public static boolean cheatMode() {
 		//return true if user wants cheat mode
+		
 		int n = JOptionPane.showConfirmDialog(null,  "Engage Cheat Mode?", "CheatMode", 
 				JOptionPane.YES_NO_OPTION);
 		
@@ -1151,13 +1156,15 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, 1);
 						houseX = 1085;
 						houseY = 920;
+						housePos = 15;
 			break;
 		case 2:			awfulValley.rogues = new GreatSwordsman[2];
 						awfulValley.setInn(4, awfulValley);
 						buildBuildings("Inn", 1, 4);
 						options = (String[]) ArrayUtils.remove(options, 2);
 						innX = 1085;
-						houseY = 920;
+						innY = 920;
+						innPos = 15;
 			break;
 		case 3:			awfulValley.guard = new GreatSwordsman[3];
 						awfulValley.setGuardHouse(4, awfulValley);
@@ -1165,6 +1172,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, 3);
 						guardX = 1085;
 						guardY = 920;
+						guardPos = 15;
 			break;
 		case 4:			awfulValley.ghosts = new Ghost[2];
 						awfulValley.setGhosts(4, awfulValley);
@@ -1200,13 +1208,15 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
 						houseX = 455;
 						houseY = 705;
+						housePos = 25;
 			break;
 		case "Inn":			badValley.rogues = new GreatSwordsman[2];
 						badValley.setInn(4, badValley);
 						buildBuildings("Inn", 2, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 						innX = 455;
-						houseY = 705;
+						innY = 705;
+						innPos = 25;
 			break;
 		case "GuardHouse":		badValley.guard = new GreatSwordsman[3];
 						badValley.setGuardHouse(4, badValley);
@@ -1214,6 +1224,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
 						guardX = 455;
 						guardY = 705;
+						guardPos = 25;
 			break;
 		case "Ghosts":			badValley.ghosts = new Ghost[2];
 						badValley.setGhosts(4, badValley);
@@ -1249,6 +1260,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
 						houseX = 1165;
 						houseY = 495;
+						housePos=35;
 			break;
 		case "Inn":			curstValley.rogues = new GreatSwordsman[2];
 						curstValley.setInn(4, curstValley);
@@ -1256,6 +1268,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 						innX = 1165;
 						innY = 495;
+						innPos = 35;
 			break;
 		case "GuardHouse":		curstValley.guard = new GreatSwordsman[3];
 						curstValley.setGuardHouse(4, curstValley);
@@ -1263,6 +1276,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
 						guardX = 1165;
 						guardY = 495;
+						guardPos = 35;
 			break;
 		case "Ghosts":			curstValley.ghosts = new Ghost[2];
 						curstValley.setGhosts(4, curstValley);
@@ -1298,13 +1312,15 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
 						houseX = 965;
 						houseY = 410;
+						housePos = 45;
 			break;
 		case "Inn":			darkValley.rogues = new GreatSwordsman[2];
 						darkValley.setInn(4, darkValley);
 						buildBuildings("Inn", 4, 4);
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 						innX = 965;
-						houseY = 410;
+						innY = 410;
+						innPos = 45;
 			break;
 		case "GuardHouse":		darkValley.guard = new GreatSwordsman[3];
 						darkValley.setGuardHouse(4, darkValley);
@@ -1312,6 +1328,7 @@ public class GUI implements MouseListener{
 						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
 						guardX = 965;
 						guardY = 410;
+						guardPos = 45;
 			break;
 		case "Ghosts":			darkValley.ghosts = new Ghost[2];
 						darkValley.setGhosts(4, darkValley);
@@ -1337,7 +1354,8 @@ public class GUI implements MouseListener{
 							buildBuildings("House", 5, 4);	
 							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
 							houseX = 215;
-							houseX = 400;
+							houseY = 400;
+							housePos = 55;
 				break;
 			case "Inn":			evilValley.rogues = new GreatSwordsman[2];
 							evilValley.setInn(4, evilValley);
@@ -1345,6 +1363,7 @@ public class GUI implements MouseListener{
 							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
 							innX = 215;
 							innY = 400;
+							innPos = 55;
 				break;
 			case "GuardHouse":		evilValley.guard = new GreatSwordsman[2];
 							evilValley.setGuardHouse(4, evilValley);
@@ -1352,6 +1371,7 @@ public class GUI implements MouseListener{
 							options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
 							guardX = 215;
 							guardY = 400;
+							guardPos = 55;
 				break;
 			case "Ghosts":			evilValley.ghosts = new Ghost[2];
 							evilValley.setGhosts(4, evilValley);

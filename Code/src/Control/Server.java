@@ -27,7 +27,7 @@ public class Server {
 
 		if(GUI.cheatMode()){//using cheatMode
 			System.out.println("PLaying Game with Cheats");
-			
+			GUI.cheat = true;
 			//build the game and select the players
 			CheatGame game = new CheatGame();	
 			game.createPlayers();
@@ -59,6 +59,7 @@ public class Server {
 		characters.add("Black Knight");
 		characters.add("Captain");
 		characters.add("Dwarf");
+		
 		characters.add("Elf");
 		characters.add("Swordsman");
 		try
