@@ -89,24 +89,28 @@ public class PlayerActions {
 	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile, int currentClearing) {
 		
 		if(map.getMapTile(currentTile).clearing[currentClearing].isDrop){//if there is a player drop
-			if (map.getMapTile(currentTile).treasure.found){
-				//ask user which one to loot
-				if(GUI.lootChoices()){	
-					//loot treasure
-					loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
-				}else{	
-					//loot belongings
+			if(map.getMapTile(currentTile).treasure != null){//there is no treasure	
+				if (map.getMapTile(currentTile).treasure.found){
+					//ask user which one to loot
+					if(GUI.lootChoices()){	
+						//loot treasure
+						loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+					}else{	
+						//loot belongings
+						loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
+					}
+				}else{
+					//only loot belongings
 					loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
 				}
-			}else{
-				//only loot belongings
-				loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
 			}
 		}else{	//only treasure
-			if (map.getMapTile(currentTile).treasure.found){
-				loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
-			}else{
-				System.out.println("Havent Found the treasure yet");
+			if(map.getMapTile(currentTile).treasure != null){//there is no treasure
+				if (map.getMapTile(currentTile).treasure.found){
+					loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+				}else{
+					System.out.println("Havent Found the treasure yet");
+				}
 			}
 		}
 	}
