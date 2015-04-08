@@ -10,7 +10,6 @@ import View.GUI;
 public class Map {
 	GUI view;
 	boolean startplacement = true;
-	boolean serverMap;
 	//an array of tiles, the values will be hardcoded in
 	private MapTiles [] mapTiles = new MapTiles[20];
 	public YellowChit [] warningsV = new YellowChit[5];
@@ -25,13 +24,8 @@ public class Map {
 	LostCity lostCity = new LostCity();				//put in ruins
 	
 	//Ghost [] ghosts = new Ghost[2];
-	public Map(){
-		serverMap = true;
-		view = null;
-	}
 	
 	public Map(GUI v){
-		serverMap = false;
 		view = v;
 	}
 
@@ -87,32 +81,28 @@ public class Map {
 		getMapTiles()[0].setWarning(warningsV[4]);
 		getMapTiles()[0].order = new GreatSwordsman[2];//build the natives here
 		getMapTiles()[0].setChapel(4, (AwfulValley) getMapTiles()[0]);
-		if(serverMap == false)
-			view.buildBuildings("Chapel", 1, 4);
+		view.buildBuildings("Chapel", 1, 4);
 		
 		BadValley badValley = temp.new BadValley(11, 10, 8, 6, 12, 19);
 		getMapTiles()[1] = badValley;
 		getMapTiles()[1].setWarning(warningsV[3]);
 		getMapTiles()[1].rogues = new GreatSwordsman[2];//build the natives here
 		getMapTiles()[1].setInn(4, (BadValley) getMapTiles()[1]);
-		if(serverMap == false)
-			view.buildBuildings("Inn", 2, 4);
+		view.buildBuildings("Inn", 2, 4);
 		
 		CurstValley curstValley = temp.new CurstValley(17, 3, -1, -1, -1, 7);
 		getMapTiles()[2] = curstValley;
 		getMapTiles()[2].setWarning(warningsV[2]);
 		getMapTiles()[2].soldiers = new GreatSwordsman[2];//build the natives here
 		getMapTiles()[2].setHouse(4, (CurstValley) getMapTiles()[2]);
-		if(serverMap == false)
-			view.buildBuildings("House", 3, 4);
+		view.buildBuildings("House", 3, 4);
 		
 		DarkValley darkValley = temp.new DarkValley(16, -1, -1, -1, 2, 17);
 		getMapTiles()[3] = darkValley;
 		getMapTiles()[3].setWarning(warningsV[1]);
 		getMapTiles()[3].guard = new GreatSwordsman[3];//build the natives here
 		getMapTiles()[3].setGuardHouse(4, (DarkValley) getMapTiles()[3]);
-		if(serverMap == false)
-			view.buildBuildings("GuardHouse", 4, 4);
+		view.buildBuildings("GuardHouse", 4, 4);
 		
 		EvilValley evilValley = temp.new EvilValley(-1, -1, 15, 18, 10, 13);
 		getMapTiles()[4] = evilValley;
@@ -324,10 +314,10 @@ public class Map {
 		temp = GUI.convertNameToPosition(pos);
 		
 		//Initial placement of the player, should not be done more than once
-		if(startplacement == true){
+		if(player1.startplacement == true){
 			getMapTiles()[temp[0]].putPlayer(player1);
 			getMapTiles()[temp[0]].clearing[temp[1]].putPlayer(player1);
-			startplacement = false;
+			player1.startplacement = false;
 		}		
 		
 		if(newLocation > 0){
@@ -479,7 +469,7 @@ public class Map {
 		int[] temp = new int[2];
 		temp = GUI.convertNameToPosition(pos);
 		
-		//view.updateMap(this);
+		view.updateMap(this);
 		
 		for(int a = 0; a<4; a++){
 			//if(this.getMapTile(currentTile).clearing[currentClearing].getConnectedTo()[a] != null)//handle null
@@ -540,8 +530,7 @@ public class Map {
 							//		getMapTiles()[4].setGhosts(4, (EvilValley) getMapTiles()[4]);
 				
 				//now handle adding the dwellings and ghosts
-				if(serverMap == false)
-					view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
+				view.pickLocationsDwellingsCheat(getMapTiles()[0], getMapTiles()[1], getMapTiles()[2], getMapTiles()[3], getMapTiles()[4]);
 				
 				
 				LindenWoods lindenWoods = temp.new LindenWoods(-1, 14, 0, -1, -1, -1);
@@ -733,7 +722,7 @@ public class Map {
 
 	public Treasure randomSmallTreasure() {
 		//go through all small treasures that haven't been picked yet then pick one
-		// TODO third step, treasure, for lg and small need to have other choices
+		// TODO Ignore, third step, treasure, for lg and small need to have other choices
 		//for now just use this as a base
 		Treasure temp = new Treasure();
 		Map_of_Lost_Castle smal = temp.new Map_of_Lost_Castle();

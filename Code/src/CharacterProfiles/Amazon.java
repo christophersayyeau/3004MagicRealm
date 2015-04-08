@@ -49,6 +49,8 @@ public class Amazon extends Character{
 		//getDefense()[2] = shield;
 		this.defense = ArrayUtils.add(this.defense, shield);
 		shieldActive = true;
+		
+		setDefense(this.defense);
 
 //TODO Ignore, Remember, the Amazon got the cloak and spectacles to test their function
 		Treasure tem = new Treasure();

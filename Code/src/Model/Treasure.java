@@ -16,8 +16,6 @@ public class Treasure extends Items
 	int damaged_price = -1;
 	int destroyed_price = -1;
 	
-	String name = null;//only given to those with special powers at the moment
-	
 	public boolean isGt_Treasure() {
 		return Gt_Treasure;
 	}

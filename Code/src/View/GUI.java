@@ -26,14 +26,14 @@ import Model.MapChits.*;
 import Model.MapTiles;
 
 public class GUI implements MouseListener{
-	public ArrayList<Player> players = new ArrayList<Player>();
+	
 	Game game;
 	private Map map;
 	public Map getMap(){
 		return map;
 	}
-//"192.168.0.11"
-	static String serverIP;
+	
+	static String serverIP = "172.17.129.239";
 	static Client client;
 	
 	public static String[] possibilities = new String[6];
@@ -53,10 +53,13 @@ public class GUI implements MouseListener{
 	public static JPanel Date = new JPanel();
 	public static JPanel Instruction = new JPanel();
 	
+	public static JPanel Scores = new JPanel();
+	public static JList scoreList;
+	
 	@SuppressWarnings("rawtypes")
 	public static JList jlPlayers = new JList();
 	private static JScrollPane spPlayers = new JScrollPane();
-	public static JButton startButton = new JButton();
+	private static JButton startButton = new JButton();
 	
 	JLabel dLabel = new JLabel("Label for date");
 	public static JLabel moveLabel = new JLabel("Click on a clearing to move the character");
@@ -66,7 +69,6 @@ public class GUI implements MouseListener{
 	final int tileX = 300;
 	final int tileY = 305;
 	
-	public JLabel amazon = new JLabel();
 	public static JLabel[] player = new JLabel[6];
 	
 	public void initLabels(){
@@ -81,7 +83,7 @@ public class GUI implements MouseListener{
 		map = m;
 	}
 	
-	public static void Connect(Player p)
+	public static void Connect()
 	{
 		try
 		{
@@ -89,15 +91,15 @@ public class GUI implements MouseListener{
 			String HOST = serverIP;
 			Socket SOCK = new Socket(HOST, PORT);
 			System.out.println("You connected to: " + HOST);
-			//avaiableChars(SOCK);
-			//String s = createPlayer();
-			//Player player = new Player(s);
-
+			avaiableChars(SOCK);
+			String s = createPlayer();
+			Player player = new Player(s, -1);
+			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
-			OUT.println(p.getProfile().getType());
+			OUT.println("ADDPLAYER:" + player.getProfile().getType());
 			OUT.flush();
 			
-			client = new Client(SOCK, p);
+			client = new Client(SOCK, player);
 			
 			Thread X = new Thread(client);
 			X.start();			
@@ -114,13 +116,9 @@ public class GUI implements MouseListener{
 	{
 		@SuppressWarnings("unused")
 		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
-		serverIP =ip;
-		String s = createPlayer();
-		System.out.println(s);
-		Player p = new Player(s);
-		p.recordVictoryRequirments();
+		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
-		Connect(p);
+		Connect();
 	}
 	
 	//constructor, called in player.java
@@ -165,6 +163,7 @@ public class GUI implements MouseListener{
 				null,
 				possibilities,
 				possibilities[0]);
+		
 		//TODO STEFAN, erase if fixed in Server, only suppose to be 1 of each type max, but that isnt important, work on other stuff
 		
 		
@@ -346,15 +345,7 @@ public class GUI implements MouseListener{
 		l4.setLocation(x4, y4);
 		l5.setLocation(x5, y5);
 		l6.setLocation(x6, y6);
-		
-		/*ImageIcon i = new ImageIcon("res/characters/test.png");
-		l1.setIcon(i);
-		l2.setIcon(i);
-		l3.setIcon(i);
-		l4.setIcon(i);
-		l5.setIcon(i);
-		l6.setIcon(i);*/
-		
+
 		Map.setComponentZOrder(l1, 0);
 		Map.setComponentZOrder(l2, 0);
 		Map.setComponentZOrder(l3, 0);
@@ -401,11 +392,7 @@ public class GUI implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		JLabel j = (JLabel)e.getSource();
-		/*
-		System.out.println(j.getName());
-		System.out.println("x = " + j.getX());
-		System.out.println("y = " + j.getY());
-		*/
+		
 		playerX = j.getX();
 		playerY = j.getY();
 		displayClearing(j.getName());
@@ -422,10 +409,6 @@ public class GUI implements MouseListener{
 	
 	
 	public void Refresh(String labelText) {
-		//Called thourhgout the day to refresh the screen
-		// TODO update all pictures and related visuals to new locations
-		//not sure if already taken care of elsewhere in code
-		//maybee just link to those
 		changeDate(labelText);
 	}
 	
@@ -440,78 +423,7 @@ public class GUI implements MouseListener{
 		He can leave phases blank.
 		He can record only one activity per phase, but he can record any activity in any phase, repeating or switching activities as he wishes
 		 */
-									
-														/*//commented this out to be replaced with other stuff
-														JPanel Buttons = new JPanel();
-														Buttons.setLayout(new FlowLayout());
-														
-														JButton move = new JButton("Move");
-														move.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the move function");
-																player.setPhaseActions("Move23");	//TO DO need to include coordinate of location clearing, here is temp value
-															}
-														});
-														
-														JButton hide = new JButton("Hide");
-														hide.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the hide function");
-																player.setPhaseActions("Hide");	
-															}
-														});
-														
-														JButton search = new JButton("Search");
-														search.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the search function");
-																player.setPhaseActions("Search");	
-															}
-														});
-														
-														JButton rest = new JButton("Rest");
-														rest.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the rest function");
-																player.setPhaseActions("Rest");	
-															}
-														});
-														
-														JButton trade = new JButton("Trade");
-														trade.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("Call the trade function");
-																//doYouWantToTrade();
-																//trading(map, player);
-																player.setPhaseActions("Trade");
-															}
-														});
-														
-														JButton quit = new JButton("Quit");
-														trade.addActionListener(new ActionListener(){
-															public void actionPerformed(ActionEvent e){
-																System.out.println("You have chosen to close the program");
-																System.exit(0);
-															}
-														});
-														
-														Buttons.add(move);
-														Buttons.add(hide);
-														Buttons.add(search);
-														Buttons.add(rest);
-														Buttons.add(trade);
-														Buttons.add(quit);
-														JDialog frame = new JDialog();
-														
-														Buttons.setBackground(Color.gray);
-														frame.add(Buttons);
-														
-														//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-														frame.getContentPane().add(Buttons);
-														frame.pack();
-														frame.setVisible(true);
-														frame.setModal(true);
-														*/
+
 		Instruction.setVisible(true);
 		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
@@ -528,7 +440,6 @@ public class GUI implements MouseListener{
 				player.setPhaseActions("Move");	//choose location during your turn
 				
 				if(player.getProfile().getType().compareTo("Amazon") == 0 && !player.getProfile().amazonUsed){
-					a--;
 					phasesAvailable++;
 					player.getProfile().amazonUsed = true;	//so we can't use them again this time
 					System.out.println("Amazon gets extra move phase");
@@ -537,15 +448,13 @@ public class GUI implements MouseListener{
 			case 1:			//Hide
 				System.out.println("Call the hide function");
 				player.setPhaseActions("Hide");	
-				
+				System.out.println("Has cloak = "+player.getProfile().haveCloak());
 				if(player.getProfile().haveCloak() && !player.getProfile().cloakUsed){
-					a--;				//make loop again
 					phasesAvailable++;	//increase the value
 					player.getProfile().cloakUsed = true;	//so we can't use them again this time
 					System.out.println("Cloak gets extra hide phase");
 				}
 				if(player.getProfile().getType().compareTo("Elf") == 0 && !player.getProfile().elfUsed){
-					a--;
 					phasesAvailable++;
 					player.getProfile().elfUsed = true;	//so we can't use them again this time
 					System.out.println("Elf gets extra hide phase");
@@ -556,7 +465,6 @@ public class GUI implements MouseListener{
 				player.setPhaseActions("Search");	
 				
 				if(player.getProfile().haveGlasses() && !player.getProfile().glassesUsed){
-					a--;
 					phasesAvailable++;
 					player.getProfile().glassesUsed = true;	//so we can't use them again this time
 					System.out.println("Glasses gets extra search phase");
@@ -576,9 +484,7 @@ public class GUI implements MouseListener{
 				break;
 			
 			case 6:			//View clearing/map
-				//System.out.println("Click on a clearing to continue game");
 				moveLabel.setText("Click on a clearing to continue game");
-				//Instruction.setVisible(true);
 				pause = true;
 				
 				//Pause the game until mouse is clicked
@@ -588,12 +494,12 @@ public class GUI implements MouseListener{
 					    } catch(InterruptedException e) {
 					    }
 				}
-				//Instruction.setVisible(false);
-				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
+				moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions");
 				a--;
 				break;
 			}
 		}	
+		player.setPhasesForToday(phasesAvailable);
 		
 		System.out.println("User has now built his turn");	
 		 
@@ -601,13 +507,13 @@ public class GUI implements MouseListener{
 
 	public void hideMapChits() {
 		
-		// TODO third step, end of day, all map chits that can be seen are unseen
+		// TODO Ignore, third step, end of day, all map chits that can be seen are unseen
 		
 	}
 
 	public void revealMapChits(int i) {
 		//caled at end of player turn
-		// TODO third step, end of player turn, reveal monster, warning chits
+		// TODO Ignore, third step, end of player turn, reveal monster, warning chits
 		//System.out.println("mapchits in tile ->face up, substitue chits exchanged, other map chits summon new monsters from apperance chart");
 	}
 
@@ -656,7 +562,6 @@ public class GUI implements MouseListener{
 				"Which Search Table Would You Like TO Use?" + "\n" + "Can only loot after you have located a treasure",
 				"Search",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, choices, choices[0]);
-				//JOptionPane.YES_NO_OPTION);old version
 		
 		//their answer is..
 		if(n == 0){//clicked locate
@@ -670,8 +575,14 @@ public class GUI implements MouseListener{
 	}
 
 	public static void revealTreasure() {
-		// TODO HAS THIS BEEN HANDLED BELOW?second step, reveal that the treasure in this tile has been found, change the descriptive word in clearing view
-		//Dont need to display contents, just show that it is considered found and can now be looted
+		//if(map.getTreasure().found == true){
+			//Don't need to display contents, just show that it is considered found and can now be looted
+			//when you click view and and select a clearing the popoup should have changed now
+			
+			//But I just made it so it the pop-up would change if found
+			//This code should actually display the contents? No
+			System.out.println("The treasure has been found");
+		//}
 		
 	}
 	
@@ -682,7 +593,9 @@ public class GUI implements MouseListener{
 			scores[a] = "Player " + a + " Total Score: " + gamers[a].calculateScore();
 			combatMessage(scores[a]);//send message to user
 		}
-		//TODO change label to display array of everybodys scores
+		scoreList = new JList(scores);
+		Scores.add(scoreList);
+		//Not sure if working correctly, can't test easily
 	}
 	
 
@@ -719,7 +632,6 @@ public class GUI implements MouseListener{
 		else if(c.playersInClearing != null){//check for players in clearing
 			System.out.println("Display num players in clearing " + c.numPLayersInClearing);
 			for(int n=0; n<c.numPLayersInClearing; n++){
-				//TODO does not start the list at location [0], will continue to grow, but no duplication anymore
 				//if(c.playersInClearing[n]!=null)
 				list.add(c.playersInClearing[n].getProfile().getType());	//add all of the ones in the clearing
 			}
@@ -738,9 +650,10 @@ public class GUI implements MouseListener{
 			list.add("Empty");
 
 		if(map.getMapTile(x).getTreasure() != null){
-			if(map.getMapTile(x).getTreasure().found == true)
+			if(map.getMapTile(x).getTreasure().found == true){
 				list.add("Treasure has been found already");
-			//TODO HAS THIS BEEN HANDLED HERE?remove 'else' when done testing, used to check if treasure exists
+			}
+			//Note - hasn't been thoroughly tested, but seems to work
 			else
 				list.add("Unknown Treasure");
 		}
@@ -1402,10 +1315,6 @@ public class GUI implements MouseListener{
 		//3)select move counter and defense direction
 		if(player.getProfile().getType().compareTo("Swordsman") != 0)	//swordsman can't do anything anyway
 			EvadeDialog.getEvasion(player);//action chits can only be used once per round
-		
-		
-					//can Fight chit only if its strength >=weight of weapon
-					//can Move chit only if its strength >= weight of his stuff
 	}
 	
 	public int getPlayerX(){ return playerX;}
@@ -1489,7 +1398,13 @@ public class GUI implements MouseListener{
 		Date.setLocation(0,(int)screenSize.getHeight()/3+25);
 		Date.setSize((int)screenSize.getWidth()/2,25);
 				
-				
+		
+		Scores.setVisible(true);
+		Scores.setBackground(Color.white);
+		MainWindow.getContentPane().add(Scores);
+		Scores.setLocation(0,(int)screenSize.getHeight()/3+50);
+		Scores.setSize((int)screenSize.getWidth()/2,180);
+		
 		//String test[] = {"QWE", "ERT", "RTYYSDFG","ASDFXZVDFG","ASFWEFAS"};
 		//jlPlayers.setListData(test);
 		jlPlayers.setForeground(Color.black);
@@ -1526,7 +1441,6 @@ public class GUI implements MouseListener{
 	//private void initPlayers(String name){
 	@SuppressWarnings("unused")
 	private void initPlayers(){
-		//TODO edit code to be able to use icons
 		ImageIcon amazonIcon = new ImageIcon("res/characters/amazon.png");
 		ImageIcon bknightIcon = new ImageIcon("res/characters/black_knight.png");
 		ImageIcon captainIcon = new ImageIcon("res/characters/captain.png");
@@ -1543,7 +1457,7 @@ public class GUI implements MouseListener{
 		Map.setComponentZOrder(amazon, 0);
 		*/
 		for(int i=0; i<6; i++){
-			//player[i].setVisible(true);
+			player[i].setVisible(false);
 			player[i].setSize(50,50);
 			Map.add(player[i]);
 			Map.setComponentZOrder(player[i],0);
@@ -1606,7 +1520,6 @@ public class GUI implements MouseListener{
 
 	public void ACTION_START(){
 		client.SEND("STARTGAME");
-		//client.SEND("VP" + client.player.getNeededVictoryPoints());
 	}
 
 	public static boolean lootChoices() {

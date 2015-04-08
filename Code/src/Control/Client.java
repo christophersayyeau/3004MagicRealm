@@ -2,7 +2,6 @@ package Control;
 
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
 //import java.util.ArrayList;
 //import java.util.Arrays;
 //import java.util.List;
@@ -15,18 +14,17 @@ import View.GUI;
 public class Client implements Runnable{
 	Socket SOCK;
 	Scanner INPUT;
-	GUI gui = null;
+	GUI gui;
 	Scanner SEND = new Scanner(System.in);
 	PrintWriter OUT;
-	public Player player = null;
-	ArrayList<String> players;
+	Player player;
 	
 	public Client(Socket X, Player p){
 		this.SOCK = X;
 		this.player = p;
-		players = new ArrayList<String>();
 		gui = new GUI(null);
-		chooseStart();
+		//gui.initilizeWindow();
+		//gui.buildMap();
 	}
 	
 	@Override
@@ -74,26 +72,7 @@ public class Client implements Runnable{
 				String[] CurrentUsers = TEMP1.split(", ");
 				
 				GUI.jlPlayers.setListData(CurrentUsers);
-			}else if(MESSAGE.contains("STARTGAME")){
-				gui.startButton.setEnabled(false);
-				SEND("CHOOSESTART"+player.getCurrentLocation());
-			}
-			else if(MESSAGE.contains("MOVE")){
-				String cha = MESSAGE.substring(0, MESSAGE.indexOf(":")-1);
-				MESSAGE = MESSAGE.substring(MESSAGE.indexOf(":") +1 + 4);
-				for(int i=0;i<gui.players.size();++i){
-					if(gui.players.get(i).getProfile().getType().equals(cha)){
-						gui.players.get(i).setCurrentLocation(Integer.valueOf(MESSAGE.substring(MESSAGE.indexOf(":")+1)));
-					}
-				}
-			}
-			else if(MESSAGE.contains("ATTACK")){
-				
-			}
-			else if(MESSAGE.contains("DEFEND")){
-				
-			}
-			else if(MESSAGE.contains("CHOOSESTART")){
+				//TODO add player to players array
 				
 			}
 			else if(MESSAGE.contains("ChooseChar"))
@@ -113,7 +92,7 @@ public class Client implements Runnable{
 	//function to send message to the server
 	public void SEND(String X)
 	{
-		OUT.println(player.getProfile().getType() + ":" + X);
+		OUT.println(/*UserName + ": " +*/ X);
 		OUT.flush();
 	}
 	
@@ -121,14 +100,9 @@ public class Client implements Runnable{
 	public void createPlayer(String message){
 		String s = GUI.displayMessage("Please select a different character.");
 		player = null;
-		player = new Player(GUI.createPlayer());
+		player = new Player(GUI.createPlayer(), -1);
 		
 		SEND("ADDPLAYER:"+ player.getProfile().getType());
-	}
-	
-	public void chooseStart(){
-		int i = GUI.chooseStart(player);
-		player.setCurrentLocation(i);
 	}
 }
 

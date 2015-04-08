@@ -16,6 +16,7 @@ import CharacterProfiles.Character;
 
 public class Player {
 
+	public boolean startplacement = true;
 	//victory point values
 	int greatTreasureVicPoint;
 	int fameVicPoint;
@@ -28,12 +29,7 @@ public class Player {
 	int goldVicPointNeeded;
 	
 	static int instanceCounter = 0;
-	int playernum = 0;
-
-	Player(){
-		instanceCounter++;
-		playernum = instanceCounter;
-	}
+	int playernum;
 	
 	//commented out view for hotseat game
 	//GUI view;
@@ -91,6 +87,9 @@ public class Player {
 	public void setEvade(CombatChit ev) {
 		this.evade = ev;
 	}
+	public void setPlayerNum(int n){
+		playernum = n;
+	}
 	public int getPlayerNum(){
 		return playernum;
 	}
@@ -125,32 +124,39 @@ public class Player {
 	}
 	
 	//constructor for choosing type
-	public Player(String s){
+	public Player(String s, int i){
+		if(i >= 0){
+			playernum = i;
+		}
 		if(s.equals("Amazon")){
 			profile = new Amazon();
-			//GUI.player[playernum].setIcon(amazonIcon);
+			GUI.player[playernum].setIcon(amazonIcon);
 		}
 		else if(s.equals("Black Knight")){
 			profile = new BlackKnight();
-			//GUI.player[playernum].setIcon(bknightIcon);
+			GUI.player[playernum].setIcon(bknightIcon);
 		}
 		else if(s.equals("Captain")){
 			profile = new Captain();
-			//GUI.player[playernum].setIcon(captainIcon);
+			GUI.player[playernum].setIcon(captainIcon);
 		}
 		else if(s.equals("Dwarf")){
 			profile = new Dwarf();
-			//GUI.player[playernum].setIcon(dwarfIcon);
+			GUI.player[playernum].setIcon(dwarfIcon);
 		}
 		else if(s.equals("Elf")){
 			profile = new Elf();
-			//GUI.player[playernum].setIcon(elfIcon);
+			GUI.player[playernum].setIcon(elfIcon);
 		}
 		else if(s.equals("Swordsman")){
 			profile = new Swordsman();
-			//GUI.player[playernum].setIcon(swordsmanIcon);
+			GUI.player[playernum].setIcon(swordsmanIcon);
 		}
-		//GUI.player[playernum].setVisible(true);
+		
+		GUI.player[playernum].setVisible(true);
+
+		//instanceCounter++;
+		//playernum = instanceCounter;
 		System.out.println("Built a " + profile.getType() + " Player");
 		//System.out.println("Stats: " + profile.getWeapon() + "  "+ profile.getDefense(0));
 	}
@@ -265,6 +271,8 @@ public class Player {
 		 *then multiply points by factor in each category = needed for that category
 		 *					GreatTreasures is 1, fame is 10, notoriety is 20, gold is 30(in addition to start amount)
 		 */
+		
+		//TODO only ever removes the last value, so it will always list 0,1,2,3,4 if anything is chosen no matter the amount
 		int[] values = {0,1,2,3,4,5};
 		
 		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
@@ -640,14 +648,4 @@ public class Player {
 		this.setEvade(null);
 	}
 
-	public String getNeededVictoryPoints(){
-		return greatTreasureVicPointNeeded + "," + fameVicPointNeeded + ","+notorietyVicPointNeeded + "," + goldVicPointNeeded;
-	}
-	
-	public void setNeededVictoryPoints(int a, int b, int c, int d){
-		greatTreasureVicPointNeeded = a;
-		fameVicPointNeeded = b;
-		notorietyVicPointNeeded = c;
-		goldVicPointNeeded = d;
-	}
 }

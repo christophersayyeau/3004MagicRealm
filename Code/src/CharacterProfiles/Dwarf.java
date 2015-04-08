@@ -47,7 +47,7 @@ public class Dwarf extends Character{
 		Helmet helmet = temp.new Helmet();	
 		//getDefense()[0] = helmet;
 		this.defense = ArrayUtils.add(this.defense, helmet);
-
+		setDefense(this.defense);
 		
 		//Action types
 		action1.setType("Move");	//set the type
