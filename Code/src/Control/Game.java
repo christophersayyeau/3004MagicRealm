@@ -32,8 +32,7 @@ public class Game {
 		
 		//get number of players + set gui
 		numOfPlayers = view.numOfPlayers();
-		
-		
+			
 		//population for dwellings and ghosts handled in each valley's constructor
 		//placing of characters handled at game start
 		
@@ -337,7 +336,7 @@ no running away
 		for(int i = 0; i < numOfPlayers; ++i){
 			//ask user for which player type
 			@SuppressWarnings("static-access")
-			String s = view.createPlayer();		
+			String s = view.createPlayer(players);		
 			
 			//create player
 			players[i] = new Player(s, i);

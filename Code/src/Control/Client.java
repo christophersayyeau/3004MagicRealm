@@ -100,7 +100,7 @@ public class Client implements Runnable{
 	public void createPlayer(String message){
 		String s = GUI.displayMessage("Please select a different character.");
 		player = null;
-		player = new Player(GUI.createPlayer(), -1);
+		//player = new Player(GUI.createPlayer(), -1);
 		
 		SEND("ADDPLAYER:"+ player.getProfile().getType());
 	}

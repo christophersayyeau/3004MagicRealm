@@ -36,6 +36,7 @@ public class CheatGame extends Game {
 		
 		//get number of players + set gui
 		numOfPlayers = view.numOfPlayers();
+		
 	}
 	
 	
@@ -201,7 +202,7 @@ public class CheatGame extends Game {
 		for(int i = 0; i < numOfPlayers; ++i){
 			//ask user for which player type
 			@SuppressWarnings("static-access")
-			String s = view.createPlayer();		
+			String s = view.createPlayer(players);		
 			
 			//create player
 			players[i] = new Player(s, i);

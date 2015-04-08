@@ -92,7 +92,7 @@ public class GUI implements MouseListener{
 			Socket SOCK = new Socket(HOST, PORT);
 			System.out.println("You connected to: " + HOST);
 			avaiableChars(SOCK);
-			String s = createPlayer();
+			/*String s = createPlayer();
 			Player player = new Player(s, -1);
 			
 			PrintWriter OUT = new PrintWriter(SOCK.getOutputStream());
@@ -102,7 +102,7 @@ public class GUI implements MouseListener{
 			client = new Client(SOCK, player);
 			
 			Thread X = new Thread(client);
-			X.start();			
+			X.start();			*/
 		}
 		catch(Exception X)
 		{
@@ -149,11 +149,29 @@ public class GUI implements MouseListener{
 	/* Allows player selection
 	 * 
 	 */
-	public static String createPlayer(){
+	public static String createPlayer(Player[] p){
 		
 		//TODO STEFAN, possibilities is empty, find the other variable to use
 		//Use possibilities to test the game (for now)
-		String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
+		ArrayList<String> temp = new ArrayList<String>();
+		temp.add("Amazon");
+		temp.add("Black Knight");
+		temp.add("Captain");
+		temp.add("Dwarf");
+		temp.add("Elf");
+		temp.add("Swordsman");
+		
+		if(p != null){
+			for(int i=0; i<p.length;++i){
+				if(p[i] != null)
+					temp.remove(p[i].getProfile().getType());
+			}
+		}
+		
+		String[] possibilities = new String[temp.size()];
+		possibilities = temp.toArray(possibilities);
+		//String[] possibilities = {"Amazon","Black Knight", "Captain", "Dwarf", "Elf", "Swordsman"};
+		
 		
 		Object s = JOptionPane.showInputDialog(
 				Players,
