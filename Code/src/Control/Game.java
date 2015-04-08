@@ -175,7 +175,7 @@ public class Game {
 			
 		System.out.println("EVENING");
 		//view.changeDate("Day "+day+" EVENING");
-		combat(false);//false because it isnt cheat mode
+		combat(false, players);//false because it isnt cheat mode
 			
 		
 			//handle rest of activity
@@ -232,7 +232,7 @@ public class Game {
 		view.displayScore(players);
 	}
 
-	protected void combat(boolean cheating) {
+	protected void combat(boolean cheating, Player[] players) {
 		//randomize which clearings with characters go first
 		shufflePlayers(players);
 
@@ -350,6 +350,7 @@ no running away
 	}
 	
 	protected void shufflePlayers(Player[] players2) {
+		System.out.println(players2);
 		if(players2.length  > 1){
 			//to mix up the players
 			Random rnd = new Random();

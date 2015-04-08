@@ -110,7 +110,7 @@ public class CheatGame extends Game {
 			System.out.println("SUNSET");
 			System.out.println("EVENING");
 			//randomize which clearings with characters go first
-			combat(true);//true because it is cheat mode
+			combat(true, players);//true because it is cheat mode
 			
 			//handle the rest of acitivites
 			for(int a =0 ; a<numOfPlayers; a++){
