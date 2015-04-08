@@ -367,15 +367,19 @@ no running away
 	@SuppressWarnings("static-access")
 	public static int determineStart(String s, Player player) {
 
-		//TODO make it so positions aren't hard coded in like this
-		//for cheat mode
-		
 		//Determine based on string where you start
 		if(s == "Inn"){
 			System.out.println("Starting at Inn: " + 25);
-			view.setPlayerX(455);
-			view.setPlayerY(705);
-			view.player[player.getPlayerNum()].setLocation(455,705);
+			if(GUI.cheatMode()){
+				GUI.setPlayerX(GUI.innX);
+				GUI.setPlayerX(GUI.innY);
+				GUI.player[player.getPlayerNum()].setLocation(GUI.innX,GUI.innY);
+			}
+			else{
+				GUI.setPlayerX(455);
+				GUI.setPlayerY(705);
+				GUI.player[player.getPlayerNum()].setLocation(455,705);
+			}
 			/*
 			Inn = 455, 705
 			House = 1165, 495
@@ -385,16 +389,31 @@ no running away
 		}
 		else if(s == "House"){
 			System.out.println("Starting at House: " + 35);
-			view.setPlayerX(1165);
-			view.setPlayerY(495);
-			view.player[player.getPlayerNum()].setLocation(1165,495);
+			if(GUI.cheatMode()){
+				GUI.setPlayerX(GUI.houseX);
+				GUI.setPlayerX(GUI.houseY);
+				GUI.player[player.getPlayerNum()].setLocation(GUI.houseX,GUI.houseY);
+			}
+			else{
+				GUI.setPlayerX(1165);
+				GUI.setPlayerY(495);
+				GUI.player[player.getPlayerNum()].setLocation(1165,495);
+			}
+			
 			return 35;
 		}
 		else if(s == "GuardHouse"){
 			System.out.println("Starting at GuardHouse: " + 45);
-			view.setPlayerX(965);
-			view.setPlayerY(410);
-			view.player[player.getPlayerNum()].setLocation(965,410);
+			if(GUI.cheatMode()){
+				GUI.setPlayerX(GUI.guardX);
+				GUI.setPlayerX(GUI.guardY);
+				GUI.player[player.getPlayerNum()].setLocation(GUI.guardX,GUI.guardY);
+			}
+			else{
+				GUI.setPlayerX(965);
+				GUI.setPlayerY(410);
+				GUI.player[player.getPlayerNum()].setLocation(965,410);
+			}
 			return 45;
 		}else{
 			System.out.println("ERROR: Can't determine location");

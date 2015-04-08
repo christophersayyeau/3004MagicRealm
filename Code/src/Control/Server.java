@@ -39,6 +39,7 @@ public class Server {
 		}else{//play normally
 
 			System.out.println("PLaying Game Normally");
+			
 			//build the game and select the players
 			Game game = new Game();			
 			game.createPlayers();
