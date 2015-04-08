@@ -451,6 +451,8 @@ public class Map {
 		
 		System.out.println("Player got 1 treasure");
 		shinies = (Treasure[]) ArrayUtils.remove(shinies, 0);//remove the first value
+		//TODO length not shrinking
+		System.out.println(shinies.length);
 	}
 	
 	
