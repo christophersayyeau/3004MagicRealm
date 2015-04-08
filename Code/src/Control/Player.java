@@ -201,7 +201,8 @@ public class Player {
 			int[] temp = new int[2];
 			temp = GUI.convertNameToPosition(pos);
 			
-			if(map.getMapTile(temp[0]).treasure != null || map.getMapTile(temp[0]).clearing[temp[1]].isDrop){//this to check oif there is actually a treasure there to find
+			if(map.getMapTile(temp[0]).treasure != null || map.getMapTile(temp[0]).clearing[temp[1]].isDrop 
+					|| temp[0] == 10 || temp[0] == 11 || temp[0] == 12 || temp[0] == 13 || temp[0] == 14 || temp[0] == 15 || temp[0] == 16 || temp[0] == 17 || temp[0] == 18 || temp[0] == 19){//this to check oif there is actually a treasure there to find
 				System.out.println("Now Searching");
 				
 				//with which table
@@ -218,10 +219,11 @@ public class Player {
 				}
 			}else{
 				JOptionPane.showMessageDialog(GUI.MainWindow,
-					    "There is no treasure to find.",
+					    "There is no treasure or passages to find.",
 					    "Search results",
 					    JOptionPane.PLAIN_MESSAGE);
-				System.out.println("There is no treasure to find");
+				System.out.println("There is no treasure or passages to find");
+				
 			}
 			
 		}else if(action.compareTo("Rest")==0){//if rest action
@@ -272,7 +274,7 @@ public class Player {
 		 *					GreatTreasures is 1, fame is 10, notoriety is 20, gold is 30(in addition to start amount)
 		 */
 		
-		//TODO only ever removes the last value, so it will always list 0,1,2,3,4 if anything is chosen no matter the amount
+		//only ever removes the last value, so it will always list 0,1,2,3,4 if anything is chosen no matter the amount
 		int[] values = {0,1,2,3,4,5};
 		
 		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
