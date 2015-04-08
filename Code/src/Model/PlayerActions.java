@@ -158,8 +158,9 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			break;
 			}
 			String s = "";
-			for(int i=0;i<player.getProfile().belongings.length;++i)
-				s += player.getProfile().belongings[i].name + " ,";
+			for(int i=0;i<player.getProfile().belongings.length; i++){
+				s += player.getProfile().belongings[i].gold_price + " ,";
+			}
 			s = s.substring(0,  s.length()-2);
 			GUI.combatMessage(s);
 	}

@@ -371,26 +371,42 @@ public class Player {
 
 		}else if(action.compareTo("Search")==0){//if search action
 			//where are you searching//can only search his own clearing using locate
-			int currentTile = profile.getCurrentLocation()/10-1;
-			int currentClearing = profile.getCurrentLocation()%10-1;
+			GUI.moveLabel.setText("Searching");
 			
-			if(map.getMapTile(currentTile).treasure != null || map.getMapTile(currentTile).clearing[currentClearing].isDrop
-					|| currentTile == 10 || currentTile == 11 || currentTile == 12 || currentTile == 13 || currentTile == 14 || currentTile == 15 || currentTile == 16 || currentTile == 17 || currentTile == 18 || currentTile == 19){//this to check oif there is actually a treasure there to find
-
+			int currentTile = profile.getCurrentLocation()/10;
+			int currentClearing = profile.getCurrentLocation()%10;
+			
+			String[] pos = new String[2];
+			pos[0] = Integer.toString(currentTile);
+			pos[1] = Integer.toString(currentClearing);
+			int[] temp = new int[2];
+			temp = GUI.convertNameToPosition(pos);
+			
+			if(map.getMapTile(temp[0]).treasure != null || map.getMapTile(temp[0]).clearing[temp[1]].isDrop 
+					|| temp[0] == 10 || temp[0] == 11 || temp[0] == 12 || temp[0] == 13 || temp[0] == 14 || temp[0] == 15 || temp[0] == 16 || temp[0] == 17 || temp[0] == 18 || temp[0] == 19){//this to check oif there is actually a treasure there to find
+				System.out.println("Now Searching");
+				
 				//with which table
 				String choice = GUI.whichSearchTable();//locate+loot
-
-
+				
 				if(choice.compareTo("Locate") == 0){//using locate table
-					PlayerActions.locatingAction(this, true, map, currentTile);
+					PlayerActions.locatingAction(this, false, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, true, map, currentTile, currentClearing);
+					PlayerActions.lootingAction(this, false, map, currentTile, currentClearing);
 					
+				}else{
+					System.out.println("ERROR");
 				}
 			}else{
-				System.out.println("There is no treasure to find");
+				JOptionPane.showMessageDialog(GUI.MainWindow,
+					    "There is no treasure or passages to find.",
+					    "Search results",
+					    JOptionPane.PLAIN_MESSAGE);
+				System.out.println("There is no treasure or passages to find");
+				
 			}
+			
 
 		}else if(action.compareTo("Rest")==0){// if rest action
 			//if Dwarf do twice
