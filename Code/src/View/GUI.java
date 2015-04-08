@@ -425,7 +425,7 @@ public class GUI implements MouseListener{
 		 */
 
 		Instruction.setVisible(true);
-		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your " + phasesAvailable + " actions");
+		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
