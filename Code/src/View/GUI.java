@@ -1058,6 +1058,49 @@ public class GUI implements MouseListener{
 		return -1;//nonsense value
 	}
 	
+	
+	public String[] pickLocationsDwellingsCheat(MapTiles valley, int tileNum, String[] options){
+		tileNum = tileNum+1;
+		Object response = JOptionPane.showInputDialog(null, "What Dwelling to You Want in the "+ tileNum +" Valley",	"Dwellings",
+				JOptionPane.PLAIN_MESSAGE,
+				null,	options, options[0]);
+		
+		while(response == null){//handle the wise ass who choses null
+			response = JOptionPane.showInputDialog(null, "Can't Be Null",	"Dwellings",
+					JOptionPane.PLAIN_MESSAGE,
+					null,	options, options[0]);
+		}
+			
+		switch((String)response){
+		case "Chapel":	valley.order = new GreatSwordsman[2];			//create the array of natives
+						valley.setChapel(4, valley);				//put the dwelling and then the natives
+						buildBuildings("Chapel", tileNum, 4);						//put picture
+						options = (String[]) ArrayUtils.remove(options, 0);	//remove dwelling from options list
+			break;
+		case "House":			valley.soldiers = new GreatSwordsman[2];
+						valley.setHouse(4, valley);
+						buildBuildings("House", tileNum, 4);	
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("House", options));
+			break;
+		case "Inn":			valley.rogues = new GreatSwordsman[2];
+						valley.setInn(4, valley);
+						buildBuildings("Inn", tileNum, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Inn", options));
+			break;
+		case "GuardHouse":		valley.guard = new GreatSwordsman[3];
+						valley.setGuardHouse(4, valley);
+						buildBuildings("GuardHouse", tileNum, 4);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("GuardHouse", options));
+			break;
+		case "Ghosts":			valley.ghosts = new Ghost[2];
+						valley.setGhosts(4, valley);
+						options = (String[]) ArrayUtils.remove(options, ArrayUtils.indexOf("Ghosts", options));
+						valley.setGhostTile(true);
+			break;
+		}
+		return options;
+	}
+	
 	public void pickLocationsDwellingsCheat(MapTiles awfulValley, MapTiles badValley, 
 											MapTiles curstValley, MapTiles darkValley,
 											MapTiles evilValley) {
