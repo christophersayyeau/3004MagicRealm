@@ -1424,7 +1424,7 @@ public class GUI implements MouseListener{
 		dLabel.setText(s);
 	}
 
-	public Player fightWho(Clearing clearing) {	//ask user from available choices who he whishes to fight in combat
+	public Player fightWho(Clearing clearing, Player fighter) {	//ask user from available choices who he whishes to fight in combat
 		//choose player to fight based on players[a].getProfile().foughtToday must be false
 		
 		//create the array to ask
@@ -1433,8 +1433,10 @@ public class GUI implements MouseListener{
 		
 		for(int a=0; a<clearing.numPLayersInClearing; a++){		//go through all players
 				if(!clearing.playersInClearing[a].getProfile().getFoughtToday()){	//if not already fought
-					choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
-					values = ArrayUtils.add(values, clearing.playersInClearing[a]);
+					if(clearing.playersInClearing[a].getProfile().getType().compareTo(fighter.getProfile().getType()) != 0){
+						choices = ArrayUtils.add(choices, clearing.playersInClearing[a].getProfile().getType());//add the title to the array
+						values = ArrayUtils.add(values, clearing.playersInClearing[a]);
+					}
 				}
 		}
 		

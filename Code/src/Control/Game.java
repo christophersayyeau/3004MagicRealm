@@ -260,7 +260,7 @@ no running away
 			if(map.getClearing(temp[0],temp[1]).numPLayersInClearing != 1){//if there are more then 1 character in clearing
 				if(!players[a].getProfile().getFoughtToday()){		//check to see if already fought today	
 
-					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]));//will return opponent or null
+					Player opponent = view.fightWho(map.getClearing(temp[0],temp[1]), players[a]);//will return opponent or null
 
 					if(opponent == null){
 						System.out.println("No one available for combat");
