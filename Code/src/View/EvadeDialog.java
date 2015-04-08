@@ -66,7 +66,7 @@ public class EvadeDialog {
 				player.setEvade(player.getProfile().action3);
 				player.getProfile().action3Num--;
 				
-			}else if(player.getProfile().getType().compareTo("BlackKnight") == 0){
+			}else if(player.getProfile().getType().compareTo("Black Knight") == 0){
 				//only 1 type of move for blkknight
 				player.setEvade(player.getProfile().action1);
 				player.getProfile().action1Num--;
@@ -87,7 +87,7 @@ public class EvadeDialog {
 				System.out.println("If we reach here there is serious issues");
 				
 			}else{
-				System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION");
+				System.out.println("CANNOT IDENTIFRY WHO IS DOING ACTION "+player.getProfile().getType());
 			}
 		
 	}

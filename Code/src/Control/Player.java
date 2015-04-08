@@ -422,7 +422,7 @@ public class Player {
 				break;
 			}
 
-		}else if(profile.getType().compareTo("BlackKnight") == 0){
+		}else if(profile.getType().compareTo("Black Knight") == 0){
 			switch(response){
 			case "Fight:  Time 4, Effort 2, Strength 2":	//42H					
 				//set the values for your attack
@@ -521,7 +521,7 @@ public class Player {
 				break;
 			}
 			
-		}else if(profile.getType().compareTo("BlackKnight") == 0){
+		}else if(profile.getType().compareTo("Black Knight") == 0){
 			switch(response){
 			case "Move:  Time 4, Effort 2, Strength 2":		//42H					
 				//set the values for your attack

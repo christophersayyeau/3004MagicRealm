@@ -10,7 +10,7 @@ import Control.Player;
 public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flowchart
 
 	//will set up players and then figure out their attack order
-	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {	//TODO Testing, this will need to be extensively tested
+	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {
 		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
 
 		//First round
