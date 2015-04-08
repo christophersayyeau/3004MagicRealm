@@ -112,14 +112,14 @@ public class GUI implements MouseListener{
 		}
 	}
 	
-	public static void main(String args[])
+	/*public static void main(String args[])
 	{
 		@SuppressWarnings("unused")
 		String ip = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//serverIP = JOptionPane.showInputDialog(null, "What is the server's IP? ");
 		//System.out.print(serverIP);
 		Connect();
-	}
+	}*/
 	
 	//constructor, called in player.java
 	public GUI(Game g)
@@ -443,8 +443,9 @@ public class GUI implements MouseListener{
 		 */
 
 		Instruction.setVisible(true);
-		moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions");
+		//moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions (" + phasesAvailable + " left)");
 		for(int a=0; a<phasesAvailable; a++){//repeat for every phase possible
+			moveLabel.setText(player.getProfile().getType() + "'s turn, choose your actions (" + (phasesAvailable - a) + " left)");
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
 			int response = JOptionPane.showOptionDialog(null, "Build Your Turn, Here are your options: ", "Record Turn",

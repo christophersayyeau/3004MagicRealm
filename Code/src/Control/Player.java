@@ -277,23 +277,23 @@ public class Player {
 		//only ever removes the last value, so it will always list 0,1,2,3,4 if anything is chosen no matter the amount
 		int[] values = {0,1,2,3,4,5};
 		
-		greatTreasureVicPoint = GUI.victoryPoints("Great Treasure Amount", values);
+		greatTreasureVicPoint = GUI.victoryPoints(getProfile().getType() +": Great Treasure Amount", values);
 		//remove the amount of options
 		for(int a=0; a<greatTreasureVicPoint; a++){	//will remove the last item of list
 			values = (int[]) ArrayUtils.remove(values, values.length-1);//need -1
 		}
-		fameVicPoint = GUI.victoryPoints("Fame Amount", values);
+		fameVicPoint = GUI.victoryPoints(getProfile().getType() +": Fame Amount", values);
 		//remove the amount of options
 		for(int a=0; a<fameVicPoint; a++)	//will remove the last item of list
 			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
-		notorietyVicPoint = GUI.victoryPoints("Amount of Notoriety", values);
+		notorietyVicPoint = GUI.victoryPoints(getProfile().getType() +": Amount of Notoriety", values);
 		//remove the amount of options
 		for(int a=0; a<notorietyVicPoint; a++)	//will remove the last item of list
 			values = (int[]) ArrayUtils.remove(values, values.length-1);
 		
 		goldVicPoint =  values[values.length-1];//gets the last value
-		GUI.displayMessage("Gold Amount Will be "+ goldVicPoint);
+		GUI.displayMessage(getProfile().getType() +": Gold Amount Will be "+ goldVicPoint);
 		
 		//now multiply to find out how much is needed
 		greatTreasureVicPointNeeded = greatTreasureVicPoint;//same value

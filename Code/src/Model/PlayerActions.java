@@ -152,6 +152,11 @@ public class PlayerActions {
 			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, shinyStuff);
 			break;
 			}
+			String s = "";
+			for(int i=0;i<player.getProfile().belongings.length;++i)
+				s += player.getProfile().belongings[i].name + " ,";
+			s = s.substring(0,  s.length()-2);
+			GUI.combatMessage(s);
 	}
 
 	

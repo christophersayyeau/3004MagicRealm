@@ -160,7 +160,7 @@ public class Game {
 			
 			for(int a =0 ; a<numOfPlayers; a++){
 				//System.out.println("player1 is first character today");
-				view.Refresh("Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");
+				view.Refresh("(" + players[a].getProfile().getType() + ") Day "+day+": Daylight \nPlayer "+(a+1)+"'s Turn");
 				doTurn(players[a]);
 					
 				
