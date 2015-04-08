@@ -52,6 +52,9 @@ public class EvadeDialog {
 					options = ArrayUtils.add(options, player.getProfile().action3.toString());
 			}
 
+			if(options == null){
+				return;
+			}
 			//now ask user to pick
 			response = JOptionPane.showInputDialog(null, "Which Move Chit do You Wish To Use?",	"Evading",
 					JOptionPane.PLAIN_MESSAGE,

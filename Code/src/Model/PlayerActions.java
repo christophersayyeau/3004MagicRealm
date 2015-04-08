@@ -38,7 +38,7 @@ public class PlayerActions {
 				null,	options, options[0]);
 
 		//now interpret result (String)response, increase actionNum and lower faitgue/wound
-		System.out.println("This is the substring" + ((String) response).substring(0, 4));
+	System.out.println("This is the substring" + ((String) response).substring(0, 4)+((String) response).substring(((String) response).length()));
 		switch(((String) response).substring(0, 4)){
 		case "Fati":	//if user chose to unfatigue a chit
 			//if user chose action1
