@@ -123,7 +123,6 @@ public class Game {
 				temp = GUI.convertNameToPosition(pos);
 				
 				if(map.getClearing(temp[0], temp[1]).chapel || map.getClearing(temp[0], temp[1]).guardHouse || map.getClearing(temp[0], temp[1]).house || map.getClearing(temp[0], temp[1]).inn){
-					System.out.println("Player is in a dwelling");
 					if(players[a].getProfile().getType().compareTo("Captain") == 0){
 						phasesToday++;
 					}

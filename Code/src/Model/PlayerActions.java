@@ -87,7 +87,8 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 	}
 
 	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile, int currentClearing) {
-		
+		currentClearing-=1;
+		currentTile-=1;
 		if(map.getMapTile(currentTile).clearing[currentClearing].isDrop){//if there is a player drop
 			if(map.getMapTile(currentTile).treasure != null){//there is no treasure	
 				if (map.getMapTile(currentTile).treasure.found){
