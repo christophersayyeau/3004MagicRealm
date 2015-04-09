@@ -86,7 +86,7 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 
 	}
 
-	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile, int currentClearing) {
+	public static void lootingAction(Player player, boolean cheating, Map map, int currentTile, int currentClearing, MapTiles tile) {
 		currentClearing-=1;
 		currentTile-=1;
 		if(map.getMapTile(currentTile).clearing[currentClearing].isDrop){//if there is a player drop
@@ -95,20 +95,20 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 					//ask user which one to loot
 					if(GUI.lootChoices()){	
 						//loot treasure
-						loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+						loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies, currentTile, tile);
 					}else{	
 						//loot belongings
-						loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
+						loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings, currentTile, tile);
 					}
 				}else{
 					//only loot belongings
-					loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings);
+					loot(player, map, cheating, map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop(), map.getMapTile(currentTile).clearing[currentClearing].getPlayerDrop().belongings, currentTile, tile);
 				}
 			}
 		}else{	//only treasure
 			if(map.getMapTile(currentTile).treasure != null){//there is no treasure
 				if (map.getMapTile(currentTile).treasure.found){
-					loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies);
+					loot(player, map, cheating, map.getMapTile(currentTile).treasure, map.getMapTile(currentTile).treasure.shinies, currentTile, tile);
 				}else{
 					System.out.println("Havent Found the treasure yet");
 				}
@@ -117,7 +117,7 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 	}
 
 	//handles both treasure and playerDrops
-	private static void loot(Player player, Map map, boolean cheating, MapChits treasure, Items[] shinyStuff) {
+	private static void loot(Player player, Map map, boolean cheating, MapChits treasure, Items[] shinyStuff, int tileNum, MapTiles tile) {
 		
 		int result;
 			//cheat mode or not
@@ -142,21 +142,22 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			switch (result){
 			//the value of result is the number of treasure items you get
 			
-			case 1:  	shinyStuff = map.giveOneTreasure(player, shinyStuff);//gives a treasure then removes it from goldChits array
+			case 1:  	map.giveOneTreasure(player, tile, tileNum);//gives a treasure then removes it from goldChits array
 			break;		
 			//give 2 treasures
-			case 2:  	for(int a=0; a<2; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
+			case 2:  	for(int a=0; a<2; a++)	map.giveOneTreasure(player, tile, tileNum);
 			break;
 			//etc
-			case 3:  	for(int a=0; a<3; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
+			case 3:  	for(int a=0; a<3; a++)	map.giveOneTreasure(player, tile, tileNum);
 			break;
-			case 4:  	for(int a=0; a<4; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
+			case 4:  	for(int a=0; a<4; a++)	map.giveOneTreasure(player, tile, tileNum);
 			break;
-			case 5:  	for(int a=0; a<5; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
+			case 5:  	for(int a=0; a<5; a++)	map.giveOneTreasure(player, tile, tileNum);
 			break;
-			case 6:  	for(int a=0; a<6; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
+			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, tile, tileNum);
 			break;
 			}
+			
 			String s = "You are currently carrying: ";
 			for(int i=0;i<player.getProfile().belongings.length; i++){
 				//s += player.getProfile().belongings[i].toString() + ",";

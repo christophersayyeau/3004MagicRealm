@@ -8,6 +8,7 @@ import Model.ArrayUtils;
 import Model.CombatChit;
 import Model.Die;
 import Model.Map;
+import Model.MapTiles;
 import Model.PlayerActions;
 import View.GUI;
 //import View.GUI;
@@ -212,7 +213,7 @@ public class Player {
 					PlayerActions.locatingAction(this, false, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, false, map, currentTile, currentClearing);
+					PlayerActions.lootingAction(this, false, map, currentTile, currentClearing, map.getMapTile(currentTile));
 					
 				}else{
 					System.out.println("ERROR");
@@ -393,7 +394,7 @@ public class Player {
 					PlayerActions.locatingAction(this, true, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, true, map, currentTile, currentClearing);
+					PlayerActions.lootingAction(this, true, map, currentTile, currentClearing, map.getMapTile(currentTile));
 					
 				}else{
 					System.out.println("ERROR");

@@ -35,12 +35,12 @@ public class ArrayUtils {
 		}
 		return result;		
 	}
-	public static Items[] remove(Items[] array, int index, String a) {		      
+	public static Treasure[] remove(Treasure[] array, int index, String a) {		      
 		int length = getLength(array);		
 		if (index < 0 || index >= length) {		
 			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
 		}	      		
-		Items [] result = new Items[array.length-1];
+		Treasure [] result = new Treasure[array.length-1];
 		for(int b=1; b<array.length; b++){
 			result[b-1] = array[b];
 		}			
