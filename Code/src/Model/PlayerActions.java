@@ -188,7 +188,7 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 				GUI.revealTreasure();
 				if(map.getMapTile(currentTile).treasure != null){
 					//System.out.println(map.getMapTile(currentTile).treasure.found);
-					map.getMapTile(currentTile).treasure.found = false;
+					map.getMapTile(currentTile).treasure.found = true;
 					//System.out.println(map.getMapTile(currentTile).treasure.found);
 				}
 				
@@ -206,7 +206,7 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 		case 4:  	GUI.revealTreasure();
 					if(map.getMapTile(currentTile).treasure != null){
 						//System.out.println(map.getMapTile(currentTile).treasure.found);
-						map.getMapTile(currentTile).treasure.found = false;
+						map.getMapTile(currentTile).treasure.found = true;
 						//System.out.println(map.getMapTile(currentTile).treasure.found);
 					}
 		break;
