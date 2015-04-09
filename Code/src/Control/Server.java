@@ -1,16 +1,16 @@
 package Control;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.ServerSocket;
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.PrintWriter;
+//import java.net.InetAddress;
+//import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import View.GUI;
-import View.ServerGUI;
+//import View.ServerGUI;
 
 public class Server {
 	
@@ -18,6 +18,7 @@ public class Server {
 	public static ArrayList<Socket> ConnectionArray = new ArrayList<Socket>();
 	public static ArrayList<Player> CurrentPlayers = new ArrayList<Player>();
 	static int PORT = 65001;
+	
 	
 	//TODO re-enable this main to test any code (need to also uncomment "possibilities" in GUI as well though
 	
@@ -47,6 +48,7 @@ public class Server {
 			game.startGame();
 		}
 	}
+	
 	
 	
 	/*
@@ -91,11 +93,11 @@ public class Server {
 		catch(Exception X) { System.out.print(X);}
 	}
 	
-	public static String AddPlayer(Socket X) throws IOException
+	/*public static String AddPlayer(Socket X) throws IOException
 	{
 		Scanner INPUT = new Scanner(X.getInputStream());
 		String s = INPUT.nextLine();
-		Player player = new Player(s, -1);
+		Player player = new Player(s);
 		CurrentPlayers.add(player);
 		characters.remove(player.getProfile().getType());//TODO STEFAN Does this remove the character from the options? If yes erase both todos (GUI.java has the other)
 		
@@ -107,6 +109,6 @@ public class Server {
 			OUT.flush();
 		}
 		return player.getProfile().getType();
-	}
-	*/
+	}*/
+	
 }
