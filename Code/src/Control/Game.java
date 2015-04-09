@@ -269,6 +269,7 @@ no running away
 						//view.selectFightGear(opponent);
 						view.updateCombatChits(players[a]);
 						//combat is resolved
+						System.out.println("Combat being initialized");
 						CombatFunctions.resolveCombat(view, players[a], opponent, cheating);						
 					}
 				}//others in clearing who have not fought will be called later in this for loop
