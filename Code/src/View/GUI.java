@@ -68,6 +68,7 @@ public class GUI implements MouseListener{
 	public JLabel combatChitLabel1 = new JLabel();
 	public JLabel combatChitLabel2 = new JLabel();
 	public JLabel combatChitLabel3 = new JLabel();
+	public JLabel lootLabel = new JLabel();
 	//set tile values
 	final int x = 125;
 	final int y = 215;
@@ -472,6 +473,7 @@ public class GUI implements MouseListener{
 					" (have " + player.getProfile().action2Num + ")");
 			combatChitLabel3.setText("--" + player.getProfile().action3.toString() + 
 					" (have " + player.getProfile().action3Num + ")");
+			lootLabel.setText("(" + player.getProfile().getType() + ") Gold: " + player.getProfile().getGold());
 			String[] options = new String[] {"Move", "Hide", "Search", "Rest","Trade", "Quit", "View"};
 			
 			int response = JOptionPane.showOptionDialog(null, "Build Your Turn, Here are your options: ", "Record Turn",
@@ -1577,10 +1579,10 @@ public class GUI implements MouseListener{
 		startButton.setBackground(Color.black);
 		startButton.setForeground(Color.white);
 		startButton.setText("Start Game");
-		MainWindow.getContentPane().add(startButton);
+		//MainWindow.getContentPane().add(startButton);
 		startButton.setLocation(0,(int)screenSize.getHeight()/5);
 		startButton.setSize(new Dimension(200,100));
-		startButton.setEnabled(true);
+		startButton.setEnabled(false);
 		startButton.addActionListener
 			(new java.awt.event.ActionListener()
 				{
@@ -1588,6 +1590,11 @@ public class GUI implements MouseListener{
 						{ ACTION_START(); }
 				}
 		);
+		
+		
+		lootLabel.setText("(Player) - Gold: 0");
+		Scores.add(lootLabel);
+		
 		
 		MainWindow.getContentPane().add(CombatChits);
 		CombatChits.setLocation(0,(int)screenSize.getHeight()- ((int)screenSize.getHeight()/4));
