@@ -30,10 +30,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
 
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(player, opponent, cheating, view);
+				opponent = finishCombat(player, opponent, cheating, view);
 
-				if(opponent.alive){
-					finishCombat(opponent, player, cheating, view);
+				if(opponent != null){
+					opponent = finishCombat(opponent, player, cheating, view);
 				}
 
 				//if the opponent has longer reach
@@ -41,10 +41,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
 
 				//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-				finishCombat(opponent, player, cheating, view);
+				opponent = finishCombat(opponent, player, cheating, view);
 
-				if(player.alive){
-					finishCombat(player, opponent, cheating, view);
+				if(player != null){
+					opponent = finishCombat(player, opponent, cheating, view);
 				}
 
 				//both have same length	
@@ -55,28 +55,28 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
 
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(player, opponent, cheating, view);
+					opponent = finishCombat(player, opponent, cheating, view);
 
-					if(opponent.alive){
-						finishCombat(opponent, player, cheating, view);
+					if(opponent != null){
+						opponent = finishCombat(opponent, player, cheating, view);
 					}
 
 				}else{//oponnent goes first	
 					System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
 
 					//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-					finishCombat(opponent, player, cheating, view);
+					opponent = finishCombat(opponent, player, cheating, view);
 
-					if(player.alive){
-						finishCombat(player, opponent, cheating, view);
+					if(player != null){
+						opponent = finishCombat(player, opponent, cheating, view);
 					}
 				}
 			}
 
 		}else if(opponent.getAttack() != null){//only opponent is attacking
-			finishCombat(opponent, player, cheating, view);
+			opponent = finishCombat(opponent, player, cheating, view);
 		}else if(player.getAttack() != null){//only player is attacking
-			finishCombat(player, opponent, cheating, view);
+			opponent = finishCombat(player, opponent, cheating, view);
 		}else{//no combat
 			player.getProfile().setFoughtToday(true);
 			opponent.getProfile().setFoughtToday(true);
@@ -113,10 +113,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 						System.out.println(player.getProfile().getType() + "goes first since time"+ player.getAttack().getTime() + "<"+ opponent.getAttack().getTime());
 
 						//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-						finishCombat(player, opponent, cheating, view);
+						opponent = finishCombat(player, opponent, cheating, view);
 
-						if(opponent.alive){
-							finishCombat(opponent, player, cheating, view);
+						if(opponent != null){
+							opponent = finishCombat(opponent, player, cheating, view);
 						}
 
 						//if the opponent has faster time
@@ -124,10 +124,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 						System.out.println(player.getProfile().getType() + "goes second since time"+ player.getAttack().getTime() + ">"+ opponent.getAttack().getTime());
 
 						//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-						finishCombat(opponent, player, cheating, view);
+						opponent = finishCombat(opponent, player, cheating, view);
 
-						if(player.alive){
-							finishCombat(player, opponent, cheating, view);
+						if(player != null){
+							opponent = finishCombat(player, opponent, cheating, view);
 						}
 
 						//both have same time	
@@ -138,33 +138,35 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 							System.out.println(player.getProfile().getType() + "goes first since length "+ player.getProfile().getWeapon().weaponLength + ">"+ opponent.getProfile().getWeapon().weaponLength);
 
 							//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-							finishCombat(player, opponent, cheating, view);
+							opponent = finishCombat(player, opponent, cheating, view);
 
-							if(opponent.alive){
-								finishCombat(opponent, player, cheating, view);
+							if(opponent != null){
+								opponent = finishCombat(opponent, player, cheating, view);
 							}
 
 						}else{//oponnent goes first	
 							System.out.println(player.getProfile().getType() + "goes second since length"+ player.getProfile().getWeapon().weaponLength + "<"+ opponent.getProfile().getWeapon().weaponLength);
 
 							//each character makes an attack against each other, if one dies before he attacks it is discounted if slower
-							finishCombat(opponent, player, cheating, view);
+							opponent = finishCombat(opponent, player, cheating, view);
 
-							if(player.alive){
-								finishCombat(player, opponent, cheating, view);
+							if(player != null){
+								opponent = finishCombat(player, opponent, cheating, view);
 							}
 						}
 					}
 
 				}else if(opponent.getAttack() != null){//only opponent is attacking
-					finishCombat(opponent, player, cheating, view);
+					opponent = finishCombat(opponent, player, cheating, view);
 				}else if(player.getAttack() != null){//only player is attacking
-					finishCombat(player, opponent, cheating, view);
+					opponent = finishCombat(player, opponent, cheating, view);
 				}else{//no combat, should never be reached since it would have been caught earlier
 					System.out.println("ERRORCancelled CombatERROR");
 					return;
 				} 
 			}
+			if(opponent == null || player == null)
+				break;
 			endOfRound(player, opponent);
 			
 			playerNum = player.getProfile().action1Num +player.getProfile().action2Num + player.getProfile().action3Num;
@@ -172,8 +174,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		}
 
 		//set true so they don't fight again today, will be reset in CHaracter.resetFIght() at the beginning of each day
-		player.getProfile().setFoughtToday(true);
-		opponent.getProfile().setFoughtToday(true);
+		if(player != null)
+			player.getProfile().setFoughtToday(true);
+		if(opponent != null)
+			opponent.getProfile().setFoughtToday(true);
 		
 		System.out.println("Fight FInished");
 	}
@@ -199,7 +203,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 
 	//will determine if attack hits and remove the effort needed
-	private static void finishCombat(Player attacker, Player defender, boolean cheating, GUI view) {
+	private static Player finishCombat(Player attacker, Player defender, boolean cheating, GUI view) {
 		//max of 2 effort per round, if higher it is cancelled
 		if(attacker.effortThisRound+attacker.getAttack().getEffort() <= 2){
 			//does the defender try and evade and does he have the juice for it
@@ -209,7 +213,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 				if(attacker.getAttack().getTime() < defender.getEvade().getTime()){//if it undercuts
 					
 					//if attack time lower then maneuver time it undercuts and autohits
-					attackHits(attacker, defender, cheating, view);				
+					defender = attackHits(attacker, defender, cheating, view);				
 		
 				}else{
 					//attacktime equal or larger
@@ -220,7 +224,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 							attacker.getCombatAttackDirection().compareTo("Smash")==0 	&& defender.getEvadeDirection().compareTo("Duck")==0	){
 											
 						//manage to hit the defener while he tries to dodge
-						attackHits(attacker, defender, cheating, view);
+						defender = attackHits(attacker, defender, cheating, view);
 		
 					}else{
 						//Dosn't intercept
@@ -237,7 +241,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		
 			}else{
 				//defender isn't menauvering or is too tired
-				attackHits(attacker, defender, cheating, view);	
+				defender = attackHits(attacker, defender, cheating, view);	
 			}
 			//increase this value so you only use to this day
 			attacker.effortThisRound += attacker.getAttack().getEffort();
@@ -246,10 +250,11 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			System.out.println("Not Enough Effort");
 			GUI.combatMessage("Not Enough Effort");
 		}
+		return defender;
 	}
 
 	//attack has hit target, now resolve damage
-	private static void attackHits(Player attacker, Player defender, boolean cheating, GUI view) {
+	private static Player attackHits(Player attacker, Player defender, boolean cheating, GUI view) {
 		//simplify process by getting harm level now
 		Harm weaponHarm;
 		if(attacker.getProfile().getWeapon().alerted){
@@ -358,10 +363,10 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					break;
 					
 				case "Do Nothing":		System.out.println("ERROR, this should have been stopped by the if statements in resolveCombat");				
-					return;			
+					return defender;			
 				case "Make Weapon Alert":	
 					attacker.getProfile().getWeapon().alerted = true;
-					return;				//no need to figure out anything else		
+					return defender;				//no need to figure out anything else		
 			}
 		}
 		
@@ -418,7 +423,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			//damages the defender, compare to defender's toughness
 			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
 				System.out.println("Player dead");
-				killPlayer(defender, view);
+				defender = killPlayer(defender, view);
 								
 			}else{
 				//if harm less then vulnerability but more than negligable suffers a wound
@@ -446,17 +451,18 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					//if they are all less then 1
 					if(defender.getProfile().action1Num < 1 && defender.getProfile().action2Num < 1 && defender.getProfile().action3Num < 1 ){
 						System.out.println("Player dead");
-						killPlayer(defender, view);			
+						defender = killPlayer(defender, view);			
 					}
 				}
 			}	
 		}	
 		//unalert weapon
 		attacker.getProfile().getWeapon().alerted = false;
+		return defender;
 	}
 
 
-	private static void killPlayer(Player defender, GUI view) {
+	private static Player killPlayer(Player defender, GUI view) {
 		//Current Location
 		String[] pos = new String[2];
 		int currentTile 	= defender.getCurrentLocation()/10;
@@ -467,7 +473,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		temp = GUI.convertNameToPosition(pos);
 		
 		//kill character, remove from all arrays he is a part of, then dispose of his window
-		GUI.combatMessage("YOU ARE DEAD XO /n Now Removing You From Game");
+		GUI.combatMessage("YOU ARE DEAD XO Now Removing You From Game");
 		
 		//Create treasure pile out of his stuff
 		MapChits temporary = new MapChits();
@@ -483,6 +489,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 		
 		//removing from Controller
 		//TODO STEFAN, networking, remove player from client, server and serverController, then close his window
+		return null;
 	}
 	
 }
