@@ -142,24 +142,26 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			switch (result){
 			//the value of result is the number of treasure items you get
 			
-			case 1:  	map.giveOneTreasure(player, shinyStuff);//gives a treasure then removes it from goldChits array
+			case 1:  	shinyStuff = map.giveOneTreasure(player, shinyStuff);//gives a treasure then removes it from goldChits array
 			break;		
 			//give 2 treasures
-			case 2:  	for(int a=0; a<2; a++)	map.giveOneTreasure(player, shinyStuff);
+			case 2:  	for(int a=0; a<2; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
 			break;
 			//etc
-			case 3:  	for(int a=0; a<3; a++)	map.giveOneTreasure(player, shinyStuff);
+			case 3:  	for(int a=0; a<3; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 4:  	for(int a=0; a<4; a++)	map.giveOneTreasure(player, shinyStuff);
+			case 4:  	for(int a=0; a<4; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 5:  	for(int a=0; a<5; a++)	map.giveOneTreasure(player, shinyStuff);
+			case 5:  	for(int a=0; a<5; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
 			break;
-			case 6:  	for(int a=0; a<6; a++)	map.giveOneTreasure(player, shinyStuff);
+			case 6:  	for(int a=0; a<6; a++)	shinyStuff = map.giveOneTreasure(player, shinyStuff);
 			break;
 			}
 			String s = "You are currently carrying: ";
 			for(int i=0;i<player.getProfile().belongings.length; i++){
-				s += player.getProfile().belongings[i].gold_price + " ,";
+				//s += player.getProfile().belongings[i].toString() + ",";
+				s += player.getProfile().belongings[i].getClass().getSimpleName() + ",";
+				//s += player.getProfile().belongings[i].gold_price + " ,";
 			}
 			s = s.substring(0,  s.length()-2);
 			GUI.combatMessage(s);
@@ -183,8 +185,11 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			//now choose whether you found passages or the treasure
 			if(GUI.whatFound(currentTile)){//wants treasure
 				GUI.revealTreasure();
-				if(map.getMapTile(currentTile).treasure != null)
-					map.getMapTile(currentTile).treasure.found = true;
+				if(map.getMapTile(currentTile).treasure != null){
+					//System.out.println(map.getMapTile(currentTile).treasure.found);
+					map.getMapTile(currentTile).treasure.found = false;
+					//System.out.println(map.getMapTile(currentTile).treasure.found);
+				}
 				
 			}else{//wants hidden paths
 				//display all passages
@@ -198,8 +203,11 @@ System.out.println("This is the substring" + (String) response+ ((String) respon
 			map.getMapTile(currentTile).secretRoads(currentTile);
 			break;
 		case 4:  	GUI.revealTreasure();
-					if(map.getMapTile(currentTile).treasure != null)
-						map.getMapTile(currentTile).treasure.found = true;
+					if(map.getMapTile(currentTile).treasure != null){
+						//System.out.println(map.getMapTile(currentTile).treasure.found);
+						map.getMapTile(currentTile).treasure.found = false;
+						//System.out.println(map.getMapTile(currentTile).treasure.found);
+					}
 		break;
 		case 5:break;
 		case 6:break;

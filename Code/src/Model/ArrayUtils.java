@@ -1,13 +1,14 @@
 package Model;
 
 import java.lang.reflect.Array;
+
 import Control.Player;
 
 //taken from ArrayUtils library, minor modifications to code
 public class ArrayUtils {
 
 
-	public static Object remove(Object array, int index) {		      
+	public static Object remove(Object array, int index, int unknown) {		      
 		int length = getLength(array);		
 		if (index < 0 || index >= length) {		
 			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
@@ -19,6 +20,7 @@ public class ArrayUtils {
 		}
 		return result;		
 	}
+
 	public static Object remove(Object[] array, int index) {		      
 		int length = getLength(array);		
 		if (index < 0 || index >= length) {		
@@ -33,7 +35,17 @@ public class ArrayUtils {
 		}
 		return result;		
 	}
-	
+	public static Items[] remove(Items[] array, int index, String a) {		      
+		int length = getLength(array);		
+		if (index < 0 || index >= length) {		
+			throw new IndexOutOfBoundsException("Index: " + index + ", Length: " + length);	       
+		}	      		
+		Items [] result = new Items[array.length-1];
+		for(int b=1; b<array.length; b++){
+			result[b-1] = array[b];
+		}			
+		return result;		
+	}
 	
 	public static int getLength(Object array) {				      
 		if (array == null) {		     

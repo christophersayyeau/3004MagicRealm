@@ -280,17 +280,17 @@ public class Player {
 		greatTreasureVicPoint = GUI.victoryPoints(getProfile().getType() +": Great Treasure Amount", values);
 		//remove the amount of options
 		for(int a=0; a<greatTreasureVicPoint; a++){	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length-1);//need -1
+			values = (int[]) ArrayUtils.remove(values, values.length-1, -1);//need -1
 		}
 		fameVicPoint = GUI.victoryPoints(getProfile().getType() +": Fame Amount", values);
 		//remove the amount of options
 		for(int a=0; a<fameVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length-1);
+			values = (int[]) ArrayUtils.remove(values, values.length-1, -1);
 		
 		notorietyVicPoint = GUI.victoryPoints(getProfile().getType() +": Amount of Notoriety", values);
 		//remove the amount of options
 		for(int a=0; a<notorietyVicPoint; a++)	//will remove the last item of list
-			values = (int[]) ArrayUtils.remove(values, values.length-1);
+			values = (int[]) ArrayUtils.remove(values, values.length-1, -1);
 		
 		goldVicPoint =  values[values.length-1];//gets the last value
 		GUI.displayMessage(getProfile().getType() +": Gold Amount Will be "+ goldVicPoint);
@@ -390,10 +390,10 @@ public class Player {
 				String choice = GUI.whichSearchTable();//locate+loot
 				
 				if(choice.compareTo("Locate") == 0){//using locate table
-					PlayerActions.locatingAction(this, false, map, currentTile);
+					PlayerActions.locatingAction(this, true, map, currentTile);
 					
 				}else if(choice.compareTo("Looting") == 0){//using loot table
-					PlayerActions.lootingAction(this, false, map, currentTile, currentClearing);
+					PlayerActions.lootingAction(this, true, map, currentTile, currentClearing);
 					
 				}else{
 					System.out.println("ERROR");

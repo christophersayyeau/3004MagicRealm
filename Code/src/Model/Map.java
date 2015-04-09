@@ -440,19 +440,24 @@ public class Map {
 		
 		//player.getProfile().setGold(100 + player.getProfile().getGold());//for now give him 100 gold
 	}
-	public void giveOneTreasure(Player player, Items[] shinies) {
-		//need to give first value then remove from the array
-		player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, shinies[0]);
-		
-		//increase the other values based on value of treasure
-		player.getProfile().setFame(player.getProfile().getFame() +  shinies[0].fame_value);
-		player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  shinies[0].notoriety_value);
-		player.getProfile().setGold(player.getProfile().getGold()  +  shinies[0].gold_price);
-		
-		System.out.println("Player got 1 treasure");
-		shinies = (Treasure[]) ArrayUtils.remove(shinies, 0);//remove the first value
-		//TODO length not shrinking
-		System.out.println(shinies.length);
+	public Items[] giveOneTreasure(Player player, Items[] shinies) {
+		if(shinies.length > 0){
+			//need to give first value then remove from the array
+			player.getProfile().belongings = ArrayUtils.add(player.getProfile().belongings, shinies[0]);
+
+			//increase the other values based on value of treasure
+			player.getProfile().setFame(player.getProfile().getFame() +  shinies[0].fame_value);
+			player.getProfile().setNotoriety(player.getProfile().getNotoriety()  +  shinies[0].notoriety_value);
+			player.getProfile().setGold(player.getProfile().getGold()  +  shinies[0].gold_price);
+
+			System.out.println(shinies.length);
+
+			System.out.println("Player got 1 treasure");
+			shinies =  ArrayUtils.remove(shinies, 0, "a"); //remove the first value
+			
+			return shinies;
+		}
+		return null;
 	}
 	
 	

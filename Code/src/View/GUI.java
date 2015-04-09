@@ -696,11 +696,11 @@ public class GUI implements MouseListener{
 
 		if(map.getMapTile(x).getTreasure() != null){
 			if(map.getMapTile(x).getTreasure().found == true){
+				list.add("Unknown Treasure");
+			}else{
+			//Note - hasn't been thoroughly tested, but seems to work						
 				list.add("Treasure has been found already");
 			}
-			//Note - hasn't been thoroughly tested, but seems to work
-			else
-				list.add("Unknown Treasure");
 		}
 		
 		String [] list2 = new String[list.size()];
