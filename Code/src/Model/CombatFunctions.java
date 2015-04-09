@@ -11,12 +11,13 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 
 	//will set up players and then figure out their attack order
 	public static void resolveCombat(GUI view, Player player, Player opponent, boolean cheating) {
-		System.out.println("Fight Starting between " + player.getProfile().getType() +" and "+ player.getProfile().getType());
+		System.out.println("Fight Starting between " + player.getProfile().getClass() + player.getProfile().getClass());
 
 		//First round
 		//first get the combatents ready for combat
 		view.selectFightGear(player);
 		view.selectFightGear(opponent);
+
 		//Now handle COmbat
 		//first check if they are doing anything
 		if(player.getAttack() != null && opponent.getAttack() != null){
@@ -418,6 +419,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 			if(harmLevel >= defender.getProfile().getVulnerability()){	//weight is vulnerability
 				System.out.println("Player dead");
 				killPlayer(defender, view);
+								
 			}else{
 				//if harm less then vulnerability but more than negligable suffers a wound
 				if(harmLevel > 0){
@@ -444,7 +446,7 @@ public class CombatFunctions{	//combat resolution, see page 28 and page 5 of flo
 					//if they are all less then 1
 					if(defender.getProfile().action1Num < 1 && defender.getProfile().action2Num < 1 && defender.getProfile().action3Num < 1 ){
 						System.out.println("Player dead");
-						killPlayer(defender, view);
+						killPlayer(defender, view);			
 					}
 				}
 			}	
